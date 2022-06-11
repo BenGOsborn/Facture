@@ -1,5 +1,5 @@
 {
-    "name": "facture",
+    "name": "@bengosborn/facture",
     "version": "0.0.0",
     "license": "GPL-3.0",
     "scripts": {
@@ -25,5 +25,8 @@
     },
     "dependencies": {
         "tslib": "^2.0.0"
-    }
+    },
+    "workspaces": [
+        "/services/*"
+    ]
 }
