@@ -26,5 +26,6 @@
         "projects": "dependencies"
       }
     ]
-  }
+  },
+  "defaultProject": "cms"
 }
