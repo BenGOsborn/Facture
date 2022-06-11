@@ -27,6 +27,6 @@
         "tslib": "^2.0.0"
     },
     "workspaces": [
-        "/services/*"
+        "services/*"
     ]
 }
