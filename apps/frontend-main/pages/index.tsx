@@ -8,11 +8,12 @@ interface Props {
 
 export function Index({ launches }: Props) {
     return (
-        <h1>
+        <>
+            <h1>{process.env.NEXT_PUBLIC_API_ENDPOINT}</h1>
             {launches.map((launch, index) => (
-                <div key={index}>{launch.id}</div>
+                <div key={index}>{launch.mission_name}</div>
             ))}
-        </h1>
+        </>
     );
 }
 
@@ -20,7 +21,7 @@ export default Index;
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
     const client = new ApolloClient({
-        uri: "https://api.spacex.land/graphql/",
+        uri: process.env.NEXT_PUBLIC_API_ENDPOINT,
         cache: new InMemoryCache(),
     });
 
