@@ -1,14 +1,15 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import "./styles.css";
+
+import "tailwindcss/tailwind.css";
 
 function CustomApp({ Component, pageProps }: AppProps) {
     return (
         <>
             <Head>
-                <title>Welcome to frontend-main!</title>
+                <title>Facture</title>
             </Head>
-            <main className="app">
+            <main>
                 <Component {...pageProps} />
             </main>
         </>
