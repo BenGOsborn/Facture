@@ -1,15 +1,21 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 
-import { fetchData, findManufacturer, FindManufacturerQuery, findManufacturers, FindManufacturersQuery, Manufacturer } from "libs/graphql";
+import { fetchData, findManufacturer, FindManufacturerQuery, findManufacturers, FindManufacturersQuery } from "libs/graphql";
 
 import ReactMarkdown from "react-markdown";
+import { Components } from "libs/components/src";
 
 interface Props {
     manufacturer: FindManufacturerQuery["manufacturer"]["data"]["attributes"];
 }
 
 export default function Index({ manufacturer }: Props) {
-    return <ReactMarkdown className="prose">{manufacturer.descriptionLong}</ReactMarkdown>;
+    return (
+        <>
+            <ReactMarkdown className="prose">{manufacturer.descriptionLong}</ReactMarkdown>
+            <Components />
+        </>
+    );
 }
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
