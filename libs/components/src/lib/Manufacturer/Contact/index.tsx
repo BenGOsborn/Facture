@@ -17,6 +17,8 @@ export function Contact({ email, phone, openingTime }: Props) {
             <Email email={email} />
             <Phone phone={phone} />
             <OpeningTime openingTime={openingTime} />
+
+            {/* **** I need a social media section in here now (maybe add some icons too ?) */}
         </div>
     );
 }
