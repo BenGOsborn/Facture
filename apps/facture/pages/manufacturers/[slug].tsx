@@ -2,8 +2,8 @@ import { GetStaticPaths, GetStaticProps } from "next";
 
 import ReactMarkdown from "react-markdown";
 
-import { fetchData, findManufacturer, FindManufacturerQuery, findManufacturers, FindManufacturersQuery } from "libs/graphql/src";
-import { Components } from "libs/components/src";
+import { fetchData, findManufacturer, FindManufacturerQuery, findManufacturers, FindManufacturersQuery } from "@facture/graphql";
+import { Components } from "@facture/components";
 
 interface Props {
     manufacturer: FindManufacturerQuery["manufacturer"]["data"]["attributes"];
