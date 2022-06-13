@@ -2,10 +2,15 @@ import { GetStaticPaths, GetStaticProps } from "next";
 
 import { ApolloClient, createHttpLink, gql, InMemoryCache, OperationVariables, QueryOptions } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { Manufacturer } from "libs/shared-types/src";
 
-interface ManufacturerData {}
+interface Props {
+    manufacturer: Manufacturer;
+}
 
-export default function Index({}: ManufacturerData) {}
+export default function Index({ manufacturer }: Props) {
+    return <div>{JSON.stringify(manufacturer)}</div>;
+}
 
 async function fetchData<T>(queryOptions: QueryOptions<OperationVariables, T>) {
     const httpLink = createHttpLink({
@@ -32,7 +37,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
         manufacturers: { data },
     } = await fetchData<{ manufacturers: { data: { id: number }[] } }>({
         query: gql`
-            query {
+            query findManufacturers {
                 manufacturers {
                     data {
                         id
@@ -56,16 +61,14 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
     };
 };
 
-export const getStaticProps: GetStaticProps<ManufacturerData> = async ({ params }) => {
-    console.log(params.slug);
-
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     const {
         manufacturer: {
             data: { attributes },
         },
-    } = await fetchData<{ manufacturer: { data: { attributes: ManufacturerData } } }>({
+    } = await fetchData<{ manufacturer: { data: { attributes: Manufacturer } } }>({
         query: gql`
-            query Manufacturer($id: ID!) {
+            query findManufacturer($id: ID!) {
                 manufacturer(id: $id) {
                     data {
                         attributes {
@@ -128,9 +131,7 @@ export const getStaticProps: GetStaticProps<ManufacturerData> = async ({ params 
         variables: { id: params.slug },
     });
 
-    console.log(attributes);
-
     return {
-        props: {},
+        props: { manufacturer: attributes },
     };
 };
