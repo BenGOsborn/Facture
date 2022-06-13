@@ -1,7 +1,0 @@
-query {
-    manufacturers {
-        data {
-            id
-        }
-    }
-}
