@@ -5,7 +5,7 @@ export async function fetchData<T>(uri: string, queryOptions: QueryOptions<Opera
     const httpLink = createHttpLink({ uri });
 
     const authLink = setContext((_, { headers }) => {
-        return { headers: { Authorization: "Bearer " + authToken ? authToken : "", ...headers } };
+        return { headers: { Authorization: `Bearer ${authToken ? authToken : ""}`, ...headers } };
     });
 
     const client = new ApolloClient({
