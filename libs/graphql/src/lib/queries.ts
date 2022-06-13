@@ -13,6 +13,8 @@ export const findManufacturer = gql`
                         data {
                             attributes {
                                 url
+                                width
+                                height
                             }
                         }
                     }
@@ -20,6 +22,8 @@ export const findManufacturer = gql`
                         data {
                             attributes {
                                 url
+                                width
+                                height
                             }
                         }
                     }
@@ -27,6 +31,8 @@ export const findManufacturer = gql`
                         data {
                             attributes {
                                 url
+                                width
+                                height
                             }
                         }
                     }
