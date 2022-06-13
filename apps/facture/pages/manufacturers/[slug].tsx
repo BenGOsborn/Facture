@@ -9,7 +9,7 @@ interface Props {
 
 export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
     return (
-        <div className="mx-auto w-5/6">
+        <>
             <Header
                 name={manufacturer.name}
                 logo={manufacturer.logo}
@@ -18,7 +18,7 @@ export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
                 thumbnail={manufacturer.thumbnail}
             />
             <DescriptionLong description={manufacturer.descriptionLong} />
-        </div>
+        </>
     );
 };
 

@@ -1,7 +1,7 @@
 export function Index() {
     return (
         <>
-            <h1>{process.env.NEXT_PUBLIC_API_ENDPOINT}</h1>
+            <h1>Hello World</h1>
         </>
     );
 }
