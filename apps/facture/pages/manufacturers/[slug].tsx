@@ -2,13 +2,9 @@ import { GetStaticPaths, GetStaticProps } from "next";
 
 import { ApolloClient, createHttpLink, gql, InMemoryCache, OperationVariables, QueryOptions } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { Manufacturer } from "libs/shared-types/src";
+import { FindManufacturerQuery } from "libs/shared-types";
 
-interface Props {
-    manufacturer: Manufacturer;
-}
-
-export default function Index({ manufacturer }: Props) {
+export default function Index({ manufacturer }: any) {
     return <div>{JSON.stringify(manufacturer)}</div>;
 }
 

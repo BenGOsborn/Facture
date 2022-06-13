@@ -4,6 +4,6 @@
     "projects": {
         "facture": "apps/facture",
         "facture-e2e": "apps/facture-e2e",
-        "shared-types": "libs/shared-types"
+        "graphql": "libs/graphql"
     }
 }
