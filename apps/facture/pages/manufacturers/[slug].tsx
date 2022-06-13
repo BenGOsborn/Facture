@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { fetchData, findManufacturer, FindManufacturerQuery, findManufacturers, FindManufacturersQuery, Manufacturer } from "libs/graphql";
 
 interface Props {
-    manufacturer: Manufacturer;
+    manufacturer: FindManufacturerQuery["manufacturer"]["data"]["attributes"];
 }
 
 export default function Index({ manufacturer }: Props) {
@@ -37,5 +37,5 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
         process.env.NEXT_PUBLIC_STRAPI_API_KEY
     );
 
-    return { props: { manufacturer: attributes as Manufacturer } };
+    return { props: { manufacturer: attributes } };
 };
