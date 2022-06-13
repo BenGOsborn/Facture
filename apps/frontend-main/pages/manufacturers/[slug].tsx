@@ -3,7 +3,9 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { ApolloClient, createHttpLink, gql, InMemoryCache, OperationVariables, QueryOptions } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-export default function Index() {}
+interface ManufacturerData {}
+
+export default function Index({}: ManufacturerData) {}
 
 async function fetchData<T>(queryOptions: QueryOptions<OperationVariables, T>) {
     const httpLink = createHttpLink({
@@ -25,10 +27,10 @@ async function fetchData<T>(queryOptions: QueryOptions<OperationVariables, T>) {
     return data;
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
     const {
         manufacturers: { data },
-    } = await fetchData<{ manufacturers: { data: { id: string }[] } }>({
+    } = await fetchData<{ manufacturers: { data: { id: number }[] } }>({
         query: gql`
             query {
                 manufacturers {
@@ -54,8 +56,79 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps<ManufacturerData> = async ({ params }) => {
     console.log(params.slug);
+
+    const {
+        manufacturer: {
+            data: { attributes },
+        },
+    } = await fetchData<{ manufacturer: { data: { attributes: ManufacturerData } } }>({
+        query: gql`
+            query Manufacturer($id: ID!) {
+                manufacturer(id: $id) {
+                    data {
+                        attributes {
+                            name
+                            descriptionShort
+                            descriptionLong
+                            dateEstablished
+                            thumbnail {
+                                data {
+                                    attributes {
+                                        url
+                                    }
+                                }
+                            }
+                            display {
+                                data {
+                                    attributes {
+                                        url
+                                    }
+                                }
+                            }
+                            logo {
+                                data {
+                                    attributes {
+                                        url
+                                    }
+                                }
+                            }
+                            location {
+                                latitude
+                                longitude
+                                address
+                                label
+                            }
+                            openingTime {
+                                day
+                                openTime
+                                closeTime
+                            }
+                            email {
+                                email
+                                label
+                            }
+                            phoneNo {
+                                phoneNo
+                                label
+                            }
+                            social {
+                                platform
+                                link
+                            }
+                            type {
+                                type
+                            }
+                        }
+                    }
+                }
+            }
+        `,
+        variables: { id: params.slug },
+    });
+
+    console.log(attributes);
 
     return {
         props: {},
