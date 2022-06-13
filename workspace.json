@@ -2,6 +2,7 @@
     "$schema": "./node_modules/nx/schemas/workspace-schema.json",
     "version": 2,
     "projects": {
+        "components": "libs/components",
         "facture": "apps/facture",
         "facture-e2e": "apps/facture-e2e",
         "graphql": "libs/graphql"
