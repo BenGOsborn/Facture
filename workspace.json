@@ -3,6 +3,6 @@
     "version": 2,
     "projects": {
         "facture": "apps/facture",
-        "frontend-main-e2e": "apps/frontend-main-e2e"
+        "facture-e2e": "apps/facture-e2e"
     }
 }
