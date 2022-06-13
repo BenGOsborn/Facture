@@ -1,5 +1,5 @@
 schema: ${LOCAL_API_ENDPOINT}
-documents: "./**/*.ts"
+documents: "./**/*.{ts,tsx}"
 generates:
     ./libs/graphql/src/lib/graphql-generated.d.ts:
         plugins:
