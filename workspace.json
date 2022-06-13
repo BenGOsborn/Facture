@@ -3,6 +3,7 @@
     "version": 2,
     "projects": {
         "facture": "apps/facture",
-        "facture-e2e": "apps/facture-e2e"
+        "facture-e2e": "apps/facture-e2e",
+        "shared-types": "libs/shared-types"
     }
 }
