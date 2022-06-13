@@ -1,2 +1,3 @@
 export * from "./descriptionLong";
-export * from "./title";
+export * from "./header";
+export * from "./type";
