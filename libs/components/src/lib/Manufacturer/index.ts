@@ -1,2 +1,2 @@
 export * from "./descriptionLong";
-export * from "./name";
+export * from "./title";
