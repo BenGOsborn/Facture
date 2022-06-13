@@ -1,22 +1,22 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-
-import ReactMarkdown from "react-markdown";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 import { fetchData, findManufacturer, FindManufacturerQuery, findManufacturers, FindManufacturersQuery } from "@facture/graphql";
-import { Components } from "@facture/components";
+import { DescriptionLong, Name } from "@facture/components";
 
 interface Props {
     manufacturer: FindManufacturerQuery["manufacturer"]["data"]["attributes"];
 }
 
-export default function Index({ manufacturer }: Props) {
+export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
     return (
-        <>
-            <Components />
-            <ReactMarkdown className="prose">{manufacturer.descriptionLong}</ReactMarkdown>
-        </>
+        <div className="mx-auto w-5/6">
+            <header>
+                <Name name={manufacturer.name} />
+            </header>
+            <DescriptionLong description={manufacturer.descriptionLong} />
+        </div>
     );
-}
+};
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
     const {
@@ -47,3 +47,5 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
     return { props: { manufacturer: attributes } };
 };
+
+export default Manufacturer;

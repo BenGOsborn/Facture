@@ -5,6 +5,7 @@
         "components": "libs/components",
         "facture": "apps/facture",
         "facture-e2e": "apps/facture-e2e",
-        "graphql": "libs/graphql"
+        "graphql": "libs/graphql",
+        "providers": "libs/providers"
     }
 }
