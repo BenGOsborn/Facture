@@ -2,9 +2,13 @@ import { GetStaticPaths, GetStaticProps } from "next";
 
 import { ApolloClient, createHttpLink, gql, InMemoryCache, OperationVariables, QueryOptions } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { FindManufacturerQuery } from "libs/shared-types";
+import { findManufacturer, FindManufacturerQuery, findManufacturers, FindManufacturersQuery, Manufacturer } from "libs/graphql";
 
-export default function Index({ manufacturer }: any) {
+interface Props {
+    manufacturer: Manufacturer;
+}
+
+export default function Index({ manufacturer }: Props) {
     return <div>{JSON.stringify(manufacturer)}</div>;
 }
 
@@ -31,22 +35,12 @@ async function fetchData<T>(queryOptions: QueryOptions<OperationVariables, T>) {
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
     const {
         manufacturers: { data },
-    } = await fetchData<{ manufacturers: { data: { id: number }[] } }>({
-        query: gql`
-            query findManufacturers {
-                manufacturers {
-                    data {
-                        id
-                    }
-                }
-            }
-        `,
-    });
+    } = await fetchData<FindManufacturersQuery>({ query: findManufacturers });
 
     const paths = data.map((manufacturer) => {
         return {
             params: {
-                slug: manufacturer.id.toString(),
+                slug: manufacturer.id,
             },
         };
     });
@@ -62,72 +56,9 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
         manufacturer: {
             data: { attributes },
         },
-    } = await fetchData<{ manufacturer: { data: { attributes: Manufacturer } } }>({
-        query: gql`
-            query findManufacturer($id: ID!) {
-                manufacturer(id: $id) {
-                    data {
-                        attributes {
-                            name
-                            descriptionShort
-                            descriptionLong
-                            dateEstablished
-                            thumbnail {
-                                data {
-                                    attributes {
-                                        url
-                                    }
-                                }
-                            }
-                            display {
-                                data {
-                                    attributes {
-                                        url
-                                    }
-                                }
-                            }
-                            logo {
-                                data {
-                                    attributes {
-                                        url
-                                    }
-                                }
-                            }
-                            location {
-                                latitude
-                                longitude
-                                address
-                                label
-                            }
-                            openingTime {
-                                day
-                                openTime
-                                closeTime
-                            }
-                            email {
-                                email
-                                label
-                            }
-                            phoneNo {
-                                phoneNo
-                                label
-                            }
-                            social {
-                                platform
-                                link
-                            }
-                            type {
-                                type
-                            }
-                        }
-                    }
-                }
-            }
-        `,
-        variables: { id: params.slug },
-    });
+    } = await fetchData<FindManufacturerQuery>({ query: findManufacturer, variables: { id: params.slug } });
 
     return {
-        props: { manufacturer: attributes },
+        props: { manufacturer: attributes as Manufacturer },
     };
 };
