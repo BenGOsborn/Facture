@@ -1,7 +1,7 @@
 schema: ${LOCAL_API_ENDPOINT}
 documents: "./**/*.tsx"
 generates:
-    graphql/generated.ts:
+    ./libs/shared-types/src/lib/graphql-generated.ts:
         plugins:
             - typescript
             - typescript-operations
