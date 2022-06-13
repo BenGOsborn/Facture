@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 
-import { fetchData, findManufacturer, FindManufacturerQuery, findManufacturers, FindManufacturersQuery } from "libs/graphql";
-
 import ReactMarkdown from "react-markdown";
+
+import { fetchData, findManufacturer, FindManufacturerQuery, findManufacturers, FindManufacturersQuery } from "libs/graphql/src";
 import { Components } from "libs/components/src";
 
 interface Props {
