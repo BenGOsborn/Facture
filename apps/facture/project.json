@@ -1,6 +1,6 @@
 {
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "apps/frontend-main",
+    "sourceRoot": "apps/facture",
     "projectType": "application",
     "targets": {
         "build": {
@@ -8,8 +8,8 @@
             "outputs": ["{options.outputPath}"],
             "defaultConfiguration": "production",
             "options": {
-                "root": "apps/frontend-main",
-                "outputPath": "dist/apps/frontend-main"
+                "root": "apps/facture",
+                "outputPath": "dist/apps/facture"
             },
             "configurations": {
                 "development": {},
@@ -20,16 +20,16 @@
             "executor": "@nrwl/next:server",
             "defaultConfiguration": "development",
             "options": {
-                "buildTarget": "frontend-main:build",
+                "buildTarget": "facture:build",
                 "dev": true
             },
             "configurations": {
                 "development": {
-                    "buildTarget": "frontend-main:build:development",
+                    "buildTarget": "facture:build:development",
                     "dev": true
                 },
                 "production": {
-                    "buildTarget": "frontend-main:build:production",
+                    "buildTarget": "facture:build:production",
                     "dev": false
                 }
             }
@@ -37,14 +37,14 @@
         "export": {
             "executor": "@nrwl/next:export",
             "options": {
-                "buildTarget": "frontend-main:build:production"
+                "buildTarget": "facture:build:production"
             }
         },
         "test": {
             "executor": "@nrwl/jest:jest",
-            "outputs": ["coverage/apps/frontend-main"],
+            "outputs": ["coverage/apps/facture"],
             "options": {
-                "jestConfig": "apps/frontend-main/jest.config.ts",
+                "jestConfig": "apps/facture/jest.config.ts",
                 "passWithNoTests": true
             }
         },
@@ -52,7 +52,7 @@
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],
             "options": {
-                "lintFilePatterns": ["apps/frontend-main/**/*.{ts,tsx,js,jsx}"]
+                "lintFilePatterns": ["apps/facture/**/*.{ts,tsx,js,jsx}"]
             }
         }
     },

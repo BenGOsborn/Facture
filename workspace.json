@@ -2,7 +2,7 @@
     "$schema": "./node_modules/nx/schemas/workspace-schema.json",
     "version": 2,
     "projects": {
-        "frontend-main": "apps/frontend-main",
+        "facture": "apps/facture",
         "frontend-main-e2e": "apps/frontend-main-e2e"
     }
 }
