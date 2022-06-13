@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default function Index({ manufacturer }: Props) {
-    return <ReactMarkdown>{manufacturer.descriptionLong}</ReactMarkdown>;
+    return <ReactMarkdown className="prose">{manufacturer.descriptionLong}</ReactMarkdown>;
 }
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
