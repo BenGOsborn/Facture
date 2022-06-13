@@ -19,6 +19,7 @@
         "react-dom": "18.1.0",
         "react-markdown": "^8.0.3",
         "regenerator-runtime": "0.13.7",
+        "tabler-icons-react": "^1.48.1",
         "tslib": "^2.3.0"
     },
     "devDependencies": {

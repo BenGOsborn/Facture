@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 import { fetchData, findManufacturer, FindManufacturerQuery, findManufacturers, FindManufacturersQuery } from "@facture/graphql";
-import { DescriptionLong, Header } from "@facture/components";
+import { Contact, DescriptionLong, Details, Header } from "@facture/components";
 
 interface Props {
-    manufacturer: FindManufacturerQuery["manufacturer"]["data"]["attributes"];
+    manufacturer: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"];
 }
 
 export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
@@ -12,12 +12,16 @@ export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
         <>
             <Header
                 name={manufacturer.name}
+                slogan={manufacturer.slogan}
+                dateEstablished={manufacturer.dateEstablished}
                 logo={manufacturer.logo}
                 description={manufacturer.descriptionShort}
                 type={manufacturer.type}
                 thumbnail={manufacturer.thumbnail}
             />
             <DescriptionLong description={manufacturer.descriptionLong} />
+            <Details />
+            <Contact email={manufacturer.email} phone={manufacturer.phoneNo} openingTime={manufacturer.openingTime} />
         </>
     );
 };
@@ -30,7 +34,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
     const paths = data.map((manufacturer) => {
         return {
             params: {
-                slug: manufacturer.id,
+                slug: manufacturer.attributes.manufacturer,
             },
         };
     });
@@ -40,12 +44,14 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     const {
-        manufacturer: {
-            data: { attributes },
+        manufacturers: {
+            data: {
+                0: { attributes },
+            },
         },
     } = await fetchData<FindManufacturerQuery>(
         process.env.NEXT_PUBLIC_API_ENDPOINT,
-        { query: findManufacturer, variables: { id: params.slug } },
+        { query: findManufacturer, variables: { manufacturer: params.slug } },
         process.env.NEXT_PUBLIC_STRAPI_API_KEY
     );
 

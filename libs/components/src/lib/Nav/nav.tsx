@@ -1,4 +1,7 @@
 import Link from "next/link";
+
+import { Search } from "tabler-icons-react";
+
 import Logo from "./logo";
 
 export function Nav() {
@@ -10,7 +13,14 @@ export function Nav() {
                 </li>
                 <li>
                     <Link href="/">
-                        <a className="bg-gradient-to-r from-green-400 to-blue-500 px-6 py-3 rounded-md text-lg font-medium text-white">Search</a>
+                        <div className="flex">
+                            <a className="flex items-center space-x-3 bg-gradient-to-r from-green-400 to-blue-500 px-6 py-3 rounded-md text-lg font-medium text-white cursor-pointer">
+                                <span>
+                                    <Search />
+                                </span>
+                                <span>Search</span>
+                            </a>
+                        </div>
                     </Link>
                 </li>
             </ul>
