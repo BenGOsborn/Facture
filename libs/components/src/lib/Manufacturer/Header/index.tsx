@@ -1,4 +1,5 @@
 import { FindManufacturerQuery } from "@facture/graphql";
+import { getYearsFromDate } from "@facture/helpers";
 import Image from "next/image";
 
 import Type from "./type";
@@ -29,7 +30,7 @@ export function Header({ name, slogan, dateEstablished, logo, description, type,
                 {slogan && <p className="text-xl font-bold text-gray-600 mb-3">{slogan}</p>}
                 <p className="text-gray-900 text-md w-3/5">{description}</p>
             </div>
-            {dateEstablished && <div className="mb-6">Established {Math.floor((Date.now() - new Date(dateEstablished).getTime()) / 3.154e10)} years ago.</div>}
+            {dateEstablished && <div className="mb-6">Established {getYearsFromDate(new Date(dateEstablished))} years ago.</div>}
             <div className="mb-6">
                 <Type types={type} />
             </div>
