@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const findManufacturer = gql`
-    query findManufacturer($id: ID!) {
-        manufacturer(id: $id) {
+    query findManufacturer($manufacturer: String!) {
+        manufacturers(filters: { manufacturer: { eq: $manufacturer } }) {
             data {
                 attributes {
                     name
@@ -62,6 +62,8 @@ export const findManufacturer = gql`
                     type {
                         type
                     }
+                    color
+                    slogan
                 }
             }
         }
@@ -72,7 +74,9 @@ export const findManufacturers = gql`
     query findManufacturers {
         manufacturers {
             data {
-                id
+                attributes {
+                    manufacturer
+                }
             }
         }
     }
