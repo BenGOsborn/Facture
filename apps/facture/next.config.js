@@ -10,6 +10,9 @@ const nextConfig = {
         // See: https://github.com/gregberge/svgr
         svgr: false,
     },
+    images: {
+        domains: ["facture-files.s3.amazonaws.com"],
+    },
 };
 
 module.exports = withNx(nextConfig);

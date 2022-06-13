@@ -1,6 +1,6 @@
 import { FindManufacturerQuery } from "@facture/graphql";
 
-import Badge from "../Badge";
+import Badge from "../../Badge";
 
 interface Props {
     types: FindManufacturerQuery["manufacturer"]["data"]["attributes"]["type"];
@@ -8,7 +8,7 @@ interface Props {
 
 export function Type({ types }: Props) {
     return (
-        <div className="flex justify-evenly">
+        <div className="flex justify-evenly flex-wrap">
             {types.map((type, index) => (
                 <Badge key={index}>{type.type}</Badge>
             ))}

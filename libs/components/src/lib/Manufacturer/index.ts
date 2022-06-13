@@ -1,3 +1,3 @@
 export * from "./descriptionLong";
-export * from "./header";
-export * from "./type";
+export * from "./Header";
+export * from "./Header/type";

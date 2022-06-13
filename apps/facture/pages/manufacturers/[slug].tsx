@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 import { fetchData, findManufacturer, FindManufacturerQuery, findManufacturers, FindManufacturersQuery } from "@facture/graphql";
-import { DescriptionLong, Header, Type } from "@facture/components";
+import { DescriptionLong, Header } from "@facture/components";
 
 interface Props {
     manufacturer: FindManufacturerQuery["manufacturer"]["data"]["attributes"];
@@ -10,8 +10,13 @@ interface Props {
 export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
     return (
         <div className="mx-auto w-5/6">
-            <Header name={manufacturer.name} description={manufacturer.descriptionShort} />
-            <Type types={manufacturer.type} />
+            <Header
+                name={manufacturer.name}
+                logo={manufacturer.logo}
+                description={manufacturer.descriptionShort}
+                type={manufacturer.type}
+                thumbnail={manufacturer.thumbnail}
+            />
             <DescriptionLong description={manufacturer.descriptionLong} />
         </div>
     );
