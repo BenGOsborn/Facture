@@ -1,11 +1,9 @@
-import styles from "./components.module.css";
-
 /* eslint-disable-next-line */
 export interface ComponentsProps {}
 
 export function Components(props: ComponentsProps) {
     return (
-        <div className={styles["container"]}>
+        <div className="bg-black">
             <h1>Welcome to Components!</h1>
         </div>
     );

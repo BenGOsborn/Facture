@@ -12,8 +12,8 @@ interface Props {
 export default function Index({ manufacturer }: Props) {
     return (
         <>
-            <ReactMarkdown className="prose">{manufacturer.descriptionLong}</ReactMarkdown>
             <Components />
+            <ReactMarkdown className="prose">{manufacturer.descriptionLong}</ReactMarkdown>
         </>
     );
 }
