@@ -5,4 +5,3 @@ export * from "./Contact";
 export * from "./Contact/email";
 export * from "./Contact/phone";
 export * from "./Contact/openingTime";
-export * from "./Details";
