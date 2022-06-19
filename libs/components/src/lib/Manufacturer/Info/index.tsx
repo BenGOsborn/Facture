@@ -11,14 +11,15 @@ interface Props {
     logo: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["logo"];
     description: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["descriptionShort"];
     type: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["type"];
+    color: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["color"];
 }
 
-export function Info({ name, slogan, dateEstablished, logo, description, type }: Props) {
+export function Info({ name, slogan, dateEstablished, logo, description, type, color }: Props) {
     const logoWidth = 100;
     const logoHeight = 100;
 
     return (
-        <header className="pb-6 mb-6 border-b border-gray-200">
+        <header className="p-6 shadow-md rounded-md">
             <div className="flex items-center justify-between mb-3">
                 <Image src={`${logo.data.attributes.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                 <div className="text-right">
@@ -31,14 +32,17 @@ export function Info({ name, slogan, dateEstablished, logo, description, type }:
             </div>
             <div className="flex items-start justify-between">
                 {dateEstablished && (
-                    <div>
+                    <div className="w-2/3">
                         <p className="font-bold">Established:</p>
                         <p>{getYearsFromDate(new Date(dateEstablished))} years ago.</p>
                     </div>
                 )}
-            </div>
-            <div className="mb-6">
-                <Type types={type} />
+                {type && (
+                    <div>
+                        <p className="font-bold">Tags:</p>
+                        <Type color={color} types={type.slice(0, 4)} />
+                    </div>
+                )}
             </div>
         </header>
     );
