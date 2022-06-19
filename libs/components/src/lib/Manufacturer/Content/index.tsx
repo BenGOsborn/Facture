@@ -19,7 +19,7 @@ export function Content({ description, thumbnail }: Props) {
                 width={thumbnailWidth}
                 height={thumbnailHeight}
             />
-            <ReactMarkdown className="p-6 prose">{description}</ReactMarkdown>
+            <ReactMarkdown className="p-6 prose max-w-3xl">{description}</ReactMarkdown>
         </div>
     );
 }
