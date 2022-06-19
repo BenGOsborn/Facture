@@ -18,6 +18,7 @@
             "@facture/components": ["libs/components/src/index.ts"],
             "@facture/graphql": ["libs/graphql/src/index.ts"],
             "@facture/helpers": ["libs/helpers/src/index.ts"],
+            "@facture/hooks": ["libs/hooks/src/index.ts"],
             "@facture/providers": ["libs/providers/src/index.ts"],
             "@facture/types": ["libs/types/src/index.ts"]
         }

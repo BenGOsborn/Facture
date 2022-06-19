@@ -6,6 +6,7 @@
         "facture": "apps/facture",
         "graphql": "libs/graphql",
         "helpers": "libs/helpers",
+        "hooks": "libs/hooks",
         "providers": "libs/providers",
         "types": "libs/types"
     }

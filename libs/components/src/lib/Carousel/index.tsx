@@ -1,13 +1,13 @@
 import { mod } from "@facture/helpers";
+import { useCarousel } from "@facture/hooks";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
 
 interface Props {
     element: JSX.Element[];
 }
 
 export function Carousel({ element }: Props) {
-    const [selected, setSelected] = useState(0);
+    const {} = useCarousel();
 
     if (element.length > 0)
         return (
@@ -15,11 +15,19 @@ export function Carousel({ element }: Props) {
                 <button className="font-bold text-gray-700 hover:text-gray-900 transition-all" onClick={() => setSelected((prev) => prev - 1)}>
                     {"<"}
                 </button>
-                <AnimatePresence>
-                    <motion.div key={selected} initial={{ x: 1000 }} animate={{ x: 0 }} exit={{ x: -1000 }} transition={{ type: "spring", stiffness: 260, damping: 20 }}>
-                        {element[mod(selected, element.length)]}
-                    </motion.div>
-                </AnimatePresence>
+                <div className="flex items-center justify-center overflow-hidden">
+                    <AnimatePresence>
+                        <motion.div
+                            key={selected}
+                            initial={{ x: 1000 }}
+                            animate={{ x: 0 }}
+                            exit={{ x: -1000 }}
+                            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                        >
+                            {element[mod(selected, element.length)]}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
                 <button className="font-bold text-gray-700 hover:text-gray-900 transition-all" onClick={() => setSelected((prev) => prev + 1)}>
                     {">"}
                 </button>
