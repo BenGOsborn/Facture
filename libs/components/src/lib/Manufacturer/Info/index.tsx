@@ -14,22 +14,29 @@ interface Props {
 }
 
 export function Info({ name, slogan, dateEstablished, logo, description, type }: Props) {
+    const logoWidth = 100;
+    const logoHeight = 100;
+
     return (
         <header className="pb-6 mb-6 border-b border-gray-200">
-            {thumbnail && (
-                <div className="mb-6">
-                    <Image className="rounded-sm" src={thumbnail.data.attributes.url} width={thumbnail.data.attributes.width} height={thumbnail.data.attributes.height} />
+            <div className="flex items-center justify-between mb-3">
+                <Image src={`${logo.data.attributes.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
+                <div className="text-right">
+                    <h1 className="text-3xl font-bold">{name}</h1>
+                    {slogan && <p className="text-xl font-bold text-gray-600">{slogan}</p>}
                 </div>
-            )}
-            <div className="mb-6">
-                <Image src={logo.data.attributes.url} width={logo.data.attributes.width} height={logo.data.attributes.height} />
             </div>
-            <div className="flex flex-col mb-6">
-                <h1 className="text-3xl font-bold text-indigo-600 mb-3">{name}</h1>
-                {slogan && <p className="text-xl font-bold text-gray-600 mb-3">{slogan}</p>}
-                <p className="text-gray-900 text-md w-3/5">{description}</p>
+            <div className="mb-3 border-b-2 pb-3">
+                <p className="text-gray-900 text-md">{description}</p>
             </div>
-            {dateEstablished && <div className="mb-6">Established {getYearsFromDate(new Date(dateEstablished))} years ago.</div>}
+            <div className="flex items-start justify-between">
+                {dateEstablished && (
+                    <div>
+                        <p className="font-bold">Established:</p>
+                        <p>{getYearsFromDate(new Date(dateEstablished))} years ago.</p>
+                    </div>
+                )}
+            </div>
             <div className="mb-6">
                 <Type types={type} />
             </div>
