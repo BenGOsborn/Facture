@@ -15,8 +15,8 @@ interface Props {
 }
 
 export function Info({ name, slogan, dateEstablished, logo, description, type, color }: Props) {
-    const logoWidth = 100;
-    const logoHeight = 100;
+    const logoWidth = 75;
+    const logoHeight = 75;
 
     return (
         <header className="p-6 shadow-md rounded-md">
