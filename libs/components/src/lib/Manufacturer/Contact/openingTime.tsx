@@ -9,27 +9,26 @@ interface Props {
 }
 
 export function OpeningTime({ openingTime }: Props) {
-    return (
-        <>
-            {openingTime && (
-                <div className="mb-3">
-                    <div className="flex space-x-2 items-center">
-                        <Clock color="#1f2937" />
-                        <h3 className="font-bold text-lg text-gray-800">Opening Time</h3>
-                    </div>
-                    <ul className="space-y-1">
-                        {Object.entries(groupOpeningTime(openingTime)).map((openingTime, index) => {
-                            return (
-                                <li key={index}>
-                                    <OpeningTimeIndividual openingTime={openingTime} />
-                                </li>
-                            );
-                        })}
-                    </ul>
+    if (openingTime)
+        return (
+            <div className="mb-3">
+                <div className="flex space-x-2 items-center mb-3">
+                    <Clock color="#1f2937" />
+                    <h3 className="font-bold text-lg text-gray-800">Opening Time</h3>
                 </div>
-            )}
-        </>
-    );
+                <ul className="space-y-1">
+                    {Object.entries(groupOpeningTime(openingTime)).map((openingTime, index) => {
+                        return (
+                            <li key={index}>
+                                <OpeningTimeIndividual openingTime={openingTime} />
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
+        );
+
+    return null;
 }
 
 export default OpeningTime;

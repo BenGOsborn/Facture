@@ -3,22 +3,26 @@ import { FindManufacturerQuery } from "@facture/types";
 import Email from "./email";
 import OpeningTime from "./openingTime";
 import Phone from "./phone";
+import Social from "./social";
 
 interface Props {
     email: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["email"];
     phone: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["phoneNo"];
     openingTime: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["openingTime"];
+    social: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["social"];
 }
 
-export function Contact({ email, phone, openingTime }: Props) {
+export function Contact({ email, phone, openingTime, social }: Props) {
     return (
-        <div className="p-6 shadow-md rounded-md space-y-6 bg-white">
-            <h2 className="font-bold text-gray-900 text-xl">Contact</h2>
-            <Email email={email} />
-            <Phone phone={phone} />
-            <OpeningTime openingTime={openingTime} />
+        <div className="p-6 shadow-md rounded-md bg-white">
+            <div className="border-b-2 space-y-6 pb-3 mb-3">
+                <h2 className="font-bold text-gray-900 text-xl">Contact</h2>
+                <Email email={email} />
+                <Phone phone={phone} />
+                <OpeningTime openingTime={openingTime} />
+            </div>
 
-            {/* **** I need a social media section in here now (maybe add some icons too ?) */}
+            <Social social={social} />
         </div>
     );
 }

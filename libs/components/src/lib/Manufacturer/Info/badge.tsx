@@ -28,7 +28,8 @@ export function Badge({ color, children }: Props) {
     else if (color === "fuchsia") return <span className="bg-fuchsia-100 text-fuchsia-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-md my-1">{children}</span>;
     else if (color === "pink") return <span className="bg-pink-100 text-pink-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-md my-1">{children}</span>;
     else if (color === "rose") return <span className="bg-rose-100 text-rose-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-md my-1">{children}</span>;
-    else throw Error("Invalid color");
+
+    return null;
 }
 
 export default Badge;

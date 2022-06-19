@@ -22,7 +22,7 @@ export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
                         type={manufacturer.type}
                         color={manufacturer.color}
                     />
-                    <Contact email={manufacturer.email} phone={manufacturer.phoneNo} openingTime={manufacturer.openingTime} />
+                    <Contact email={manufacturer.email} phone={manufacturer.phoneNo} openingTime={manufacturer.openingTime} social={manufacturer.social} />
                 </div>
                 <Content description={manufacturer.descriptionLong} thumbnail={manufacturer.thumbnail} />
             </div>
