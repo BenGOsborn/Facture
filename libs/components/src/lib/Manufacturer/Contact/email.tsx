@@ -1,5 +1,7 @@
 import { FindManufacturerQuery } from "@facture/types";
 
+import { Mail } from "tabler-icons-react";
+
 interface Props {
     email: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["email"];
 }
@@ -9,7 +11,10 @@ export function Email({ email }: Props) {
         <>
             {email && (
                 <div className="mb-3">
-                    <h3 className="font-bold text-lg text-gray-800">Email</h3>
+                    <div className="flex space-x-2 items-center">
+                        <Mail color="#1f2937" />
+                        <h3 className="font-bold text-lg text-gray-800">Email</h3>
+                    </div>
                     <ul>
                         {email.map((email, index) => {
                             return (

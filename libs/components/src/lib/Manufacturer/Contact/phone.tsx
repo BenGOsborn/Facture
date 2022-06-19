@@ -1,5 +1,7 @@
 import { FindManufacturerQuery } from "@facture/types";
 
+import { PhoneCall } from "tabler-icons-react";
+
 interface Props {
     phone: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["phoneNo"];
 }
@@ -9,7 +11,10 @@ export function Phone({ phone }: Props) {
         <>
             {phone && (
                 <div className="mb-3">
-                    <h3 className="font-bold text-lg text-gray-800">Phone</h3>
+                    <div className="flex space-x-2 items-center">
+                        <PhoneCall color="#1f2937" />
+                        <h3 className="font-bold text-lg text-gray-800">Phone</h3>
+                    </div>
                     <ul>
                         {phone.map((phone, index) => {
                             return (
