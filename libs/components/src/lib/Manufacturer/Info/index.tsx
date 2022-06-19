@@ -32,14 +32,14 @@ export function Info({ name, slogan, dateEstablished, logo, description, type, c
             </div>
             <div className="flex items-start justify-between">
                 {dateEstablished && (
-                    <div className="w-2/3">
+                    <div className="w-1/3">
                         <p className="font-bold">Established:</p>
                         <p>{getYearsFromDate(new Date(dateEstablished))} years ago.</p>
                     </div>
                 )}
                 {type && (
                     <div>
-                        <p className="font-bold">Tags:</p>
+                        <p className="font-bold w-2/3">Tags:</p>
                         <Type color={color} types={type.slice(0, 4)} />
                     </div>
                 )}
