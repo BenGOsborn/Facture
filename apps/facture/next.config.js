@@ -11,7 +11,7 @@ const nextConfig = {
         svgr: false,
     },
     images: {
-        domains: ["facture-files.s3.amazonaws.com"],
+        domains: ["hy7zrgsvk3.execute-api.us-east-1.amazonaws.com"],
     },
 };
 

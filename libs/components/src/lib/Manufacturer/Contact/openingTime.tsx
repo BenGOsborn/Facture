@@ -10,7 +10,7 @@ export function OpeningTime({ openingTime }: Props) {
         <>
             {openingTime && (
                 <div className="mb-3">
-                    <h3 className="font-bold text-gray-700 text-lg">Opening Time</h3>
+                    <h3 className="font-bold text-lg">Opening Time</h3>
                     <ul>
                         {Object.entries(groupOpeningTime(openingTime)).map((openingTime, index) => {
                             return (

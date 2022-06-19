@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 import { fetchData, findManufacturer, findManufacturers } from "@facture/graphql";
 import { FindManufacturerQuery, FindManufacturersQuery } from "@facture/types";
-import { Contact, DescriptionLong, Header } from "@facture/components";
+import { Contact, Content, Info } from "@facture/components";
 
 interface Props {
     manufacturer: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"];
@@ -11,17 +11,21 @@ interface Props {
 export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
     return (
         <>
-            <Header
-                name={manufacturer.name}
-                slogan={manufacturer.slogan}
-                dateEstablished={manufacturer.dateEstablished}
-                logo={manufacturer.logo}
-                description={manufacturer.descriptionShort}
-                type={manufacturer.type}
-                thumbnail={manufacturer.thumbnail}
-            />
-            <DescriptionLong description={manufacturer.descriptionLong} />
-            <Contact email={manufacturer.email} phone={manufacturer.phoneNo} openingTime={manufacturer.openingTime} />
+            <div className="flex space-x-14 items-start">
+                <div className="space-y-7 w-4/5">
+                    <Info
+                        name={manufacturer.name}
+                        slogan={manufacturer.slogan}
+                        dateEstablished={manufacturer.dateEstablished}
+                        logo={manufacturer.logo}
+                        description={manufacturer.descriptionShort}
+                        type={manufacturer.type}
+                        color={manufacturer.color}
+                    />
+                    <Contact email={manufacturer.email} phone={manufacturer.phoneNo} openingTime={manufacturer.openingTime} />
+                </div>
+                <Content description={manufacturer.descriptionLong} thumbnail={manufacturer.thumbnail} />
+            </div>
         </>
     );
 };

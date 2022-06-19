@@ -1,4 +1,4 @@
-import { FindManufacturerQuery } from "@facture/graphql";
+import { FindManufacturerQuery } from "@facture/types";
 
 interface Props {
     email: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["email"];
@@ -9,7 +9,7 @@ export function Email({ email }: Props) {
         <>
             {email && (
                 <div className="mb-3">
-                    <h3 className="font-bold text-gray-700 text-lg">Email</h3>
+                    <h3 className="font-bold text-lg">Email</h3>
                     <ul>
                         {email.map((email, index) => {
                             return (
