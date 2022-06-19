@@ -6,9 +6,9 @@ interface Props {
 }
 
 export function Carousel({ element }: Props) {
-    const { direction, selected, setSelected } = useCarousel(element.length);
+    const { direction, selected, setSelected } = useCarousel(element.length, 0);
 
-    const shiftSize = 250;
+    const shiftSize = 1000;
 
     if (element.length > 0)
         return (
@@ -25,7 +25,7 @@ export function Carousel({ element }: Props) {
                         initial={{ x: direction === "increasing" ? shiftSize : -1 * shiftSize }}
                         animate={{ x: 0 }}
                         exit={{ x: direction === "increasing" ? -1 * shiftSize : shiftSize }}
-                        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                        transition={{ type: "spring", stiffness: 200, damping: 20 }}
                     >
                         {element[selected]}
                     </motion.div>

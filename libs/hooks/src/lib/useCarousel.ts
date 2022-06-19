@@ -1,15 +1,20 @@
 import { mod } from "@facture/helpers";
 import { useState } from "react";
 
-export function useCarousel(size: number) {
-    const [selected, setSelected] = useState(0);
-    const [tuple, setTuple] = useState([null, selected]);
+export function useCarousel(size: number, initialSelected: number) {
+    const [tuple, setTuple] = useState([0, initialSelected]);
 
-    if (tuple[1] !== selected) setTuple((prev) => [prev[1], selected]);
+    const setSelected = (selected: (prev: number) => number) => {
+        setTuple((oldTuple) => {
+            const newSelected = selected(oldTuple[1]);
 
-    const direction: "increasing" | "decreasing" = tuple[0] && selected > tuple[0] ? "increasing" : "decreasing";
+            return [oldTuple[1], newSelected];
+        });
+    };
 
-    return { direction, selected: mod(selected, size), setSelected };
+    const direction: "increasing" | "decreasing" = tuple[1] > tuple[0] ? "increasing" : "decreasing";
+
+    return { direction, selected: mod(tuple[1], size), setSelected };
 }
 
 export default useCarousel;
