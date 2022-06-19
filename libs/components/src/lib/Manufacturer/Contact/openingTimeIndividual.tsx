@@ -1,4 +1,3 @@
-import { FindManufacturerQuery } from "@facture/types";
 import { formatTime, mappingToDay } from "@facture/helpers";
 
 interface Props {
