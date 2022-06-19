@@ -12,7 +12,7 @@ export function Carousel({ element }: Props) {
 
     if (element.length > 0)
         return (
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center justify-center space-x-6">
                 <button
                     className="font-bold text-gray-700 hover:text-gray-900 transition-all bg-gray-100 hover:bg-gray-200 p-3 rounded-xl"
                     onClick={() => setSelected((prev) => prev - 1)}
