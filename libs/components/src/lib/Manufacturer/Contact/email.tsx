@@ -9,12 +9,12 @@ export function Email({ email }: Props) {
         <>
             {email && (
                 <div className="mb-3">
-                    <h3 className="font-bold text-lg">Email</h3>
+                    <h3 className="font-bold text-lg text-gray-800">Email</h3>
                     <ul>
                         {email.map((email, index) => {
                             return (
-                                <li key={index} className="text-gray-900">
-                                    <span className="font-medium">{email.label}</span>: {email.email}
+                                <li key={index}>
+                                    <span className="font-medium text-gray-800">{email.label}</span>: <span className="text-gray-700">{email.email}</span>
                                 </li>
                             );
                         })}

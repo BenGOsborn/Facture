@@ -9,12 +9,12 @@ export function Phone({ phone }: Props) {
         <>
             {phone && (
                 <div className="mb-3">
-                    <h3 className="font-bold text-lg">Phone</h3>
+                    <h3 className="font-bold text-lg text-gray-800">Phone</h3>
                     <ul>
                         {phone.map((phone, index) => {
                             return (
-                                <li key={index} className="text-gray-900">
-                                    <span className="font-medium">{phone.label}</span>: {phone.phoneNo}
+                                <li key={index}>
+                                    <span className="font-medium text-gray-800">{phone.label}</span>: <span className="text-gray-700">{phone.phoneNo}</span>
                                 </li>
                             );
                         })}

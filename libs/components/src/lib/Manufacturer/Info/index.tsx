@@ -23,23 +23,23 @@ export function Info({ name, slogan, dateEstablished, logo, description, type, c
             <div className="flex items-center justify-between mb-3">
                 <Image src={`${logo.data.attributes.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                 <div className="text-right">
-                    <h1 className="text-3xl font-bold">{name}</h1>
-                    {slogan && <p className="text-xl font-bold text-gray-600">{slogan}</p>}
+                    <h1 className="text-3xl font-bold text-gray-900">{name}</h1>
+                    {slogan && <p className="text-xl font-bold text-gray-800">{slogan}</p>}
                 </div>
             </div>
             <div className="mb-3 border-b-2 pb-3">
-                <p className="text-gray-900 text-md">{description}</p>
+                <p className="text-gray-700 text-md">{description}</p>
             </div>
             <div className="flex items-start justify-between space-x-10">
                 {dateEstablished && (
                     <div className="w-1/3">
-                        <p className="font-bold">Established:</p>
-                        <p>{getYearsFromDate(new Date(dateEstablished))} years ago.</p>
+                        <p className="font-bold text-gray-900">Established:</p>
+                        <p className="text-gray-700">{getYearsFromDate(new Date(dateEstablished))} years ago.</p>
                     </div>
                 )}
                 {type && (
-                    <div>
-                        <p className="font-bold w-2/3">Tags:</p>
+                    <div className="w-2/3">
+                        <p className="font-bold text-gray-900">Tags:</p>
                         <Type color={color} types={type.slice(0, 4)} />
                     </div>
                 )}
