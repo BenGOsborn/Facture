@@ -21,7 +21,9 @@ export function SocialIcon({ name, link }: Props) {
 
     return (
         <Link href={link}>
-            <a>{out[name]}</a>
+            <a target="_blank" rel="noreferrer">
+                {out[name]}
+            </a>
         </Link>
     );
 }
