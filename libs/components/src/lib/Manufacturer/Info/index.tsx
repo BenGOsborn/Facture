@@ -30,7 +30,7 @@ export function Info({ name, slogan, dateEstablished, logo, description, type, c
             <div className="mb-3 border-b-2 pb-3">
                 <p className="text-gray-900 text-md">{description}</p>
             </div>
-            <div className="flex items-start justify-between">
+            <div className="flex items-start justify-between space-x-10">
                 {dateEstablished && (
                     <div className="w-1/3">
                         <p className="font-bold">Established:</p>
