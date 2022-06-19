@@ -1,4 +1,4 @@
-import { FindManufacturerQuery } from "@facture/graphql";
+import { FindManufacturerQuery } from "@facture/types";
 
 interface Props {
     phone: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["phoneNo"];

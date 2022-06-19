@@ -1,4 +1,4 @@
-import { FindManufacturerQuery } from "@facture/graphql";
+import { FindManufacturerQuery } from "@facture/types";
 import { getYearsFromDate } from "@facture/helpers";
 import Image from "next/image";
 

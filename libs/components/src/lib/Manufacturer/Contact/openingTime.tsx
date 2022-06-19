@@ -1,4 +1,4 @@
-import { FindManufacturerQuery } from "@facture/graphql";
+import { FindManufacturerQuery } from "@facture/types";
 import { formatTime, groupOpeningTime, mappingToDay } from "@facture/helpers";
 
 interface Props {

@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
-import { fetchData, findManufacturer, FindManufacturerQuery, findManufacturers, FindManufacturersQuery } from "@facture/graphql";
+import { fetchData, findManufacturer, findManufacturers } from "@facture/graphql";
+import { FindManufacturerQuery, FindManufacturersQuery } from "@facture/types";
 import { Contact, DescriptionLong, Header } from "@facture/components";
 
 interface Props {

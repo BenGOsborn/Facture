@@ -1,4 +1,4 @@
-import { FindManufacturerQuery } from "@facture/graphql";
+import { FindManufacturerQuery } from "@facture/types";
 
 import Email from "./email";
 import OpeningTime from "./openingTime";
