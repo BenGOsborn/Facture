@@ -6,8 +6,8 @@ import Logo from "./logo";
 
 export function Nav() {
     return (
-        <nav className="px-4 py-8 mb-6 border-b border-gray-200">
-            <ul className="flex justify-between items-center ">
+        <nav className="p-6 mb-14 shadow-md bg-white">
+            <ul className="flex justify-between items-center w-5/6 mx-auto ">
                 <li>
                     <Logo />
                 </li>

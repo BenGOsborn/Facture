@@ -12,7 +12,7 @@ export function Content({ description, thumbnail }: Props) {
     const thumbnailHeight = 500;
 
     return (
-        <div className="shadow-md rounded-md">
+        <div className="shadow-md rounded-md bg-white">
             <Image
                 className="rounded-md"
                 src={`${thumbnail.data.attributes.url}?size=${thumbnailWidth}x${thumbnailHeight}`}

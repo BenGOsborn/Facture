@@ -21,7 +21,7 @@ export function Info({ name, slogan, dateEstablished, logo, description, type, c
     const logoHeight = 75;
 
     return (
-        <header className="p-6 shadow-md rounded-md">
+        <header className="p-6 shadow-md rounded-md bg-white">
             <div className="flex items-center justify-between mb-3">
                 <Image src={`${logo.data.attributes.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                 <div className="text-right">
