@@ -1,7 +1,11 @@
-interface Props {}
+import { FindManufacturerQuery } from "@facture/types";
 
-export function DisplayCard({}: Props) {
-    return null;
+interface Props {
+    display: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["display"]["data"][number];
+}
+
+export function DisplayCard({ display }: Props) {
+    return <>{display.attributes.url}</>;
 }
 
 export default DisplayCard;

@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 import { fetchData, findManufacturer, findManufacturers } from "@facture/graphql";
 import { FindManufacturerQuery, FindManufacturersQuery } from "@facture/types";
-import { Contact, Content, Info } from "@facture/components";
+import { Contact, Content, Display, Info } from "@facture/components";
 
 interface Props {
     manufacturer: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"];
@@ -24,7 +24,10 @@ export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
                     />
                     <Contact email={manufacturer.email} phone={manufacturer.phoneNo} openingTime={manufacturer.openingTime} social={manufacturer.social} />
                 </div>
-                <Content description={manufacturer.descriptionLong} thumbnail={manufacturer.thumbnail} />
+                <div className="space-y-7">
+                    <Content description={manufacturer.descriptionLong} thumbnail={manufacturer.thumbnail} />
+                    <Display display={manufacturer.display} />
+                </div>
             </div>
         </>
     );
