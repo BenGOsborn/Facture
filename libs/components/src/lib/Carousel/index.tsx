@@ -11,15 +11,19 @@ export function Carousel({ element }: Props) {
 
     if (element.length > 0)
         return (
-            <>
-                <button onClick={() => setSelected((prev) => prev - 1)}>Prev</button>
+            <div className="flex items-center space-x-6">
+                <button className="font-bold text-gray-700 hover:text-gray-900 transition-all" onClick={() => setSelected((prev) => prev - 1)}>
+                    {"<"}
+                </button>
                 <AnimatePresence>
-                    <motion.div key={selected} initial={{ x: 100 }} animate={{ x: 0 }} exit={{ x: -100 }} transition={{ type: "spring", stiffness: 260, damping: 20 }}>
+                    <motion.div key={selected} initial={{ x: 1000 }} animate={{ x: 0 }} exit={{ x: -1000 }} transition={{ type: "spring", stiffness: 260, damping: 20 }}>
                         {element[mod(selected, element.length)]}
                     </motion.div>
                 </AnimatePresence>
-                <button onClick={() => setSelected((prev) => prev + 1)}>Next</button>
-            </>
+                <button className="font-bold text-gray-700 hover:text-gray-900 transition-all" onClick={() => setSelected((prev) => prev + 1)}>
+                    {">"}
+                </button>
+            </div>
         );
 
     return null;
