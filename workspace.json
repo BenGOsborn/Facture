@@ -4,7 +4,6 @@
     "projects": {
         "components": "libs/components",
         "facture": "apps/facture",
-        "facture-e2e": "apps/facture-e2e",
         "graphql": "libs/graphql",
         "helpers": "libs/helpers",
         "providers": "libs/providers"
