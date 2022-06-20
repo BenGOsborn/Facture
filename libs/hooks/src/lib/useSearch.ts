@@ -8,7 +8,7 @@ export function useSearch<T>(algoliaAppId: string, algoliaApiKey: string, algoli
     const [query, setQuery] = useState("");
     const [hits, setHits] = useState<T[]>([]);
 
-    useMemo(() => index.search(query).then((data) => setHits(data.hits as any)), [query]);
+    useMemo(() => (query === "" ? setHits([]) : index.search(query).then((data) => setHits(data.hits as any))), [query]);
 
     return { setQuery, hits };
 }

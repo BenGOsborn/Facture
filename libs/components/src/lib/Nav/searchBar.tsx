@@ -10,7 +10,13 @@ export function SearchBar({ onChange }: Props) {
             <label htmlFor="search">
                 <Search />
             </label>
-            <input id="search" type="text" className="bg-gray-900 border-none font-medium rounded-md" placeholder="Search" onChange={(e) => onChange(e.target.value)} />
+            <input
+                id="search"
+                type="text"
+                className="bg-gray-900 border-none font-medium rounded-md w-full"
+                placeholder="Search"
+                onChange={(e) => onChange(e.target.value)}
+            />
         </div>
     );
 }

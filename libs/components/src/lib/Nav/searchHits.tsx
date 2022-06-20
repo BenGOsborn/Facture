@@ -8,7 +8,7 @@ interface Props {
 
 export function SearchHits({ hits }: Props) {
     return (
-        <div className="absolute">
+        <div>
             {hits.map((hit, index) => (
                 <SearchHit key={index} hit={hit} />
             ))}
