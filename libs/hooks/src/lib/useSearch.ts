@@ -10,7 +10,7 @@ export function useSearch<T>(algoliaAppId: string, algoliaApiKey: string, algoli
 
     useMemo(() => (query === "" ? setHits([]) : index.search(query, { maxFacetHits: max }).then((data) => setHits(data.hits as any))), [query]);
 
-    return { setQuery, hits };
+    return { query, setQuery, hits };
 }
 
 export default useSearch;

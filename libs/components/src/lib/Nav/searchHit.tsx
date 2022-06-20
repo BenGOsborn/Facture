@@ -4,15 +4,16 @@ import Link from "next/link";
 
 interface Props {
     hit: SearchHitType;
+    onClick?: () => void;
 }
 
-export function SearchHit({ hit }: Props) {
+export function SearchHit({ hit, onClick }: Props) {
     const logoWidth = 50;
     const logoHeight = 50;
 
     return (
         <Link href={`/manufacturers/${hit.manufacturer}`}>
-            <a>
+            <a onClick={onClick}>
                 <div className="p-3 hover:bg-gray-100 rounded-md space-y-3 mb-3">
                     <div className="flex items-center justify-between space-x-3">
                         <Image className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />

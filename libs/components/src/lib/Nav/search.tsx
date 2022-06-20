@@ -9,12 +9,12 @@ export function Search() {
     const algoliaApiKey = process.env["NEXT_PUBLIC_ALGOLIA_API_KEY"];
     const algoliaIndexName = process.env["NEXT_PUBLIC_ALGOLIA_INDEX_NAME"];
 
-    const { setQuery, hits } = useSearch<SearchHit>(algoliaAppId, algoliaApiKey, algoliaIndexName, 3);
+    const { query, setQuery, hits } = useSearch<SearchHit>(algoliaAppId, algoliaApiKey, algoliaIndexName, 3);
 
     return (
         <div className="relative">
-            <SearchBar onChange={(query) => setQuery(query)} />
-            <SearchHits hits={hits} />
+            <SearchBar value={query} onChange={(query) => setQuery(query)} />
+            <SearchHits hits={hits} onClick={() => setQuery("")} />
         </div>
     );
 }
