@@ -10,7 +10,8 @@ interface Props {
 export function SearchHits({ hits, onClick }: Props) {
     if (hits.length > 0)
         return (
-            <div className="absolute z-50 space-y-3 rounded-md bg-white p-6 shadow-md">
+            <div className="absolute z-50 rounded-md bg-white p-6 shadow-md">
+                <p className="font-bold text-gray-800">Results</p>
                 {hits.map((hit, index) => (
                     <SearchHit key={index} hit={hit} onClick={onClick} />
                 ))}

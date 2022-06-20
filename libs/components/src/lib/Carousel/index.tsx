@@ -7,36 +7,28 @@ interface Props {
 }
 
 export function Carousel({ element, shiftSize }: Props) {
-    const { direction, selected, setSelected } = useCarousel(element.length, 0);
-
-    // **** Now for some reason my motion is going the wrong way....
+    const { position, selected, incSelected, decSelected } = useCarousel(element.length, shiftSize);
 
     if (element.length > 0)
         return (
             <div className="flex items-center justify-between space-x-3">
-                <button
-                    className="font-bold text-gray-700 hover:text-gray-900 transition-all bg-gray-100 hover:bg-gray-200 p-3 rounded-xl"
-                    onClick={() => setSelected((prev) => prev - 1)}
-                >
+                <button className="font-bold text-gray-700 hover:text-gray-900 transition-all bg-gray-100 hover:bg-gray-200 p-3 rounded-xl" onClick={decSelected}>
                     {"<"}
                 </button>
                 <div className="flex-auto overflow-hidden">
                     <AnimatePresence exitBeforeEnter={true}>
                         <motion.div
                             key={selected}
-                            initial={{ x: direction === "increasing" ? shiftSize : -1 * shiftSize }}
+                            initial={{ x: position[0] }}
                             animate={{ x: 0 }}
-                            exit={{ x: direction === "increasing" ? -1 * shiftSize : shiftSize }}
-                            transition={{ type: "spring", stiffness: 400, damping: 40 }}
+                            exit={{ x: position[1] }}
+                            transition={{ type: "spring", duration: 0.15 }}
                         >
                             {element[selected]}
                         </motion.div>
                     </AnimatePresence>
                 </div>
-                <button
-                    className="font-bold text-gray-700 hover:text-gray-900 transition-all bg-gray-100 hover:bg-gray-200 p-3 rounded-xl"
-                    onClick={() => setSelected((prev) => prev + 1)}
-                >
+                <button className="font-bold text-gray-700 hover:text-gray-900 transition-all bg-gray-100 hover:bg-gray-200 p-3 rounded-xl" onClick={incSelected}>
                     {">"}
                 </button>
             </div>
