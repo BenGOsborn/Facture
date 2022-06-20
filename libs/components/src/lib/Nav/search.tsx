@@ -1,6 +1,5 @@
-import algoliasearch from "algoliasearch";
-import { useMemo } from "react";
-import { useState } from "react";
+import { useSearch } from "@facture/hooks";
+import { Manufacturer } from "@facture/types";
 import { Search as SearchIcon } from "tabler-icons-react";
 
 export function Search() {
@@ -8,12 +7,9 @@ export function Search() {
     const algoliaApiKey = process.env["NEXT_PUBLIC_ALGOLIA_API_KEY"];
     const algoliaIndexName = process.env["NEXT_PUBLIC_ALGOLIA_INDEX_NAME"];
 
-    const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
-    const index = searchClient.initIndex(algoliaIndexName);
+    const { setQuery, hits } = useSearch<Manufacturer>(algoliaAppId, algoliaApiKey, algoliaIndexName);
 
-    const [query, setQuery] = useState("");
-
-    useMemo(() => index.search(query).then(console.log), [query]);
+    console.log(hits);
 
     return (
         <div className="rounded-md bg-gray-900 flex items-center space-x-3 text-white px-4 py-2">
