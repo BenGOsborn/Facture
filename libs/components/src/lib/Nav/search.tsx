@@ -2,6 +2,7 @@ import { useSearch } from "@facture/hooks";
 import { Manufacturer } from "@facture/types";
 
 import SearchBar from "./searchBar";
+import SearchHits from "./searchHits";
 
 export function Search() {
     const algoliaAppId = process.env["NEXT_PUBLIC_ALGOLIA_APP_ID"];
@@ -10,9 +11,12 @@ export function Search() {
 
     const { setQuery, hits } = useSearch<Manufacturer>(algoliaAppId, algoliaApiKey, algoliaIndexName);
 
-    console.log(hits);
-
-    return <SearchBar onChange={(query) => setQuery(query)} />;
+    return (
+        <>
+            <SearchBar onChange={(query) => setQuery(query)} />
+            <SearchHits hits={hits} />
+        </>
+    );
 }
 
 export default Search;
