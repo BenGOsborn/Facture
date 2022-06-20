@@ -14,7 +14,7 @@ export function Nav() {
                 <li>
                     <Link href="/">
                         <div className="flex">
-                            <a className="flex items-center space-x-3 bg-gradient-to-r from-green-400 to-blue-500 hover:to-green-400 px-6 py-3 rounded-md text-lg font-medium text-white cursor-pointer">
+                            <a className="flex items-center space-x-3 bg-gradient-to-r from-green-400 to-blue-500 hover:to-green-400 px-4 py-2 rounded-md text-lg font-medium text-white cursor-pointer">
                                 <span>
                                     <Search />
                                 </span>
