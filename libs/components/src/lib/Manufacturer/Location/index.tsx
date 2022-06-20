@@ -17,15 +17,12 @@ export function Location({ location, googleApiKey }: Props) {
                     <MapPin color="#1f2937" />
                     <h3 className="font-bold text-lg text-gray-800">Location</h3>
                 </div>
-                {location.map((data) => (
-                    <LocationCard location={data} googleApiKey={googleApiKey} />
-                ))}
-                {/* <Carousel
+                <Carousel
                     element={location.map((data) => (
                         <LocationCard location={data} googleApiKey={googleApiKey} />
                     ))}
                     shiftSize={1000}
-                /> */}
+                />
             </div>
         );
 
