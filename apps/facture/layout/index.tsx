@@ -1,4 +1,4 @@
-import { Nav } from "@facture/components";
+import { Footer, Nav } from "@facture/components";
 import { GraphQLProvider } from "@facture/providers";
 
 export default function Layout({ children }: { children: any }) {
@@ -6,6 +6,7 @@ export default function Layout({ children }: { children: any }) {
         <GraphQLProvider>
             <Nav />
             <main className="w-5/6 mx-auto">{children}</main>
+            <Footer />
         </GraphQLProvider>
     );
 }
