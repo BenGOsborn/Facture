@@ -1,6 +1,6 @@
 import { FindManufacturerQuery } from "@facture/types";
 
-import Badge from "./badge";
+import Badge from "../../Badge";
 
 interface Props {
     type: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["type"];
