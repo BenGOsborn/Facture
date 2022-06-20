@@ -1,5 +1,5 @@
 import { useSearch } from "@facture/hooks";
-import { Manufacturer } from "@facture/types";
+import { SearchHit } from "@facture/types";
 
 import SearchBar from "./searchBar";
 import SearchHits from "./searchHits";
@@ -9,7 +9,7 @@ export function Search() {
     const algoliaApiKey = process.env["NEXT_PUBLIC_ALGOLIA_API_KEY"];
     const algoliaIndexName = process.env["NEXT_PUBLIC_ALGOLIA_INDEX_NAME"];
 
-    const { setQuery, hits } = useSearch<Manufacturer>(algoliaAppId, algoliaApiKey, algoliaIndexName);
+    const { setQuery, hits } = useSearch<SearchHit>(algoliaAppId, algoliaApiKey, algoliaIndexName);
 
     return (
         <div>

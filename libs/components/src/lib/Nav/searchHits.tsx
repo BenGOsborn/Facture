@@ -1,14 +1,14 @@
-import { Manufacturer } from "@facture/types";
+import { SearchHit as SearchHitType } from "@facture/types";
 
 import SearchHit from "./searchHit";
 
 interface Props {
-    hits: Manufacturer[];
+    hits: SearchHitType[];
 }
 
 export function SearchHits({ hits }: Props) {
     return (
-        <div>
+        <div className="spae-y-3 rounded-md bg-white p-6">
             {hits.map((hit, index) => (
                 <SearchHit key={index} hit={hit} />
             ))}
