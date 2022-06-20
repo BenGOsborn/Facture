@@ -1,5 +1,5 @@
 import { useCarousel } from "@facture/hooks";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface Props {
     element: JSX.Element[];
@@ -18,16 +18,19 @@ export function Carousel({ element, shiftSize }: Props) {
                 >
                     {"<"}
                 </button>
+                {/* **** Fix this!!!! */}
                 <div className="flex-auto overflow-hidden">
-                    <motion.div
-                        key={selected}
-                        initial={{ x: direction === "increasing" ? shiftSize : -1 * shiftSize }}
-                        animate={{ x: 0 }}
-                        exit={{ x: direction === "increasing" ? -1 * shiftSize : shiftSize }}
-                        transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                    >
-                        {element[selected]}
-                    </motion.div>
+                    <AnimatePresence>
+                        <motion.div
+                            key={selected}
+                            initial={{ x: direction === "increasing" ? shiftSize : -1 * shiftSize }}
+                            animate={{ x: 0 }}
+                            exit={{ x: direction === "increasing" ? -1 * shiftSize : shiftSize }}
+                            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                        >
+                            {element[selected]}
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
                 <button
                     className="font-bold text-gray-700 hover:text-gray-900 transition-all bg-gray-100 hover:bg-gray-200 p-3 rounded-xl"
