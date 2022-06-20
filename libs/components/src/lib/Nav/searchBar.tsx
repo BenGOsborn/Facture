@@ -16,7 +16,7 @@ export function SearchBar({ value, onChange }: Props) {
                 type="text"
                 className="bg-gray-900 border-none font-medium rounded-md w-full"
                 placeholder="Search"
-                value={value}
+                value={value || ""}
                 onChange={(e) => onChange(e.target.value)}
             />
         </div>
