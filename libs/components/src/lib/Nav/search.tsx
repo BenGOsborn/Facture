@@ -1,5 +1,6 @@
 import algoliasearch from "algoliasearch";
-import Link from "next/link";
+import { useMemo } from "react";
+import { useState } from "react";
 import { Search as SearchIcon } from "tabler-icons-react";
 
 export function Search() {
@@ -10,17 +11,17 @@ export function Search() {
     const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
     const index = searchClient.initIndex(algoliaIndexName);
 
+    const [query, setQuery] = useState("");
+
+    useMemo(() => index.search(query).then(console.log), [query]);
+
     return (
-        <>
-            <Link href="/">
-                <a className="flex items-center space-x-3 text-white bg-gray-900 px-4 py-2 rounded-md">
-                    <span>
-                        <SearchIcon />
-                    </span>
-                    <span className="text-lg font-medium">Search</span>
-                </a>
-            </Link>
-        </>
+        <div className="rounded-md bg-gray-900 flex items-center space-x-3 text-white px-4 py-2">
+            <label htmlFor="search">
+                <SearchIcon />
+            </label>
+            <input id="search" type="text" className="bg-gray-900 border-none font-medium rounded-md" placeholder="Search" onChange={(e) => setQuery(e.target.value)} />
+        </div>
     );
 }
 
