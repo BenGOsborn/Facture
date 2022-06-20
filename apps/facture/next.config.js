@@ -11,7 +11,7 @@ const nextConfig = {
         svgr: false,
     },
     images: {
-        domains: ["hy7zrgsvk3.execute-api.us-east-1.amazonaws.com"],
+        domains: ["wptdclhm4m.execute-api.ap-southeast-2.amazonaws.com"],
     },
 };
 
