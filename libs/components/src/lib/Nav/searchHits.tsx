@@ -7,13 +7,16 @@ interface Props {
 }
 
 export function SearchHits({ hits }: Props) {
-    return (
-        <div className="spae-y-3 rounded-md bg-white p-6">
-            {hits.map((hit, index) => (
-                <SearchHit key={index} hit={hit} />
-            ))}
-        </div>
-    );
+    if (hits.length > 0)
+        return (
+            <div className="space-y-3 rounded-md bg-white p-6 shadow-md">
+                {hits.map((hit, index) => (
+                    <SearchHit key={index} hit={hit} />
+                ))}
+            </div>
+        );
+
+    return null;
 }
 
 export default SearchHits;
