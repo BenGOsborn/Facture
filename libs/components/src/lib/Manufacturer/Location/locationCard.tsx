@@ -4,10 +4,11 @@ import { useMemo } from "react";
 
 interface Props {
     location: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["location"][number];
-    googleApiKey: string;
 }
 
-export function LocationCard({ location, googleApiKey }: Props) {
+export function LocationCard({ location }: Props) {
+    const googleApiKey = process.env["NEXT_PUBLIC_GOOGLE_API_KEY"];
+
     const { isLoaded } = useLoadScript({ googleMapsApiKey: googleApiKey });
     const center = useMemo(() => ({ lat: location.latitude, lng: location.longitude }), []);
 

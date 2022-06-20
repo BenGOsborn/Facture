@@ -6,10 +6,9 @@ import LocationCard from "./locationCard";
 
 interface Props {
     location: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["location"];
-    googleApiKey: string;
 }
 
-export function Location({ location, googleApiKey }: Props) {
+export function Location({ location }: Props) {
     if (location)
         return (
             <div className="p-6 shadow-md rounded-md bg-white">
@@ -19,7 +18,7 @@ export function Location({ location, googleApiKey }: Props) {
                 </div>
                 <Carousel
                     element={location.map((data) => (
-                        <LocationCard location={data} googleApiKey={googleApiKey} />
+                        <LocationCard location={data} />
                     ))}
                     shiftSize={1000}
                 />
