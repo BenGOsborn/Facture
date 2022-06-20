@@ -8,7 +8,6 @@
         "helpers": "libs/helpers",
         "hooks": "libs/hooks",
         "providers": "libs/providers",
-        "state": "libs/state",
         "types": "libs/types"
     }
 }

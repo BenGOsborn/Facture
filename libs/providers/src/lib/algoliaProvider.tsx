@@ -10,7 +10,7 @@ interface Props {
 export function AlgoliaProvider({ appId, algoliaApiKey, indexName, children }: Props) {
     const searchClient = algoliasearch(appId, algoliaApiKey);
 
-    return { children };
+    return <>{children}</>;
 }
 
 export default AlgoliaProvider;
