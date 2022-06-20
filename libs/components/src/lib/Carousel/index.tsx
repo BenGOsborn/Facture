@@ -9,6 +9,8 @@ interface Props {
 export function Carousel({ element, shiftSize }: Props) {
     const { direction, selected, setSelected } = useCarousel(element.length, 0);
 
+    // **** Now for some reason my motion is going the wrong way....
+
     if (element.length > 0)
         return (
             <div className="flex items-center justify-between space-x-3">
@@ -18,15 +20,14 @@ export function Carousel({ element, shiftSize }: Props) {
                 >
                     {"<"}
                 </button>
-                {/* **** Fix this!!!! */}
                 <div className="flex-auto overflow-hidden">
-                    <AnimatePresence>
+                    <AnimatePresence exitBeforeEnter={true}>
                         <motion.div
                             key={selected}
                             initial={{ x: direction === "increasing" ? shiftSize : -1 * shiftSize }}
                             animate={{ x: 0 }}
                             exit={{ x: direction === "increasing" ? -1 * shiftSize : shiftSize }}
-                            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 40 }}
                         >
                             {element[selected]}
                         </motion.div>
