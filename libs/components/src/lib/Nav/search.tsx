@@ -1,12 +1,7 @@
 import Link from "next/link";
-import { useInstantSearch } from "react-instantsearch-hooks-web";
 import { Search as SearchIcon } from "tabler-icons-react";
 
-import SearchHit from "../SearchHit";
-
 export function Search() {
-    const { indexUiState } = useInstantSearch();
-
     return (
         <>
             <Link href="/">

@@ -1,5 +1,4 @@
 import algoliasearch from "algoliasearch/lite";
-import { InstantSearch } from "react-instantsearch-hooks-web";
 
 interface Props {
     appId: string;
@@ -11,11 +10,7 @@ interface Props {
 export function AlgoliaProvider({ appId, algoliaApiKey, indexName, children }: Props) {
     const searchClient = algoliasearch(appId, algoliaApiKey);
 
-    return (
-        <InstantSearch searchClient={searchClient} indexName={indexName}>
-            {children}
-        </InstantSearch>
-    );
+    return { children };
 }
 
 export default AlgoliaProvider;

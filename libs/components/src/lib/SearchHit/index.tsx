@@ -1,6 +1,4 @@
 import { Manufacturer } from "@facture/types";
-import { Hits, SearchBox } from "react-instantsearch-hooks-web";
-import { Search as SearchIcon } from "tabler-icons-react";
 
 interface Props {
     hit: Manufacturer;
