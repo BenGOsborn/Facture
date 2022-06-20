@@ -8,8 +8,8 @@ export function useCarousel(size: number, shiftSize: number) {
     const [position, setPosition] = useState<[number, number]>([shiftSize, -1 * shiftSize]);
 
     useEffect(() => {
-        if (selected > tuple[1]) setPosition([shiftSize, -1 * shiftSize]);
-        else setPosition([-1 * shiftSize, shiftSize]);
+        if (selected > tuple[1]) setPosition([-1 * shiftSize, shiftSize]);
+        else setPosition([shiftSize, -1 * shiftSize]);
     }, [selected]);
 
     useEffect(() => {
