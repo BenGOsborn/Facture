@@ -9,4 +9,5 @@ export interface SearchHit {
     logo: Image;
     descriptionShort: string;
     manufacturer: string;
+    slogan?: string;
 }

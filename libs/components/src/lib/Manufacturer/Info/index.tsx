@@ -22,10 +22,10 @@ export function Info({ name, slogan, dateEstablished, logo, description, type, c
     return (
         <header className="p-6 shadow-md rounded-md bg-white">
             <div className="flex items-center justify-between mb-3">
-                <Image src={`${logo.data.attributes.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
+                <Image className="rounded-md" src={`${logo.data.attributes.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                 <div className="text-right">
                     <h1 className="text-3xl font-bold text-gray-900">{name}</h1>
-                    {slogan && <p className="text-xl font-bold text-gray-800">{slogan}</p>}
+                    {slogan && <p className="text-xl font-bold text-gray-700">{slogan}</p>}
                 </div>
             </div>
             <div className="mb-3 border-b-2 pb-3">

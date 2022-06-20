@@ -13,10 +13,13 @@ export function SearchHit({ hit }: Props) {
     return (
         <Link href={`/manufacturers/${hit.manufacturer}`}>
             <a>
-                <div className="p-3 hover:bg-gray-100 rounded-md">
+                <div className="p-3 hover:bg-gray-100 rounded-md space-y-3">
                     <div className="flex items-center justify-between space-x-3">
-                        <Image src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
-                        <p className="text-right text-lg font-bold text-gray-900">{hit.name}</p>
+                        <Image className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
+                        <div className="text-right">
+                            <p className="text-right text-lg font-bold text-gray-900">{hit.name}</p>
+                            {hit.slogan && <p className="text-md font-bold text-gray-700">{hit.slogan}</p>}
+                        </div>
                     </div>
                     <p className="text-gray-700 text-md line-clamp-3">{hit.descriptionShort}</p>
                 </div>

@@ -12,10 +12,10 @@ export function Search() {
     const { setQuery, hits } = useSearch<SearchHit>(algoliaAppId, algoliaApiKey, algoliaIndexName);
 
     return (
-        <>
+        <div className="relative">
             <SearchBar onChange={(query) => setQuery(query)} />
             <SearchHits hits={hits} />
-        </>
+        </div>
     );
 }
 
