@@ -1,5 +1,5 @@
 import { mod } from "@facture/helpers";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export function useCarousel(size: number, shiftSize: number) {
     const [selected, setSelected] = useState<number>(0);
@@ -19,7 +19,9 @@ export function useCarousel(size: number, shiftSize: number) {
     const incSelected = () => setSelected((prev) => prev + 1);
     const decSelected = () => setSelected((prev) => prev - 1);
 
-    return { position, selected: mod(tuple[1], size), incSelected, decSelected };
+    const selectedOut = useMemo(() => mod(tuple[1], size), [tuple]);
+
+    return { position, selected: selectedOut, incSelected, decSelected };
 }
 
 export default useCarousel;
