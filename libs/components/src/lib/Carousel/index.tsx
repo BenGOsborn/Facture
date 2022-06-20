@@ -3,12 +3,11 @@ import { motion } from "framer-motion";
 
 interface Props {
     element: JSX.Element[];
+    shiftSize: number;
 }
 
-export function Carousel({ element }: Props) {
+export function Carousel({ element, shiftSize }: Props) {
     const { direction, selected, setSelected } = useCarousel(element.length, 0);
-
-    const shiftSize = 1000;
 
     if (element.length > 0)
         return (

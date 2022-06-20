@@ -21,6 +21,7 @@ export function Location({ location, googleApiKey }: Props) {
                     element={location.map((data) => (
                         <LocationCard location={data} googleApiKey={googleApiKey} />
                     ))}
+                    shiftSize={1000}
                 />
             </div>
         );

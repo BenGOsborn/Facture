@@ -20,6 +20,7 @@ export function Display({ display }: Props) {
                     element={display.data.map((data) => (
                         <DisplayCard display={data} />
                     ))}
+                    shiftSize={1000}
                 />
             </div>
         );

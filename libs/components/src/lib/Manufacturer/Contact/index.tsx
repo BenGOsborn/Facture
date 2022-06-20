@@ -15,7 +15,7 @@ interface Props {
 export function Contact({ email, phone, openingTime, social }: Props) {
     return (
         <div className="p-6 shadow-md rounded-md bg-white">
-            <div className="border-b-2 space-y-6 pb-3 mb-3">
+            <div className="space-y-6">
                 <h2 className="font-bold text-gray-900 text-xl">Contact</h2>
                 <Email email={email} />
                 <Phone phone={phone} />
