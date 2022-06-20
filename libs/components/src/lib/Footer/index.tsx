@@ -6,7 +6,7 @@ interface Props {}
 
 export function Footer({}: Props) {
     return (
-        <footer className="p-6 pt-12 mt-14 shadow-md bg-gray-800 flex flex-col items-center space-y-4">
+        <footer className="p-6 pt-12 mt-14 shadow-md bg-gray-800 flex flex-col space-y-6 text-center">
             <p className="font-medium text-white text-md">
                 Want us to list your manufacturing business / company? Contact us on{" "}
                 <Link href="https://www.linkedin.com/in/bengosborn/">
