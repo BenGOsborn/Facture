@@ -9,6 +9,8 @@ interface Props {
 }
 
 export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
+    const googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
+
     return (
         <div className="flex space-x-14 items-start">
             <div className="space-y-7 w-4/5">
@@ -22,7 +24,7 @@ export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
                     color={manufacturer.color}
                 />
                 <Contact email={manufacturer.email} phone={manufacturer.phoneNo} openingTime={manufacturer.openingTime} social={manufacturer.social} />
-                <Location location={manufacturer.location} />
+                <Location location={manufacturer.location} googleApiKey={googleApiKey} />
             </div>
             <div className="space-y-7">
                 <Content description={manufacturer.descriptionLong} thumbnail={manufacturer.thumbnail} />

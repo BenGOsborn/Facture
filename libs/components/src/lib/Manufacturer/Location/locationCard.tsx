@@ -1,14 +1,11 @@
 import { FindManufacturerQuery } from "@facture/types";
-import Image from "next/image";
 
 interface Props {
     location: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["location"][number];
+    googleApiKey: string;
 }
 
-export function LocationCard({ location }: Props) {
-    const displayWidth = 1000;
-    const displayHeight = 500;
-
+export function LocationCard({ location, googleApiKey }: Props) {
     return <>{location.address}</>;
 }
 
