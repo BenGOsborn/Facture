@@ -13,7 +13,7 @@ export function SearchHit({ hit }: Props) {
     return (
         <Link href={`/manufacturers/${hit.manufacturer}`}>
             <a>
-                <div className="p-3 hover:bg-gray-100 rounded-md space-y-3">
+                <div className="p-3 hover:bg-gray-100 rounded-md space-y-3 mb-3">
                     <div className="flex items-center justify-between space-x-3">
                         <Image className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                         <div className="text-right">
