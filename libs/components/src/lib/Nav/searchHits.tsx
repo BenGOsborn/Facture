@@ -9,7 +9,7 @@ interface Props {
 export function SearchHits({ hits }: Props) {
     if (hits.length > 0)
         return (
-            <div className="space-y-3 rounded-md bg-white p-6 shadow-md">
+            <div className="absolute z-50 space-y-3 rounded-md bg-white p-6 shadow-md">
                 {hits.map((hit, index) => (
                     <SearchHit key={index} hit={hit} />
                 ))}
