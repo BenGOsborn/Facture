@@ -1,60 +1,60 @@
-export interface Image {
+export interface ImageDisplay {
     url: string;
 }
 
-export interface Email {
+export interface EmailDisplay {
     email: string;
     label: string;
 }
 
-export interface OpeningTime {
+export interface OpeningTimeDisplay {
     day: number;
     openTime: any;
     closeTime: any;
 }
 
-export interface PhoneNo {
+export interface PhoneNoDisplay {
     phoneNo: string;
     label: string;
 }
 
-export interface Social {
+export interface SocialDisplay {
     platform: string;
     link: string;
 }
 
-export interface Location {
+export interface LocationDisplay {
     latitude: number;
     longitude: number;
     address: string;
     label: string;
 }
 
-export interface SearchHit {
+export interface SearchHitDisplay {
     name: string;
     color: string;
-    logo: Image;
+    logo: ImageDisplay;
     descriptionShort: string;
     manufacturer: string;
     slogan?: string;
     type?: string[];
-    thumbnail: Image;
+    thumbnail: ImageDisplay;
 }
 
 export interface ManufacturerDisplay {
     name: string;
     slogan?: string;
     dateEstablished?: any;
-    logo: Image;
+    logo: ImageDisplay;
     descriptionShort: string;
     type?: string[];
     color: string;
-    email?: Email[];
-    phoneNo?: PhoneNo[];
-    openingTime?: OpeningTime[];
-    social?: Social[];
-    location?: Location[];
+    email?: EmailDisplay[];
+    phoneNo?: PhoneNoDisplay[];
+    openingTime?: OpeningTimeDisplay[];
+    social?: SocialDisplay[];
+    location?: LocationDisplay[];
     descriptionLong: string;
-    thumbnail: Image;
-    display?: Image[];
+    thumbnail: ImageDisplay;
+    display?: ImageDisplay[];
 }

@@ -1,9 +1,7 @@
 import { Landing } from "@facture/components";
 import { NextPage } from "next";
 
-interface Props {}
-
-export const IndexPage: NextPage<Props> = ({}) => {
+export const IndexPage: NextPage = () => {
     return <Landing />;
 };
 

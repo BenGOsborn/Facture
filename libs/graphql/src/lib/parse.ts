@@ -38,23 +38,23 @@ export function parseFindManufacturerQuery(data: FindManufacturerQuery) {
         const attributes = data.manufacturers.data[0].attributes;
 
         return {
+            name: attributes.name,
+            slogan: attributes.slogan,
+            dateEstablished: attributes.dateEstablished,
+            logo: attributes.logo.data.attributes,
             color: attributes.color,
             descriptionLong: attributes.descriptionLong,
             descriptionShort: attributes.descriptionShort,
-            logo: attributes.logo,
-            name: attributes.name,
-            thumbnail: attributes.thumbnail,
-            dateEstablished: attributes.dateEstablished,
-            display: attributes.display,
+            thumbnail: attributes.thumbnail.data.attributes,
+            display: attributes.display.data.map((display) => display.attributes),
             email: attributes.email,
             location: attributes.location,
             openingTime: attributes.openingTime,
             phoneNo: attributes.phoneNo,
-            slogan: attributes.slogan,
             social: attributes.social,
-            type: attributes.type,
+            type: attributes.type.map((type) => type.type),
         } as ManufacturerDisplay;
-    } catch {
+    } catch (e: any) {
         return null;
     }
 }
