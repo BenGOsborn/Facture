@@ -24,8 +24,8 @@ export function ManufacturerDisplay({ manufacturer }: Props) {
     const social = manufacturer.social;
     const location = manufacturer.location;
     const descriptionLong = manufacturer.descriptionLong;
-    const thumbnail = manufacturer.thumbnail;
-    const display = manufacturer.display;
+    const thumbnail = manufacturer.thumbnail.data.attributes;
+    const display = manufacturer.display.data.map((display) => display.attributes);
 
     return (
         <div className="flex flex-col lg:flex-row lg:space-x-14 space-y-7 lg:space-y-0 items-start">
