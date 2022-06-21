@@ -1,4 +1,4 @@
-import { FindManufacturerQuery, Image } from "@facture/types";
+import { FindManufacturerQuery } from "@facture/types";
 
 import Contact from "./Contact";
 import Content from "./Content";
@@ -14,7 +14,7 @@ export function ManufacturerDisplay({ manufacturer }: Props) {
     const name = manufacturer.name;
     const slogan = manufacturer.slogan;
     const dateEstablished = manufacturer.dateEstablished;
-    const logo = manufacturer.logo.data.attributes.url as any;
+    const logo = manufacturer.logo.data.attributes;
     const description = manufacturer.descriptionShort;
     const type = manufacturer.type.map((type) => type.type);
     const color = manufacturer.color;
