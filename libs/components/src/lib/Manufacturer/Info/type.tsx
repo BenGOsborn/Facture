@@ -3,8 +3,8 @@ import { FindManufacturerQuery } from "@facture/types";
 import Badge from "../../Badge";
 
 interface Props {
-    type: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["type"];
-    color: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["color"];
+    type?: string[];
+    color: string;
 }
 
 export function Type({ type, color }: Props) {
@@ -15,7 +15,7 @@ export function Type({ type, color }: Props) {
                 <div className="flex justify-start flex-wrap">
                     {type.map((type, index) => (
                         <Badge color={color} key={index}>
-                            {type.type}
+                            {type}
                         </Badge>
                     ))}
                 </div>

@@ -1,4 +1,4 @@
-import { FindManufacturerQuery } from "@facture/types";
+import { FindManufacturerQuery, Image as ImageType } from "@facture/types";
 
 import Image from "next/image";
 
@@ -6,13 +6,13 @@ import Type from "./type";
 import DateEstablished from "./dateEstablished";
 
 interface Props {
-    name: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["name"];
-    slogan: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["slogan"];
-    dateEstablished: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["dateEstablished"];
-    logo: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["logo"];
-    description: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["descriptionShort"];
-    type: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["type"];
-    color: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["color"];
+    name: string;
+    slogan?: string;
+    dateEstablished?: any;
+    logo: ImageType;
+    description: string;
+    type?: string[];
+    color: string;
 }
 
 export function Info({ name, slogan, dateEstablished, logo, description, type, color }: Props) {
@@ -22,7 +22,7 @@ export function Info({ name, slogan, dateEstablished, logo, description, type, c
     return (
         <header className="p-6 shadow-md rounded-md bg-white">
             <div className="flex flex-col items-start mb-3 space-y-2">
-                <Image className="rounded-md" src={`${logo.data.attributes.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
+                <Image className="rounded-md" src={`${logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                 <h1 className="text-3xl font-bold text-gray-900">{name}</h1>
                 {slogan && <p className="text-xl font-bold text-gray-700">{slogan}</p>}
             </div>

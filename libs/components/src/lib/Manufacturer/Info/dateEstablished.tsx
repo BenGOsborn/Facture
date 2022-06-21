@@ -3,7 +3,7 @@ import { FindManufacturerQuery } from "@facture/types";
 import { Calendar } from "tabler-icons-react";
 
 interface Props {
-    dateEstablished: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["dateEstablished"];
+    dateEstablished?: any;
 }
 
 export function DateEstablished({ dateEstablished }: Props) {

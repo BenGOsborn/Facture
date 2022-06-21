@@ -1,3 +1,4 @@
+import { useQuery } from "@apollo/client";
 import { useSearch } from "@facture/hooks";
 import { SearchHit } from "@facture/types";
 
@@ -9,9 +10,8 @@ export function Landing() {
     const algoliaApiKey = process.env["NEXT_PUBLIC_ALGOLIA_API_KEY"];
     const algoliaIndexName = process.env["NEXT_PUBLIC_ALGOLIA_INDEX_NAME"];
 
-    const { query, setQuery, hits } = useSearch<SearchHit>(algoliaAppId, algoliaApiKey, algoliaIndexName);
-
-    // **** Looks like im also going to need some sort of pagination feature.... (how am I going to be able to do this ???)
+    const { query, setQuery, searchHits } = useSearch<SearchHit>(algoliaAppId, algoliaApiKey, algoliaIndexName);
+    const {loading, error, queryHits } = useQuery(findManufacturers, { variables: { query: query } });); 
 
     return (
         <div className="space-y-14">

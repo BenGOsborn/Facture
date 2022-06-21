@@ -1,6 +1,4 @@
-interface Image {
-    width: number;
-    height: number;
+export interface Image {
     url: string;
 }
 
