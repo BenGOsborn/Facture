@@ -13,6 +13,8 @@ export function Landing() {
     // const { query, setQuery, searchHits } = useSearch<SearchHit>(algoliaAppId, algoliaApiKey, algoliaIndexName);
     // const {loading, error, queryHits } = useQuery(findManufacturers, { variables: { query: query } }));
 
+    // **** We need some sort of global data store here where we will mainly use the algolia search results but if there is no query we will use the useQuery ref
+
     return (
         <div className="space-y-14">
             <Hero />
