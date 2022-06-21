@@ -1,11 +1,7 @@
-import { Hero } from "@facture/components";
+import { Landing } from "@facture/components";
 
 export function Index() {
-    return (
-        <>
-            <Hero />
-        </>
-    );
+    return <Landing />;
 }
 
 export default Index;
