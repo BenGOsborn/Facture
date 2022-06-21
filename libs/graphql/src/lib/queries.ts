@@ -13,8 +13,6 @@ export const findManufacturer = gql`
                         data {
                             attributes {
                                 url
-                                width
-                                height
                             }
                         }
                     }
@@ -22,8 +20,6 @@ export const findManufacturer = gql`
                         data {
                             attributes {
                                 url
-                                width
-                                height
                             }
                         }
                     }
@@ -31,8 +27,6 @@ export const findManufacturer = gql`
                         data {
                             attributes {
                                 url
-                                width
-                                height
                             }
                         }
                     }
@@ -82,12 +76,22 @@ export const findManufacturers = gql`
     }
 `;
 
-export const findAllManufacturers = gql`
-    query findManufacturers {
+export const findManufacturerCard = gql`
+    query findManufacturerCard {
         manufacturers {
             data {
                 attributes {
+                    name
+                    logo {
+                        data {
+                            attributes {
+                                url
+                            }
+                        }
+                    }
+                    descriptionShort
                     manufacturer
+                    slogan
                 }
             }
         }
