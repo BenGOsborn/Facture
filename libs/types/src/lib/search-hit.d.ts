@@ -8,5 +8,5 @@ export interface SearchHit {
     manufacturer: string;
     slogan?: string;
     type?: string[];
-    thumbnail?: Image;
+    thumbnail: Image;
 }

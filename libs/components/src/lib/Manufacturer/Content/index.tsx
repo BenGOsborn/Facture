@@ -8,7 +8,7 @@ interface Props {
 }
 
 export function Content({ description, thumbnail }: Props) {
-    const thumbnailWidth = 1920;
+    const thumbnailWidth = 2000;
     const thumbnailHeight = 500;
 
     return (
