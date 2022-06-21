@@ -96,6 +96,13 @@ export const findManufacturerCard = gql`
                         type
                     }
                     color
+                    thumbnail {
+                        data {
+                            attributes {
+                                url
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -14,7 +14,7 @@ export function Card({ hit }: Props) {
     return (
         <Link href={`/manufacturers/${hit.manufacturer}`}>
             <a>
-                <div className="p-3 hover:bg-gray-100 rounded-md space-y-3 mt-3">
+                <div className="p-6 hover:bg-gray-100 rounded-md shadow-md space-y-3">
                     <div className="flex items-center justify-between space-x-3">
                         <Image className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                         <div className="text-right">
@@ -23,9 +23,9 @@ export function Card({ hit }: Props) {
                         </div>
                     </div>
                     <p className="text-gray-700 text-lg line-clamp-3">{hit.descriptionShort}</p>
-                    <div className="flex justify-start flex-wrap">
+                    <div className="flex justify-center flex-wrap">
                         {hit.type &&
-                            hit.type.map((type, index) => (
+                            hit.type.slice(0, 4).map((type, index) => (
                                 <Badge color={hit.color} key={index}>
                                     {type}
                                 </Badge>
