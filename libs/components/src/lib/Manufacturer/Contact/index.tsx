@@ -1,15 +1,15 @@
-import { FindManufacturerQuery } from "@facture/types";
+import { Email as EmailType, PhoneNo, OpeningTime as OpeningTimeType, Social as SocialType } from "@facture/types";
 
-import Email from "./email";
-import OpeningTime from "./openingTime";
-import Phone from "./phone";
-import Social from "./social";
+import { Email } from "./email";
+import { OpeningTime } from "./openingTime";
+import { Phone } from "./phone";
+import { Social } from "./social";
 
 interface Props {
-    email: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["email"];
-    phone: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["phoneNo"];
-    openingTime: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["openingTime"];
-    social: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["social"];
+    email?: EmailType[];
+    phone?: PhoneNo[];
+    openingTime?: OpeningTimeType[];
+    social?: SocialType[];
 }
 
 export function Contact({ email, phone, openingTime, social }: Props) {

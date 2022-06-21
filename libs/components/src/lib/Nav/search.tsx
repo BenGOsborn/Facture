@@ -1,8 +1,8 @@
 import { useSearch } from "@facture/hooks";
 import { SearchHit } from "@facture/types";
 
-import SearchBar from "./searchBar";
-import SearchHits from "./searchHits";
+import { SearchBar } from "./searchBar";
+import { SearchHits } from "./searchHits";
 
 export function Search() {
     const algoliaAppId = process.env["NEXT_PUBLIC_ALGOLIA_APP_ID"];

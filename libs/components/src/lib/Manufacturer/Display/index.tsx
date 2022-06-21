@@ -2,7 +2,7 @@ import { FindManufacturerQuery } from "@facture/types";
 import { Photo } from "tabler-icons-react";
 
 import { Carousel } from "../../../";
-import DisplayCard from "./displayCard";
+import { DisplayCard } from "./displayCard";
 
 interface Props {
     display: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["display"];

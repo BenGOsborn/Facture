@@ -1,5 +1,4 @@
 import { getYearsFromDate } from "@facture/helpers";
-import { FindManufacturerQuery } from "@facture/types";
 import { Calendar } from "tabler-icons-react";
 
 interface Props {

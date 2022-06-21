@@ -1,9 +1,9 @@
-import { FindManufacturerQuery, Image as ImageType } from "@facture/types";
+import { Image as ImageType } from "@facture/types";
 
 import Image from "next/image";
 
-import Type from "./type";
-import DateEstablished from "./dateEstablished";
+import { Type } from "./type";
+import { DateEstablished } from "./dateEstablished";
 
 interface Props {
     name: string;

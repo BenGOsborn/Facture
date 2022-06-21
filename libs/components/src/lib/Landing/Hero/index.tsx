@@ -1,5 +1,5 @@
-import SearchBar from "./searchBar";
-import Title from "./title";
+import { SearchBar } from "./searchBar";
+import { Title } from "./title";
 
 interface Props {}
 

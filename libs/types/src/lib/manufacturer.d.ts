@@ -17,3 +17,8 @@ export interface PhoneNo {
     phoneNo: string;
     label: string;
 }
+
+export interface Social {
+    platform: string;
+    link: string;
+}

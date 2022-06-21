@@ -1,6 +1,4 @@
-import { FindManufacturerQuery } from "@facture/types";
-
-import Badge from "../../Badge";
+import { Badge } from "../../Badge";
 
 interface Props {
     type?: string[];

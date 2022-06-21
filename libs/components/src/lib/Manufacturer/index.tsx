@@ -1,10 +1,10 @@
 import { FindManufacturerQuery } from "@facture/types";
 
-import Contact from "./Contact";
-import Content from "./Content";
-import Display from "./Display";
-import Info from "./Info";
-import Location from "./Location";
+import { Contact } from "./Contact";
+import { Content } from "./Content";
+import { Display } from "./Display";
+import { Info } from "./Info";
+import { Location } from "./Location";
 
 interface Props {
     manufacturer: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"];

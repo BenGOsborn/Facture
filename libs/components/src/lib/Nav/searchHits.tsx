@@ -1,6 +1,6 @@
 import { SearchHit as SearchHitType } from "@facture/types";
 
-import SearchHit from "./searchHit";
+import { SearchHit } from "./searchHit";
 
 interface Props {
     hits: SearchHitType[];

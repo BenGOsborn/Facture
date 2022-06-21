@@ -1,5 +1,3 @@
-import { FindManufacturerQuery } from "@facture/types";
-
 interface Props {
     color: string;
     children: any;

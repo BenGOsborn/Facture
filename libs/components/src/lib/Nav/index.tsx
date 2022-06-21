@@ -1,5 +1,5 @@
-import Logo from "./logo";
-import Search from "./search";
+import { Logo } from "./logo";
+import { Search } from "./search";
 
 export function Nav() {
     return (

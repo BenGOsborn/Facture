@@ -1,5 +1,5 @@
+import { OpeningTime } from "@facture/types";
 import { formatTime, mappingToDay } from "@facture/helpers";
-import OpeningTime from "./openingTime";
 
 interface Props {
     openingTime: [string, OpeningTime[]];

@@ -1,10 +1,10 @@
-import { FindManufacturerQuery } from "@facture/types";
+import { Social } from "@facture/types";
 import { Share } from "tabler-icons-react";
 
-import SocialIcon from "./socialIcon";
+import { SocialIcon } from "./socialIcon";
 
 interface Props {
-    social: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["social"];
+    social?: Social[];
 }
 
 export function Social({ social }: Props) {
