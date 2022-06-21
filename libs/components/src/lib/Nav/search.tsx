@@ -5,9 +5,9 @@ import { SearchBar } from "./searchBar";
 import { SearchHits } from "./searchHits";
 
 export function Search() {
-    const algoliaAppId = process.env["NEXT_PUBLIC_ALGOLIA_APP_ID"];
-    const algoliaApiKey = process.env["NEXT_PUBLIC_ALGOLIA_API_KEY"];
-    const algoliaIndexName = process.env["NEXT_PUBLIC_ALGOLIA_INDEX_NAME"];
+    const algoliaAppId = process.env["NEXT_PUBLIC_ALGOLIA_APP_ID"] as string;
+    const algoliaApiKey = process.env["NEXT_PUBLIC_ALGOLIA_API_KEY"] as string;
+    const algoliaIndexName = process.env["NEXT_PUBLIC_ALGOLIA_INDEX_NAME"] as string;
 
     const { query, setQuery, hits } = useSearch<SearchHit>(algoliaAppId, algoliaApiKey, algoliaIndexName, 3);
 

@@ -1,7 +1,7 @@
 import { Search } from "tabler-icons-react";
 
 interface Props {
-    onChange: (value: string) => void;
+    onChange?: (value: string) => void;
 }
 
 export function SearchBar({ onChange }: Props) {
@@ -15,7 +15,7 @@ export function SearchBar({ onChange }: Props) {
                 type="text"
                 className="bg-gray-50 border-none font-medium text-xl rounded-md w-full"
                 placeholder="Search"
-                onChange={(e) => onChange(e.target.value)}
+                onChange={(e) => onChange && onChange(e.target.value)}
             />
         </div>
     );

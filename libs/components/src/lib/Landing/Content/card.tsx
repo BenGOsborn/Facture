@@ -20,14 +20,14 @@ export function Card({ hit }: Props) {
             <a>
                 <div className="rounded-md shadow-md hover:shadow-xl transition-shadow space-y-1">
                     <Image
-                        className="rounded-md"
+                        className="absolute rounded-md"
                         src={`${hit.thumbnail.url}?size=${thumbnailWidth}x${thumbnailHeight}`}
                         width={thumbnailWidth}
                         height={thumbnailHeight}
                     />
+                    <Image className="absolute rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                     <div className="p-6 space-y-3">
                         <div className="flex items-center justify-between space-x-3">
-                            <Image className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                             <div className="text-right">
                                 <p className="text-right text-2xl font-bold text-gray-900">{hit.name}</p>
                                 {hit.slogan && <p className="text-xl font-bold text-gray-700">{hit.slogan}</p>}
