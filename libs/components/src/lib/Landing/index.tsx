@@ -11,7 +11,7 @@ export function Landing() {
     const algoliaIndexName = process.env["NEXT_PUBLIC_ALGOLIA_INDEX_NAME"];
 
     const { query, setQuery, searchHits } = useSearch<SearchHit>(algoliaAppId, algoliaApiKey, algoliaIndexName);
-    const {loading, error, queryHits } = useQuery(findManufacturers, { variables: { query: query } });); 
+    const {loading, error, queryHits } = useQuery(findManufacturers, { variables: { query: query } })); 
 
     return (
         <div className="space-y-14">

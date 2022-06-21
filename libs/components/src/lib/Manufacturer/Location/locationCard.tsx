@@ -1,9 +1,9 @@
-import { FindManufacturerQuery } from "@facture/types";
+import { FindManufacturerQuery, Location } from "@facture/types";
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import { useMemo } from "react";
 
 interface Props {
-    location: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["location"][number];
+    location: Location;
     mapScriptLoaded: boolean;
 }
 

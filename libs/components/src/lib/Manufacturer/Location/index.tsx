@@ -1,4 +1,4 @@
-import { FindManufacturerQuery } from "@facture/types";
+import { Location } from "@facture/types";
 import { useLoadScript } from "@react-google-maps/api";
 import { MapPin } from "tabler-icons-react";
 
@@ -6,7 +6,7 @@ import { Carousel } from "../../../";
 import { LocationCard } from "./locationCard";
 
 interface Props {
-    location: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["location"];
+    location?: Location[];
 }
 
 export function Location({ location }: Props) {

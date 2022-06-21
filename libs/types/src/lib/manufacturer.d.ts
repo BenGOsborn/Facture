@@ -22,3 +22,10 @@ export interface Social {
     platform: string;
     link: string;
 }
+
+export interface Location {
+    latitude: number;
+    longitude: number;
+    address: string;
+    label: string;
+}

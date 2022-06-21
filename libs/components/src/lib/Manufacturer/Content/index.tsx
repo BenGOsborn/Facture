@@ -1,10 +1,10 @@
-import { FindManufacturerQuery } from "@facture/types";
+import { Image as ImageType } from "@facture/types";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 
 interface Props {
-    description: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["descriptionLong"];
-    thumbnail: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["thumbnail"];
+    description: string;
+    thumbnail: ImageType;
 }
 
 export function Content({ description, thumbnail }: Props) {
@@ -13,12 +13,7 @@ export function Content({ description, thumbnail }: Props) {
 
     return (
         <div className="shadow-md rounded-md bg-white">
-            <Image
-                className="rounded-md"
-                src={`${thumbnail.data.attributes.url}?size=${thumbnailWidth}x${thumbnailHeight}`}
-                width={thumbnailWidth}
-                height={thumbnailHeight}
-            />
+            <Image className="rounded-md" src={`${thumbnail.url}?size=${thumbnailWidth}x${thumbnailHeight}`} width={thumbnailWidth} height={thumbnailHeight} />
             <ReactMarkdown className="p-6 prose max-w-3xl">{description}</ReactMarkdown>
         </div>
     );

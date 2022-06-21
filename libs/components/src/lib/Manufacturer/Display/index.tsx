@@ -1,11 +1,11 @@
-import { FindManufacturerQuery } from "@facture/types";
+import { Image } from "@facture/types";
 import { Photo } from "tabler-icons-react";
 
 import { Carousel } from "../../../";
 import { DisplayCard } from "./displayCard";
 
 interface Props {
-    display: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["display"];
+    display?: Image[];
 }
 
 export function Display({ display }: Props) {
@@ -17,7 +17,7 @@ export function Display({ display }: Props) {
                     <h3 className="font-bold text-lg">Gallery</h3>
                 </div>
                 <Carousel
-                    element={display.data.map((data) => (
+                    element={display.map((data) => (
                         <DisplayCard display={data} />
                     ))}
                     shiftSize={1000}
