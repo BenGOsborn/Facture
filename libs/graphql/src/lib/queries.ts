@@ -81,3 +81,15 @@ export const findManufacturers = gql`
         }
     }
 `;
+
+export const findAllManufacturers = gql`
+    query findManufacturers {
+        manufacturers {
+            data {
+                attributes {
+                    manufacturer
+                }
+            }
+        }
+    }
+`;
