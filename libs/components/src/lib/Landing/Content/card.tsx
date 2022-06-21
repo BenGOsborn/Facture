@@ -1,7 +1,8 @@
 import { SearchHit } from "@facture/types";
 import Image from "next/image";
 import Link from "next/link";
-import Badge from "../../Badge";
+
+import { Type } from "./type";
 
 interface Props {
     hit: SearchHit;
@@ -17,7 +18,7 @@ export function Card({ hit }: Props) {
     return (
         <Link href={`/manufacturers/${hit.manufacturer}`}>
             <a>
-                <div className="rounded-md shadow-md">
+                <div className="rounded-md shadow-md space-y-1">
                     <Image
                         className="rounded-md"
                         src={`${hit.thumbnail.url}?size=${thumbnailWidth}x${thumbnailHeight}`}
@@ -33,14 +34,7 @@ export function Card({ hit }: Props) {
                             </div>
                         </div>
                         <p className="text-gray-700 text-lg line-clamp-3">{hit.descriptionShort}</p>
-                        <div className="flex justify-center flex-wrap">
-                            {hit.type &&
-                                hit.type.slice(0, 4).map((type, index) => (
-                                    <Badge color={hit.color} key={index}>
-                                        {type}
-                                    </Badge>
-                                ))}
-                        </div>
+                        <Type type={hit.type} color={hit.color} />
                     </div>
                 </div>
             </a>
