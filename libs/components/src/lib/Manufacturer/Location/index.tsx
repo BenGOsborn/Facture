@@ -10,7 +10,7 @@ interface Props {
 }
 
 export function Location({ location }: Props) {
-    const googleApiKey = process.env["NEXT_PUBLIC_GOOGLE_API_KEY"];
+    const googleApiKey = process.env["NEXT_PUBLIC_GOOGLE_API_KEY"] as string;
 
     const { isLoaded } = useLoadScript({ googleMapsApiKey: googleApiKey });
 

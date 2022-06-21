@@ -6,7 +6,7 @@ interface Props {
 }
 
 export function DateEstablished({ dateEstablished }: Props) {
-    if (DateEstablished)
+    if (dateEstablished)
         return (
             <div className="w-1/3 space-y-2">
                 <p className="font-bold text-gray-900">Established</p>

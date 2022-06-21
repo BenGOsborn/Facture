@@ -31,7 +31,7 @@ export function Info({ name, slogan, dateEstablished, logo, description, type, c
             </div>
             <div className="flex items-start justify-between space-x-10">
                 <DateEstablished dateEstablished={dateEstablished} />
-                <Type color={color} type={type.slice(0, 4)} />
+                <Type color={color} type={type} />
             </div>
         </header>
     );

@@ -1,49 +1,47 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
-import { fetchData, findManufacturer, findManufacturers } from "@facture/graphql";
-import { FindManufacturerQuery, FindManufacturersQuery } from "@facture/types";
-import { ManufacturerDisplay } from "@facture/components";
+import { fetchData, findManufacturer, findManufacturers, parseFindManufacturerQuery, parseFindManufacturersQuery } from "@facture/graphql";
+import { FindManufacturerQuery, FindManufacturersQuery, ManufacturerDisplay as ManufacturerDisplay } from "@facture/types";
+import { Manufacturer } from "@facture/components";
 
 interface Props {
-    manufacturer: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"];
+    manufacturer: ManufacturerDisplay;
 }
 
-export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
-    return <ManufacturerDisplay manufacturer={manufacturer} />;
+export const ManufacturerPage: NextPage<Props> = ({ manufacturer }) => {
+    return <Manufacturer manufacturer={manufacturer} />;
 };
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
-    const uri = process.env["NEXT_PUBLIC_API_ENDPOINT"];
-    const authToken = process.env["NEXT_PUBLIC_STRAPI_API_KEY"];
+    const uri = process.env["NEXT_PUBLIC_API_ENDPOINT"] as string;
+    const authToken = process.env["NEXT_PUBLIC_STRAPI_API_KEY"] as string;
 
-    const {
-        manufacturers: { data },
-    } = await fetchData<FindManufacturersQuery>(uri, authToken, { query: findManufacturers });
+    const data = await fetchData<FindManufacturersQuery>(uri, authToken, { query: findManufacturers });
+    const manufacturers = parseFindManufacturersQuery(data);
 
-    const paths = data.map((manufacturer) => {
+    if (!manufacturers) throw Error("Failed to find manufacturers");
+
+    const paths = manufacturers.map((manufacturer) => {
         return {
             params: {
-                slug: manufacturer.attributes.manufacturer,
+                slug: manufacturer.manufacturer,
             },
         };
     });
 
-    return { paths, fallback: false };
+    return { paths: paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-    const uri = process.env["NEXT_PUBLIC_API_ENDPOINT"];
-    const authToken = process.env["NEXT_PUBLIC_STRAPI_API_KEY"];
+    const uri = process.env["NEXT_PUBLIC_API_ENDPOINT"] as string;
+    const authToken = process.env["NEXT_PUBLIC_STRAPI_API_KEY"] as string;
 
-    const {
-        manufacturers: {
-            data: {
-                0: { attributes },
-            },
-        },
-    } = await fetchData<FindManufacturerQuery>(uri, authToken, { query: findManufacturer, variables: { manufacturer: params.slug } });
+    const data = await fetchData<FindManufacturerQuery>(uri, authToken, { query: findManufacturer, variables: { manufacturer: params?.slug } });
+    const manufacturer = parseFindManufacturerQuery(data);
 
-    return { props: { manufacturer: attributes } };
+    if (!manufacturer) throw Error("Failed to find manufacturer");
+
+    return { props: { manufacturer } };
 };
 
 export default Manufacturer;
