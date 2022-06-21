@@ -6,4 +6,5 @@ export interface SearchHit {
     descriptionShort: string;
     manufacturer: string;
     slogan?: string;
+    type?: string[];
 }

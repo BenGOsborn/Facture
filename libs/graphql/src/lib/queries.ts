@@ -92,6 +92,9 @@ export const findManufacturerCard = gql`
                     descriptionShort
                     manufacturer
                     slogan
+                    type {
+                        type
+                    }
                 }
             }
         }

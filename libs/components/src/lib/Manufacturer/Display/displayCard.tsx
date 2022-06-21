@@ -1,4 +1,4 @@
-import { FindManufacturerQuery, Image as ImageType } from "@facture/types";
+import { Image as ImageType } from "@facture/types";
 import Image from "next/image";
 
 interface Props {

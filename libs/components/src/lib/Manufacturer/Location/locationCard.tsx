@@ -1,4 +1,4 @@
-import { FindManufacturerQuery, Location } from "@facture/types";
+import { Location } from "@facture/types";
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import { useMemo } from "react";
 
