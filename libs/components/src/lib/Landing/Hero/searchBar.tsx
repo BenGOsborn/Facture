@@ -1,18 +1,23 @@
-import { motion } from "framer-motion";
+import { Search } from "tabler-icons-react";
 
-interface Props {}
+interface Props {
+    onChange: (value: string) => void;
+}
 
-export function SearchBar({}: Props) {
+export function SearchBar({ onChange }: Props) {
     return (
-        <h1 className="text-6xl sm:text-7xl font-extrabold tracking-tight text-gray-900">
-            Find A{" "}
-            <motion.span
-                animate={{ color: ["#dc2626", "#ea580c", "#ca8a04", "#16a34a", "#0284c7", "#4f46e5", "#7c3aed", "#c026d3", "#be123c"] }}
-                transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
-            >
-                Manufacturer
-            </motion.span>
-        </h1>
+        <div className="rounded-md bg-gray-50 border-2 border-gray-300 flex items-center space-x-3 text-gray-700 px-6 py-3 lg:w-3/5 mx-auto">
+            <label htmlFor="search-hero">
+                <Search />
+            </label>
+            <input
+                id="search-hero"
+                type="text"
+                className="bg-gray-50 border-none font-medium text-xl rounded-md w-full"
+                placeholder="Search"
+                onChange={(e) => onChange(e.target.value)}
+            />
+        </div>
     );
 }
 

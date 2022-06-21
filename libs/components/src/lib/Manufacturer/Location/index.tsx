@@ -17,9 +17,9 @@ export function Location({ location }: Props) {
     if (location)
         return (
             <div className="p-6 shadow-md rounded-md bg-white">
-                <div className="flex space-x-2 items-center mb-6">
-                    <MapPin color="#1f2937" />
-                    <h3 className="font-bold text-lg text-gray-800">Location</h3>
+                <div className="flex space-x-2 items-center mb-6 text-gray-800">
+                    <MapPin />
+                    <h3 className="font-bold text-lg">Location</h3>
                 </div>
                 <Carousel
                     element={location.map((data) => (

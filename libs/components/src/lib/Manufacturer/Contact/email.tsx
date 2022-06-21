@@ -10,9 +10,9 @@ export function Email({ email }: Props) {
     if (email)
         return (
             <div className="mb-3">
-                <div className="flex space-x-2 items-center mb-3">
-                    <Mail color="#1f2937" />
-                    <h3 className="font-bold text-lg text-gray-800">Email</h3>
+                <div className="flex space-x-2 items-center mb-3 text-gray-800">
+                    <Mail />
+                    <h3 className="font-bold text-lg ">Email</h3>
                 </div>
                 <ul>
                     {email.map((email, index) => {

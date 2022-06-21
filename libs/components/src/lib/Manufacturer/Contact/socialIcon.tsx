@@ -8,15 +8,13 @@ interface Props {
 }
 
 export function SocialIcon({ name, link }: Props) {
-    const color = "#1f2937";
-
     const out = {
-        website: <BrandChrome color={color} />,
-        facebook: <BrandFacebook color={color} />,
-        twitter: <BrandTwitter color={color} />,
-        linkedin: <BrandLinkedin color={color} />,
-        instagram: <BrandInstagram color={color} />,
-        youtube: <BrandYoutube color={color} />,
+        website: <BrandChrome />,
+        facebook: <BrandFacebook />,
+        twitter: <BrandTwitter />,
+        linkedin: <BrandLinkedin />,
+        instagram: <BrandInstagram />,
+        youtube: <BrandYoutube />,
     };
 
     return (
