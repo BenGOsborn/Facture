@@ -1,11 +1,11 @@
-import { FindManufacturerQuery } from "@facture/types";
+import { OpeningTime } from "@facture/types";
 import { groupOpeningTime } from "@facture/helpers";
 import { Clock } from "tabler-icons-react";
 
 import OpeningTimeIndividual from "./openingTimeIndividual";
 
 interface Props {
-    openingTime: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["openingTime"];
+    openingTime?: OpeningTime[];
 }
 
 export function OpeningTime({ openingTime }: Props) {

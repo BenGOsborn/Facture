@@ -1,9 +1,9 @@
-import { FindManufacturerQuery } from "@facture/types";
+import { FindManufacturerQuery, PhoneNo } from "@facture/types";
 
 import { PhoneCall } from "tabler-icons-react";
 
 interface Props {
-    phone: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["phoneNo"];
+    phone?: PhoneNo[];
 }
 
 export function Phone({ phone }: Props) {

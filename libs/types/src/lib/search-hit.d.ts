@@ -1,6 +1,4 @@
-export interface Image {
-    url: string;
-}
+import { Image } from "./manufacturer";
 
 export interface SearchHit {
     name: string;

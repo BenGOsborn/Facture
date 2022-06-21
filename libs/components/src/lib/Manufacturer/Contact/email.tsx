@@ -1,9 +1,9 @@
-import { FindManufacturerQuery } from "@facture/types";
+import { Email } from "@facture/types";
 
 import { Mail } from "tabler-icons-react";
 
 interface Props {
-    email: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["email"];
+    email?: Email[];
 }
 
 export function Email({ email }: Props) {

@@ -1,3 +1,5 @@
+import { OpeningTime } from "@facture/types";
+
 export function getYearsFromDate(date: Date) {
     return Math.floor((Date.now() - date.getTime()) / 3.154e10);
 }
@@ -27,8 +29,8 @@ export function formatTime(time: string) {
     return hours + ":" + minutesString + " " + ampm;
 }
 
-export function groupOpeningTime(openingTime: { day: number; openTime: any; closeTime: any }[]) {
-    const out: { [key: number]: { openTime: any; closeTime: any }[] } = {};
+export function groupOpeningTime(openingTime: OpeningTime[]) {
+    const out: { [key: number]: OpeningTime[] } = {};
 
     openingTime.forEach((time) => (out[time.day] ? out[time.day].push(time) : (out[time.day] = [time])));
 
