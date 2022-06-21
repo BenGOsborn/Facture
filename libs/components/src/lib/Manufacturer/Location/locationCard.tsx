@@ -1,20 +1,18 @@
 import { FindManufacturerQuery } from "@facture/types";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 import { useMemo } from "react";
 
 interface Props {
     location: FindManufacturerQuery["manufacturers"]["data"][number]["attributes"]["location"][number];
+    mapScriptLoaded: boolean;
 }
 
-export function LocationCard({ location }: Props) {
-    const googleApiKey = process.env["NEXT_PUBLIC_GOOGLE_API_KEY"];
-
-    const { isLoaded } = useLoadScript({ googleMapsApiKey: googleApiKey });
+export function LocationCard({ location, mapScriptLoaded }: Props) {
     const center = useMemo(() => ({ lat: location.latitude, lng: location.longitude }), []);
 
     const mapOptions: google.maps.MapOptions = { disableDefaultUI: true };
 
-    if (isLoaded)
+    if (mapScriptLoaded)
         return (
             <div className="space-y-3">
                 <GoogleMap zoom={12} center={center} mapContainerClassName="w-full h-96 rounded-md" options={mapOptions}>

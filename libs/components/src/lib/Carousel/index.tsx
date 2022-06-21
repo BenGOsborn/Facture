@@ -22,7 +22,7 @@ export function Carousel({ element, shiftSize }: Props) {
                             initial={{ x: position[0] }}
                             animate={{ x: 0 }}
                             exit={{ x: position[1] }}
-                            transition={{ type: "spring", duration: 0.15 }}
+                            transition={{ type: "spring", duration: 0.2 }}
                         >
                             {element[selected]}
                         </motion.div>
