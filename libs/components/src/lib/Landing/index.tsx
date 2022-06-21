@@ -6,7 +6,7 @@ import { DefaultContent } from "./Content";
 import { Hero } from "./Hero";
 
 export function Landing() {
-    const { data } = useQuery<FindManufacturerCardQuery>(findManufacturerCard);
+    const { loading, data } = useQuery<FindManufacturerCardQuery>(findManufacturerCard);
 
     return (
         <div className="space-y-14">
