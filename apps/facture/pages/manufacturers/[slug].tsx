@@ -33,9 +33,12 @@ export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
 };
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
+    const uri = process.env["NEXT_PUBLIC_API_ENDPOINT"];
+    const authToken = process.env["NEXT_PUBLIC_STRAPI_API_KEY"];
+
     const {
         manufacturers: { data },
-    } = await fetchData<FindManufacturersQuery>({ query: findManufacturers });
+    } = await fetchData<FindManufacturersQuery>(uri, authToken, { query: findManufacturers });
 
     const paths = data.map((manufacturer) => {
         return {
@@ -49,13 +52,16 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+    const uri = process.env["NEXT_PUBLIC_API_ENDPOINT"];
+    const authToken = process.env["NEXT_PUBLIC_STRAPI_API_KEY"];
+
     const {
         manufacturers: {
             data: {
                 0: { attributes },
             },
         },
-    } = await fetchData<FindManufacturerQuery>({ query: findManufacturer, variables: { manufacturer: params.slug } });
+    } = await fetchData<FindManufacturerQuery>(uri, authToken, { query: findManufacturer, variables: { manufacturer: params.slug } });
 
     return { props: { manufacturer: attributes } };
 };
