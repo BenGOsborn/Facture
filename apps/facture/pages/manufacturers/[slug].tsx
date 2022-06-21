@@ -10,8 +10,8 @@ interface Props {
 
 export const Manufacturer: NextPage<Props> = ({ manufacturer }) => {
     return (
-        <div className="flex flex-col xl:flex-row xl:space-x-14 space-y-7 xl:space-y-0 items-start">
-            <div className="space-y-7 xl:w-4/5">
+        <div className="flex flex-col lg:flex-row lg:space-x-14 space-y-7 lg:space-y-0 items-start">
+            <div className="space-y-7 lg:w-4/5">
                 <Info
                     name={manufacturer.name}
                     slogan={manufacturer.slogan}
