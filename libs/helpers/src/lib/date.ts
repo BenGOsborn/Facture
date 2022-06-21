@@ -1,4 +1,4 @@
-import { OpeningTimeDisplay, ComponentManufacturerEmail } from "@facture/types";
+import { OpeningTimeDisplay } from "@facture/types";
 
 export function getYearsFromDate(date: Date) {
     return Math.floor((Date.now() - date.getTime()) / 3.154e10);
