@@ -1,2 +1,2 @@
-export * from "./lib/graphql-generated.d";
-export * from "./lib/manufacturer.d";
+export * from "./lib/graphql-generated";
+export * from "./lib/manufacturer";
