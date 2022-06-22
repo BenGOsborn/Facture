@@ -105,6 +105,11 @@ export const findManufacturerCard = gql`
                     }
                 }
             }
+            meta {
+                pagination {
+                    pageCount
+                }
+            }
         }
     }
 `;

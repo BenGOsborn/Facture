@@ -13,6 +13,8 @@ export function useSearchMain<T>(algoliaAppId: string, algoliaApiKey: string, al
         variables: { pageSize, page: queryPage },
     });
 
+    // **** So now we can also get the page count from this and then check what page we are up to compared to the total number of pages
+
     const [query, setQuery] = useState<string>("");
 
     // **** I really do need some way of dealing with the page size and limit of course
