@@ -1,11 +1,11 @@
-import { Image } from "@facture/types";
+import { ImageDisplay } from "@facture/types";
 import { Photo } from "tabler-icons-react";
 
 import { Carousel } from "../../../";
 import { DisplayCard } from "./displayCard";
 
 interface Props {
-    display?: Image[];
+    display?: ImageDisplay[];
 }
 
 export function Display({ display }: Props) {

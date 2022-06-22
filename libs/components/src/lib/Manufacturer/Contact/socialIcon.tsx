@@ -8,7 +8,7 @@ interface Props {
 }
 
 export function SocialIcon({ name, link }: Props) {
-    const out = {
+    const out: { [key: string]: JSX.Element } = {
         website: <BrandChrome />,
         facebook: <BrandFacebook />,
         twitter: <BrandTwitter />,

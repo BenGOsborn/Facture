@@ -1,8 +1,8 @@
-import { Image as ImageType } from "@facture/types";
+import { ImageDisplay } from "@facture/types";
 import Image from "next/image";
 
 interface Props {
-    display: ImageType;
+    display: ImageDisplay;
 }
 
 export function DisplayCard({ display }: Props) {

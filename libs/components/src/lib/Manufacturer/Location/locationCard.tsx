@@ -1,9 +1,9 @@
-import { Location } from "@facture/types";
+import { LocationDisplay } from "@facture/types";
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import { useMemo } from "react";
 
 interface Props {
-    location: Location;
+    location: LocationDisplay;
     mapScriptLoaded: boolean;
 }
 

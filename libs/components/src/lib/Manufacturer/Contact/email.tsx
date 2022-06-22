@@ -1,9 +1,9 @@
-import { Email } from "@facture/types";
+import { EmailDisplay } from "@facture/types";
 
 import { Mail } from "tabler-icons-react";
 
 interface Props {
-    email?: Email[];
+    email?: EmailDisplay[];
 }
 
 export function Email({ email }: Props) {

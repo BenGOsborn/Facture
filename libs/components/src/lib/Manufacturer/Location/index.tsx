@@ -1,4 +1,4 @@
-import { Location } from "@facture/types";
+import { LocationDisplay } from "@facture/types";
 import { useLoadScript } from "@react-google-maps/api";
 import { MapPin } from "tabler-icons-react";
 
@@ -6,7 +6,7 @@ import { Carousel } from "../../../";
 import { LocationCard } from "./locationCard";
 
 interface Props {
-    location?: Location[];
+    location?: LocationDisplay[];
 }
 
 export function Location({ location }: Props) {

@@ -1,8 +1,8 @@
-import { OpeningTime } from "@facture/types";
+import { OpeningTimeDisplay } from "@facture/types";
 import { formatTime, mappingToDay } from "@facture/helpers";
 
 interface Props {
-    openingTime: [string, OpeningTime[]];
+    openingTime: [string, OpeningTimeDisplay[]];
 }
 
 export function OpeningTimeIndividual({ openingTime }: Props) {

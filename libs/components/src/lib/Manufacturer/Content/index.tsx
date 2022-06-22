@@ -1,10 +1,10 @@
-import { Image as ImageType } from "@facture/types";
+import { ImageDisplay } from "@facture/types";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 
 interface Props {
     description: string;
-    thumbnail: ImageType;
+    thumbnail: ImageDisplay;
 }
 
 export function Content({ description, thumbnail }: Props) {

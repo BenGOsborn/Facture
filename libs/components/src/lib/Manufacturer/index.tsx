@@ -1,4 +1,4 @@
-import { FindManufacturerQuery, ManufacturerDisplay } from "@facture/types";
+import { ManufacturerDisplay } from "@facture/types";
 
 import { Contact } from "./Contact";
 import { Content } from "./Content";

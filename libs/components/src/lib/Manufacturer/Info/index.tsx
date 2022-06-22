@@ -1,4 +1,4 @@
-import { Image as ImageType } from "@facture/types";
+import { ImageDisplay } from "@facture/types";
 
 import Image from "next/image";
 
@@ -9,7 +9,7 @@ interface Props {
     name: string;
     slogan?: string;
     dateEstablished?: any;
-    logo: ImageType;
+    logo: ImageDisplay;
     description: string;
     type?: string[];
     color: string;

@@ -1,10 +1,10 @@
-import { Social } from "@facture/types";
+import { SocialDisplay } from "@facture/types";
 import { Share } from "tabler-icons-react";
 
 import { SocialIcon } from "./socialIcon";
 
 interface Props {
-    social?: Social[];
+    social?: SocialDisplay[];
 }
 
 export function Social({ social }: Props) {

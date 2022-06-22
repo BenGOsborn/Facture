@@ -1,4 +1,4 @@
-import { Email as EmailType, PhoneNo, OpeningTime as OpeningTimeType, Social as SocialType } from "@facture/types";
+import { EmailDisplay, PhoneNoDisplay, OpeningTimeDisplay, SocialDisplay } from "@facture/types";
 
 import { Email } from "./email";
 import { OpeningTime } from "./openingTime";
@@ -6,10 +6,10 @@ import { Phone } from "./phone";
 import { Social } from "./social";
 
 interface Props {
-    email?: EmailType[];
-    phone?: PhoneNo[];
-    openingTime?: OpeningTimeType[];
-    social?: SocialType[];
+    email?: EmailDisplay[];
+    phone?: PhoneNoDisplay[];
+    openingTime?: OpeningTimeDisplay[];
+    social?: SocialDisplay[];
 }
 
 export function Contact({ email, phone, openingTime, social }: Props) {

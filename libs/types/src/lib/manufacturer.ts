@@ -30,17 +30,6 @@ export interface LocationDisplay {
     label: string;
 }
 
-export interface SearchHitDisplay {
-    name: string;
-    color: string;
-    logo: ImageDisplay;
-    descriptionShort: string;
-    manufacturer: string;
-    slogan?: string;
-    type?: string[];
-    thumbnail: ImageDisplay;
-}
-
 export interface ManufacturerDisplay {
     name: string;
     slogan?: string;
