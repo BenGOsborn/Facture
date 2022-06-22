@@ -9,11 +9,13 @@ export function useSearchMain(algoliaAppId: string, algoliaApiKey: string, algol
     const index = searchClient.initIndex(algoliaIndexName);
 
     const [queryData, setQueryData] = useState<SearchHit[] | null>(null);
-
-    const [searchQuery, setSearchQuery] = useState<string>("");
-
     const [queryPageCount, setQueryPageCount] = useState<number>(-1);
     const [queryCurrentPage, setQueryCurrentPage] = useState<number>(1);
+
+    const [searchQuery, setSearchQuery] = useState<string>("");
+    const [searchData, setSearchData] = useState<SearchHit[] | null>(null);
+    const [searchPageCount, setSearchPageCount] = useState<number>(-1);
+    const [searchCurrentPage, setSearchCurrentPage] = useState<number>(0);
 
     const { data: rawQueryData, fetchMore } = useQuery<FindManufacturerCardQuery, FindManufacturerCardQueryVariables>(findManufacturerCard, {
         variables: { pageSize, page: 1 },
@@ -39,10 +41,14 @@ export function useSearchMain(algoliaAppId: string, algoliaApiKey: string, algol
         }
     }, [rawQueryData]);
 
-    // **** It seems that we potentially need two sort of queries where we will update when the page changes as well as when the query changes ???
-    // useMemo(() => (query === "" ? setHits([]) : index.search(query, { hitsPerPage: pageSize, page: 1 }).then((data) => setHits(data.hits as any))), [query]);
-
-    // **** We need some way of switching the state from the queryData over to the searchData
+    useMemo(() => {
+        if (searchQuery === "") setSearchData(null);
+        else
+            index.search(searchQuery, { hitsPerPage: pageSize, page: searchCurrentPage }).then((data) => {
+                setSearchPageCount(data.nbPages);
+                setSearchData(data.hits as any);
+            });
+    }, [searchQuery]);
 
     return { data: queryData, loadMore: queryCurrentPage < queryPageCount ? loadMore : null, query: searchQuery, setQuery: setSearchQuery };
 }
