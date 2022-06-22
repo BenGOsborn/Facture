@@ -7,9 +7,9 @@ interface Props {
 
 export function Type({ type, color }: Props) {
     return (
-        <div className="flex justify-center flex-wrap">
+        <div className="flex justify-between items-center flex-wrap">
             {type &&
-                type.slice(0, 3).map((type, index) => (
+                type.slice(0, 4).map((type, index) => (
                     <Badge color={color} key={index}>
                         {type}
                     </Badge>

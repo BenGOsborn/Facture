@@ -34,4 +34,4 @@ export function Manufacturer({ manufacturer }: Props) {
     );
 }
 
-export default ManufacturerDisplay;
+export default Manufacturer;

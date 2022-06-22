@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { findManufacturerCard } from "@facture/graphql";
+import { findManufacturerCard, parseFindManufacturerCardQuery } from "@facture/graphql";
 import { useSearch } from "@facture/hooks";
 import { FindManufacturerCardQuery, SearchHit } from "@facture/types";
 
@@ -14,10 +14,13 @@ export function Landing() {
     const { error, loading, data } = useQuery<FindManufacturerCardQuery>(findManufacturerCard);
     const { query, setQuery, hits } = useSearch<SearchHit>(algoliaAppId, algoliaApiKey, algoliaIndexName);
 
+    let manufacturers;
+    if (data) manufacturers = parseFindManufacturerCardQuery(data);
+
     return (
         <div className="space-y-14">
             <Hero onChange={setQuery} />
-            <Content data={data} />
+            {manufacturers && <Content data={manufacturers} />}
         </div>
     );
 }

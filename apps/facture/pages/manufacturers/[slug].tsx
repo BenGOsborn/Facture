@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 import { fetchData, findManufacturer, findManufacturers, parseFindManufacturerQuery, parseFindManufacturersQuery } from "@facture/graphql";
-import { FindManufacturerQuery, FindManufacturersQuery, ManufacturerDisplay as ManufacturerDisplay } from "@facture/types";
+import { FindManufacturerQuery, FindManufacturersQuery, ManufacturerDisplay } from "@facture/types";
 import { Manufacturer } from "@facture/components";
 
 interface Props {
@@ -44,4 +44,4 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     return { props: { manufacturer } };
 };
 
-export default Manufacturer;
+export default ManufacturerPage;
