@@ -5,11 +5,11 @@ import { Clock } from "tabler-icons-react";
 import { OpeningTimeIndividual } from "./openingTimeIndividual";
 
 interface Props {
-    openingTime?: OpeningTimeDisplay[];
+    openingTime: OpeningTimeDisplay[];
 }
 
 export function OpeningTime({ openingTime }: Props) {
-    if (openingTime)
+    if (openingTime.length > 0)
         return (
             <div className="mb-3">
                 <div className="flex space-x-2 items-center mb-3 text-gray-800">

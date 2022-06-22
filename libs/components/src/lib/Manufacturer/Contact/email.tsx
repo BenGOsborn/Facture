@@ -3,11 +3,11 @@ import { EmailDisplay } from "@facture/types";
 import { Mail } from "tabler-icons-react";
 
 interface Props {
-    email?: EmailDisplay[];
+    email: EmailDisplay[];
 }
 
 export function Email({ email }: Props) {
-    if (email)
+    if (email.length > 0)
         return (
             <div className="mb-3">
                 <div className="flex space-x-2 items-center mb-3 text-gray-800">

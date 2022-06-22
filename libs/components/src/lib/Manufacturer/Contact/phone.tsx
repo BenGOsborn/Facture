@@ -2,11 +2,11 @@ import { PhoneNoDisplay } from "@facture/types";
 import { PhoneCall } from "tabler-icons-react";
 
 interface Props {
-    phone?: PhoneNoDisplay[];
+    phone: PhoneNoDisplay[];
 }
 
 export function Phone({ phone }: Props) {
-    if (phone)
+    if (phone.length > 0)
         return (
             <div className="mb-3">
                 <div className="flex space-x-2 items-center mb-3">

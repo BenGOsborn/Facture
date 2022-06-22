@@ -11,7 +11,7 @@ interface Props {
     dateEstablished?: any;
     logo: ImageDisplay;
     description: string;
-    type?: string[];
+    type: string[];
     color: string;
 }
 

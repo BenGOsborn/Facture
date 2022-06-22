@@ -4,11 +4,11 @@ import { Share } from "tabler-icons-react";
 import { SocialIcon } from "./socialIcon";
 
 interface Props {
-    social?: SocialDisplay[];
+    social: SocialDisplay[];
 }
 
 export function Social({ social }: Props) {
-    if (social)
+    if (social.length > 0)
         return (
             <div className="border-t-2 pt-3 mt-3">
                 <div className="flex space-x-2 items-center mb-3 text-gray-800">

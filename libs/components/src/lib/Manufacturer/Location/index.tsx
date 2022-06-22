@@ -6,7 +6,7 @@ import { Carousel } from "../../../";
 import { LocationCard } from "./locationCard";
 
 interface Props {
-    location?: LocationDisplay[];
+    location: LocationDisplay[];
 }
 
 export function Location({ location }: Props) {
@@ -14,7 +14,7 @@ export function Location({ location }: Props) {
 
     const { isLoaded } = useLoadScript({ googleMapsApiKey: googleApiKey });
 
-    if (location)
+    if (location.length > 0)
         return (
             <div className="p-6 shadow-md rounded-md bg-white">
                 <div className="flex space-x-2 items-center mb-6 text-gray-800">

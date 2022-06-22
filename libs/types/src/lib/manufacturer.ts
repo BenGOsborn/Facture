@@ -36,14 +36,14 @@ export interface ManufacturerDisplay {
     dateEstablished?: any;
     logo: ImageDisplay;
     descriptionShort: string;
-    type?: string[];
+    type: string[];
     color: string;
-    email?: EmailDisplay[];
-    phoneNo?: PhoneNoDisplay[];
-    openingTime?: OpeningTimeDisplay[];
-    social?: SocialDisplay[];
-    location?: LocationDisplay[];
+    email: EmailDisplay[];
+    phoneNo: PhoneNoDisplay[];
+    openingTime: OpeningTimeDisplay[];
+    social: SocialDisplay[];
+    location: LocationDisplay[];
     descriptionLong: string;
     thumbnail: ImageDisplay;
-    display?: ImageDisplay[];
+    display: ImageDisplay[];
 }

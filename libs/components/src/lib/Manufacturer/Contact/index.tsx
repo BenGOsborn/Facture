@@ -6,10 +6,10 @@ import { Phone } from "./phone";
 import { Social } from "./social";
 
 interface Props {
-    email?: EmailDisplay[];
-    phone?: PhoneNoDisplay[];
-    openingTime?: OpeningTimeDisplay[];
-    social?: SocialDisplay[];
+    email: EmailDisplay[];
+    phone: PhoneNoDisplay[];
+    openingTime: OpeningTimeDisplay[];
+    social: SocialDisplay[];
 }
 
 export function Contact({ email, phone, openingTime, social }: Props) {

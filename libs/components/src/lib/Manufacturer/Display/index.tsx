@@ -5,11 +5,11 @@ import { Carousel } from "../../../";
 import { DisplayCard } from "./displayCard";
 
 interface Props {
-    display?: ImageDisplay[];
+    display: ImageDisplay[];
 }
 
 export function Display({ display }: Props) {
-    if (display)
+    if (display.length > 0)
         return (
             <div className="shadow-md rounded-md p-6 bg-white">
                 <div className="flex space-x-2 items-center mb-6 text-gray-800">
