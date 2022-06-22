@@ -14,7 +14,7 @@ export function Search() {
     return (
         <div className="relative">
             <SearchBar value={query} onChange={(query) => setQuery(query)} />
-            <SearchHits hits={hits} onClick={() => setQuery("")} />
+            {query !== "" && <SearchHits hits={hits} onClick={() => setQuery("")} />}
         </div>
     );
 }
