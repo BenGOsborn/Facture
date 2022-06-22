@@ -1,33 +1,43 @@
 import { useQuery } from "@apollo/client";
-import { FindManufacturerCardQuery, FindManufacturerCardQueryVariables } from "@facture/types";
+import { FindManufacturerCardQuery, FindManufacturerCardQueryVariables, SearchHit } from "@facture/types";
 import { findManufacturerCard, parseFindManufacturerCardQuery } from "@facture/graphql";
 import algoliasearch from "algoliasearch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export function useSearchMain<T>(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, pageSize: number) {
-    const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
-    const index = searchClient.initIndex(algoliaIndexName);
+export function useSearchMain(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, pageSize: number) {
+    // const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
+    // const index = searchClient.initIndex(algoliaIndexName);
 
-    const [queryPage, setQueryPage] = useState<number>(1);
-    const { error, loading, data, fetchMore } = useQuery<FindManufacturerCardQuery, FindManufacturerCardQueryVariables>(findManufacturerCard, {
-        variables: { pageSize, page: queryPage },
+    const [data, setData] = useState<SearchHit[] | null>(null);
+
+    const [pageCount, setPageCount] = useState<number>(-1);
+    const [currentPage, setCurrentPage] = useState<number>(1);
+
+    const { data: queryData, fetchMore } = useQuery<FindManufacturerCardQuery, FindManufacturerCardQueryVariables>(findManufacturerCard, {
+        variables: { pageSize, page: 1 },
     });
 
-    // **** So now we can also get the page count from this and then check what page we are up to compared to the total number of pages
+    const loadMore = () => setCurrentPage((page) => page + 1);
 
-    const [query, setQuery] = useState<string>("");
+    useEffect(() => {
+        if (currentPage > 1)
+            fetchMore({ variables: { pageSize, page: currentPage } }).then(({ data }) => {
+                const parsed = parseFindManufacturerCardQuery(data);
+                if (parsed) setData((prev) => (prev ? [...prev, ...parsed] : parsed));
+            });
+    }, [currentPage]);
 
-    // **** I really do need some way of dealing with the page size and limit of course
+    useEffect(() => {
+        if (queryData) {
+            const parsed = parseFindManufacturerCardQuery(queryData);
+            setData(parsed);
 
-    let manufacturers;
-    let pageCount;
-    if (data) {
-        manufacturers = parseFindManufacturerCardQuery(data);
-        pageCount = data.manufacturers?.meta.pagination.pageCount;
-        console.log(pageCount);
-    }
+            const pageCount = queryData.manufacturers?.meta.pagination.pageCount;
+            if (pageCount) setPageCount(pageCount);
+        }
+    }, [queryData]);
 
-    return { data: manufacturers, setQuery };
+    return { data, loadMore: currentPage < pageCount ? loadMore : null };
 }
 
 export default useSearchMain;

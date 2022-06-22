@@ -1,6 +1,4 @@
-import { parseFindManufacturerCardQuery } from "@facture/graphql";
 import { useSearchMain } from "@facture/hooks";
-import { SearchHit } from "@facture/types";
 
 import { Content } from "./Content";
 import { Hero } from "./Hero";
@@ -10,12 +8,17 @@ export function Landing() {
     const algoliaApiKey = process.env["NEXT_PUBLIC_ALGOLIA_API_KEY"] as string;
     const algoliaIndexName = process.env["NEXT_PUBLIC_ALGOLIA_INDEX_NAME"] as string;
 
-    const { data, setQuery } = useSearchMain<SearchHit>(algoliaAppId, algoliaApiKey, algoliaIndexName, 10);
+    const { data, loadMore } = useSearchMain(algoliaAppId, algoliaApiKey, algoliaIndexName, 1);
 
     return (
-        <div className="space-y-14">
-            <Hero onChange={setQuery} />
+        <div className="space-y-14 flex flex-col items-center">
+            <Hero onChange={console.log} />
             {data && <Content data={data} />}
+            {loadMore && (
+                <button onClick={loadMore} className="px-6 py-4 bg-gray-900 shadow-md rounded-md text-white font-bold">
+                    Load More
+                </button>
+            )}
         </div>
     );
 }

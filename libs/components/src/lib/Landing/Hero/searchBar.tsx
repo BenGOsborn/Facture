@@ -6,7 +6,7 @@ interface Props {
 
 export function SearchBar({ onChange }: Props) {
     return (
-        <div className="rounded-md bg-gray-50 border-2 border-gray-300 flex items-center space-x-3 text-gray-700 px-6 py-3 w-full xl:w-3/5 mx-auto">
+        <div className="rounded-md bg-gray-50 border-2 border-gray-300 flex items-center space-x-3 text-gray-700 px-6 py-3 w-full">
             <label htmlFor="search-hero">
                 <Search />
             </label>
