@@ -15,7 +15,7 @@ export function Landing() {
             <Hero onChange={console.log} />
             {data && <Content data={data} />}
             {loadMore && (
-                <button onClick={loadMore} className="px-6 py-4 bg-gray-900 shadow-md rounded-md text-white font-bold">
+                <button onClick={loadMore} className="px-6 py-4 bg-gray-800 hover:bg-gray-900 transition-colors shadow-md rounded-md text-white font-bold">
                     Load More
                 </button>
             )}
