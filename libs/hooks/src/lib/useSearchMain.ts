@@ -20,7 +20,12 @@ export function useSearchMain<T>(algoliaAppId: string, algoliaApiKey: string, al
     // **** I really do need some way of dealing with the page size and limit of course
 
     let manufacturers;
-    if (data) manufacturers = parseFindManufacturerCardQuery(data);
+    let pageCount;
+    if (data) {
+        manufacturers = parseFindManufacturerCardQuery(data);
+        pageCount = data.manufacturers?.meta.pagination.pageCount;
+        console.log(pageCount);
+    }
 
     return { data: manufacturers, setQuery };
 }
