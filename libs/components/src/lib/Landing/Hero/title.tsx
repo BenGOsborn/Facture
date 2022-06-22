@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 
-interface Props {}
-
-export function Title({}: Props) {
+export function Title() {
     return (
         <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-gray-900">
             Find A{" "}

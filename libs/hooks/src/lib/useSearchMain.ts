@@ -2,42 +2,49 @@ import { useQuery } from "@apollo/client";
 import { FindManufacturerCardQuery, FindManufacturerCardQueryVariables, SearchHit } from "@facture/types";
 import { findManufacturerCard, parseFindManufacturerCardQuery } from "@facture/graphql";
 import algoliasearch from "algoliasearch";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export function useSearchMain(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, pageSize: number) {
-    // const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
-    // const index = searchClient.initIndex(algoliaIndexName);
+    const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
+    const index = searchClient.initIndex(algoliaIndexName);
 
-    const [data, setData] = useState<SearchHit[] | null>(null);
+    const [queryData, setQueryData] = useState<SearchHit[] | null>(null);
 
-    const [pageCount, setPageCount] = useState<number>(-1);
-    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [searchQuery, setSearchQuery] = useState<string>("");
 
-    const { data: queryData, fetchMore } = useQuery<FindManufacturerCardQuery, FindManufacturerCardQueryVariables>(findManufacturerCard, {
+    const [queryPageCount, setQueryPageCount] = useState<number>(-1);
+    const [queryCurrentPage, setQueryCurrentPage] = useState<number>(1);
+
+    const { data: rawQueryData, fetchMore } = useQuery<FindManufacturerCardQuery, FindManufacturerCardQueryVariables>(findManufacturerCard, {
         variables: { pageSize, page: 1 },
     });
 
-    const loadMore = () => setCurrentPage((page) => page + 1);
+    const loadMore = () => setQueryCurrentPage((page) => page + 1);
 
     useEffect(() => {
-        if (currentPage > 1)
-            fetchMore({ variables: { pageSize, page: currentPage } }).then(({ data }) => {
+        if (queryCurrentPage > 1)
+            fetchMore({ variables: { pageSize, page: queryCurrentPage } }).then(({ data }) => {
                 const parsed = parseFindManufacturerCardQuery(data);
-                if (parsed) setData((prev) => (prev ? [...prev, ...parsed] : parsed));
+                if (parsed) setQueryData((prev) => (prev ? [...prev, ...parsed] : parsed));
             });
-    }, [currentPage]);
+    }, [queryCurrentPage]);
 
     useEffect(() => {
-        if (queryData) {
-            const parsed = parseFindManufacturerCardQuery(queryData);
-            setData(parsed);
+        if (rawQueryData) {
+            const parsed = parseFindManufacturerCardQuery(rawQueryData);
+            setQueryData(parsed);
 
-            const pageCount = queryData.manufacturers?.meta.pagination.pageCount;
-            if (pageCount) setPageCount(pageCount);
+            const pageCount = rawQueryData.manufacturers?.meta.pagination.pageCount;
+            if (pageCount) setQueryPageCount(pageCount);
         }
-    }, [queryData]);
+    }, [rawQueryData]);
 
-    return { data, loadMore: currentPage < pageCount ? loadMore : null };
+    // **** It seems that we potentially need two sort of queries where we will update when the page changes as well as when the query changes ???
+    // useMemo(() => (query === "" ? setHits([]) : index.search(query, { hitsPerPage: pageSize, page: 1 }).then((data) => setHits(data.hits as any))), [query]);
+
+    // **** We need some way of switching the state from the queryData over to the searchData
+
+    return { data: queryData, loadMore: queryCurrentPage < queryPageCount ? loadMore : null, query: searchQuery, setQuery: setSearchQuery };
 }
 
 export default useSearchMain;

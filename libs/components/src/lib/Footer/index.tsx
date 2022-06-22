@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { BrandLinkedin } from "tabler-icons-react";
 
-interface Props {}
-
-export function Footer({}: Props) {
+export function Footer() {
     return (
         <footer className="p-6 pt-12 mt-14 shadow-md bg-gray-800">
             <div className="w-4/5 mx-auto flex flex-col space-y-6 text-center">
