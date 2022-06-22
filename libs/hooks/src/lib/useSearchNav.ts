@@ -1,7 +1,7 @@
 import algoliasearch from "algoliasearch";
 import { useMemo, useState } from "react";
 
-export function useSearch<T>(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, max?: number) {
+export function useSearchNav<T>(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, max?: number) {
     const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
     const index = searchClient.initIndex(algoliaIndexName);
 
@@ -13,4 +13,4 @@ export function useSearch<T>(algoliaAppId: string, algoliaApiKey: string, algoli
     return { query, setQuery, hits };
 }
 
-export default useSearch;
+export default useSearchNav;
