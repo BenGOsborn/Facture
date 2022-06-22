@@ -1,4 +1,3 @@
-import { parseFindManufacturerCardQuery } from "@facture/graphql";
 import { SearchHit } from "@facture/types";
 
 import { Card } from "./card";
