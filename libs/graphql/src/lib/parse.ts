@@ -58,3 +58,21 @@ export function parseFindManufacturerQuery(data: FindManufacturerQuery) {
         return null;
     }
 }
+
+export function parseAlgoliaSearchHits(data: any) {
+    const out: SearchHit[] = data.map(
+        (hit) =>
+            ({
+                color: hit.color,
+                descriptionShort: hit.descriptionShort,
+                logo: hit.logo,
+                manufacturer: hit.manufacturer,
+                name: hit.name,
+                thumbnail: hit.thumbnail,
+                type: hit.type.map((type) => type.type),
+                slogan: hit.slogan,
+            } as SearchHit)
+    );
+
+    return out;
+}
