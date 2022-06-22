@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { FindManufacturerCardQuery, FindManufacturerCardQueryVariables, SearchHit } from "@facture/types";
 import { findManufacturerCard, parseAlgoliaSearchHits, parseFindManufacturerCardQuery } from "@facture/graphql";
 import algoliasearch from "algoliasearch";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export function useSearchMain(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, pageSize: number) {
     const [queryData, setQueryData] = useState<SearchHit[] | null>(null);
@@ -44,9 +44,8 @@ export function useSearchMain(algoliaAppId: string, algoliaApiKey: string, algol
     const loadMoreSearch = () => setSearchCurrentPage((page) => page + 1);
 
     useEffect(() => {
-        if (searchQuery === "") {
-            setSearchData(null);
-        } else
+        if (searchQuery === "") setSearchData(null);
+        else
             index.search(searchQuery, { hitsPerPage: pageSize, page: 0 }).then((data) => {
                 setSearchPageCount(data.nbPages);
                 setSearchData(parseAlgoliaSearchHits(data.hits));
