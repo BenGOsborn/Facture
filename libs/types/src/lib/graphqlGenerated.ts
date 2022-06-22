@@ -1140,7 +1140,10 @@ export type FindManufacturersQuery = {
     } | null;
 };
 
-export type FindManufacturerCardQueryVariables = Exact<{ [key: string]: never }>;
+export type FindManufacturerCardQueryVariables = Exact<{
+    pageSize: Scalars["Int"];
+    page: Scalars["Int"];
+}>;
 
 export type FindManufacturerCardQuery = {
     __typename?: "Query";

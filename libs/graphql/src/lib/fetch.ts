@@ -1,7 +1,7 @@
 import { ApolloClient, createHttpLink, InMemoryCache, OperationVariables, QueryOptions } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-export async function fetchData<T>(uri: string, authToken: string, queryOptions: QueryOptions<OperationVariables, T>) {
+export async function fetchData<T, V extends OperationVariables = OperationVariables>(uri: string, authToken: string, queryOptions: QueryOptions<V, T>) {
     const httpLink = createHttpLink({ uri });
 
     const authLink = setContext((_, { headers }) => {

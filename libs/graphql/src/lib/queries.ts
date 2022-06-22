@@ -77,8 +77,8 @@ export const findManufacturers = gql`
 `;
 
 export const findManufacturerCard = gql`
-    query findManufacturerCard {
-        manufacturers {
+    query findManufacturerCard($pageSize: Int!, $page: Int!) {
+        manufacturers(pagination: { pageSize: $pageSize, page: $page }) {
             data {
                 attributes {
                     name

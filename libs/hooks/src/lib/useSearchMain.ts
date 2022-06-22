@@ -4,13 +4,17 @@ import { findManufacturerCard, parseFindManufacturerCardQuery } from "@facture/g
 import algoliasearch from "algoliasearch";
 import { useState } from "react";
 
-export function useSearchMain<T>(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string) {
+export function useSearchMain<T>(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, pageSize: number) {
     const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
     const index = searchClient.initIndex(algoliaIndexName);
 
+    const [page, setPage] = useState<number>(1);
+
     const [query, setQuery] = useState<string>("");
 
-    const { error, loading, data } = useQuery<FindManufacturerCardQuery>(findManufacturerCard);
+    // **** I really do need some way of dealing with the page size and limit of course
+
+    const { error, loading, data, fetchMore } = useQuery<FindManufacturerCardQuery>(findManufacturerCard);
 
     let manufacturers;
     if (data) manufacturers = parseFindManufacturerCardQuery(data);

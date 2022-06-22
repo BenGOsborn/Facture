@@ -10,7 +10,7 @@ export function Landing() {
     const algoliaApiKey = process.env["NEXT_PUBLIC_ALGOLIA_API_KEY"] as string;
     const algoliaIndexName = process.env["NEXT_PUBLIC_ALGOLIA_INDEX_NAME"] as string;
 
-    const { data, setQuery } = useSearchMain<SearchHit>(algoliaAppId, algoliaApiKey, algoliaIndexName);
+    const { data, setQuery } = useSearchMain<SearchHit>(algoliaAppId, algoliaApiKey, algoliaIndexName, 10);
 
     return (
         <div className="space-y-14">
