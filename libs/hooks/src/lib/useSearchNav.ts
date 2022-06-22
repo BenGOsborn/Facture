@@ -1,5 +1,5 @@
 import algoliasearch from "algoliasearch";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export function useSearchNav<T>(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, max?: number) {
     const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
@@ -8,7 +8,10 @@ export function useSearchNav<T>(algoliaAppId: string, algoliaApiKey: string, alg
     const [query, setQuery] = useState("");
     const [hits, setHits] = useState<T[]>([]);
 
-    useMemo(() => (query === "" ? setHits([]) : index.search(query, { maxFacetHits: max }).then((data) => setHits(data.hits as any))), [query]);
+    useEffect(() => {
+        if (query === "") setHits([]);
+        else index.search(query, { maxFacetHits: max }).then((data) => setHits(data.hits as any));
+    }, [query]);
 
     return { query, setQuery, hits };
 }

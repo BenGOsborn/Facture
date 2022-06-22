@@ -13,7 +13,7 @@ export function Landing() {
     return (
         <div className="space-y-14 flex flex-col items-center">
             <Hero value={query} onChange={setQuery} />
-            {data && <Content data={data} />}
+            <Content data={data || undefined} />
             {loadMore && (
                 <button onClick={loadMore} className="px-6 py-4 bg-gray-800 hover:bg-gray-900 transition-colors shadow-md rounded-md text-white font-bold">
                     Load More
