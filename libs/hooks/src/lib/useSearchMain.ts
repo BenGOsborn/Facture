@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { FindManufacturerCardQuery } from "@facture/types";
+import { FindManufacturerCardQuery, FindManufacturerCardQueryVariables } from "@facture/types";
 import { findManufacturerCard, parseFindManufacturerCardQuery } from "@facture/graphql";
 import algoliasearch from "algoliasearch";
 import { useState } from "react";
@@ -14,7 +14,9 @@ export function useSearchMain<T>(algoliaAppId: string, algoliaApiKey: string, al
 
     // **** I really do need some way of dealing with the page size and limit of course
 
-    const { error, loading, data, fetchMore } = useQuery<FindManufacturerCardQuery>(findManufacturerCard);
+    const { error, loading, data, fetchMore } = useQuery<FindManufacturerCardQuery, FindManufacturerCardQueryVariables>(findManufacturerCard, {
+        variables: { pageSize, page },
+    });
 
     let manufacturers;
     if (data) manufacturers = parseFindManufacturerCardQuery(data);
