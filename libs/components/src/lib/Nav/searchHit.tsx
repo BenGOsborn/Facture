@@ -1,5 +1,4 @@
 import { SearchHit as SearchHitType } from "@facture/types";
-import Image from "next/image";
 import Link from "next/link";
 
 interface Props {
@@ -16,7 +15,7 @@ export function SearchHit({ hit, onClick }: Props) {
             <a onClick={onClick}>
                 <div className="p-6 hover:bg-gray-100 transition-colors rounded-md space-y-3 mt-3">
                     <div className="flex items-center justify-between space-x-3">
-                        <Image className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
+                        <img className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                         <div className="text-right">
                             <p className="text-right text-lg font-bold text-gray-900">{hit.name}</p>
                             {hit.slogan && <p className="text-md font-bold text-gray-700">{hit.slogan}</p>}

@@ -1,5 +1,4 @@
 import { ImageDisplay } from "@facture/types";
-import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 
 interface Props {
@@ -13,7 +12,7 @@ export function Content({ description, thumbnail }: Props) {
 
     return (
         <div className="shadow-md rounded-md bg-white">
-            <Image className="rounded-md" src={`${thumbnail.url}?size=${thumbnailWidth}x${thumbnailHeight}`} width={thumbnailWidth} height={thumbnailHeight} />
+            <img className="rounded-md" src={`${thumbnail.url}?size=${thumbnailWidth}x${thumbnailHeight}`} width={thumbnailWidth} height={thumbnailHeight} />
             <ReactMarkdown className="p-6 prose max-w-3xl">{description}</ReactMarkdown>
         </div>
     );
