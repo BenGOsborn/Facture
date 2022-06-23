@@ -18,8 +18,10 @@ export interface PhoneNoDisplay {
     label: string;
 }
 
+export type SocialPlatformDisplay = "website" | "facebook" | "twitter" | "linkedin" | "instagram" | "youtube";
+
 export interface SocialDisplay {
-    platform: string;
+    platform: SocialPlatformDisplay;
     link: string;
 }
 

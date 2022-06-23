@@ -1,14 +1,15 @@
+import { SocialPlatformDisplay } from "@facture/types";
 import Link from "next/link";
 
 import { BrandChrome, BrandFacebook, BrandInstagram, BrandLinkedin, BrandTwitter, BrandYoutube } from "tabler-icons-react";
 
 interface Props {
-    name: string;
+    name: SocialPlatformDisplay;
     link: string;
 }
 
 export function SocialIcon({ name, link }: Props) {
-    const out: { [key: string]: JSX.Element } = {
+    const out: { [key in SocialPlatformDisplay]: JSX.Element } = {
         website: <BrandChrome />,
         facebook: <BrandFacebook />,
         twitter: <BrandTwitter />,

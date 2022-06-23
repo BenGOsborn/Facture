@@ -12,7 +12,30 @@ export function ManufacturerHead({ manufacturer, name, description, color }: Pro
     const title = `${name} - Facture`;
     const url = `https://facture.com.au/manufacturers/${manufacturer}`;
 
-    const colorMapping = {};
+    const colorMapping: { [key in ColorDisplay]: string } = {
+        slate: "",
+        gray: "",
+        zinc: "",
+        neutral: "",
+        stone: "",
+        red: "",
+        orange: "",
+        amber: "",
+        yellow: "",
+        lime: "",
+        green: "",
+        emerald: "",
+        teal: "",
+        cyan: "",
+        sky: "",
+        blue: "",
+        indigo: "",
+        violet: "",
+        purple: "",
+        fuchsia: "",
+        pink: "",
+        rose: "",
+    };
 
     const themeColor = "#daa041"; // **** It would be really cool to map the colours...
 
