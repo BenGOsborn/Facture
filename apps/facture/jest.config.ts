@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-    displayName: "frontend-main",
+    displayName: "facture",
     preset: "../../jest.preset.js",
     transform: {
         "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "@nrwl/react/plugins/jest",
