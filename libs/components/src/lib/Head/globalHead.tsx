@@ -7,6 +7,8 @@ export function GlobalHead() {
     const url = "https://facture.com.au";
     const themeColor = "#daa041";
 
+    const googleAnalyticsId = process.env["NEXT_PUBLIC_GOOGLE_ANALYTICS"] as string;
+
     return (
         <>
             <Head>
@@ -26,15 +28,15 @@ export function GlobalHead() {
                 <meta property="og:url" content={url} />
             </Head>
             <div>
-                {/* <Script src="https://www.googletagmanager.com/gtag/js?id=G-M831HRNWYT" strategy="afterInteractive" />
-            <Script id="google-analytics" strategy="afterInteractive">
-                {`
+                <Script src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} strategy="afterInteractive" />
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){window.dataLayer.push(arguments);}
                     gtag('js', new Date());
-                    gtag('config', 'G-M831HRNWYT');
+                    gtag('config', '${googleAnalyticsId}');
                 `}
-            </Script> */}
+                </Script>
             </div>
         </>
     );

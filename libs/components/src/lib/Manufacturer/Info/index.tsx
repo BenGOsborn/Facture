@@ -1,4 +1,4 @@
-import { ImageDisplay } from "@facture/types";
+import { ColorDisplay, ImageDisplay } from "@facture/types";
 
 import Image from "next/image";
 
@@ -12,7 +12,7 @@ interface Props {
     logo: ImageDisplay;
     description: string;
     type: string[];
-    color: string;
+    color: ColorDisplay;
 }
 
 export function Info({ name, slogan, dateEstablished, logo, description, type, color }: Props) {

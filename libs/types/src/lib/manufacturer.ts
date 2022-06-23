@@ -30,6 +30,30 @@ export interface LocationDisplay {
     label: string;
 }
 
+export type ColorDisplay =
+    | "slate"
+    | "gray"
+    | "zinc"
+    | "neutral"
+    | "stone"
+    | "red"
+    | "orange"
+    | "amber"
+    | "yellow"
+    | "lime"
+    | "green"
+    | "emerald"
+    | "teal"
+    | "cyan"
+    | "sky"
+    | "blue"
+    | "indigo"
+    | "violet"
+    | "purple"
+    | "fuchsia"
+    | "pink"
+    | "rose";
+
 export interface ManufacturerDisplay {
     name: string;
     slogan?: string;
@@ -37,7 +61,7 @@ export interface ManufacturerDisplay {
     logo: ImageDisplay;
     descriptionShort: string;
     type: string[];
-    color: string;
+    color: ColorDisplay;
     email: EmailDisplay[];
     phoneNo: PhoneNoDisplay[];
     openingTime: OpeningTimeDisplay[];

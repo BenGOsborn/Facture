@@ -1,8 +1,8 @@
-import { ImageDisplay } from "./manufacturer";
+import { ColorDisplay, ImageDisplay } from "./manufacturer";
 
 export interface SearchHit {
     name: string;
-    color: string;
+    color: ColorDisplay;
     logo: ImageDisplay;
     descriptionShort: string;
     manufacturer: string;

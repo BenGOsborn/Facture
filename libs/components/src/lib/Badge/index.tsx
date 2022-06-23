@@ -1,5 +1,7 @@
+import { ColorDisplay } from "@facture/types";
+
 interface Props {
-    color: string;
+    color: ColorDisplay;
     children: any;
 }
 
