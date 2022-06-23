@@ -1,8 +1,8 @@
 import { OpeningTimeDisplay } from "@facture/types";
-import { groupOpeningTime } from "@facture/helpers";
+import { formatTime, groupOpeningTime, mappingToDay } from "@facture/helpers";
 import { Clock } from "tabler-icons-react";
 
-import { OpeningTimeIndividual } from "./openingTimeIndividual";
+import LabelledPair from "./labelledPair";
 
 interface Props {
     openingTime: OpeningTimeDisplay[];
@@ -16,15 +16,12 @@ export function OpeningTime({ openingTime }: Props) {
                     <Clock />
                     <h3 className="font-bold text-lg">Opening Time</h3>
                 </div>
-                <ul className="space-y-1">
-                    {Object.entries(groupOpeningTime(openingTime)).map((openingTime, index) => {
-                        return (
-                            <li key={index}>
-                                <OpeningTimeIndividual openingTime={openingTime} />
-                            </li>
-                        );
-                    })}
-                </ul>
+                <LabelledPair
+                    pair={Object.entries(groupOpeningTime(openingTime)).map((openingTime) => [
+                        mappingToDay(parseInt(openingTime[0])),
+                        openingTime[1].map((openingTime) => `${formatTime(openingTime.openTime)} - ${formatTime(openingTime.closeTime)}`).join(", "),
+                    ])}
+                />
             </div>
         );
 

@@ -1,5 +1,6 @@
 import { PhoneNoDisplay } from "@facture/types";
 import { PhoneCall } from "tabler-icons-react";
+import LabelledPair from "./labelledPair";
 
 interface Props {
     phone: PhoneNoDisplay[];
@@ -13,15 +14,7 @@ export function Phone({ phone }: Props) {
                     <PhoneCall />
                     <h3 className="font-bold text-lg">Phone</h3>
                 </div>
-                <ul>
-                    {phone.map((phone, index) => {
-                        return (
-                            <li key={index}>
-                                <span className="font-medium text-gray-800">{phone.label}</span>: <span className="text-gray-700">{phone.phoneNo}</span>
-                            </li>
-                        );
-                    })}
-                </ul>
+                <LabelledPair pair={phone.map((phone) => [phone.label, phone.phoneNo])} />
             </div>
         );
 

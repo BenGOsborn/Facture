@@ -1,6 +1,7 @@
 import { EmailDisplay } from "@facture/types";
 
 import { Mail } from "tabler-icons-react";
+import LabelledPair from "./labelledPair";
 
 interface Props {
     email: EmailDisplay[];
@@ -14,15 +15,7 @@ export function Email({ email }: Props) {
                     <Mail />
                     <h3 className="font-bold text-lg ">Email</h3>
                 </div>
-                <ul>
-                    {email.map((email, index) => {
-                        return (
-                            <li key={index}>
-                                <span className="font-medium text-gray-800">{email.label}</span>: <span className="text-gray-700">{email.email}</span>
-                            </li>
-                        );
-                    })}
-                </ul>
+                <LabelledPair pair={email.map((email) => [email.label, email.email])} />
             </div>
         );
 
