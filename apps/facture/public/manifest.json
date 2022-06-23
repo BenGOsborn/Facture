@@ -1,0 +1,20 @@
+{
+    "short_name": "Facture",
+    "name": "Facture - Connecting Manufacturers",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "256x256",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "/images/logo.png",
+            "type": "image/png",
+            "sizes": "1794x1794"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#daa041",
+    "background_color": "#1f2937"
+}
