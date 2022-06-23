@@ -14,7 +14,7 @@ interface Props {
 export function Manufacturer({ manufacturer }: Props) {
     return (
         <>
-            <ManufacturerHead name={manufacturer.name} manufacturer={} description={manufacturer.descriptionShort} color={manufacturer.color} />
+            <ManufacturerHead name={manufacturer.name} manufacturer={manufacturer.manufacturer} description={manufacturer.descriptionShort} color={manufacturer.color} />
             <div className="flex flex-col lg:flex-row lg:space-x-14 space-y-7 lg:space-y-0 items-start">
                 <div className="space-y-7 lg:w-4/5">
                     <Info

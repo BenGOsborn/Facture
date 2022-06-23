@@ -58,6 +58,7 @@ export const findManufacturer = gql`
                     }
                     color
                     slogan
+                    manufacturer
                 }
             }
         }

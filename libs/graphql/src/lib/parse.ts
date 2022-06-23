@@ -53,6 +53,7 @@ export function parseFindManufacturerQuery(data: FindManufacturerQuery) {
             phoneNo: attributes.phoneNo,
             social: attributes.social,
             type: attributes.type.map((type) => type.type),
+            manufacturer: attributes.manufacturer,
         } as ManufacturerDisplay;
     } catch (e: any) {
         return null;

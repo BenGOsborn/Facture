@@ -72,4 +72,5 @@ export interface ManufacturerDisplay {
     descriptionLong: string;
     thumbnail: ImageDisplay;
     display: ImageDisplay[];
+    manufacturer: string;
 }
