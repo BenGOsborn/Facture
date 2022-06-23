@@ -3,8 +3,6 @@ interface Props {
 }
 
 export function LabelledPair({ pair }: Props) {
-    console.log(pair);
-
     return (
         <ul className="space-y-1">
             {pair.map(([label, item], index) => {
