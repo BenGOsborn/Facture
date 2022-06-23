@@ -41,14 +41,14 @@ export function ManufacturerHead({ manufacturer, name, description, color }: Pro
 
     return (
         <Head>
-            <title>{title}</title>
-            <meta name="description" content={description} />
-            <meta name="theme-color" content={themeColor} />
-            <link rel="canonical" href={url} />
+            <title key="title">{title}</title>
+            <meta key="description" name="description" content={description} />
+            <meta key="color" name="theme-color" content={themeColor} />
+            <link key="canonical" rel="canonical" href={url} />
 
-            <meta property="og:title" content={title} />
-            <meta property="og:description" content={description} />
-            <meta property="og:url" content={url} />
+            <meta key="og:title" property="og:title" content={title} />
+            <meta key="og:description" property="og:description" content={description} />
+            <meta key="og:url" property="og:url" content={url} />
         </Head>
     );
 }
