@@ -13,11 +13,15 @@ export function Carousel({ element, shiftSize }: Props) {
         return (
             <div className="flex items-center justify-between space-x-3">
                 {element.length > 1 && (
-                    <button className="font-bold text-gray-700 hover:text-gray-900 transition-colors bg-gray-100 hover:bg-gray-200 p-3 rounded-xl" onClick={decSelected}>
+                    <button
+                        role="carousel-button-left"
+                        className="font-bold text-gray-700 hover:text-gray-900 transition-colors bg-gray-100 hover:bg-gray-200 p-3 rounded-xl"
+                        onClick={decSelected}
+                    >
                         {"<"}
                     </button>
                 )}
-                <div className="flex-auto overflow-hidden">
+                <div role="carousel-view" className="flex-auto overflow-hidden">
                     <AnimatePresence exitBeforeEnter={true}>
                         <motion.div
                             key={selected}
@@ -31,7 +35,11 @@ export function Carousel({ element, shiftSize }: Props) {
                     </AnimatePresence>
                 </div>
                 {element.length > 1 && (
-                    <button className="font-bold text-gray-700 hover:text-gray-900 transition-colors bg-gray-100 hover:bg-gray-200 p-3 rounded-xl" onClick={incSelected}>
+                    <button
+                        role="carousel-button-right"
+                        className="font-bold text-gray-700 hover:text-gray-900 transition-colors bg-gray-100 hover:bg-gray-200 p-3 rounded-xl"
+                        onClick={incSelected}
+                    >
                         {">"}
                     </button>
                 )}
