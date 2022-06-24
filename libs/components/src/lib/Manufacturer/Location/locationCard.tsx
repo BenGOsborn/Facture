@@ -19,8 +19,12 @@ export function LocationCard({ location, mapScriptLoaded }: Props) {
                     <Marker position={center} />
                 </GoogleMap>
                 <div className="text-md">
-                    <p className="font-bold text-gray-800">{location.label}</p>
-                    <p className="text-gray-700">{location.address}</p>
+                    <p role="location-card-label" className="font-bold text-gray-800">
+                        {location.label}
+                    </p>
+                    <p role="location-card-address" className="text-gray-700">
+                        {location.address}
+                    </p>
                 </div>
             </div>
         );
