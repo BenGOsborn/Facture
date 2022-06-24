@@ -35,7 +35,8 @@ describe("use search nav", () => {
         expect(result.current.hits).toEqual(["hello", "world"]);
         expect(result.current.query).toEqual("hello world");
 
-        // act(() => result.current.incSelected());
-        // expect(result.current.selected).toEqual(1);
+        act(() => result.current.setQuery(""));
+        expect(result.current.hits).toEqual([]);
+        expect(result.current.query).toEqual("");
     });
 });
