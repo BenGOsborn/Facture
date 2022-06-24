@@ -1,14 +1,23 @@
-import { render, waitFor, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { ManufacturerHead } from ".";
+
+jest.mock("next/head", () => {
+    return {
+        __esModule: true,
+        default: ({ children }: { children: Array<React.ReactElement> }) => {
+            return <>{children}</>;
+        },
+    };
+});
 
 describe("manufacturer head", () => {
     it("should update the head with the correct tags", async () => {
-        const component = render(<title>Lol</title>, { container: document.head });
+        render(<ManufacturerHead name="Name" manufacturer="Manufacturer" description="Description" color="indigo" />, { container: document.head });
 
-        console.log(document.title);
+        const component = document.head;
 
-        // const title = component.getByRole("mh-description");
-        // const description = screen.getByRole("mh-description");
+        // const title = component.getByRole("mh-title");
+        // const description = component.getByRole("mh-description");
         // const color = component.getByRole("mh-color");
         // const url = component.getByRole("mh-url");
         // const ogTitle = component.getByRole("mh-og-title");
