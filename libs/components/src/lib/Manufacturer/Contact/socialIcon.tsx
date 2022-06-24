@@ -10,21 +10,39 @@ interface Props {
 
 export function SocialIcon({ name, link }: Props) {
     const out: { [key in SocialPlatformDisplay]: JSX.Element } = {
-        website: <BrandChrome />,
-        facebook: <BrandFacebook />,
-        twitter: <BrandTwitter />,
-        linkedin: <BrandLinkedin />,
-        instagram: <BrandInstagram />,
-        youtube: <BrandYoutube />,
+        website: (
+            <a role="social-chrome" target="_blank" rel="noreferrer">
+                <BrandChrome />
+            </a>
+        ),
+        facebook: (
+            <a role="social-facebook" target="_blank" rel="noreferrer">
+                <BrandFacebook />
+            </a>
+        ),
+        twitter: (
+            <a role="social-twitter" target="_blank" rel="noreferrer">
+                <BrandTwitter />
+            </a>
+        ),
+        linkedin: (
+            <a role="social-linkedin" target="_blank" rel="noreferrer">
+                <BrandLinkedin />
+            </a>
+        ),
+        instagram: (
+            <a role="social-instagram" target="_blank" rel="noreferrer">
+                <BrandInstagram />
+            </a>
+        ),
+        youtube: (
+            <a role="social-youtube" target="_blank" rel="noreferrer">
+                <BrandYoutube />
+            </a>
+        ),
     };
 
-    return (
-        <Link href={link}>
-            <a target="_blank" rel="noreferrer">
-                {out[name]}
-            </a>
-        </Link>
-    );
+    return <Link href={link}>{out[name]}</Link>;
 }
 
 export default SocialIcon;
