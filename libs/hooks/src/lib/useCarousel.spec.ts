@@ -20,5 +20,6 @@ describe("use carousel", () => {
 
         act(() => result.current.incSelected());
         expect(result.current.selected).toEqual(0);
+        expect(result.current.position).toEqual([1000, -1000]);
     });
 });
