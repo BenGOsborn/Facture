@@ -6,14 +6,18 @@ describe("labelled pair", () => {
         const component = render(
             <LabelledPair
                 pair={[
-                    ["test", "1"],
-                    ["test", "2"],
+                    ["test1", "1"],
+                    ["test2", "2"],
                 ]}
             />
         );
 
-        const labelledPair = component.getAllByRole("labelled-pair");
+        const labelledPairLabel = component.getAllByRole("labelled-pair-label");
+        const labelledPairItem = component.getAllByRole("labelled-pair-item");
 
-        console.log(labelledPair);
+        expect(labelledPairLabel[0].textContent).toEqual("test1");
+        expect(labelledPairItem[0].textContent).toEqual("1");
+        expect(labelledPairLabel[1].textContent).toEqual("test2");
+        expect(labelledPairItem[1].textContent).toEqual("2");
     });
 });
