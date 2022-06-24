@@ -7,6 +7,7 @@ describe("use carousel", () => {
 
         expect(result.current.selected).toEqual(0);
 
-        // act(() => result.current.);
+        act(() => result.current.incSelected());
+        expect(result.current.selected).toEqual(1);
     });
 });
