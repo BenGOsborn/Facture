@@ -7,6 +7,6 @@ describe("type", () => {
 
         const type = component.getByRole("type");
 
-        console.log(type.childNodes.length);
+        type.childNodes.forEach((node, index) => console.log(node));
     });
 });
