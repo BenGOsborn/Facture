@@ -9,5 +9,14 @@ describe("use carousel", () => {
 
         act(() => result.current.incSelected());
         expect(result.current.selected).toEqual(1);
+
+        act(() => {
+            result.current.decSelected();
+            result.current.decSelected();
+        });
+        expect(result.current.selected).toEqual(2);
+
+        act(() => result.current.incSelected());
+        expect(result.current.selected).toEqual(0);
     });
 });
