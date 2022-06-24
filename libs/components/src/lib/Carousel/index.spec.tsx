@@ -1,13 +1,13 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { Carousel } from "./";
+import { fireEvent, render, waitFor } from "@testing-library/react";
+import { Carousel } from ".";
 
 describe("carousel", () => {
     it("should render a working carousel", async () => {
-        render(<Carousel element={[<>Beginning</>, <>Middle</>, <>End</>]} shiftSize={1000} />);
+        const component = render(<Carousel element={[<>Beginning</>, <>Middle</>, <>End</>]} shiftSize={1000} />);
 
-        const view = screen.getByRole("carousel-view");
-        const buttonLeft = screen.getByRole("carousel-button-left");
-        const buttonRight = screen.getByRole("carousel-button-right");
+        const view = component.getByRole("carousel-view");
+        const buttonLeft = component.getByRole("carousel-button-left");
+        const buttonRight = component.getByRole("carousel-button-right");
 
         expect(view.textContent).toEqual("Beginning");
 
