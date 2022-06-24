@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import { Content } from ".";
 
 describe("content", () => {
-    it("should render a list of cards", async () => {
+    it("should render a list of cards", () => {
         const component = render(
             <Content
                 data={[

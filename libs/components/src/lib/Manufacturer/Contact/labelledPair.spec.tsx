@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import { LabelledPair } from "./labelledPair";
 
 describe("labelled pair", () => {
-    it("should render a labelled pair", async () => {
+    it("should render a labelled pair", () => {
         const component = render(
             <LabelledPair
                 pair={[

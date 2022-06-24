@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import { Card } from "./card";
 
 describe("card", () => {
-    it("should render a card", async () => {
+    it("should render a card", () => {
         const component = render(
             <Card
                 hit={{
