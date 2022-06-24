@@ -11,7 +11,7 @@ interface Props {
 export function SocialIcon({ name, link }: Props) {
     const out: { [key in SocialPlatformDisplay]: JSX.Element } = {
         website: (
-            <a role="social-chrome" target="_blank" rel="noreferrer">
+            <a role="social-website" target="_blank" rel="noreferrer">
                 <BrandChrome />
             </a>
         ),
