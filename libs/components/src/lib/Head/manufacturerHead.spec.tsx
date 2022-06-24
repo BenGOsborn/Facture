@@ -16,6 +16,8 @@ describe("manufacturer head", () => {
 
         const component = document.head;
 
+        console.log(component.getAttribute("mh-title"));
+
         // const title = component.getByRole("mh-title");
         // const description = component.getByRole("mh-description");
         // const color = component.getByRole("mh-color");
