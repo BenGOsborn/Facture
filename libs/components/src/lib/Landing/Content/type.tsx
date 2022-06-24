@@ -11,9 +11,7 @@ export function Type({ type, color }: Props) {
         return (
             <div className="flex justify-between items-center flex-wrap">
                 {type.slice(0, 4).map((type, index) => (
-                    <Badge color={color} key={index}>
-                        {type}
-                    </Badge>
+                    <Badge color={color} key={index} text={type} />
                 ))}
             </div>
         );

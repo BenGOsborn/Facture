@@ -13,9 +13,7 @@ export function Type({ type, color }: Props) {
                 <p className="font-bold text-gray-900">Tags</p>
                 <div className="flex justify-start flex-wrap">
                     {type.slice(0, 4).map((type, index) => (
-                        <Badge color={color} key={index}>
-                            {type}
-                        </Badge>
+                        <Badge color={color} key={index} text={type} />
                     ))}
                 </div>
             </div>
