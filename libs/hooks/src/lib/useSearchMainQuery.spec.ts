@@ -2,10 +2,6 @@ import { Enum_Manufacturer_Color, FindManufacturerCardQuery, SearchHit } from "@
 import { renderHook, act } from "@testing-library/react-hooks";
 import { useSearchMainQuery } from "./useSearchMainQuery";
 
-interface Hits {
-    data: SearchHit[];
-}
-
 jest.mock("@apollo/client", () => {
     const originalModule = jest.requireActual("@apollo/client");
 
