@@ -7,70 +7,56 @@ interface Hits {
     nbPages: number;
 }
 
-jest.mock("algoliasearch", () => ({
-    default: (algoliaAppId: string, algoliaApiKey: string) => {
-        return {
-            initIndex: (algoliaIndexName: string) => {
-                return {
-                    search: (query: string, options: { hitsPerPage: number; page: number }) => {
-                        if (query === "") return new Promise<Hits>((resolve) => resolve({ hits: [], nbPages: 2 }));
-                        else if (query === "test" && options.page === 0)
-                            return new Promise<Hits>((resolve) =>
-                                resolve({
-                                    hits: [
-                                        {
-                                            color: "amber",
-                                            descriptionShort: "ds1",
-                                            logo: { url: "url1" },
-                                            manufacturer: "m1",
-                                            name: "n1",
-                                            thumbnail: { url: "url1" },
-                                            type: [],
-                                        },
-                                    ],
-                                    nbPages: 2,
-                                })
-                            );
-                        else if (query === "test" && options.page === 1)
-                            return new Promise<Hits>((resolve) =>
-                                resolve({
-                                    hits: [
-                                        {
-                                            color: "blue",
-                                            descriptionShort: "ds2",
-                                            logo: { url: "url2" },
-                                            manufacturer: "m2",
-                                            name: "n2",
-                                            thumbnail: { url: "url2" },
-                                            type: [],
-                                        },
-                                    ],
-                                    nbPages: 2,
-                                })
-                            );
+jest.mock("algoliasearch", () => {
+    const nbPages = 2;
 
-                        return new Promise<Hits>((resolve) =>
-                            resolve({
-                                hits: [
-                                    {
-                                        color: "blue",
-                                        descriptionShort: "ds2",
-                                        logo: { url: "url2" },
-                                        manufacturer: "m2",
-                                        name: "n2",
-                                        thumbnail: { url: "url2" },
-                                        type: [],
-                                    },
-                                ],
-                                nbPages: 2,
-                            })
-                        );
-                    },
-                };
-            },
-        };
-    },
-}));
+    const data: SearchHit[] = [
+        {
+            color: "amber",
+            descriptionShort: "ds1",
+            logo: { url: "url1" },
+            manufacturer: "m1",
+            name: "n1",
+            thumbnail: { url: "url1" },
+            type: [],
+        },
+        {
+            color: "blue",
+            descriptionShort: "ds2",
+            logo: { url: "url2" },
+            manufacturer: "m2",
+            name: "n2",
+            thumbnail: { url: "url2" },
+            type: [],
+        },
+        {
+            color: "blue",
+            descriptionShort: "ds2",
+            logo: { url: "url2" },
+            manufacturer: "m2",
+            name: "n2",
+            thumbnail: { url: "url2" },
+            type: [],
+        },
+    ];
+
+    return {
+        default: jest.fn(() => (algoliaAppId: any, algoliaApiKey: any) => {
+            return {
+                initIndex: jest.fn(() => (algoliaIndexName: any) => {
+                    return {
+                        search: jest.fn(() => (query: string, options: { hitsPerPage: number; page: number }) => {
+                            if (query === "") return new Promise<Hits>((resolve) => resolve({ hits: [], nbPages }));
+                            else if (query === "test" && options.page === 0) return new Promise<Hits>((resolve) => resolve({ hits: [data[0]], nbPages }));
+                            else if (query === "test" && options.page === 1) return new Promise<Hits>((resolve) => resolve({ hits: [data[1]], nbPages }));
+                            return new Promise<Hits>((resolve) => resolve({ hits: [data[0]], nbPages }));
+                        }),
+                    };
+                }),
+            };
+        }),
+    };
+});
 
 describe("use search main search", () => {
     it("should return hits according to the query", async () => {
