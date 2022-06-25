@@ -106,5 +106,7 @@ describe("use search main search", () => {
                 type: [],
             },
         ]);
+
+        expect(result.current.loadMore).not.toBeTruthy();
     });
 });
