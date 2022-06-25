@@ -51,6 +51,7 @@ export function parseFindManufacturerQuery(data: FindManufacturerQuery) {
             location: attributes.location,
             openingTime: attributes.openingTime,
             phoneNo: attributes.phoneNo,
+            fax: attributes.fax,
             social: attributes.social,
             type: attributes.type.map((type) => type.type),
             manufacturer: attributes.manufacturer,

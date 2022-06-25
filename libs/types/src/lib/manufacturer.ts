@@ -18,6 +18,11 @@ export interface PhoneNoDisplay {
     label: string;
 }
 
+export interface FaxDisplay {
+    fax: string;
+    label: string;
+}
+
 export type SocialPlatformDisplay = "website" | "facebook" | "twitter" | "linkedin" | "instagram" | "youtube";
 
 export interface SocialDisplay {
@@ -73,4 +78,5 @@ export interface ManufacturerDisplay {
     thumbnail: ImageDisplay;
     display: ImageDisplay[];
     manufacturer: string;
+    fax: FaxDisplay[];
 }
