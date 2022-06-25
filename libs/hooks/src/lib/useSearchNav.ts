@@ -10,7 +10,7 @@ export function useSearchNav<T>(algoliaAppId: string, algoliaApiKey: string, alg
 
     useEffect(() => {
         if (query === "") setHits([]);
-        else index.search(query, { maxFacetHits: max }).then((data) => setHits(data.hits as any));
+        else index.search(query, { hitsPerPage: max, page: 0 }).then((data) => setHits(data.hits as any));
     }, [query]);
 
     return { query, setQuery, hits };
