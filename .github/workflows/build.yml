@@ -9,7 +9,7 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-        environment: Export
+        environment: Deployment
 
         steps:
             - uses: actions/checkout@v2
@@ -23,7 +23,7 @@ jobs:
 
             - run: npm ci
             - run: npx nx run-many --all --target=test
-            - run: npx nx export
+            - run: npx nx build
               env:
                   NEXT_PUBLIC_API_ENDPOINT: ${{ secrets.NEXT_PUBLIC_API_ENDPOINT }}
                   NEXT_PUBLIC_STRAPI_API_KEY: ${{ secrets.NEXT_PUBLIC_STRAPI_API_KEY }}

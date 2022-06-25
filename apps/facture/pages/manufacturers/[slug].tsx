@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
     if (!manufacturer) throw Error("Failed to find manufacturer");
 
-    return { props: { manufacturer }, revalidate: 10 };
+    return { props: { manufacturer }, revalidate: 60 };
 };
 
 export default ManufacturerPage;
