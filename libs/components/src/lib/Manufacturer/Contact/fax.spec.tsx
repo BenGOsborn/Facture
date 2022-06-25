@@ -8,7 +8,7 @@ describe("fax", () => {
         const faxLabel = component.getByRole("labelled-pair-label");
         const fax = component.getByRole("labelled-pair-item");
 
-        expect(fax.textContent).toEqual("test1");
+        expect(faxLabel.textContent).toEqual("test1");
         expect(fax.textContent).toEqual("1");
     });
 });
