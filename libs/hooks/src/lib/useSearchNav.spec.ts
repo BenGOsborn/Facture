@@ -1,16 +1,20 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import { useSearchNav } from "./useSearchNav";
 
+interface Hits {
+    hits: string[];
+}
+
 jest.mock("algoliasearch", () => ({
     default: (algoliaAppId: string, algoliaApiKey: string) => {
         return {
             initIndex: (algoliaIndexName: string) => {
                 return {
                     search: (query: string, options: { maxFacetHits: number }) => {
-                        if (query === "") return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["not", "empty"] }));
-                        if (query === "hello world") return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["hello", "world"] }));
-                        if (query === "test") return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["test"] }));
-                        return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["else"] }));
+                        if (query === "") return new Promise<Hits>((resolve) => resolve({ hits: ["not", "empty"] }));
+                        if (query === "hello world") return new Promise<Hits>((resolve) => resolve({ hits: ["hello", "world"] }));
+                        if (query === "test") return new Promise<Hits>((resolve) => resolve({ hits: ["test"] }));
+                        return new Promise<Hits>((resolve) => resolve({ hits: ["else"] }));
                     },
                 };
             },

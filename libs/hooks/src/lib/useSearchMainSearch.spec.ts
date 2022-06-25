@@ -8,13 +8,10 @@ jest.mock("algoliasearch", () => ({
                 return {
                     search: (query: string, options: { hitsPerPage: number; page: number }) => {
                         if (query === "") return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: [] }));
+                        else if (query === "test" && options.page === 0) return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["part 1"] }));
+                        else if (query === "test" && options.page === 1) return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["part 2"] }));
 
                         return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["else"] }));
-
-                        // if (query === "") return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["not", "empty"] }));
-                        // if (query === "hello world") return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["hello", "world"] }));
-                        // if (query === "test") return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["test"] }));
-                        // return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["else"] }));
                     },
                 };
             },
@@ -28,6 +25,10 @@ describe("use search main search", () => {
 
         expect(result.current.query).toEqual("");
         expect(result.current.data).toEqual(null);
+
+        act(() => result.current.setQuery("test"));
+        await waitForNextUpdate();
+        expect(result.current.data).toEqual(["part 1"]);
 
         // act(() => result.current.setQuery("test"));
         // await waitForNextUpdate();
