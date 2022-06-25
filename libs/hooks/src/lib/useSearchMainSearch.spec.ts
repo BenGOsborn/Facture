@@ -1,5 +1,11 @@
+import { SearchHit } from "@facture/types";
 import { renderHook, act } from "@testing-library/react-hooks";
 import { useSearchMainSearch } from "./useSearchMainSearch";
+
+interface Hits {
+    hits: SearchHit[];
+    nbPages: number;
+}
 
 jest.mock("algoliasearch", () => ({
     default: (algoliaAppId: string, algoliaApiKey: string) => {
@@ -7,11 +13,58 @@ jest.mock("algoliasearch", () => ({
             initIndex: (algoliaIndexName: string) => {
                 return {
                     search: (query: string, options: { hitsPerPage: number; page: number }) => {
-                        if (query === "") return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: [] }));
-                        else if (query === "test" && options.page === 0) return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["part 1"] }));
-                        else if (query === "test" && options.page === 1) return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["part 2"] }));
+                        if (query === "") return new Promise<Hits>((resolve) => resolve({ hits: [], nbPages: 2 }));
+                        else if (query === "test" && options.page === 0)
+                            return new Promise<Hits>((resolve) =>
+                                resolve({
+                                    hits: [
+                                        {
+                                            color: "amber",
+                                            descriptionShort: "ds1",
+                                            logo: { url: "url1" },
+                                            manufacturer: "m1",
+                                            name: "n1",
+                                            thumbnail: { url: "url1" },
+                                            type: [],
+                                        },
+                                    ],
+                                    nbPages: 2,
+                                })
+                            );
+                        else if (query === "test" && options.page === 1)
+                            return new Promise<Hits>((resolve) =>
+                                resolve({
+                                    hits: [
+                                        {
+                                            color: "blue",
+                                            descriptionShort: "ds2",
+                                            logo: { url: "url2" },
+                                            manufacturer: "m2",
+                                            name: "n2",
+                                            thumbnail: { url: "url2" },
+                                            type: [],
+                                        },
+                                    ],
+                                    nbPages: 2,
+                                })
+                            );
 
-                        return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["else"] }));
+                        return new Promise<Hits>((resolve) =>
+                            resolve({
+                                hits: [
+                                    {
+                                        color: "blue",
+                                        descriptionShort: "ds2",
+                                        logo: { url: "url2" },
+                                        manufacturer: "m2",
+                                        name: "n2",
+                                        thumbnail: { url: "url2" },
+                                        type: [],
+                                    },
+                                ],
+                                nbPages: 2,
+                            })
+                        );
                     },
                 };
             },
@@ -28,20 +81,41 @@ describe("use search main search", () => {
 
         act(() => result.current.setQuery("test"));
         await waitForNextUpdate();
-        expect(result.current.data).toEqual(["part 1"]);
+        expect(result.current.data).toEqual([
+            {
+                color: "amber",
+                descriptionShort: "ds1",
+                logo: { url: "url1" },
+                manufacturer: "m1",
+                name: "n1",
+                thumbnail: { url: "url1" },
+                type: [],
+            },
+        ]);
 
-        // act(() => result.current.setQuery("test"));
-        // await waitForNextUpdate();
-        // expect(result.current.hits).toEqual(["test"]);
-        // expect(result.current.query).toEqual("test");
-
-        // act(() => result.current.setQuery("hello world"));
-        // await waitForNextUpdate();
-        // expect(result.current.hits).toEqual(["hello", "world"]);
-        // expect(result.current.query).toEqual("hello world");
-
-        // act(() => result.current.setQuery(""));
-        // expect(result.current.hits).toEqual([]);
-        // expect(result.current.query).toEqual("");
+        act(() => {
+            if (result.current.loadMore) result.current.loadMore();
+        });
+        await waitForNextUpdate();
+        expect(result.current.data).toEqual([
+            {
+                color: "amber",
+                descriptionShort: "ds1",
+                logo: { url: "url1" },
+                manufacturer: "m1",
+                name: "n1",
+                thumbnail: { url: "url1" },
+                type: [],
+            },
+            {
+                color: "blue",
+                descriptionShort: "ds2",
+                logo: { url: "url2" },
+                manufacturer: "m2",
+                name: "n2",
+                thumbnail: { url: "url2" },
+                type: [],
+            },
+        ]);
     });
 });
