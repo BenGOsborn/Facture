@@ -26,7 +26,13 @@ export function Manufacturer({ manufacturer }: Props) {
                         type={manufacturer.type}
                         color={manufacturer.color}
                     />
-                    <Contact email={manufacturer.email} phone={manufacturer.phoneNo} openingTime={manufacturer.openingTime} social={manufacturer.social} />
+                    <Contact
+                        email={manufacturer.email}
+                        phone={manufacturer.phoneNo}
+                        openingTime={manufacturer.openingTime}
+                        social={manufacturer.social}
+                        fax={manufacturer.fax}
+                    />
                     <Location location={manufacturer.location} />
                 </div>
                 <div className="space-y-7">

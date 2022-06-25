@@ -1,4 +1,4 @@
-import { EmailDisplay, PhoneNoDisplay, OpeningTimeDisplay, SocialDisplay } from "@facture/types";
+import { EmailDisplay, PhoneNoDisplay, OpeningTimeDisplay, SocialDisplay, FaxDisplay } from "@facture/types";
 
 import { Email } from "./email";
 import { OpeningTime } from "./openingTime";
@@ -10,9 +10,10 @@ interface Props {
     phone: PhoneNoDisplay[];
     openingTime: OpeningTimeDisplay[];
     social: SocialDisplay[];
+    fax: FaxDisplay[];
 }
 
-export function Contact({ email, phone, openingTime, social }: Props) {
+export function Contact({ email, phone, openingTime, social, fax }: Props) {
     return (
         <div className="p-6 shadow-md rounded-md bg-white">
             <div className="space-y-6">
