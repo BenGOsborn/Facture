@@ -12,8 +12,6 @@ export function LocationCard({ location, mapScriptLoaded }: Props) {
 
     const mapOptions: google.maps.MapOptions = { disableDefaultUI: true };
 
-    // **** The marker is not showing up !?!?!?!?!
-
     if (mapScriptLoaded)
         return (
             <div className="space-y-3">
