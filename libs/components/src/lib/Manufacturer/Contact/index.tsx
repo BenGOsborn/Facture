@@ -1,6 +1,7 @@
 import { EmailDisplay, PhoneNoDisplay, OpeningTimeDisplay, SocialDisplay, FaxDisplay } from "@facture/types";
 
 import { Email } from "./email";
+import { Fax } from "./fax";
 import { OpeningTime } from "./openingTime";
 import { Phone } from "./phone";
 import { Social } from "./social";
@@ -20,6 +21,7 @@ export function Contact({ email, phone, openingTime, social, fax }: Props) {
                 <h2 className="font-bold text-gray-900 text-xl">Contact</h2>
                 <Email email={email} />
                 <Phone phone={phone} />
+                <Fax fax={fax} />
                 <OpeningTime openingTime={openingTime} />
             </div>
 
