@@ -22,8 +22,8 @@ describe("use search main search", () => {
     it("should return hits according to the query", async () => {
         const { result, waitForNextUpdate } = renderHook(() => useSearchMainSearch("", "", "", 1));
 
-        // expect(result.current.hits).toEqual([]);
-        // expect(result.current.query).toEqual("");
+        expect(result.current.query).toEqual("");
+        expect(result.current.data).toEqual([]);
 
         // act(() => result.current.setQuery("test"));
         // await waitForNextUpdate();

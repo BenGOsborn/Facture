@@ -22,8 +22,8 @@ describe("use search nav", () => {
     it("should return correct hits according to the query", async () => {
         const { result, waitForNextUpdate } = renderHook(() => useSearchNav<string[]>("", "", ""));
 
-        expect(result.current.hits).toEqual([]);
         expect(result.current.query).toEqual("");
+        expect(result.current.hits).toEqual([]);
 
         act(() => result.current.setQuery("test"));
         await waitForNextUpdate();
