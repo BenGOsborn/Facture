@@ -41,20 +41,20 @@ jest.mock("algoliasearch", () => {
     ];
 
     return {
-        default: jest.fn(() => (algoliaAppId: any, algoliaApiKey: any) => {
+        default: (algoliaAppId: any, algoliaApiKey: any) => {
             return {
-                initIndex: jest.fn(() => (algoliaIndexName: any) => {
+                initIndex: (algoliaIndexName: any) => {
                     return {
-                        search: jest.fn(() => (query: string, options: { hitsPerPage: number; page: number }) => {
+                        search: (query: string, options: { hitsPerPage: number; page: number }) => {
                             if (query === "") return new Promise<Hits>((resolve) => resolve({ hits: [], nbPages }));
                             else if (query === "test" && options.page === 0) return new Promise<Hits>((resolve) => resolve({ hits: [data[0]], nbPages }));
                             else if (query === "test" && options.page === 1) return new Promise<Hits>((resolve) => resolve({ hits: [data[1]], nbPages }));
                             return new Promise<Hits>((resolve) => resolve({ hits: [data[0]], nbPages }));
-                        }),
+                        },
                     };
-                }),
+                },
             };
-        }),
+        },
     };
 });
 
