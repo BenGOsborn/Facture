@@ -1,4 +1,5 @@
 import { SearchHit } from "@facture/types";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Type } from "./type";
@@ -18,7 +19,7 @@ export function Card({ hit }: Props) {
         <Link href={`/manufacturers/${hit.manufacturer}`}>
             <a role="card">
                 <div className="p-6 rounded-md shadow-md hover:shadow-lg transition-shadow space-y-3 h-full">
-                    <img
+                    <Image
                         role="card-thumbnail"
                         className="rounded-md"
                         src={`${hit.thumbnail.url}?size=${thumbnailWidth}x${thumbnailHeight}`}
@@ -36,7 +37,7 @@ export function Card({ hit }: Props) {
                                 </p>
                             )}
                         </div>
-                        <img role="card-logo" className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
+                        <Image role="card-logo" className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                     </div>
                     <p role="card-description" className="text-gray-700 text-lg line-clamp-3">
                         {hit.descriptionShort}

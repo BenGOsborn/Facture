@@ -10,6 +10,9 @@ const nextConfig = {
         // See: https://github.com/gregberge/svgr
         svgr: false,
     },
+    images: {
+        domains: ["wptdclhm4m.execute-api.ap-southeast-2.amazonaws.com"],
+    },
     reactStrictMode: true,
 };
 
