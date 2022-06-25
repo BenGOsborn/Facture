@@ -8,7 +8,7 @@ interface Hits {
 }
 
 jest.mock("algoliasearch", () => {
-    const nbPages = 2;
+    const originalModule = jest.requireActual("algoliasearch");
 
     const data: SearchHit[] = [
         {
@@ -39,8 +39,11 @@ jest.mock("algoliasearch", () => {
             type: [],
         },
     ];
+    const nbPages = 2;
 
     return {
+        __esModule: true,
+        ...originalModule,
         default: (algoliaAppId: any, algoliaApiKey: any) => {
             return {
                 initIndex: (algoliaIndexName: any) => {

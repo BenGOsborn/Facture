@@ -7,6 +7,8 @@ interface Hits {
 }
 
 jest.mock("@apollo/client", () => {
+    const originalModule = jest.requireActual("@apollo/client");
+
     const data: FindManufacturerCardQuery[] = [
         {
             manufacturers: {
@@ -29,7 +31,7 @@ jest.mock("@apollo/client", () => {
     ];
     const fetchMore = (options: { variables: { pageSize: number; page: number } }) => {};
 
-    return { useQuery: (query: string, options: any) => ({ data, fetchMore }) };
+    return { __esModule: true, ...originalModule, useQuery: (query: any, options: any) => ({ data, fetchMore }) };
 });
 
 describe("use search main query", () => {
