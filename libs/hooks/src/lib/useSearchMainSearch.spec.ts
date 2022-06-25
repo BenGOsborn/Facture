@@ -7,6 +7,10 @@ jest.mock("algoliasearch", () => ({
             initIndex: (algoliaIndexName: string) => {
                 return {
                     search: (query: string, options: { hitsPerPage: number; page: number }) => {
+                        if (query === "") return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: [] }));
+
+                        return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["else"] }));
+
                         // if (query === "") return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["not", "empty"] }));
                         // if (query === "hello world") return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["hello", "world"] }));
                         // if (query === "test") return new Promise<{ hits: string[] }>((resolve) => resolve({ hits: ["test"] }));
@@ -23,7 +27,7 @@ describe("use search main search", () => {
         const { result, waitForNextUpdate } = renderHook(() => useSearchMainSearch("", "", "", 1));
 
         expect(result.current.query).toEqual("");
-        expect(result.current.data).toEqual([]);
+        expect(result.current.data).toEqual(null);
 
         // act(() => result.current.setQuery("test"));
         // await waitForNextUpdate();
