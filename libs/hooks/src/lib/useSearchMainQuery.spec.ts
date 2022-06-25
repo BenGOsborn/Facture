@@ -74,7 +74,16 @@ describe("use search main query", () => {
         });
         await waitForNextUpdate();
         expect(result.current.data).toEqual([
-            // **** Not sure why this is not working ?
+            {
+                descriptionShort: "d1",
+                logo: { url: "url1" },
+                manufacturer: "m1",
+                name: "n1",
+                slogan: undefined,
+                type: ["t1"],
+                color: "amber",
+                thumbnail: { url: "url1" },
+            },
             {
                 descriptionShort: "d2",
                 logo: { url: "url2" },
