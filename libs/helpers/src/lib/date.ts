@@ -32,7 +32,10 @@ export function formatTime(time: string) {
 export function groupOpeningTime(openingTime: OpeningTimeDisplay[]) {
     const out: { [key: number]: OpeningTimeDisplay[] } = {};
 
-    openingTime.forEach((time) => (out[time.day] ? out[time.day].push(time) : (out[time.day] = [time])));
+    const sorted = [...openingTime];
+    sorted.sort((a, b) => a.day - b.day);
+
+    sorted.forEach((time) => (out[time.day] ? out[time.day].push(time) : (out[time.day] = [time])));
 
     return out;
 }
