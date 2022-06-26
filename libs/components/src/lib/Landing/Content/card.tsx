@@ -28,11 +28,11 @@ export function Card({ hit }: Props) {
                     />
                     <div className="flex items-center justify-between">
                         <div>
-                            <p role="card-name" className="text-2xl font-bold text-gray-900">
+                            <p role="card-name" className="text-2xl font-bold text-gray-900 line-clamp-1">
                                 {hit.name}
                             </p>
                             {hit.slogan && (
-                                <p role="card-slogan" className="text-xl font-bold text-gray-700">
+                                <p role="card-slogan" className="text-xl font-bold text-gray-700 line-clamp-1">
                                     {hit.slogan}
                                 </p>
                             )}

@@ -18,8 +18,8 @@ export function SearchHit({ hit, onClick }: Props) {
                     <div className="flex items-center justify-between space-x-3">
                         <Image className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                         <div className="text-right">
-                            <p className="text-right text-lg font-bold text-gray-900">{hit.name}</p>
-                            {hit.slogan && <p className="text-md font-bold text-gray-700">{hit.slogan}</p>}
+                            <p className="text-right text-lg font-bold text-gray-900 line-clamp-1">{hit.name}</p>
+                            {hit.slogan && <p className="text-md font-bold text-gray-700 line-clamp-1">{hit.slogan}</p>}
                         </div>
                     </div>
                     <p className="text-gray-700 text-md line-clamp-3">{hit.descriptionShort}</p>
