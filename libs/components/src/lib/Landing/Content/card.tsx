@@ -13,7 +13,7 @@ export function Card({ hit }: Props) {
     const logoHeight = 50;
 
     const thumbnailWidth = 1000;
-    const thumbnailHeight = 500;
+    const thumbnailHeight = 400;
 
     return (
         <Link href={`/manufacturers/${hit.manufacturer}`}>
