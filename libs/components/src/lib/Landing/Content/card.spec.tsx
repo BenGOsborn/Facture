@@ -1,17 +1,17 @@
-import { render } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import { Card } from "./card";
 
 describe("card", () => {
-    it("should render a card", () => {
+    it("should render a card", async () => {
         const component = render(
             <Card
                 hit={{
                     color: "indigo",
                     descriptionShort: "Test description",
-                    logo: { url: "test-url-logo" },
+                    logo: { url: "http://test-url-logo" },
                     manufacturer: "test-manufacturer",
                     name: "Test name",
-                    thumbnail: { url: "test-url-thumbnail" },
+                    thumbnail: { url: "http://test-url-thumbnail" },
                     type: ["test1", "test2"],
                     slogan: "Test slogan",
                 }}
@@ -24,10 +24,10 @@ describe("card", () => {
         const logo = component.getByRole("card-logo");
         const description = component.getByRole("card-description");
 
-        expect(thumbnail.getAttribute("src")).toEqual("test-url-thumbnail?size=1000x500");
+        await waitFor(() => expect(thumbnail.getAttribute("src")).toContain("test-url-thumbnail"));
         expect(name.textContent).toEqual("Test name");
         expect(slogan.textContent).toEqual("Test slogan");
-        expect(logo.getAttribute("src")).toEqual("test-url-logo?size=50x50");
+        await waitFor(() => expect(logo.getAttribute("src")).toContain("test-url-logo"));
         expect(description.textContent).toEqual("Test description");
     });
 });
