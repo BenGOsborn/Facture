@@ -2,6 +2,7 @@ import { SearchHit } from "@facture/types";
 import { parseAlgoliaSearchHits } from "@facture/graphql";
 import algoliasearch from "algoliasearch";
 import { useEffect, useState } from "react";
+import useSearchMainSearchURL from "./useSearchMainSearchURL";
 
 export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, pageSize: number) {
     const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
@@ -11,6 +12,8 @@ export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string,
     const [data, setData] = useState<SearchHit[] | null>(null);
     const [pageCount, setPageCount] = useState<number>(-1);
     const [currentPage, setCurrentPage] = useState<number>(0);
+
+    useSearchMainSearchURL(query, setQuery);
 
     const loadMore = () => setCurrentPage((page) => page + 1);
 

@@ -8,7 +8,7 @@ interface Props {
 
 export function Content({ data }: Props) {
     return (
-        <div className="space-y-7">
+        <div className="space-y-7 w-full">
             <div className="space-y-3 rounded-md shadow-md py-7 px-14 bg-white">
                 <h2 className="text-xl text-gray-900 font-bold">Manufacturers</h2>
                 <p className="text-lg text-gray-700">Here's a list of manufacturers that match your query</p>
