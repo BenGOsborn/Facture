@@ -36,6 +36,8 @@ jobs:
             #       NEXT_PUBLIC_ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
             #       NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS }}
 
+            #
+
             - run: |
                   git remote set-url origin https://${{ secrets.GHP }}@github.com/$GITHUB_REPOSITORY
                   git config --global user.name 'BenGOsborn'
