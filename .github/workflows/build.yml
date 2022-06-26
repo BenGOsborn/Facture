@@ -42,5 +42,5 @@ jobs:
                   git config --global user.email 'BenGOsborn@users.noreply.github.com'
                   git fetch
                   git checkout deployment
-                  git merge main --allow-unrelated-histories
+                  git merge main
                   git push
