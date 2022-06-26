@@ -37,7 +37,8 @@ jobs:
             #       NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS }}
 
             - run: |
+                  git remote set-url origin https://${{ secrets.GHP }}@github.com/$GITHUB_REPOSITORY
+                  git fetch
                   git checkout deployment
                   git merge main
-                  git remote set-url origin https://${{ secrets.GHP }}@github.com/$GITHUB_REPOSITORY
                   git push
