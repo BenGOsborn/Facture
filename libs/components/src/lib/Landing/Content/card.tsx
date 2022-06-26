@@ -18,7 +18,7 @@ export function Card({ hit }: Props) {
     return (
         <Link href={`/manufacturers/${hit.manufacturer}`}>
             <a role="card">
-                <div className="p-6 rounded-md shadow-md hover:shadow-lg transition-shadow space-y-3 h-full">
+                <div className="p-6 bg-white rounded-md shadow-md hover:shadow-lg transition-shadow space-y-3 h-full">
                     <Image
                         role="card-thumbnail"
                         className="rounded-md"
