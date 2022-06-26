@@ -38,9 +38,9 @@ jobs:
 
             - run: |
                   git remote set-url origin https://${{ secrets.GHP }}@github.com/$GITHUB_REPOSITORY
+                  git config --global user.name 'BenGOsborn'
+                  git config --global user.email 'BenGOsborn@users.noreply.github.com'
                   git fetch
                   git checkout deployment
                   git merge main --allow-unrelated-histories
-                  git config --global user.name 'BenGOsborn'
-                  git config --global user.email 'BenGOsborn@users.noreply.github.com'
                   git push
