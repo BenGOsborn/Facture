@@ -36,13 +36,9 @@ jobs:
             #       NEXT_PUBLIC_ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
             #       NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS }}
 
-            #
-
-            - run: |
-                  git remote set-url origin https://${{ secrets.GHP }}@github.com/$GITHUB_REPOSITORY
-                  git config --global user.name 'BenGOsborn'
-                  git config --global user.email 'BenGOsborn@users.noreply.github.com'
-                  git fetch
-                  git checkout deployment
-                  git merge main
-                  git push
+            - uses: devmasx/merge-branch@v1.3.1
+              with:
+                  type: now
+                  from_branch: main
+                  target_branch: deployment
+                  github_token: ${{ secrets.GHP }}
