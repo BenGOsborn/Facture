@@ -4,20 +4,17 @@ import { useEffect } from "react";
 export function useSearchMainSearchURL(query: string, setQuery: (value: string) => void) {
     const router = useRouter();
 
-    useEffect(() => {
-        const queryParam = router.query;
-        const search = queryParam["search"];
-        if (search && typeof search === "string") setQuery(decodeURI(search));
+    // **** So I want to integrate this into my workflow but I do not want it to continuously update my query param
 
-        console.log("Hit");
+    useEffect(() => {
+        const search = router.query["search"];
+        if (search && typeof search === "string") setQuery(decodeURI(search));
     }, [router]);
 
-    // useEffect(() => {
-    //     if (query !== "") Router.push("?search=" + encodeURI(query));
-    //     else Router.push("");
-
-    //     console.log("Query change !?!?!");
-    // }, [query]);
+    useEffect(() => {
+        if (query !== "") router.push("?search=" + encodeURI(query));
+        else router.push("");
+    }, [query]);
 }
 
 export default useSearchMainSearchURL;
