@@ -7,6 +7,18 @@ interface Hits {
     nbPages: number;
 }
 
+jest.mock("next/router", () => {
+    const originalModule = jest.requireActual("next/router");
+
+    return {
+        __esModule: true,
+        ...originalModule,
+        useRouter: () => ({
+            query: { search: null },
+        }),
+    };
+});
+
 jest.mock("algoliasearch", () => {
     const originalModule = jest.requireActual("algoliasearch");
 
