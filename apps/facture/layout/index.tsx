@@ -1,5 +1,5 @@
 import { Footer, GlobalHead, Nav } from "@facture/components";
-import { GraphQLProvider } from "@facture/providers";
+import { GraphQLProvider, LocationProvider } from "@facture/providers";
 
 interface Props {
     children: any;
@@ -8,10 +8,12 @@ interface Props {
 export default function Layout({ children }: Props) {
     return (
         <GraphQLProvider>
-            <GlobalHead />
-            <Nav />
-            <main className="w-5/6 mx-auto">{children}</main>
-            <Footer />
+            <LocationProvider>
+                <GlobalHead />
+                <Nav />
+                <main className="w-5/6 mx-auto">{children}</main>
+                <Footer />
+            </LocationProvider>
         </GraphQLProvider>
     );
 }
