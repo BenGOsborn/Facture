@@ -23,15 +23,13 @@ export function useSearchMainQuery(pageSize: number) {
     }, [currentPage]);
 
     useEffect(() => {
-        console.log(rawData);
+        if (rawData) {
+            const parsed = parseFindManufacturerCardQuery(rawData);
+            setData(parsed);
 
-        // if (rawData) {
-        //     const parsed = parseFindManufacturerCardQuery(rawData);
-        //     setData(parsed);
-
-        //     const pageCount = rawData.manufacturers?.meta.pagination.pageCount;
-        //     if (pageCount) setPageCount(pageCount);
-        // }
+            const pageCount = rawData.manufacturers?.meta.pagination.pageCount;
+            if (pageCount) setPageCount(pageCount);
+        }
     }, [rawData]);
 
     return {
