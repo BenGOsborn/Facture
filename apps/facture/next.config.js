@@ -11,7 +11,7 @@ const nextConfig = {
         svgr: false,
     },
     images: {
-        domains: ["wptdclhm4m.execute-api.ap-southeast-2.amazonaws.com"],
+        domains: [process.env["ALLOWED_IMAGE_HOSTNAME"]],
     },
     reactStrictMode: true,
 };
