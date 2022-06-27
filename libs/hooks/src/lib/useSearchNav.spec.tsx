@@ -6,22 +6,28 @@ interface Hits {
     hits: string[];
 }
 
-jest.mock("algoliasearch", () => ({
-    default: (algoliaAppId: string, algoliaApiKey: string) => {
-        return {
-            initIndex: (algoliaIndexName: string) => {
-                return {
-                    search: (query: string, options: { maxFacetHits: number }) => {
-                        if (query === "") return new Promise<Hits>((resolve) => resolve({ hits: ["not", "empty"] }));
-                        if (query === "hello world") return new Promise<Hits>((resolve) => resolve({ hits: ["hello", "world"] }));
-                        if (query === "test") return new Promise<Hits>((resolve) => resolve({ hits: ["test"] }));
-                        return new Promise<Hits>((resolve) => resolve({ hits: ["else"] }));
-                    },
-                };
-            },
-        };
-    },
-}));
+jest.mock("algoliasearch", () => {
+    const originalModule = jest.requireActual("algoliasearch");
+
+    return {
+        __esModule: true,
+        ...originalModule,
+        default: (algoliaAppId: string, algoliaApiKey: string) => {
+            return {
+                initIndex: (algoliaIndexName: string) => {
+                    return {
+                        search: (query: string, options: { maxFacetHits: number }) => {
+                            if (query === "") return new Promise<Hits>((resolve) => resolve({ hits: ["not", "empty"] }));
+                            if (query === "hello world") return new Promise<Hits>((resolve) => resolve({ hits: ["hello", "world"] }));
+                            if (query === "test") return new Promise<Hits>((resolve) => resolve({ hits: ["test"] }));
+                            return new Promise<Hits>((resolve) => resolve({ hits: ["else"] }));
+                        },
+                    };
+                },
+            };
+        },
+    };
+});
 
 describe("use search nav", () => {
     it("should return correct hits according to the query", async () => {
