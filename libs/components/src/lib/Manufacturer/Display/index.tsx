@@ -1,3 +1,5 @@
+import { emitSectionHover } from "@facture/helpers";
+import { useInterval } from "@facture/hooks";
 import { ImageDisplay } from "@facture/types";
 import { Photo } from "tabler-icons-react";
 
@@ -9,9 +11,12 @@ interface Props {
 }
 
 export function Display({ display }: Props) {
-    if (display.length > 0)
+    if (display.length > 0) {
+        const period = 1000;
+        const { start, stop } = useInterval(period, () => emitSectionHover("display", period));
+
         return (
-            <div className="shadow-md rounded-md p-6 bg-white">
+            <div className="shadow-md rounded-md p-6 bg-white" onMouseEnter={start} onMouseLeave={stop}>
                 <div className="flex space-x-2 items-center mb-6 text-gray-800">
                     <Photo />
                     <h3 className="font-bold text-lg">Gallery</h3>
@@ -24,6 +29,7 @@ export function Display({ display }: Props) {
                 />
             </div>
         );
+    }
 
     return null;
 }

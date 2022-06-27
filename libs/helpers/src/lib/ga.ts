@@ -6,8 +6,8 @@ export function emitSocialEvent(social: SocialPlatformDisplay, link: string) {
         window.gtag("event", "social_click", { social, link });
 }
 
-export function emitContactHover(period: number) {
+export function emitSectionHover(section: "contact" | "info" | "content" | "display" | "location", period: number) {
     if (window !== undefined)
         // @ts-ignore
-        window.gtag("event", "contact_us_hover", { period });
+        window.gtag("event", "section_hover", { section, period });
 }

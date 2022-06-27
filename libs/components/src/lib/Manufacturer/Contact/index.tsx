@@ -1,4 +1,4 @@
-import { emitContactHover } from "@facture/helpers";
+import { emitSectionHover } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
 import { EmailDisplay, PhoneNoDisplay, OpeningTimeDisplay, SocialDisplay, FaxDisplay } from "@facture/types";
 
@@ -18,7 +18,7 @@ interface Props {
 
 export function Contact({ email, phone, openingTime, social, fax }: Props) {
     const period = 1000;
-    const { start, stop } = useInterval(period, () => emitContactHover(period));
+    const { start, stop } = useInterval(period, () => emitSectionHover("contact", period));
 
     return (
         <div className="p-6 shadow-md rounded-md bg-white" onMouseEnter={start} onMouseLeave={stop}>

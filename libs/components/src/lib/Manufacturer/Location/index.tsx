@@ -1,3 +1,5 @@
+import { emitSectionHover } from "@facture/helpers";
+import { useInterval } from "@facture/hooks";
 import { LocationDisplay } from "@facture/types";
 import { useLoadScript } from "@react-google-maps/api";
 import { MapPin } from "tabler-icons-react";
@@ -14,9 +16,12 @@ export function Location({ location }: Props) {
 
     const { isLoaded } = useLoadScript({ googleMapsApiKey: googleApiKey });
 
+    const period = 1000;
+    const { start, stop } = useInterval(period, () => emitSectionHover("location", period));
+
     if (location.length > 0)
         return (
-            <div className="p-6 shadow-md rounded-md bg-white">
+            <div className="p-6 shadow-md rounded-md bg-white" onMouseEnter={start} onMouseLeave={stop}>
                 <div className="flex space-x-2 items-center mb-6 text-gray-800">
                     <MapPin />
                     <h3 className="font-bold text-lg">Location</h3>
