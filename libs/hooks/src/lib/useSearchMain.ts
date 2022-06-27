@@ -1,5 +1,5 @@
-import useSearchMainQuery from "./useSearchMainQuery";
-import useSearchMainSearch from "./useSearchMainSearch";
+import { useSearchMainQuery } from "./useSearchMainQuery";
+import { useSearchMainSearch } from "./useSearchMainSearch";
 
 export function useSearchMain(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, pageSize: number) {
     const { data: queryData, loadMore: loadMoreQuery } = useSearchMainQuery(pageSize);

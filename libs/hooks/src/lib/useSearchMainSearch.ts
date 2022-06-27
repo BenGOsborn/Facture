@@ -3,8 +3,8 @@ import { parseAlgoliaSearchHits } from "@facture/graphql";
 import algoliasearch from "algoliasearch";
 import { useEffect, useState } from "react";
 
-import useSearchMainSearchURL from "./useSearchMainSearchURL";
-import useLocation from "./useLocation";
+import { useSearchMainSearchURL } from "./useSearchMainSearchURL";
+import { useLocation } from "./useLocation";
 
 export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, pageSize: number) {
     const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
