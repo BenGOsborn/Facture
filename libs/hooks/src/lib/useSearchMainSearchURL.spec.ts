@@ -1,6 +1,8 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import { useSearchMainSearchURL } from "./useSearchMainSearchURL";
 
+const store = { query: "" };
+
 jest.mock("next/router", () => {
     const originalModule = jest.requireActual("next/router");
 
@@ -9,7 +11,9 @@ jest.mock("next/router", () => {
         ...originalModule,
         useRouter: () => ({
             query: { search: "test 1" },
-            push: (query: string) => {},
+            push: (query: string) => {
+                store.query = query;
+            },
         }),
     };
 });
@@ -27,6 +31,7 @@ describe("use search main search url", () => {
         // **** How am I going to test that the correct rerender got called ?
 
         rerender({ query: "test 2", setQuery });
+        console.log(store);
 
         rerender({ query: "", setQuery });
     });
