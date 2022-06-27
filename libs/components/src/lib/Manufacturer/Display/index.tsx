@@ -11,10 +11,10 @@ interface Props {
 }
 
 export function Display({ display }: Props) {
-    if (display.length > 0) {
-        const period = 1000;
-        const { start, stop } = useInterval(period, () => emitSectionHover("display", period));
+    const period = 1000;
+    const { start, stop } = useInterval(period, () => emitSectionHover("display", period));
 
+    if (display.length > 0)
         return (
             <div className="shadow-md rounded-md p-6 bg-white" onMouseEnter={start} onMouseLeave={stop}>
                 <div className="flex space-x-2 items-center mb-6 text-gray-800">
@@ -29,7 +29,6 @@ export function Display({ display }: Props) {
                 />
             </div>
         );
-    }
 
     return null;
 }
