@@ -9,6 +9,7 @@ jest.mock("next/router", () => {
         ...originalModule,
         useRouter: () => ({
             query: { search: "test 1" },
+            push: (query: string) => {},
         }),
     };
 });
@@ -22,8 +23,6 @@ describe("use search main search url", () => {
         });
 
         expect(setQuery).toHaveBeenCalled();
-
-        console.log(result);
 
         rerender({ query: "test 2", setQuery });
 
