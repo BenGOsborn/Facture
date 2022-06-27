@@ -22,8 +22,8 @@ export function useSearchMainSearchURL(query: string, setQuery: (value: string) 
     useEffect(() => {
         if (!finished.current) return;
 
-        if (query !== "") history.pushState(null, "", window.location.pathname + "?search=" + encodeURI(query));
-        else history.pushState(null, "", window.location.pathname);
+        if (query !== "") window.history.pushState(null, "", window.location.pathname + "?search=" + encodeURI(query));
+        else window.history.pushState(null, "", window.location.pathname);
     }, [query]);
 }
 

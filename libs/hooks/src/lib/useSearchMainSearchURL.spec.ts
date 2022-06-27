@@ -16,7 +16,7 @@ jest.mock("next/router", () => {
 
 describe("use search main search url", () => {
     it("should return load the query from url and update the main query with it", async () => {
-        const setQuery = jest.fn((query: string) => {});
+        const setQuery = jest.fn();
 
         const { rerender } = renderHook(({ query, setQuery }) => useSearchMainSearchURL(query, setQuery), {
             initialProps: { query: "", setQuery },
