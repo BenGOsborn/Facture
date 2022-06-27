@@ -2,22 +2,13 @@
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "libs/hooks/src",
     "projectType": "library",
+    "tags": [],
     "targets": {
-        "build": {
-            "executor": "@nrwl/js:tsc",
-            "outputs": ["{options.outputPath}"],
-            "options": {
-                "outputPath": "dist/libs/hooks",
-                "main": "libs/hooks/src/index.ts",
-                "tsConfig": "libs/hooks/tsconfig.lib.json",
-                "assets": ["libs/hooks/*.md"]
-            }
-        },
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],
             "options": {
-                "lintFilePatterns": ["libs/hooks/**/*.ts"]
+                "lintFilePatterns": ["libs/hooks/**/*.{ts,tsx,js,jsx}"]
             }
         },
         "test": {
@@ -28,6 +19,5 @@
                 "passWithNoTests": true
             }
         }
-    },
-    "tags": []
+    }
 }
