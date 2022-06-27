@@ -30,7 +30,7 @@ export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string,
             });
 
         setCurrentPage(0);
-    }, [query, pageSize, location]);
+    }, [query, pageSize, location, index]);
 
     useEffect(() => {
         if (currentPage > 0)
@@ -42,7 +42,7 @@ export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string,
                         return prev ? [...prev, ...parsed] : parsed;
                     })
                 );
-    }, [currentPage, location, index]);
+    }, [currentPage, location, index, pageSize]);
 
     return {
         data,

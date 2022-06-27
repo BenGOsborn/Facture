@@ -22,7 +22,7 @@ export function useSearchNav<T>(algoliaAppId: string, algoliaApiKey: string, alg
                     page: 0,
                 })
                 .then((data) => setHits(data.hits as any));
-    }, [query, location]);
+    }, [query, location, index, max]);
 
     return { query, setQuery, hits };
 }
