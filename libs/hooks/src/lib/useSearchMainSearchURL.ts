@@ -5,7 +5,9 @@ export function useSearchMainSearchURL(query: string, setQuery: (value: string) 
     const router = useRouter();
     const finished = useRef<boolean>(false);
 
-    // **** Now we have a problem where if the type is never found it will just not work ever
+    useEffect(() => {
+        setTimeout(() => (finished.current = true), 250);
+    }, []);
 
     useEffect(() => {
         if (finished.current) return;
@@ -18,8 +20,6 @@ export function useSearchMainSearchURL(query: string, setQuery: (value: string) 
     }, [router]);
 
     useEffect(() => {
-        console.log(finished.current);
-
         if (!finished.current) return;
 
         if (query !== "") router.push("?search=" + encodeURI(query));
