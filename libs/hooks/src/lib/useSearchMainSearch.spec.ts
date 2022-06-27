@@ -1,4 +1,3 @@
-import { LocationProvider } from "@facture/providers";
 import { SearchHit } from "@facture/types";
 import { renderHook, act } from "@testing-library/react-hooks";
 import { useSearchMainSearch } from "./useSearchMainSearch";
@@ -76,7 +75,7 @@ jest.mock("algoliasearch", () => {
 
 describe("use search main search", () => {
     it("should return hits according to the query", async () => {
-        const { result, waitForNextUpdate } = renderHook(() => useSearchMainSearch("", "", "", 1), { wrapper: LocationProvider });
+        const { result, waitForNextUpdate } = renderHook(() => useSearchMainSearch("", "", "", 1));
 
         expect(result.current.query).toEqual("");
         expect(result.current.data).toEqual(null);
