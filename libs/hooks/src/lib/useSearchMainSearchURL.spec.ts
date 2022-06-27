@@ -28,11 +28,10 @@ describe("use search main search url", () => {
 
         expect(setQuery).toHaveBeenCalled();
 
-        // **** How am I going to test that the correct rerender got called ?
-
         rerender({ query: "test 2", setQuery });
-        console.log(store);
+        expect(store.query).toEqual("?search=" + encodeURI("test 2"));
 
         rerender({ query: "", setQuery });
+        expect(store.query).toEqual("");
     });
 });
