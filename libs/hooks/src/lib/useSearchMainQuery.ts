@@ -15,14 +15,6 @@ export function useSearchMainQuery(pageSize: number) {
     const loadMore = () => setCurrentPage((page) => page + 1);
 
     useEffect(() => {
-        if (currentPage > 1)
-            fetchMore({ variables: { pageSize, page: currentPage } }).then(({ data }) => {
-                const parsed = parseFindManufacturerCardQuery(data);
-                if (parsed) setData((prev) => (prev ? [...prev, ...parsed] : parsed));
-            });
-    }, [currentPage]);
-
-    useEffect(() => {
         if (rawData) {
             const parsed = parseFindManufacturerCardQuery(rawData);
             setData(parsed);
@@ -31,6 +23,14 @@ export function useSearchMainQuery(pageSize: number) {
             if (pageCount) setPageCount(pageCount);
         }
     }, [rawData]);
+
+    useEffect(() => {
+        if (currentPage > 1)
+            fetchMore({ variables: { pageSize, page: currentPage } }).then(({ data }) => {
+                const parsed = parseFindManufacturerCardQuery(data);
+                if (parsed) setData((prev) => (prev ? [...prev, ...parsed] : parsed));
+            });
+    }, [currentPage, pageSize]);
 
     return {
         data,

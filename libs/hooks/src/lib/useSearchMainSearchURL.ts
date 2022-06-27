@@ -17,7 +17,7 @@ export function useSearchMainSearchURL(query: string, setQuery: (value: string) 
             finished.current = true;
             setQuery(decodeURI(search));
         }
-    }, [router, setQuery]);
+    }, [router]);
 
     useEffect(() => {
         if (!finished.current) return;
