@@ -16,6 +16,7 @@
         "baseUrl": ".",
         "paths": {
             "@facture/components": ["libs/components/src/index.ts"],
+            "@facture/context": ["libs/context/src/index.ts"],
             "@facture/graphql": ["libs/graphql/src/index.ts"],
             "@facture/helpers": ["libs/helpers/src/index.ts"],
             "@facture/hooks": ["libs/hooks/src/index.ts"],

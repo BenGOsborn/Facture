@@ -1,4 +1,4 @@
-import { locationCtx } from "@facture/providers";
+import { locationCtx } from "@facture/context";
 import { useContext } from "react";
 
 export function useLocation() {

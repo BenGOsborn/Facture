@@ -1,9 +1,12 @@
 import { Location } from "@facture/types";
-import { createContext, useEffect, useState } from "react";
+import { locationCtx } from "@facture/context";
+import { useEffect, useState } from "react";
 
-export const locationCtx = createContext<Location | undefined>(undefined as any);
+interface Props {
+    children: any;
+}
 
-export function LocationProvider({ children }: { children: any }) {
+export function LocationProvider({ children }: Props) {
     const [location, setLocation] = useState<Location | undefined>(undefined);
 
     useEffect(() => {
@@ -14,3 +17,5 @@ export function LocationProvider({ children }: { children: any }) {
 
     return <locationCtx.Provider value={location}>{children}</locationCtx.Provider>;
 }
+
+export default LocationProvider;

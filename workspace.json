@@ -3,6 +3,7 @@
     "version": 2,
     "projects": {
         "components": "libs/components",
+        "context": "libs/context",
         "facture": "apps/facture",
         "graphql": "libs/graphql",
         "helpers": "libs/helpers",
