@@ -25,6 +25,7 @@ jobs:
                   node-version: "${{ steps.nvm.outputs.NVMRC }}"
 
             - run: npm ci
+            - run: npx nx run-many --all --target=lint
             - run: npx nx run-many --all --target=test
             - run: npx nx build
               env:

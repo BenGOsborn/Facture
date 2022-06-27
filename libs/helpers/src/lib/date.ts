@@ -19,12 +19,12 @@ export function formatTime(time: string) {
     const date = new Date("1970-01-01 " + time);
 
     let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let ampm = hours >= 12 ? "pm" : "am";
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "pm" : "am";
 
     hours = hours % 12;
 
-    let minutesString = minutes < 10 ? "0" + minutes : minutes;
+    const minutesString = minutes < 10 ? "0" + minutes : minutes;
 
     return hours + ":" + minutesString + " " + ampm;
 }

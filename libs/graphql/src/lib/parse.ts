@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
 import { FindManufacturerCardQuery, FindManufacturerQuery, FindManufacturersQuery, ManufacturerDisplay, SearchHit } from "@facture/types";

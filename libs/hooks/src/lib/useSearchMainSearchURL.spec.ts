@@ -1,7 +1,6 @@
-import { renderHook, act } from "@testing-library/react-hooks";
-import { useSearchMainSearchURL } from "./useSearchMainSearchURL";
+import { renderHook } from "@testing-library/react-hooks";
 
-const store = { query: "" };
+import { useSearchMainSearchURL } from "./useSearchMainSearchURL";
 
 jest.mock("next/router", () => {
     const originalModule = jest.requireActual("next/router");
@@ -11,9 +10,6 @@ jest.mock("next/router", () => {
         ...originalModule,
         useRouter: () => ({
             query: { search: "test 1" },
-            push: (query: string) => {
-                store.query = query;
-            },
         }),
     };
 });
@@ -29,9 +25,9 @@ describe("use search main search url", () => {
         expect(setQuery).toHaveBeenCalled();
 
         rerender({ query: "test 2", setQuery });
-        expect(store.query).toEqual("?search=" + encodeURI("test 2"));
+        expect(window.location.search).toEqual("?search=" + encodeURI("test 2"));
 
         rerender({ query: "", setQuery });
-        expect(store.query).toEqual("");
+        expect(window.location.search).toEqual("");
     });
 });
