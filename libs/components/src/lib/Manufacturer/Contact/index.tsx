@@ -1,3 +1,5 @@
+import { emitContactHover } from "@facture/helpers";
+import { useInterval } from "@facture/hooks";
 import { EmailDisplay, PhoneNoDisplay, OpeningTimeDisplay, SocialDisplay, FaxDisplay } from "@facture/types";
 
 import { Email } from "./email";
@@ -15,16 +17,11 @@ interface Props {
 }
 
 export function Contact({ email, phone, openingTime, social, fax }: Props) {
-    // **** We need some sort of use timeout that is going to help us to be able to track the analytics here - I can easily make this into a hook
-    let timer: NodeJS.Timer;
-    const period = 1;
+    const period = 1000;
+    const { start, stop } = useInterval(period, () => emitContactHover(period));
 
     return (
-        <div
-            className="p-6 shadow-md rounded-md bg-white"
-            onMouseEnter={() => (timer = setInterval(() => console.log("Timed"), period * 1000))}
-            onMouseLeave={() => clearInterval(timer)}
-        >
+        <div className="p-6 shadow-md rounded-md bg-white" onMouseEnter={start} onMouseLeave={stop}>
             <div className="space-y-6">
                 <h2 className="font-bold text-gray-900 text-xl">Contact</h2>
                 <Email email={email} />
