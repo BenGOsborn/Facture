@@ -10,7 +10,7 @@ export function useCarousel(size: number, shiftSize: number) {
     useEffect(() => {
         if (selected > tuple[1]) setPosition([shiftSize, -1 * shiftSize]);
         else setPosition([-1 * shiftSize, shiftSize]);
-    }, [selected]);
+    }, [selected, shiftSize]);
 
     useEffect(() => {
         setTuple((prev) => [prev[1], selected]);
