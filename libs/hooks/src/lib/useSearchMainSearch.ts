@@ -42,7 +42,7 @@ export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string,
                         return prev ? [...prev, ...parsed] : parsed;
                     })
                 );
-    }, [currentPage, location]);
+    }, [currentPage, location, index]);
 
     return {
         data,

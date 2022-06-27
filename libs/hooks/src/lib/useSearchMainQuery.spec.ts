@@ -1,4 +1,4 @@
-import { Enum_Manufacturer_Color, FindManufacturerCardQuery, SearchHit } from "@facture/types";
+import { Enum_Manufacturer_Color, FindManufacturerCardQuery } from "@facture/types";
 import { renderHook, act } from "@testing-library/react-hooks";
 import { useSearchMainQuery } from "./useSearchMainQuery";
 
@@ -45,7 +45,7 @@ jest.mock("@apollo/client", () => {
     const fetchMore = (options: { variables: { pageSize: number; page: number } }) =>
         new Promise<{ data: FindManufacturerCardQuery }>((resolve) => resolve({ data: data2 }));
 
-    return { __esModule: true, ...originalModule, useQuery: (query: any, options: any) => ({ data: data1, fetchMore }) };
+    return { __esModule: true, ...originalModule, useQuery: (query: string, options: any) => ({ data: data1, fetchMore }) };
 });
 
 describe("use search main query", () => {

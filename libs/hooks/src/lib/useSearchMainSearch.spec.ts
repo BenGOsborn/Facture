@@ -56,9 +56,9 @@ jest.mock("algoliasearch", () => {
     return {
         __esModule: true,
         ...originalModule,
-        default: (algoliaAppId: any, algoliaApiKey: any) => {
+        default: (algoliaAppId: string, algoliaApiKey: string) => {
             return {
-                initIndex: (algoliaIndexName: any) => {
+                initIndex: (algoliaIndexName: string) => {
                     return {
                         search: (query: string, options: { hitsPerPage: number; page: number }) => {
                             if (query === "") return new Promise<Hits>((resolve) => resolve({ hits: [], nbPages }));
