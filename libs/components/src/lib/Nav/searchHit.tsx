@@ -1,4 +1,4 @@
-import { emitCardHover } from "@facture/helpers";
+import { ANALYTICS_HOVER_PERIOD, emitCardHover } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
 import { SearchHit as SearchHitType } from "@facture/types";
 import Image from "next/image";
@@ -10,8 +10,7 @@ interface Props {
 }
 
 export function SearchHit({ hit, onClick }: Props) {
-    const period = 1000;
-    const { start, stop } = useInterval(period, () => emitCardHover("nav_search", period, hit.manufacturer));
+    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitCardHover("nav_search", ANALYTICS_HOVER_PERIOD, hit.manufacturer));
 
     const logoWidth = 50;
     const logoHeight = 50;

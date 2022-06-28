@@ -1,4 +1,4 @@
-import { emitSectionHover } from "@facture/helpers";
+import { ANALYTICS_HOVER_PERIOD, emitSectionHover } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
 import { LocationDisplay } from "@facture/types";
 import { useLoadScript } from "@react-google-maps/api";
@@ -16,8 +16,7 @@ export function Location({ location }: Props) {
 
     const { isLoaded } = useLoadScript({ googleMapsApiKey: googleApiKey });
 
-    const period = 1000;
-    const { start, stop } = useInterval(period, () => emitSectionHover("location", period));
+    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("location", ANALYTICS_HOVER_PERIOD));
 
     if (location.length > 0)
         return (

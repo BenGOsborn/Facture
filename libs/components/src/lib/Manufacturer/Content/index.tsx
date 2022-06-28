@@ -1,4 +1,4 @@
-import { emitSectionHover } from "@facture/helpers";
+import { ANALYTICS_HOVER_PERIOD, emitSectionHover } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
 import { ImageDisplay } from "@facture/types";
 import Image from "next/image";
@@ -10,8 +10,7 @@ interface Props {
 }
 
 export function Content({ description, thumbnail }: Props) {
-    const period = 1000;
-    const { start, stop } = useInterval(period, () => emitSectionHover("content", period));
+    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("content", ANALYTICS_HOVER_PERIOD));
 
     const thumbnailWidth = 2000;
     const thumbnailHeight = 500;

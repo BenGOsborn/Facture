@@ -1,7 +1,7 @@
 import { ColorDisplay, ImageDisplay } from "@facture/types";
 import Image from "next/image";
 import { useInterval } from "@facture/hooks";
-import { emitSectionHover } from "@facture/helpers";
+import { ANALYTICS_HOVER_PERIOD, emitSectionHover } from "@facture/helpers";
 
 import { Type } from "./type";
 import { DateEstablished } from "./dateEstablished";
@@ -17,8 +17,7 @@ interface Props {
 }
 
 export function Info({ name, slogan, dateEstablished, logo, description, type, color }: Props) {
-    const period = 1000;
-    const { start, stop } = useInterval(period, () => emitSectionHover("info", period));
+    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("info", ANALYTICS_HOVER_PERIOD));
 
     const logoWidth = 75;
     const logoHeight = 75;

@@ -1,4 +1,4 @@
-import { emitSectionHover } from "@facture/helpers";
+import { ANALYTICS_HOVER_PERIOD, emitSectionHover } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
 import { ImageDisplay } from "@facture/types";
 import { Photo } from "tabler-icons-react";
@@ -11,8 +11,7 @@ interface Props {
 }
 
 export function Display({ display }: Props) {
-    const period = 1000;
-    const { start, stop } = useInterval(period, () => emitSectionHover("display", period));
+    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("display", ANALYTICS_HOVER_PERIOD));
 
     if (display.length > 0)
         return (
