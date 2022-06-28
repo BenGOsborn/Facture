@@ -1,3 +1,5 @@
+import { emitCardHover } from "@facture/helpers";
+import { useInterval } from "@facture/hooks";
 import { SearchHit } from "@facture/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +11,9 @@ interface Props {
 }
 
 export function Card({ hit }: Props) {
+    const period = 1000;
+    const { start, stop } = useInterval(period, () => emitCardHover("landing_search", period, hit.manufacturer));
+
     const logoWidth = 50;
     const logoHeight = 50;
 
@@ -17,7 +22,7 @@ export function Card({ hit }: Props) {
 
     return (
         <Link href={`/manufacturers/${hit.manufacturer}`}>
-            <a role="card">
+            <a role="card" onMouseEnter={start} onMouseLeave={stop}>
                 <div className="p-6 bg-white rounded-md shadow-md hover:shadow-lg transition-shadow space-y-3 h-full">
                     <Image
                         role="card-thumbnail"

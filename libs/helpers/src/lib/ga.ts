@@ -14,9 +14,9 @@ export function emitSectionHover(section: "contact" | "info" | "content" | "disp
         window.gtag("event", "section_hover", { section, period });
 }
 
-export function emitCardHover(card: "nav_search" | "landing_search", period: number) {
+export function emitCardHover(card: "nav_search" | "landing_search", period: number, cardOwnerId: string) {
     if (window !== undefined)
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        window.gtag("event", "card_hover", { card, period });
+        window.gtag("event", "card_hover", { card, period, cardOwnerId });
 }
