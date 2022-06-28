@@ -43,7 +43,7 @@ export function Card({ hit }: Props) {
                         </div>
                         <Image role="card-logo" className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                     </div>
-                    <p role="card-description" className="text-gray-700 text-lg line-clamp-3">
+                    <p role="card-description" className="text-gray-700 text-lg line-clamp-2">
                         {hit.descriptionShort}
                     </p>
                     <Type type={hit.type} color={hit.color} />
