@@ -31,7 +31,7 @@ export function Card({ hit }: Props) {
                         height={thumbnailHeight}
                     />
                     <div className="flex items-center justify-between">
-                        <div>
+                        <div className="mr-7">
                             <p role="card-name" className="text-2xl font-bold text-gray-900 line-clamp-1">
                                 {hit.name}
                             </p>
