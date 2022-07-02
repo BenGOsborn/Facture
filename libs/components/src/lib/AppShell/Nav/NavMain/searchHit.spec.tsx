@@ -1,7 +1,7 @@
 import { render, waitFor } from "@testing-library/react";
 import { SearchHit } from "./searchHit";
 
-describe("card", () => {
+describe("search hit", () => {
     it("should render a search hit", async () => {
         const component = render(
             <SearchHit

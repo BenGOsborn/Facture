@@ -1,11 +1,11 @@
 import { render } from "@testing-library/react";
-import { Content } from ".";
+import { SearchHits } from "./searchHits";
 
-describe("content", () => {
-    it("should render a list of cards", () => {
+describe("search hits", () => {
+    it("should render a list of search hits", () => {
         const component = render(
-            <Content
-                data={[
+            <SearchHits
+                hits={[
                     {
                         color: "amber",
                         descriptionShort: "",
@@ -28,8 +28,8 @@ describe("content", () => {
             />
         );
 
-        const card = component.getAllByRole("card");
+        const searchHit = component.getAllByRole("search-hit");
 
-        expect(card.length).toEqual(2);
+        expect(searchHit.length).toEqual(2);
     });
 });
