@@ -10,7 +10,8 @@
                 "outputPath": "dist/apps/resize",
                 "main": "apps/resize/src/main.ts",
                 "tsConfig": "apps/resize/tsconfig.app.json",
-                "assets": ["apps/resize/src/Dockerfile"]
+                "assets": ["apps/resize/src/Dockerfile"],
+                "generatePackageJson": true
             },
             "configurations": {
                 "production": {

@@ -1,20 +1,9 @@
-# Build
-FROM public.ecr.aws/lambda/nodejs:16 AS builder
+FROM public.ecr.aws/lambda/nodejs:16
 
 WORKDIR /usr/local
 
-COPY src src/
-COPY package*.json tsconfig.json ./
+COPY main.js main.js.map package.json ./
 
-RUN npm ci
+RUN npm install --production
 
-RUN npm run build
-
-# Production
-FROM public.ecr.aws/lambda/nodejs:16 AS production
-
-COPY --from=builder /usr/local/dist /usr/local/package*.json ./
-
-RUN npm ci --production
-
-CMD ["dist/index.handler"]
+CMD ["main.handler"]
