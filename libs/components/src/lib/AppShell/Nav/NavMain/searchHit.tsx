@@ -18,7 +18,7 @@ export function SearchHit({ hit, onClick }: Props) {
     return (
         <Link href={`/manufacturers/${hit.manufacturer}`}>
             <a onClick={onClick} onMouseEnter={start} onMouseLeave={stop}>
-                <div className="p-6 hover:bg-gray-100 transition-colors rounded-md space-y-3 mt-3">
+                <div className="p-6 hover:bg-gray-100 bg-white transition-colors rounded-md space-y-3 mt-3">
                     <div className="flex items-center justify-between space-x-5">
                         <Image className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
                         <div className="text-right">
