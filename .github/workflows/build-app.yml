@@ -25,9 +25,9 @@ jobs:
                   node-version: "${{ steps.nvm.outputs.NVMRC }}"
 
             - run: npm ci
-            - run: npx nx lint
-            - run: npx nx test
-            - run: npx nx build
+            - run: npx nx lint app
+            - run: npx nx test app
+            - run: npx nx build app
               env:
                   NEXT_PUBLIC_API_ENDPOINT: ${{ secrets.NEXT_PUBLIC_API_ENDPOINT }}
                   NEXT_PUBLIC_STRAPI_API_KEY: ${{ secrets.NEXT_PUBLIC_STRAPI_API_KEY }}
