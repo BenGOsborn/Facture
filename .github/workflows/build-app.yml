@@ -2,12 +2,12 @@ name: Node CI Build | App
 
 on:
     pull_request:
-        branches: [production/app]
+        branches: [staging/app]
 
     workflow_dispatch:
 
     push:
-        branches: [production/app]
+        branches: [staging/app]
 
 jobs:
     build:
@@ -37,3 +37,10 @@ jobs:
                   NEXT_PUBLIC_ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
                   NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS }}
                   ALLOWED_IMAGE_HOSTNAME: ${{ secrets.ALLOWED_IMAGE_HOSTNAME }}
+
+            - uses: devmasx/merge-branch@v1.3.1
+              with:
+                  type: now
+                  from_branch: main
+                  target_branch: production/app
+                  github_token: ${{ secrets.GHP }}
