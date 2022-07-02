@@ -9,12 +9,9 @@ export function Footer() {
                     Facture is an online platform dedicated to connecting manufacturers with individuals and businesses to drive local industry and innovation.
                 </p>
                 <p className="font-medium text-white text-md">
-                    Want us to list your manufacturing business / company? Contact us on{" "}
-                    <Link href="https://www.linkedin.com/in/bengosborn/">
-                        <a className="font-bold space-x-1 align-middle" target="_blank" rel="noreferrer">
-                            <BrandLinkedin className="inline" />
-                            <span>LinkedIn</span>
-                        </a>
+                    Want to list your manufacturing business? Apply{" "}
+                    <Link href="https://forms.gle/59gjvMtDMJ6rmDbS7">
+                        <a className="font-bold text-white transition-colors hover:text-gray-300">here</a>
                     </Link>
                     .
                 </p>

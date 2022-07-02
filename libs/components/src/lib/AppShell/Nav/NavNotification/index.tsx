@@ -6,7 +6,7 @@ export function NavNotification() {
             <p className="text-md text-gray-100 font-medium">
                 Register your manufacturing business{" "}
                 <Link href="https://forms.gle/59gjvMtDMJ6rmDbS7">
-                    <span className="font-bold text-white">here</span>
+                    <a className="font-bold text-white transition-colors hover:text-gray-300">here</a>
                 </Link>
                 .
             </p>

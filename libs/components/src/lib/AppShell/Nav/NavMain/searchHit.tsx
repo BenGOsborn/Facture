@@ -17,16 +17,30 @@ export function SearchHit({ hit, onClick }: Props) {
 
     return (
         <Link href={`/manufacturers/${hit.manufacturer}`}>
-            <a onClick={onClick} onMouseEnter={start} onMouseLeave={stop}>
-                <div className="p-6 hover:bg-gray-100 transition-colors rounded-md space-y-3 mt-3">
+            <a role="search-hit" onClick={onClick} onMouseEnter={start} onMouseLeave={stop}>
+                <div className="p-6 hover:bg-gray-100 bg-white transition-colors rounded-md space-y-3 mt-3">
                     <div className="flex items-center justify-between space-x-5">
-                        <Image className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
+                        <Image
+                            role="search-hit-logo"
+                            className="rounded-md"
+                            src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`}
+                            width={logoWidth}
+                            height={logoHeight}
+                        />
                         <div className="text-right">
-                            <p className="text-right text-lg font-bold text-gray-900 line-clamp-1">{hit.name}</p>
-                            {hit.slogan && <p className="text-md font-bold text-gray-700 line-clamp-1">{hit.slogan}</p>}
+                            <p role="search-hit-name" className="text-right text-lg font-bold text-gray-900 line-clamp-1">
+                                {hit.name}
+                            </p>
+                            {hit.slogan && (
+                                <p role="search-hit-slogan" className="text-md font-bold text-gray-700 line-clamp-1">
+                                    {hit.slogan}
+                                </p>
+                            )}
                         </div>
                     </div>
-                    <p className="text-gray-700 text-md line-clamp-3">{hit.descriptionShort}</p>
+                    <p role="search-hit-description" className="text-gray-700 text-md line-clamp-3">
+                        {hit.descriptionShort}
+                    </p>
                 </div>
             </a>
         </Link>
