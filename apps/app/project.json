@@ -1,6 +1,6 @@
 {
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "apps/facture",
+    "sourceRoot": "apps/app",
     "projectType": "application",
     "targets": {
         "build": {
@@ -8,8 +8,8 @@
             "outputs": ["{options.outputPath}"],
             "defaultConfiguration": "production",
             "options": {
-                "root": "apps/facture",
-                "outputPath": "dist/apps/facture"
+                "root": "apps/app",
+                "outputPath": "dist/apps/app"
             },
             "configurations": {
                 "development": {},
@@ -20,16 +20,16 @@
             "executor": "@nrwl/next:server",
             "defaultConfiguration": "development",
             "options": {
-                "buildTarget": "facture:build",
+                "buildTarget": "app:build",
                 "dev": true
             },
             "configurations": {
                 "development": {
-                    "buildTarget": "facture:build:development",
+                    "buildTarget": "app:build:development",
                     "dev": true
                 },
                 "production": {
-                    "buildTarget": "facture:build:production",
+                    "buildTarget": "app:build:production",
                     "dev": false
                 }
             }
@@ -37,14 +37,14 @@
         "export": {
             "executor": "@nrwl/next:export",
             "options": {
-                "buildTarget": "facture:build:production"
+                "buildTarget": "app:build:production"
             }
         },
         "test": {
             "executor": "@nrwl/jest:jest",
-            "outputs": ["coverage/apps/facture"],
+            "outputs": ["coverage/apps/app"],
             "options": {
-                "jestConfig": "apps/facture/jest.config.ts",
+                "jestConfig": "apps/app/jest.config.ts",
                 "passWithNoTests": true
             }
         },
@@ -52,7 +52,7 @@
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],
             "options": {
-                "lintFilePatterns": ["apps/facture/**/*.{ts,tsx,js,jsx}"]
+                "lintFilePatterns": ["apps/app/**/*.{ts,tsx,js,jsx}"]
             }
         }
     },

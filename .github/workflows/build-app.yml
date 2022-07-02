@@ -1,13 +1,13 @@
-name: Node CI Build
+name: Node CI Build | App
 
 on:
     pull_request:
-        branches: [main]
+        branches: [staging/app]
 
     workflow_dispatch:
 
     push:
-        branches: [main]
+        branches: [staging/app]
 
 jobs:
     build:
@@ -25,9 +25,9 @@ jobs:
                   node-version: "${{ steps.nvm.outputs.NVMRC }}"
 
             - run: npm ci
-            - run: npx nx run-many --all --target=lint
-            - run: npx nx run-many --all --target=test
-            - run: npx nx build
+            - run: npx nx lint app
+            - run: npx nx test app
+            - run: npx nx build app
               env:
                   NEXT_PUBLIC_API_ENDPOINT: ${{ secrets.NEXT_PUBLIC_API_ENDPOINT }}
                   NEXT_PUBLIC_STRAPI_API_KEY: ${{ secrets.NEXT_PUBLIC_STRAPI_API_KEY }}
@@ -42,5 +42,5 @@ jobs:
               with:
                   type: now
                   from_branch: main
-                  target_branch: deployment
+                  target_branch: production/app
                   github_token: ${{ secrets.GHP }}
