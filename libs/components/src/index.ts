@@ -1,6 +1,5 @@
+export * from "./lib/AppShell";
 export * from "./lib/Manufacturer";
-export * from "./lib/Nav";
 export * from "./lib/Carousel";
-export * from "./lib/Footer";
 export * from "./lib/Landing";
 export * from "./lib/Head";
