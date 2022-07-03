@@ -1,8 +1,6 @@
 FROM public.ecr.aws/lambda/nodejs:16
 
-WORKDIR /usr/local
-
-COPY main.js main.js.map package.json ./
+COPY main.js main.js.map package.json ${LAMBDA_TASK_ROOT}
 
 RUN npm install --production
 
