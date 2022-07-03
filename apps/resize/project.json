@@ -18,7 +18,6 @@
                     "optimization": true,
                     "extractLicenses": true,
                     "inspect": false,
-                    "externalDependencies": "none",
                     "fileReplacements": []
                 }
             }
