@@ -3,7 +3,7 @@ import { s3 } from "./mocks/s3";
 
 describe("handle no size", () => {
     it("should handle a file with no size param", async () => {
-        const out = await handleNoSize("hello.png", "noSize", s3 as any);
+        const out = await handleNoSize("hello.png", "", s3 as any);
 
         expect(out.statusCode).toEqual(200);
         expect(out.headers["Content-Type"]).toEqual("application/png");

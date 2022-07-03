@@ -1,6 +1,9 @@
 export const s3 = {
     getObject: ({ Bucket, Key }: { Bucket: string; Key: string }) => ({
-        promise: () => new Promise<{ Body: string }>((res) => (Bucket === "noSize" ? res({ Body: "No size" }) : res({ Body: "Lol" }))),
+        promise: () => new Promise<{ Body: string }>((res) => res({ Body: "No size" })),
+    }),
+    upload: ({ Body, Bucket, Key }: { Body: string; Bucket: string; Key: string }) => ({
+        promise: () => new Promise<{ Body: string }>((res) => res({ Body })),
     }),
 };
 
