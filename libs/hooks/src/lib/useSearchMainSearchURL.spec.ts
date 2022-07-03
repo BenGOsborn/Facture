@@ -9,18 +9,22 @@ jest.mock("next/router", () => {
         __esModule: true,
         ...originalModule,
         useRouter: () => ({
-            query: { search: "test 1" },
+            query: { search: encodeURI("test 1") },
         }),
     };
 });
 
 describe("use search main search url", () => {
     it("should return load the query from url and update the main query with it", async () => {
-        const setQuery = jest.fn();
+        const data = { query: "" };
+
+        const setQuery = jest.fn((query: string) => (data.query = query));
 
         const { rerender } = renderHook(({ query, setQuery }) => useSearchMainSearchURL(query, setQuery), {
             initialProps: { query: "", setQuery },
         });
+
+        expect(data.query).toEqual("test 1");
 
         expect(setQuery).toHaveBeenCalled();
 
