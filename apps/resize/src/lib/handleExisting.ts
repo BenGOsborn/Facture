@@ -3,10 +3,10 @@ import S3 from "aws-sdk/clients/s3";
 
 import { getExtension } from "@facture/helpers";
 
-export async function handleNoSize(fileName: string, coldBucket: string, s3: S3): Promise<APIGatewayProxyResult> {
+export async function handleExisting(fileName: string, bucket: string, s3: S3): Promise<APIGatewayProxyResult> {
     const fileExtension = getExtension(fileName);
 
-    const uploaded = await s3.getObject({ Bucket: coldBucket, Key: fileName }).promise();
+    const uploaded = await s3.getObject({ Bucket: bucket, Key: fileName }).promise();
 
     return {
         statusCode: 200,
@@ -16,4 +16,4 @@ export async function handleNoSize(fileName: string, coldBucket: string, s3: S3)
     };
 }
 
-export default handleNoSize;
+export default handleExisting;

@@ -1,7 +1,7 @@
 import { APIGatewayEvent, APIGatewayProxyResult } from "aws-lambda";
 import S3 from "aws-sdk/clients/s3";
 
-import { handleNoSize, handleResize, handleResized } from "./lib";
+import { handleExisting, handleResize } from "./lib";
 
 const s3 = new S3({ apiVersion: "2006-03-01" });
 
@@ -19,14 +19,14 @@ export const handler = async (event: APIGatewayEvent): Promise<APIGatewayProxyRe
     const size = event.queryStringParameters?.size;
 
     if (!fileName) throw Error("No file name provided");
-    if (!size) return await handleNoSize(fileName, COLD_BUCKET, s3);
+    if (!size) return await handleExisting(fileName, COLD_BUCKET, s3);
 
     if (ALLOWED_DIMENSIONS.size > 0 && !ALLOWED_DIMENSIONS.has(size)) return { statusCode: 403, headers: {}, body: "" };
 
     const resizedKey = size + "." + fileName;
 
     try {
-        return await handleResized(resizedKey, RESIZED_BUCKET, s3);
+        return await handleExisting(resizedKey, RESIZED_BUCKET, s3);
     } catch {
         const split = size.split("x");
 

@@ -1,9 +1,9 @@
-import { handleResized } from "./handleResized";
+import { handleExisting } from "./handleExisting";
 import { s3 } from "./mocks/s3";
 
-describe("handle resized", () => {
+describe("handle no size", () => {
     it("should handle a file with no size param", async () => {
-        const out = await handleResized("hello.png", "", s3 as any);
+        const out = await handleExisting("hello.png", "", s3 as any);
 
         expect(out.statusCode).toEqual(200);
         expect(out.headers["Content-Type"]).toEqual("application/png");

@@ -1,3 +1,2 @@
-export * from "./handleNoSize";
+export * from "./handleExisting";
 export * from "./handleResize";
-export * from "./handleResized";
