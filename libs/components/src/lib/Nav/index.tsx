@@ -1,5 +1,5 @@
 import { NavMain } from "./NavMain";
-import NavNotification from "./NavNotification";
+import { NavNotification } from "./NavNotification";
 
 export function Nav() {
     return (
