@@ -6,12 +6,15 @@ import { useEffect, useState } from "react";
 import { useSearchMainSearchURL } from "./useSearchMainSearchURL";
 import { useLocation } from "./useLocation";
 import useOnSearchHit from "./useOnSearchHit";
+import useDelay from "./useDelay";
+import { SEARCH_DELAY } from "@facture/helpers";
 
 export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, pageSize: number) {
     const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
     const index = searchClient.initIndex(algoliaIndexName);
 
     const [query, setQuery] = useState<string>("");
+    const [queryUpdate, setQueryUpdate] = useState<string>("");
     const [data, setData] = useState<SearchHit[] | null>(null);
     const [pageCount, setPageCount] = useState<number>(-1);
     const [currentPage, setCurrentPage] = useState<number>(0);
@@ -19,25 +22,29 @@ export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string,
     const location = useLocation();
 
     useSearchMainSearchURL(query, setQuery);
-    useOnSearchHit("landing_search", query, data);
+    useOnSearchHit("landing_search", queryUpdate, data);
+
+    useDelay(query, () => setQueryUpdate(query), SEARCH_DELAY);
 
     const loadMore = () => setCurrentPage((page) => page + 1);
 
     useEffect(() => {
-        if (query === "") setData(null);
+        if (queryUpdate === "") setData(null);
         else
-            index.search(query, { aroundLatLng: location ? `${location.latitude},${location.longitude}` : undefined, hitsPerPage: pageSize, page: 0 }).then((data) => {
-                setPageCount(data.nbPages);
-                setData(parseAlgoliaSearchHits(data.hits));
-            });
+            index
+                .search(queryUpdate, { aroundLatLng: location ? `${location.latitude},${location.longitude}` : undefined, hitsPerPage: pageSize, page: 0 })
+                .then((data) => {
+                    setPageCount(data.nbPages);
+                    setData(parseAlgoliaSearchHits(data.hits));
+                });
 
         setCurrentPage(0);
-    }, [query, pageSize, location]);
+    }, [queryUpdate, pageSize, location]);
 
     useEffect(() => {
         if (currentPage > 0)
             index
-                .search(query, { aroundLatLng: location ? `${location.latitude},${location.longitude}` : undefined, hitsPerPage: pageSize, page: currentPage })
+                .search(queryUpdate, { aroundLatLng: location ? `${location.latitude},${location.longitude}` : undefined, hitsPerPage: pageSize, page: currentPage })
                 .then((data) =>
                     setData((prev) => {
                         const parsed = parseAlgoliaSearchHits(data.hits);
