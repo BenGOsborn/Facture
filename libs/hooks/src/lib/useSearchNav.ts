@@ -1,16 +1,20 @@
+import { SearchHit } from "@facture/types";
 import algoliasearch from "algoliasearch";
 import { useEffect, useState } from "react";
 
 import { useLocation } from "./useLocation";
+import useOnSearchHit from "./useOnSearchHit";
 
-export function useSearchNav<T>(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, max?: number) {
+export function useSearchNav(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, max?: number) {
     const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
     const index = searchClient.initIndex(algoliaIndexName);
 
     const location = useLocation();
 
     const [query, setQuery] = useState("");
-    const [hits, setHits] = useState<T[]>([]);
+    const [hits, setHits] = useState<SearchHit[]>([]);
+
+    useOnSearchHit("nav_search", query, hits);
 
     useEffect(() => {
         if (query === "") setHits([]);

@@ -16,9 +16,15 @@ export function Content({ description, thumbnail }: Props) {
     const thumbnailHeight = 500;
 
     return (
-        <div className="shadow-md rounded-md bg-white" onMouseEnter={start} onMouseLeave={stop}>
-            <Image className="rounded-md" src={`${thumbnail.url}?size=${thumbnailWidth}x${thumbnailHeight}`} width={thumbnailWidth} height={thumbnailHeight} />
-            <ReactMarkdown className="p-6 prose max-w-3xl">{description}</ReactMarkdown>
+        <div className="shadow-md rounded-md bg-white p-6" onMouseEnter={start} onMouseLeave={stop}>
+            <Image
+                className="rounded-md"
+                src={`${thumbnail.url}?size=${thumbnailWidth}x${thumbnailHeight}`}
+                width={thumbnailWidth}
+                height={thumbnailHeight}
+                priority={true}
+            />
+            <ReactMarkdown className="mt-6 prose max-w-3xl">{description}</ReactMarkdown>
         </div>
     );
 }

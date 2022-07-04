@@ -21,6 +21,13 @@ export function emitCardHover(card: "nav_search" | "landing_search", period: num
         window.gtag("event", "card_hover", { card, period, cardOwnerId });
 }
 
+export function emitCardSearchResults(card: "nav_search" | "landing_search", cardOwnerId: string, query: string, ranking: number, totalResults: number) {
+    if (window !== undefined)
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        window.gtag("event", "card_search_results", { card, cardOwnerId, query, ranking, totalResults });
+}
+
 export function emitCardSearchHit(card: "nav_search" | "landing_search", cardOwnerId: string, query: string, ranking: number, totalResults: number) {
     if (window !== undefined)
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

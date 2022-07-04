@@ -25,7 +25,14 @@ export function Info({ name, slogan, dateEstablished, logo, description, type, c
     return (
         <div className="p-6 shadow-md rounded-md bg-white" onMouseEnter={start} onMouseLeave={stop}>
             <div className="flex flex-col items-start mb-3 space-y-2">
-                <Image role="info-logo" className="rounded-md" src={`${logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
+                <Image
+                    role="info-logo"
+                    className="rounded-md"
+                    src={`${logo.url}?size=${logoWidth}x${logoHeight}`}
+                    width={logoWidth}
+                    height={logoHeight}
+                    priority={true}
+                />
                 <h1 role="info-name" className="text-3xl font-bold text-gray-900">
                     {name}
                 </h1>

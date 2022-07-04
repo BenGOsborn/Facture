@@ -1,15 +1,18 @@
-import { ANALYTICS_HOVER_PERIOD, emitCardHover } from "@facture/helpers";
+import { ANALYTICS_HOVER_PERIOD, emitCardHover, emitCardSearchResults } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
 import { SearchHit as SearchHitType } from "@facture/types";
 import Image from "next/image";
 import Link from "next/link";
 
 interface Props {
+    resultIndex: number;
+    totalResults: number;
+    query: string;
     hit: SearchHitType;
     onClick?: () => void;
 }
 
-export function SearchHit({ hit, onClick }: Props) {
+export function SearchHit({ resultIndex, totalResults, query, hit, onClick }: Props) {
     const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitCardHover("nav_search", ANALYTICS_HOVER_PERIOD, hit.manufacturer));
 
     const logoWidth = 50;
@@ -17,7 +20,15 @@ export function SearchHit({ hit, onClick }: Props) {
 
     return (
         <Link href={`/manufacturers/${hit.manufacturer}`}>
-            <a role="search-hit" onClick={onClick} onMouseEnter={start} onMouseLeave={stop}>
+            <a
+                role="search-hit"
+                onClick={() => {
+                    onClick && onClick();
+                    emitCardSearchResults("nav_search", hit.manufacturer, query, resultIndex + 1, totalResults);
+                }}
+                onMouseEnter={start}
+                onMouseLeave={stop}
+            >
                 <div className="p-6 hover:bg-gray-100 bg-white transition-colors rounded-md space-y-3 mt-3">
                     <div className="flex items-center justify-between space-x-5">
                         <Image

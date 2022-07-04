@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import { useSearchMainSearchURL } from "./useSearchMainSearchURL";
 import { useLocation } from "./useLocation";
+import useOnSearchHit from "./useOnSearchHit";
 
 export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, pageSize: number) {
     const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
@@ -18,6 +19,7 @@ export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string,
     const location = useLocation();
 
     useSearchMainSearchURL(query, setQuery);
+    useOnSearchHit("landing_search", query, data);
 
     const loadMore = () => setCurrentPage((page) => page + 1);
 
