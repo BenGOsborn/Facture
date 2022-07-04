@@ -6,6 +6,10 @@ export function useDelay(trigger: any, callback: () => void, delay: number) {
     useEffect(() => {
         if (timeout.current) clearTimeout(timeout.current);
         timeout.current = setTimeout(callback, delay);
+
+        return () => {
+            timeout.current && clearTimeout(timeout.current);
+        };
     }, [trigger]);
 }
 
