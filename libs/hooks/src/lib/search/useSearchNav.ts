@@ -2,10 +2,10 @@ import { SEARCH_DELAY } from "@facture/helpers";
 import { SearchHit } from "@facture/types";
 import algoliasearch from "algoliasearch";
 import { useEffect, useState } from "react";
-import useDelay from "../useDelay";
 
+import { useDelay } from "../useDelay";
 import { useLocation } from "../useLocation";
-import useOnSearchHit from "./useOnSearchHit";
+import { useOnSearchHit } from "./useOnSearchHit";
 
 export function useSearchNav(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, max?: number) {
     const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
