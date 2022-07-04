@@ -1,13 +1,13 @@
 import { SearchHit } from "@facture/types";
 import { parseAlgoliaSearchHits } from "@facture/graphql";
 import algoliasearch from "algoliasearch";
+import { SEARCH_DELAY } from "@facture/helpers";
 import { useEffect, useState } from "react";
 
 import { useSearchMainSearchURL } from "./useSearchMainSearchURL";
 import { useLocation } from "./useLocation";
 import useOnSearchHit from "./useOnSearchHit";
 import useDelay from "./useDelay";
-import { SEARCH_DELAY } from "@facture/helpers";
 
 export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, pageSize: number) {
     const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
