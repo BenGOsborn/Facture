@@ -1,1 +1,1 @@
-export const ANALYTICS_HOVER_PERIOD = 500;
+export const ANALYTICS_HOVER_PERIOD = 750;

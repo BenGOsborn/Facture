@@ -1,4 +1,4 @@
-import { ANALYTICS_HOVER_PERIOD, emitCardHover, emitCardSearchResults } from "@facture/helpers";
+import { ANALYTICS_HOVER_PERIOD, emitCardHover, emitCardSearchHit } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
 import { SearchHit as SearchHitType } from "@facture/types";
 import Image from "next/image";
@@ -24,7 +24,7 @@ export function SearchHit({ resultIndex, totalResults, query, hit, onClick }: Pr
                 role="search-hit"
                 onClick={() => {
                     onClick && onClick();
-                    emitCardSearchResults("nav_search", hit.manufacturer, query, resultIndex + 1, totalResults);
+                    emitCardSearchHit("nav_search", hit.manufacturer, query, resultIndex + 1, totalResults);
                 }}
                 onMouseEnter={start}
                 onMouseLeave={stop}
