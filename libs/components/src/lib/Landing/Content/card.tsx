@@ -1,4 +1,4 @@
-import { ANALYTICS_HOVER_PERIOD, emitCardHover } from "@facture/helpers";
+import { ANALYTICS_HOVER_PERIOD, emitCardHover, emitCardSearchHit } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
 import { SearchHit } from "@facture/types";
 import Image from "next/image";
@@ -7,10 +7,13 @@ import Link from "next/link";
 import { Type } from "./type";
 
 interface Props {
+    resultIndex: number;
+    totalResults: number;
+    query: string;
     hit: SearchHit;
 }
 
-export function Card({ hit }: Props) {
+export function Card({ resultIndex, totalResults, query, hit }: Props) {
     const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitCardHover("landing_search", ANALYTICS_HOVER_PERIOD, hit.manufacturer));
 
     const logoWidth = 50;
@@ -21,7 +24,12 @@ export function Card({ hit }: Props) {
 
     return (
         <Link href={`/manufacturers/${hit.manufacturer}`}>
-            <a role="card" onMouseEnter={start} onMouseLeave={stop}>
+            <a
+                role="card"
+                onMouseEnter={start}
+                onMouseLeave={stop}
+                onClick={() => emitCardSearchHit("landing_search", hit.manufacturer, query, resultIndex + 1, totalResults)}
+            >
                 <div className="p-6 bg-white rounded-md shadow-md hover:shadow-lg transition-shadow space-y-3 h-full">
                     <Image
                         role="card-thumbnail"

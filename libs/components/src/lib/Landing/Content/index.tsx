@@ -3,10 +3,11 @@ import { SearchHit } from "@facture/types";
 import { Card } from "./card";
 
 interface Props {
+    query: string;
     data?: SearchHit[];
 }
 
-export function Content({ data }: Props) {
+export function Content({ query, data }: Props) {
     return (
         <div className="space-y-7 w-full">
             <div className="space-y-3 rounded-md shadow-md py-7 px-14 bg-white">
@@ -16,7 +17,7 @@ export function Content({ data }: Props) {
             {data && data.length > 0 ? (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 auto-rows-max auto-cols-max">
                     {data.map((result, index) => (
-                        <Card key={index} hit={result} />
+                        <Card key={index} resultIndex={index} totalResults={data.length} query={query} hit={result} />
                     ))}
                 </div>
             ) : (
