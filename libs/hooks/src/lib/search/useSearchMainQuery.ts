@@ -1,10 +1,10 @@
 import { useQuery } from "@apollo/client";
-import { FindManufacturerCardQuery, FindManufacturerCardQueryVariables, SearchHit } from "@facture/types";
+import { FindManufacturerCardQuery, FindManufacturerCardQueryVariables, SearchHitType } from "@facture/types";
 import { findManufacturerCard, parseFindManufacturerCardQuery } from "@facture/graphql";
 import { useEffect, useState } from "react";
 
 export function useSearchMainQuery(pageSize: number) {
-    const [data, setData] = useState<SearchHit[] | null>(null);
+    const [data, setData] = useState<SearchHitType[]>([]);
     const [pageCount, setPageCount] = useState<number>(-1);
     const [currentPage, setCurrentPage] = useState<number>(1);
 

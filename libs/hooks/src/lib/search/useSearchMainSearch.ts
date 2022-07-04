@@ -1,4 +1,4 @@
-import { SearchHit } from "@facture/types";
+import { SearchHitType } from "@facture/types";
 import { parseAlgoliaSearchHits } from "@facture/graphql";
 import algoliasearch from "algoliasearch";
 import { SEARCH_DELAY } from "@facture/helpers";
@@ -15,7 +15,7 @@ export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string,
 
     const [query, setQuery] = useState<string>("");
     const [queryUpdate, setQueryUpdate] = useState<string>("");
-    const [data, setData] = useState<SearchHit[] | null>(null);
+    const [data, setData] = useState<SearchHitType[]>([]);
     const [pageCount, setPageCount] = useState<number>(-1);
     const [currentPage, setCurrentPage] = useState<number>(0);
 
@@ -29,7 +29,7 @@ export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string,
     const loadMore = () => setCurrentPage((page) => page + 1);
 
     useEffect(() => {
-        if (queryUpdate === "") setData(null);
+        if (queryUpdate === "") setData([]);
         else
             index
                 .search(queryUpdate, { aroundLatLng: location ? `${location.latitude},${location.longitude}` : undefined, hitsPerPage: pageSize, page: 0 })

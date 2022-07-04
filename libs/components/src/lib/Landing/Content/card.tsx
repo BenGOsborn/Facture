@@ -1,6 +1,6 @@
 import { ANALYTICS_HOVER_PERIOD, emitCardHover, emitCardSearchHit } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
-import { SearchHit } from "@facture/types";
+import { SearchHitType } from "@facture/types";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,7 +10,7 @@ interface Props {
     resultIndex: number;
     totalResults: number;
     query: string;
-    hit: SearchHit;
+    hit: SearchHitType;
 }
 
 export function Card({ resultIndex, totalResults, query, hit }: Props) {
