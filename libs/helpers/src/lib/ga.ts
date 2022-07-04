@@ -20,3 +20,17 @@ export function emitCardHover(card: "nav_search" | "landing_search", period: num
         // @ts-ignore
         window.gtag("event", "card_hover", { card, period, cardOwnerId });
 }
+
+export function emitCardSearchRanking(card: "nav_search" | "landing_search", cardOwnerId: string, query: string, ranking: number, totalResults: number) {
+    if (window !== undefined)
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        window.gtag("event", "card_search_ranking", { card, cardOwnerId, query, ranking, totalResults });
+}
+
+export function emitCardSearchHit(card: "nav_search" | "landing_search", cardOwnerId: string, query: string, ranking: number, totalResults: number) {
+    if (window !== undefined)
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        window.gtag("event", "card_search_hit", { card, cardOwnerId, query, ranking, totalResults });
+}
