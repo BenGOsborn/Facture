@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { BrandLinkedin } from "tabler-icons-react";
 
 export function Footer() {
     return (

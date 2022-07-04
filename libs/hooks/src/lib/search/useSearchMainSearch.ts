@@ -5,9 +5,9 @@ import { SEARCH_DELAY } from "@facture/helpers";
 import { useEffect, useState } from "react";
 
 import { useSearchMainSearchURL } from "./useSearchMainSearchURL";
-import { useLocation } from "./useLocation";
+import { useLocation } from "../useLocation";
 import useOnSearchHit from "./useOnSearchHit";
-import useDelay from "./useDelay";
+import useDelay from "../useDelay";
 
 export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, pageSize: number) {
     const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);

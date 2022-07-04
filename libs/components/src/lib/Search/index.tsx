@@ -1,5 +1,4 @@
 import { useSearchNav } from "@facture/hooks";
-import { SearchHit } from "@facture/types";
 
 import { SearchBar } from "./searchBar";
 import { SearchHits } from "./searchHits";
