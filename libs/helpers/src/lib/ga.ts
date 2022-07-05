@@ -1,6 +1,6 @@
-import { SocialPlatformDisplay } from "@facture/types";
+import { ManufacturerSocialPlatformType } from "@facture/types";
 
-export function emitSocialEvent(social: SocialPlatformDisplay, link: string) {
+export function emitSocialEvent(social: ManufacturerSocialPlatformType, link: string) {
     if (window !== undefined)
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore

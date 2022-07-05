@@ -1,8 +1,8 @@
-import { ColorDisplay } from "@facture/types";
+import { ManufacturerColorType } from "@facture/types";
 
 interface Props {
     text: string;
-    color: ColorDisplay;
+    color: ManufacturerColorType;
 }
 
 export function Badge({ text, color }: Props) {

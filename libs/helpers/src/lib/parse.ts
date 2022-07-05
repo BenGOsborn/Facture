@@ -14,7 +14,7 @@ import {
 } from "@facture/types";
 import { z } from "zod";
 
-export function parseFindManufacturerCardQuery(data: FindManufacturerCardQueryType) {
+export function parseManufacturerCardData(data: FindManufacturerCardQueryType) {
     if (!FindManufacturerCardQuerySchema.safeParse(data).success) throw Error("Invalid 'FindManufacturerCardQueryType'");
 
     const out = data.manufacturers.data.map(({ attributes }) => ({
@@ -33,7 +33,13 @@ export function parseFindManufacturerCardQuery(data: FindManufacturerCardQueryTy
     return out as SearchHitType[];
 }
 
-export function parseFindManufacturersQuery(data: FindManufacturersQueryType) {
+export function parseManufacturerCardMeta(data: FindManufacturerCardQueryType) {
+    if (!FindManufacturerCardQuerySchema.safeParse(data).success) throw Error("Invalid 'FindManufacturerCardQueryType'");
+
+    return data.manufacturers.meta;
+}
+
+export function parseManufacturers(data: FindManufacturersQueryType) {
     if (!FindManufacturersQuerySchema.safeParse(data).success) throw Error("Invalid 'FindManufacturersQueryType'");
 
     const out = data.manufacturers.data.map((data) => ({
@@ -43,7 +49,7 @@ export function parseFindManufacturersQuery(data: FindManufacturersQueryType) {
     return out;
 }
 
-export function parseFindManufacturerQuery(data: FindManufacturerQueryType) {
+export function parseManufacturer(data: FindManufacturerQueryType) {
     if (!FindManufacturerQuerySchema.safeParse(data).success) throw Error("Invalid 'FindManufacturerQueryType'");
 
     const attributes = data.manufacturers.data[0].attributes;

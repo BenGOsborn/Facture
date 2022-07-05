@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { FindManufacturerCardQueryType, FindManufacturerCardQueryVariablesType, SearchHitType } from "@facture/types";
 import { findManufacturerCard } from "@facture/graphql";
 import { useEffect, useState } from "react";
-import { parseFindManufacturerCardQuery } from "@facture/helpers";
+import { parseManufacturerCardData, parseManufacturerCardMeta } from "@facture/helpers";
 
 export function useSearchMainQuery(pageSize: number) {
     const [data, setData] = useState<SearchHitType[]>([]);
@@ -17,20 +17,19 @@ export function useSearchMainQuery(pageSize: number) {
 
     useEffect(() => {
         if (rawData) {
-            const parsedData = parseFindManufacturerCardQuery(rawData);
-
+            const parsedData = parseManufacturerCardData(rawData);
             setData(parsedData);
 
-            const pageCount = rawData.manufacturers?.meta.pagination.pageCount;
-            if (pageCount) setPageCount(pageCount);
+            const parsedMeta = parseManufacturerCardMeta(rawData);
+            setPageCount(parsedMeta.pagination.pageCount);
         }
     }, [rawData]);
 
     useEffect(() => {
         if (currentPage > 1)
             fetchMore({ variables: { pageSize, page: currentPage } }).then(({ data }) => {
-                const parsed = parseFindManufacturerCardQuery(data);
-                setData((prev) => (prev ? [...prev, ...parsed] : parsed));
+                const parsedData = parseManufacturerCardData(data);
+                setData((prev) => (prev ? [...prev, ...parsedData] : parsedData));
             });
     }, [currentPage, pageSize]);
 

@@ -1,8 +1,8 @@
-import { Location } from "@facture/types";
+import { LocationType } from "@facture/types";
 import { useEffect, useState } from "react";
 
 export function useLocationProvider() {
-    const [location, setLocation] = useState<Location | undefined>(undefined);
+    const [location, setLocation] = useState<LocationType | undefined>(undefined);
 
     useEffect(() => {
         if (!navigator.geolocation) return;

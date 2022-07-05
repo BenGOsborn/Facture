@@ -1,5 +1,5 @@
 import { SEARCH_DELAY } from "@facture/helpers";
-import { SearchHit } from "@facture/types";
+import { SearchHitType } from "@facture/types";
 import algoliasearch from "algoliasearch";
 import { useEffect, useState } from "react";
 
@@ -15,7 +15,7 @@ export function useSearchNav(algoliaAppId: string, algoliaApiKey: string, algoli
 
     const [query, setQuery] = useState("");
     const [queryUpdate, setQueryUpdate] = useState("");
-    const [hits, setHits] = useState<SearchHit[]>([]);
+    const [hits, setHits] = useState<SearchHitType[]>([]);
 
     useOnSearchHit("nav_search", queryUpdate, hits);
 

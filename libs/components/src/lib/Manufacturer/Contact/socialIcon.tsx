@@ -1,7 +1,6 @@
 import { emitSocialEvent } from "@facture/helpers";
 import { ManufacturerSocialPlatformType } from "@facture/types";
 import Link from "next/link";
-
 import { BrandChrome, BrandFacebook, BrandInstagram, BrandLinkedin, BrandTwitter, BrandYoutube } from "tabler-icons-react";
 
 interface Props {
