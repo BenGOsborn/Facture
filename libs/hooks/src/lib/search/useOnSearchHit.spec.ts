@@ -11,9 +11,9 @@ describe("use on search hit", () => {
         // @ts-ignore
         window.gtag = analyticsCall;
 
-        const { rerender } = renderHook(({ cardType, query, hits }) => useOnSearchHit(cardType, query, hits), {
-            initialProps: { cardType: "landing_search" as CardType, query: "", hits },
-        });
+        // const { rerender } = renderHook(({ cardType, query, hits }) => useOnSearchHit(cardType, query, hits), {
+        //     initialProps: { cardType: "landing_search" as CardType, query: "", hits },
+        // });
 
         rerender({ cardType: "landing_search", query: "", hits });
 
