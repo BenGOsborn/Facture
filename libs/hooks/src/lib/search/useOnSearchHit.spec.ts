@@ -4,19 +4,27 @@ import { useOnSearchHit } from "./useOnSearchHit";
 
 describe("use on search hit", () => {
     it("should cause analytic hits on search", async () => {
-        const hits: SearchHitType[] = [{ color: "amber", descriptionShort: "", logo: { url: "" }, manufacturer: "", name: "", thumbnail: { url: "" }, type: [] }];
-
         const analyticsCall = jest.fn();
 
         // @ts-ignore
         window.gtag = analyticsCall;
 
-        // const { rerender } = renderHook(({ cardType, query, hits }) => useOnSearchHit(cardType, query, hits), {
-        //     initialProps: { cardType: "landing_search" as CardType, query: "", hits },
-        // });
+        const { rerender } = renderHook(({ cardType, query, hits }) => useOnSearchHit(cardType, query, hits), {
+            initialProps: {
+                cardType: "landing_search" as CardType,
+                query: "",
+                hits: [{ color: "amber", descriptionShort: "", logo: { url: "" }, manufacturer: "", name: "", thumbnail: { url: "" }, type: [] }] as SearchHitType[],
+            },
+        });
 
-        rerender({ cardType: "landing_search", query: "", hits });
+        expect(analyticsCall).toHaveBeenCalledTimes(1);
 
-        expect(analyticsCall).toHaveBeenCalled();
+        rerender({
+            cardType: "landing_search",
+            query: "",
+            hits: [{ color: "blue", descriptionShort: "", logo: { url: "" }, manufacturer: "", name: "", thumbnail: { url: "" }, type: [] }] as SearchHitType[],
+        });
+
+        expect(analyticsCall).toHaveBeenCalledTimes(2);
     });
 });
