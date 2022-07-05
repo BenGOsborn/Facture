@@ -1,10 +1,10 @@
-import { EmailDisplay } from "@facture/types";
+import { ManufacturerEmailType } from "@facture/types";
 
 import { Mail } from "tabler-icons-react";
-import LabelledPair from "./labelledPair";
+import { LabelledPair } from "./labelledPair";
 
 interface Props {
-    email: EmailDisplay[];
+    email: ManufacturerEmailType[];
 }
 
 export function Email({ email }: Props) {

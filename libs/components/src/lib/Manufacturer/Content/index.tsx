@@ -1,12 +1,12 @@
 import { ANALYTICS_HOVER_PERIOD, emitSectionHover } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
-import { ImageDisplay } from "@facture/types";
+import { ManufacturerImageType } from "@facture/types";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 
 interface Props {
     description: string;
-    thumbnail: ImageDisplay;
+    thumbnail: ManufacturerImageType;
 }
 
 export function Content({ description, thumbnail }: Props) {

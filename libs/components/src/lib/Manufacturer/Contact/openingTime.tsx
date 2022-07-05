@@ -1,11 +1,11 @@
-import { OpeningTimeDisplay } from "@facture/types";
+import { ManufacturerOpeningTimeType } from "@facture/types";
 import { formatTime, groupOpeningTime, mappingToDay } from "@facture/helpers";
 import { Clock } from "tabler-icons-react";
 
 import LabelledPair from "./labelledPair";
 
 interface Props {
-    openingTime: OpeningTimeDisplay[];
+    openingTime: ManufacturerOpeningTimeType[];
 }
 
 export function OpeningTime({ openingTime }: Props) {

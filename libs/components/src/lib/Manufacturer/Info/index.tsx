@@ -1,4 +1,4 @@
-import { ColorDisplay, ImageDisplay } from "@facture/types";
+import { ManufacturerColorType, ManufacturerImageType } from "@facture/types";
 import Image from "next/image";
 import { useInterval } from "@facture/hooks";
 import { ANALYTICS_HOVER_PERIOD, emitSectionHover } from "@facture/helpers";
@@ -10,10 +10,10 @@ interface Props {
     name: string;
     slogan?: string;
     dateEstablished?: any;
-    logo: ImageDisplay;
+    logo: ManufacturerImageType;
     description: string;
     type: string[];
-    color: ColorDisplay;
+    color: ManufacturerColorType;
 }
 
 export function Info({ name, slogan, dateEstablished, logo, description, type, color }: Props) {

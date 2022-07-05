@@ -1,4 +1,4 @@
-import RainbowText from "../../RainbowText";
+import { RainbowText } from "../../RainbowText";
 
 export function Title() {
     return (

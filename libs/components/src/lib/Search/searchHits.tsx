@@ -1,4 +1,4 @@
-import { SearchHit as SearchHitType } from "@facture/types";
+import { SearchHitType } from "@facture/types";
 
 import { SearchHit } from "./searchHit";
 
