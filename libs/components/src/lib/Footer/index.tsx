@@ -1,4 +1,4 @@
-import { DESCRIPTION } from "@facture/helpers";
+import { DESCRIPTION, NAME } from "@facture/helpers";
 import Link from "next/link";
 
 export function Footer() {
@@ -16,7 +16,9 @@ export function Footer() {
                     .
                 </p>
                 <ul className="font-normal text-white flex items-center justify-center text-sm">
-                    <li>Facture - {new Date().getFullYear()}</li>
+                    <li>
+                        {NAME} - {new Date().getFullYear()}
+                    </li>
                 </ul>
             </div>
         </footer>
