@@ -86,3 +86,7 @@ export const FindManufacturerQuerySchema = z.object({
 });
 
 export type FindManufacturerQueryType = z.infer<typeof FindManufacturerQuerySchema>;
+
+export const FindManufacturerQueryVariablesSchema = z.object({ manufacturer: z.string() });
+
+export type FindManufacturerQueryVariablesType = z.infer<typeof FindManufacturerQueryVariablesSchema>;

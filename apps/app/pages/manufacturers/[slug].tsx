@@ -1,11 +1,10 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-
 import { fetchData, findManufacturer, findManufacturers, parseFindManufacturerQuery, parseFindManufacturersQuery } from "@facture/graphql";
-import { FindManufacturerQuery, FindManufacturerQueryVariables, FindManufacturersQuery, ManufacturerDisplay } from "@facture/types";
 import { Manufacturer } from "@facture/components";
+import { FindManufacturerQueryType, FindManufacturerQueryVariablesType, FindManufacturersQueryType, ManufacturerType } from "@facture/types";
 
 interface Props {
-    manufacturer: ManufacturerDisplay;
+    manufacturer: ManufacturerType;
 }
 
 export const ManufacturerPage: NextPage<Props> = ({ manufacturer }) => {
@@ -16,7 +15,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
     const uri = process.env["NEXT_PUBLIC_API_ENDPOINT"] as string;
     const authToken = process.env["NEXT_PUBLIC_STRAPI_API_KEY"] as string;
 
-    const data = await fetchData<FindManufacturersQuery>(uri, authToken, { query: findManufacturers });
+    const data = await fetchData<FindManufacturersQueryType>(uri, authToken, { query: findManufacturers });
     const manufacturers = parseFindManufacturersQuery(data);
 
     if (!manufacturers) throw Error("Failed to find manufacturers");
@@ -36,7 +35,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     const uri = process.env["NEXT_PUBLIC_API_ENDPOINT"] as string;
     const authToken = process.env["NEXT_PUBLIC_STRAPI_API_KEY"] as string;
 
-    const data = await fetchData<FindManufacturerQuery, FindManufacturerQueryVariables>(uri, authToken, {
+    const data = await fetchData<FindManufacturerQueryType, FindManufacturerQueryVariablesType>(uri, authToken, {
         query: findManufacturer,
         variables: { manufacturer: params?.slug as string },
     });
