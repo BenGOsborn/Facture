@@ -14,7 +14,9 @@ describe("use on search hit", () => {
             initialProps: {
                 cardType: "landing_search" as CardType,
                 query: "",
-                hits: [{ color: "amber", descriptionShort: "", logo: { url: "" }, manufacturer: "", name: "", thumbnail: { url: "" }, type: [] }] as SearchHitType[],
+                hits: [
+                    { color: "amber", descriptionShort: "", logo: { url: "" }, manufacturer: "", name: "", thumbnail: { url: "" }, type: [], slogan: null },
+                ] as SearchHitType[],
             },
         });
 
@@ -23,7 +25,9 @@ describe("use on search hit", () => {
         rerender({
             cardType: "landing_search",
             query: "",
-            hits: [{ color: "blue", descriptionShort: "", logo: { url: "" }, manufacturer: "", name: "", thumbnail: { url: "" }, type: [] }] as SearchHitType[],
+            hits: [
+                { color: "blue", descriptionShort: "", logo: { url: "" }, manufacturer: "", name: "", thumbnail: { url: "" }, type: [], slogan: null },
+            ] as SearchHitType[],
         });
 
         expect(analyticsCall).toHaveBeenCalledTimes(2);
