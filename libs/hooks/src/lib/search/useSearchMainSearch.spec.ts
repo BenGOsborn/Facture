@@ -40,6 +40,7 @@ jest.mock("algoliasearch", () => {
             phoneNo: [],
             priority: "0",
             social: [],
+            slogan: undefined,
         },
         {
             color: "blue",
@@ -58,24 +59,7 @@ jest.mock("algoliasearch", () => {
             phoneNo: [],
             priority: "0",
             social: [],
-        },
-        {
-            color: "blue",
-            descriptionShort: "ds2",
-            logo: { url: "url2", width: 0, height: 0 },
-            manufacturer: "m2",
-            name: "n2",
-            thumbnail: { url: "url2", width: 0, height: 0 },
-            type: [],
-            descriptionLong: "",
-            display: [],
-            email: [],
-            fax: [],
-            location: [],
-            openingTime: [],
-            phoneNo: [],
-            priority: "0",
-            social: [],
+            slogan: undefined,
         },
     ];
     const nbPages = 2;
@@ -113,11 +97,12 @@ describe("use search main search", () => {
             {
                 color: "amber",
                 descriptionShort: "ds1",
-                logo: { url: "url1" },
+                logo: { url: "url1", width: 0, height: 0 },
                 manufacturer: "m1",
                 name: "n1",
-                thumbnail: { url: "url1" },
+                thumbnail: { url: "url1", width: 0, height: 0 },
                 type: [],
+                slogan: undefined,
             },
         ]);
 
@@ -129,20 +114,22 @@ describe("use search main search", () => {
             {
                 color: "amber",
                 descriptionShort: "ds1",
-                logo: { url: "url1" },
+                logo: { url: "url1", width: 0, height: 0 },
                 manufacturer: "m1",
                 name: "n1",
-                thumbnail: { url: "url1" },
+                thumbnail: { url: "url1", width: 0, height: 0 },
                 type: [],
+                slogan: undefined,
             },
             {
                 color: "blue",
                 descriptionShort: "ds2",
-                logo: { url: "url2" },
+                logo: { url: "url2", width: 0, height: 0 },
                 manufacturer: "m2",
                 name: "n2",
-                thumbnail: { url: "url2" },
+                thumbnail: { url: "url2", width: 0, height: 0 },
                 type: [],
+                slogan: undefined,
             },
         ]);
 
