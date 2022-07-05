@@ -23,7 +23,7 @@ export function parseManufacturerCardData(data: FindManufacturerCardQueryType) {
         manufacturer: attributes.manufacturer,
         name: attributes.name,
         slogan: attributes.slogan,
-        type: attributes.type?.map((type) => type.type) || [],
+        type: attributes.type.map((type) => type.type),
         color: attributes.color,
         thumbnail: attributes.thumbnail.data.attributes,
     }));
@@ -62,14 +62,14 @@ export function parseManufacturer(data: FindManufacturerQueryType) {
         descriptionLong: attributes.descriptionLong,
         descriptionShort: attributes.descriptionShort,
         thumbnail: attributes.thumbnail.data.attributes,
-        display: attributes.display?.data.map((display) => display.attributes) || [],
+        display: attributes.display.data.map((display) => display.attributes),
         email: attributes.email,
         location: attributes.location,
         openingTime: attributes.openingTime,
         phoneNo: attributes.phoneNo,
         fax: attributes.fax,
         social: attributes.social,
-        type: attributes.type?.map((type) => type.type) || [],
+        type: attributes.type.map((type) => type.type),
         manufacturer: attributes.manufacturer,
     };
 
