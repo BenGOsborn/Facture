@@ -1,8 +1,8 @@
 import { emitCardSearchResults } from "@facture/helpers";
-import { SearchHit } from "@facture/types";
+import { SearchHitType } from "@facture/types";
 import { useEffect } from "react";
 
-export function useOnSearchHit(card: "nav_search" | "landing_search", query: string, hits: SearchHit[] | null) {
+export function useOnSearchHit(card: "nav_search" | "landing_search", query: string, hits: SearchHitType[] | null) {
     useEffect(() => {
         if (!hits) return;
 

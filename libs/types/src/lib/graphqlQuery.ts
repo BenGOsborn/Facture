@@ -38,10 +38,22 @@ export const FindManufacturerCardQuerySchema = z.object({
                 }),
             })
         ),
+        meta: z.object({
+            pagination: z.object({
+                pageCount: z.number(),
+            }),
+        }),
     }),
 });
 
 export type FindManufacturerCardQueryType = z.infer<typeof FindManufacturerCardQuerySchema>;
+
+export const FindManufacturerCardQueryVariablesSchema = z.object({
+    pageSize: z.number(),
+    page: z.number(),
+});
+
+export type FindManufacturerCardQueryVariablesType = z.infer<typeof FindManufacturerCardQueryVariablesSchema>;
 
 export const FindManufacturersQuerySchema = z.object({
     manufacturers: z.object({

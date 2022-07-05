@@ -1,14 +1,15 @@
 import { useQuery } from "@apollo/client";
-import { FindManufacturerCardQuery, FindManufacturerCardQueryVariables, SearchHitType } from "@facture/types";
-import { findManufacturerCard, parseFindManufacturerCardQuery } from "@facture/graphql";
+import { FindManufacturerCardQueryType, FindManufacturerCardQueryVariablesType, SearchHitType } from "@facture/types";
+import { findManufacturerCard } from "@facture/graphql";
 import { useEffect, useState } from "react";
+import { parseFindManufacturerCardQuery } from "@facture/helpers";
 
 export function useSearchMainQuery(pageSize: number) {
     const [data, setData] = useState<SearchHitType[]>([]);
     const [pageCount, setPageCount] = useState<number>(-1);
     const [currentPage, setCurrentPage] = useState<number>(1);
 
-    const { data: rawData, fetchMore } = useQuery<FindManufacturerCardQuery, FindManufacturerCardQueryVariables>(findManufacturerCard, {
+    const { data: rawData, fetchMore } = useQuery<FindManufacturerCardQueryType, FindManufacturerCardQueryVariablesType>(findManufacturerCard, {
         variables: { pageSize, page: 1 },
     });
 
@@ -16,8 +17,9 @@ export function useSearchMainQuery(pageSize: number) {
 
     useEffect(() => {
         if (rawData) {
-            const parsed = parseFindManufacturerCardQuery(rawData);
-            setData(parsed);
+            const parsedData = parseFindManufacturerCardQuery(rawData);
+
+            setData(parsedData);
 
             const pageCount = rawData.manufacturers?.meta.pagination.pageCount;
             if (pageCount) setPageCount(pageCount);
@@ -28,7 +30,7 @@ export function useSearchMainQuery(pageSize: number) {
         if (currentPage > 1)
             fetchMore({ variables: { pageSize, page: currentPage } }).then(({ data }) => {
                 const parsed = parseFindManufacturerCardQuery(data);
-                if (parsed) setData((prev) => (prev ? [...prev, ...parsed] : parsed));
+                setData((prev) => (prev ? [...prev, ...parsed] : parsed));
             });
     }, [currentPage, pageSize]);
 
