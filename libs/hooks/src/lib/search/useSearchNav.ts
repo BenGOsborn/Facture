@@ -18,7 +18,6 @@ export function useSearchNav(algoliaAppId: string, algoliaApiKey: string, algoli
     const [hits, setHits] = useState<SearchHitType[]>([]);
 
     useOnSearchHit("nav_search", queryUpdate, hits);
-
     useDelay(query, () => setQueryUpdate(query), SEARCH_DELAY);
 
     useEffect(() => {

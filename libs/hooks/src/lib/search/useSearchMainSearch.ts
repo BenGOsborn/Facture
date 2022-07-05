@@ -20,12 +20,11 @@ export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string,
 
     const location = useLocation();
 
+    const loadMore = () => setCurrentPage((page) => page + 1);
+
     useSearchMainSearchURL(query, setQuery);
     useOnSearchHit("landing_search", queryUpdate, data);
-
     useDelay(query, () => setQueryUpdate(query), SEARCH_DELAY);
-
-    const loadMore = () => setCurrentPage((page) => page + 1);
 
     useEffect(() => {
         if (queryUpdate === "") setData([]);
