@@ -1,4 +1,4 @@
-import { ManufacturerSocialPlatformType } from "@facture/types";
+import { CardType, ManufacturerSocialPlatformType } from "@facture/types";
 
 export function emitSocialEvent(social: ManufacturerSocialPlatformType, link: string) {
     // @ts-ignore
@@ -16,7 +16,7 @@ export function emitSectionHover(section: "contact" | "info" | "content" | "disp
         window.gtag("event", "section_hover", { section, period });
 }
 
-export function emitCardHover(card: "nav_search" | "landing_search", period: number, cardOwnerId: string) {
+export function emitCardHover(card: CardType, period: number, cardOwnerId: string) {
     // @ts-ignore
     if (window && window.gtag)
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -24,7 +24,7 @@ export function emitCardHover(card: "nav_search" | "landing_search", period: num
         window.gtag("event", "card_hover", { card, period, cardOwnerId });
 }
 
-export function emitCardSearchResults(card: "nav_search" | "landing_search", cardOwnerId: string, query: string, ranking: number, totalResults: number) {
+export function emitCardSearchResults(card: CardType, cardOwnerId: string, query: string, ranking: number, totalResults: number) {
     // @ts-ignore
     if (window && window.gtag)
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -32,7 +32,7 @@ export function emitCardSearchResults(card: "nav_search" | "landing_search", car
         window.gtag("event", "card_search_results", { card, cardOwnerId, query, ranking, totalResults });
 }
 
-export function emitCardSearchHit(card: "nav_search" | "landing_search", cardOwnerId: string, query: string, ranking: number, totalResults: number) {
+export function emitCardSearchHit(card: CardType, cardOwnerId: string, query: string, ranking: number, totalResults: number) {
     // @ts-ignore
     if (window && window.gtag)
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
