@@ -1,6 +1,7 @@
 import { CardType, ManufacturerSocialPlatformType } from "@facture/types";
 
 export function emitSocialEvent(social: ManufacturerSocialPlatformType, link: string) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (window && window.gtag)
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -9,6 +10,7 @@ export function emitSocialEvent(social: ManufacturerSocialPlatformType, link: st
 }
 
 export function emitSectionHover(section: "contact" | "info" | "content" | "display" | "location", period: number) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (window && window.gtag)
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -17,6 +19,7 @@ export function emitSectionHover(section: "contact" | "info" | "content" | "disp
 }
 
 export function emitCardHover(card: CardType, period: number, cardOwnerId: string) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (window && window.gtag)
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -25,6 +28,7 @@ export function emitCardHover(card: CardType, period: number, cardOwnerId: strin
 }
 
 export function emitCardSearchResults(card: CardType, cardOwnerId: string, query: string, ranking: number, totalResults: number) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (window && window.gtag)
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -33,6 +37,7 @@ export function emitCardSearchResults(card: CardType, cardOwnerId: string, query
 }
 
 export function emitCardSearchHit(card: CardType, cardOwnerId: string, query: string, ranking: number, totalResults: number) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (window && window.gtag)
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

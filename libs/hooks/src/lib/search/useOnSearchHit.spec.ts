@@ -6,6 +6,7 @@ describe("use on search hit", () => {
     it("should cause analytic hits on search", async () => {
         const analyticsCall = jest.fn();
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         window.gtag = analyticsCall;
 
