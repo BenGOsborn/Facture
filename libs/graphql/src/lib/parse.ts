@@ -1,4 +1,6 @@
 import {
+    AlgoliaManufacturerSchema,
+    AlgoliaManufacturerType,
     FindManufacturerCardQuerySchema,
     FindManufacturerCardQueryType,
     FindManufacturerQuerySchema,
@@ -13,7 +15,7 @@ import {
 import { z } from "zod";
 
 export function parseFindManufacturerCardQuery(data: FindManufacturerCardQueryType) {
-    if (!FindManufacturerCardQuerySchema.safeParse(data).success) throw Error("Invalid 'FindManufacturerCardQuery'");
+    if (!FindManufacturerCardQuerySchema.safeParse(data).success) throw Error("Invalid 'FindManufacturerCardQueryType'");
 
     const out = data.manufacturers.data.map(({ attributes }) => ({
         descriptionShort: attributes.descriptionShort,
@@ -26,13 +28,13 @@ export function parseFindManufacturerCardQuery(data: FindManufacturerCardQueryTy
         thumbnail: attributes.thumbnail.data.attributes,
     }));
 
-    if (!z.array(SearchHitSchema).safeParse(out)) throw Error("Invalid 'FindManufacturerCardQuery'");
+    if (!z.array(SearchHitSchema).safeParse(out)) throw Error("Invalid 'FindManufacturerCardQueryType'");
 
     return out as SearchHitType[];
 }
 
 export function parseFindManufacturersQuery(data: FindManufacturersQueryType) {
-    if (!FindManufacturersQuerySchema.safeParse(data).success) throw Error("Invalid 'FindManufacturersQuery'");
+    if (!FindManufacturersQuerySchema.safeParse(data).success) throw Error("Invalid 'FindManufacturersQueryType'");
 
     const out = data.manufacturers.data.map((data) => ({
         manufacturer: data.attributes.manufacturer,
@@ -42,7 +44,7 @@ export function parseFindManufacturersQuery(data: FindManufacturersQueryType) {
 }
 
 export function parseFindManufacturerQuery(data: FindManufacturerQueryType) {
-    if (!FindManufacturerQuerySchema.safeParse(data).success) throw Error("Invalid 'FindManufacturerQuery'");
+    if (!FindManufacturerQuerySchema.safeParse(data).success) throw Error("Invalid 'FindManufacturerQueryType'");
 
     const attributes = data.manufacturers.data[0].attributes;
     const out = {
@@ -65,25 +67,26 @@ export function parseFindManufacturerQuery(data: FindManufacturerQueryType) {
         manufacturer: attributes.manufacturer,
     };
 
-    if (!ManufacturerSchema.safeParse(out).success) throw Error("Invalid 'FindManufacturerQuery'");
+    if (!ManufacturerSchema.safeParse(out).success) throw Error("Invalid 'FindManufacturerQueryType'");
 
     return out as ManufacturerType;
 }
 
-export function parseAlgoliaSearchHits(data: any) {
-    const out: SearchHit[] = data.map(
-        (hit) =>
-            ({
-                color: hit.color,
-                descriptionShort: hit.descriptionShort,
-                logo: hit.logo,
-                manufacturer: hit.manufacturer,
-                name: hit.name,
-                thumbnail: hit.thumbnail,
-                type: hit.type.map((type) => type.type),
-                slogan: hit.slogan,
-            } as SearchHit)
-    );
+export function parseAlgoliaSearchHits(data: AlgoliaManufacturerType[]) {
+    if (!z.array(AlgoliaManufacturerSchema).safeParse(data).success) throw Error("Invalid 'AlgoliaManufacturerType'");
 
-    return out;
+    const out = data.map((hit) => ({
+        color: hit.color,
+        descriptionShort: hit.descriptionShort,
+        logo: hit.logo,
+        manufacturer: hit.manufacturer,
+        name: hit.name,
+        thumbnail: hit.thumbnail,
+        type: hit.type.map((type) => type.type),
+        slogan: hit.slogan,
+    }));
+
+    if (!z.array(SearchHitSchema).safeParse(out).success) throw Error("Invalid 'AlgoliaManufacturerType'");
+
+    return out as SearchHitType[];
 }
