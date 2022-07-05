@@ -47,6 +47,7 @@ describe("use search nav", () => {
         expect(result.current.query).toEqual("hello world");
 
         act(() => result.current.setQuery(""));
+        await waitForNextUpdate();
         expect(result.current.hits).toEqual([]);
         expect(result.current.query).toEqual("");
     });
