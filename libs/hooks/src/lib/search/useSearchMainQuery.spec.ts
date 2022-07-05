@@ -1,11 +1,11 @@
-import { Enum_Manufacturer_Color, FindManufacturerCardQuery } from "@facture/types";
+import { FindManufacturerCardQueryType } from "@facture/types";
 import { renderHook, act } from "@testing-library/react-hooks";
 import { useSearchMainQuery } from "./useSearchMainQuery";
 
 jest.mock("@apollo/client", () => {
     const originalModule = jest.requireActual("@apollo/client");
 
-    const data1: FindManufacturerCardQuery = {
+    const data1: FindManufacturerCardQueryType = {
         manufacturers: {
             data: [
                 {
@@ -16,14 +16,14 @@ jest.mock("@apollo/client", () => {
                         name: "n1",
                         type: [{ type: "t1" }],
                         thumbnail: { data: { attributes: { url: "url1" } } },
-                        color: Enum_Manufacturer_Color["Amber"],
+                        color: "amber",
                     },
                 },
             ],
             meta: { pagination: { pageCount: 2 } },
         },
     };
-    const data2: FindManufacturerCardQuery = {
+    const data2: FindManufacturerCardQueryType = {
         manufacturers: {
             data: [
                 {
@@ -34,7 +34,7 @@ jest.mock("@apollo/client", () => {
                         name: "n2",
                         type: [{ type: "t2" }],
                         thumbnail: { data: { attributes: { url: "url2" } } },
-                        color: Enum_Manufacturer_Color["Blue"],
+                        color: "blue",
                     },
                 },
             ],
@@ -43,7 +43,7 @@ jest.mock("@apollo/client", () => {
     };
 
     const fetchMore = (options: { variables: { pageSize: number; page: number } }) =>
-        new Promise<{ data: FindManufacturerCardQuery }>((resolve) => resolve({ data: data2 }));
+        new Promise<{ data: FindManufacturerCardQueryType }>((resolve) => resolve({ data: data2 }));
 
     return { __esModule: true, ...originalModule, useQuery: (query: string, options: any) => ({ data: data1, fetchMore }) };
 });

@@ -6,6 +6,9 @@ describe("card", () => {
     it("should render a card", async () => {
         const component = render(
             <Card
+                resultIndex={0}
+                query=""
+                totalResults={1}
                 hit={{
                     color: "indigo",
                     descriptionShort: "Test description",

@@ -5,6 +5,7 @@ describe("search hits", () => {
     it("should render a list of search hits", () => {
         const component = render(
             <SearchHits
+                query=""
                 hits={[
                     {
                         color: "amber",

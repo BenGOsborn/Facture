@@ -5,6 +5,9 @@ describe("search hit", () => {
     it("should render a search hit", async () => {
         const component = render(
             <SearchHit
+                query=""
+                resultIndex={0}
+                totalResults={1}
                 hit={{
                     color: "indigo",
                     descriptionShort: "Test description",

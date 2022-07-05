@@ -1,9 +1,9 @@
-import { SearchHit } from "@facture/types";
+import { SearchHitType } from "@facture/types";
 import { renderHook, act } from "@testing-library/react-hooks";
 import { useSearchMainSearch } from "./useSearchMainSearch";
 
 interface Hits {
-    hits: SearchHit[];
+    hits: SearchHitType[];
     nbPages: number;
 }
 
@@ -22,7 +22,7 @@ jest.mock("next/router", () => {
 jest.mock("algoliasearch", () => {
     const originalModule = jest.requireActual("algoliasearch");
 
-    const data: SearchHit[] = [
+    const data: SearchHitType[] = [
         {
             color: "amber",
             descriptionShort: "ds1",

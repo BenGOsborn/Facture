@@ -6,6 +6,7 @@ describe("content", () => {
     it("should render a list of cards", () => {
         const component = render(
             <Content
+                query=""
                 data={[
                     {
                         color: "amber",

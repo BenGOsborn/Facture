@@ -31,7 +31,7 @@ jest.mock("algoliasearch", () => {
 
 describe("use search nav", () => {
     it("should return correct hits according to the query", async () => {
-        const { result, waitForNextUpdate } = renderHook(() => useSearchNav<string[]>("", "", ""));
+        const { result, waitForNextUpdate } = renderHook(() => useSearchNav("", "", ""));
 
         expect(result.current.query).toEqual("");
         expect(result.current.hits).toEqual([]);
