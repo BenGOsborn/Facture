@@ -8,8 +8,8 @@ import { DateEstablished } from "./dateEstablished";
 
 interface Props {
     name: string;
-    slogan?: string;
-    dateEstablished?: any;
+    slogan: string | null;
+    dateEstablished: any;
     logo: ManufacturerImageType;
     description: string;
     type: string[];

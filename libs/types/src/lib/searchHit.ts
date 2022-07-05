@@ -8,7 +8,7 @@ export const SearchHitSchema = z.object({
     logo: ManufacturerImageSchema,
     descriptionShort: z.string(),
     manufacturer: z.string(),
-    slogan: z.string().optional(),
+    slogan: z.string().nullable(),
     type: z.array(z.string()),
     thumbnail: ManufacturerImageSchema,
 });

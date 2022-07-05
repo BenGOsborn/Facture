@@ -91,8 +91,8 @@ export type ManufacturerColorType = z.infer<typeof ManufacturerColorSchema>;
 
 export const ManufacturerSchema = z.object({
     name: z.string(),
-    slogan: z.string().optional(),
-    dateEstablished: z.string().optional(),
+    slogan: z.string().nullable(),
+    dateEstablished: z.string().nullable(),
     logo: ManufacturerImageSchema,
     descriptionShort: z.string(),
     type: z.array(z.string()),

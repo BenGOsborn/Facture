@@ -26,7 +26,8 @@ const data: AlgoliaManufacturerType[] = [
         phoneNo: [],
         priority: "0",
         social: [],
-        slogan: undefined,
+        slogan: null,
+        dateEstablished: null,
     },
     {
         color: "blue",
@@ -45,7 +46,8 @@ const data: AlgoliaManufacturerType[] = [
         phoneNo: [],
         priority: "0",
         social: [],
-        slogan: undefined,
+        slogan: null,
+        dateEstablished: null,
     },
 ];
 
@@ -104,7 +106,7 @@ describe("use search main search", () => {
                 name: "n1",
                 thumbnail: { url: "url1", width: 0, height: 0 },
                 type: [],
-                slogan: undefined,
+                slogan: null,
             },
         ]);
 
@@ -121,7 +123,7 @@ describe("use search main search", () => {
                 name: "n1",
                 thumbnail: { url: "url1", width: 0, height: 0 },
                 type: [],
-                slogan: undefined,
+                slogan: null,
             },
             {
                 color: "blue",
@@ -131,7 +133,7 @@ describe("use search main search", () => {
                 name: "n2",
                 thumbnail: { url: "url2", width: 0, height: 0 },
                 type: [],
-                slogan: undefined,
+                slogan: null,
             },
         ]);
 

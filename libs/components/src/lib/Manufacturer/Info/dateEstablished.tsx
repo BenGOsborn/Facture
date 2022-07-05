@@ -2,7 +2,7 @@ import { getYearsFromDate } from "@facture/helpers";
 import { Calendar } from "tabler-icons-react";
 
 interface Props {
-    dateEstablished?: any;
+    dateEstablished: any;
 }
 
 export function DateEstablished({ dateEstablished }: Props) {
