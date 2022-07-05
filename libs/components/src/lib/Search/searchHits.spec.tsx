@@ -15,6 +15,7 @@ describe("search hits", () => {
                         name: "",
                         thumbnail: { url: "http://test-thumbnail-1" },
                         type: [],
+                        slogan: null,
                     },
                     {
                         color: "amber",
@@ -24,6 +25,7 @@ describe("search hits", () => {
                         name: "",
                         thumbnail: { url: "http://test-thumbnail-2" },
                         type: [],
+                        slogan: null,
                     },
                 ]}
             />
