@@ -6,8 +6,8 @@ export function useSearchMain(algoliaAppId: string, algoliaApiKey: string, algol
     const { data: queryData, loadMore: loadMoreQuery } = useSearchMainQuery(pageSize);
 
     return {
-        data: searchData || queryData,
-        loadMore: searchData ? loadMoreSearch : loadMoreQuery,
+        data: searchData.length > 0 ? searchData : queryData,
+        loadMore: searchData.length > 0 ? loadMoreSearch : loadMoreQuery,
         query,
         setQuery,
     };
