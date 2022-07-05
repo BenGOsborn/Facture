@@ -1,13 +1,11 @@
+import { DESCRIPTION, TITLE, URL } from "@facture/helpers";
 import Head from "next/head";
 import Script from "next/script";
 
 export function GlobalHead() {
-    const title = "Facture - Connecting Manufacturers";
-    const description = "Facture is an online platform dedicated to connecting manufacturers with individuals and businesses to drive local industry and innovation.";
-    const url = "https://facture.com.au";
-    const themeColor = "#daa041";
-
     const googleAnalyticsId = process.env["NEXT_PUBLIC_GOOGLE_ANALYTICS"] as string;
+
+    const themeColor = "#daa041";
 
     return (
         <>
@@ -18,14 +16,14 @@ export function GlobalHead() {
                 <link rel="manifest" href="/manifest.json" />
                 <meta name="robots" content="index, follow" />
 
-                <title key="title">{title}</title>
-                <meta key="description" name="description" content={description} />
+                <title key="title">{TITLE}</title>
+                <meta key="description" name="description" content={DESCRIPTION} />
                 <meta key="color" name="theme-color" content={themeColor} />
-                <link key="canonical" rel="canonical" href={url} />
+                <link key="canonical" rel="canonical" href={URL} />
 
-                <meta key="og:title" property="og:title" content={title} />
-                <meta key="og:description" property="og:description" content={description} />
-                <meta key="og:url" property="og:url" content={url} />
+                <meta key="og:title" property="og:title" content={TITLE} />
+                <meta key="og:description" property="og:description" content={DESCRIPTION} />
+                <meta key="og:url" property="og:url" content={URL} />
             </Head>
             <div>
                 <Script src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} strategy="afterInteractive" />

@@ -1,10 +1,10 @@
-import { FaxDisplay } from "@facture/types";
+import { ManufacturerFaxType } from "@facture/types";
 
 import { Printer } from "tabler-icons-react";
 import LabelledPair from "./labelledPair";
 
 interface Props {
-    fax: FaxDisplay[];
+    fax: ManufacturerFaxType[];
 }
 
 export function Fax({ fax }: Props) {

@@ -1,12 +1,12 @@
 import { ANALYTICS_HOVER_PERIOD, emitSectionHover } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
-import { ImageDisplay } from "@facture/types";
+import { ManufacturerImageType } from "@facture/types";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 
 interface Props {
     description: string;
-    thumbnail: ImageDisplay;
+    thumbnail: ManufacturerImageType;
 }
 
 export function Content({ description, thumbnail }: Props) {
@@ -16,9 +16,15 @@ export function Content({ description, thumbnail }: Props) {
     const thumbnailHeight = 500;
 
     return (
-        <div className="shadow-md rounded-md bg-white" onMouseEnter={start} onMouseLeave={stop}>
-            <Image className="rounded-md" src={`${thumbnail.url}?size=${thumbnailWidth}x${thumbnailHeight}`} width={thumbnailWidth} height={thumbnailHeight} />
-            <ReactMarkdown className="p-6 prose max-w-3xl">{description}</ReactMarkdown>
+        <div className="shadow-md rounded-md bg-white p-6" onMouseEnter={start} onMouseLeave={stop}>
+            <Image
+                className="rounded-md"
+                src={`${thumbnail.url}?size=${thumbnailWidth}x${thumbnailHeight}`}
+                width={thumbnailWidth}
+                height={thumbnailHeight}
+                priority={true}
+            />
+            <ReactMarkdown className="mt-6 prose max-w-3xl">{description}</ReactMarkdown>
         </div>
     );
 }

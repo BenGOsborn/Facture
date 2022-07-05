@@ -9,6 +9,7 @@
         "helpers": "libs/helpers",
         "hooks": "libs/hooks",
         "providers": "libs/providers",
+        "resize": "apps/resize",
         "types": "libs/types"
     }
 }

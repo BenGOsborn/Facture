@@ -1,9 +1,9 @@
-import { PhoneNoDisplay } from "@facture/types";
+import { ManufacturerPhoneNoType } from "@facture/types";
 import { PhoneCall } from "tabler-icons-react";
-import LabelledPair from "./labelledPair";
+import { LabelledPair } from "./labelledPair";
 
 interface Props {
-    phone: PhoneNoDisplay[];
+    phone: ManufacturerPhoneNoType[];
 }
 
 export function Phone({ phone }: Props) {

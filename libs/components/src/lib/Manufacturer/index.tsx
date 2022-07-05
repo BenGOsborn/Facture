@@ -1,4 +1,4 @@
-import { ManufacturerDisplay } from "@facture/types";
+import { ManufacturerType } from "@facture/types";
 import { ManufacturerHead } from "../Head";
 
 import { Contact } from "./Contact";
@@ -8,7 +8,7 @@ import { Info } from "./Info";
 import { Location } from "./Location";
 
 interface Props {
-    manufacturer: ManufacturerDisplay;
+    manufacturer: ManufacturerType;
 }
 
 export function Manufacturer({ manufacturer }: Props) {

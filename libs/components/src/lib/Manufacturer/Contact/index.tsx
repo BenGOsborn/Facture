@@ -1,6 +1,6 @@
 import { ANALYTICS_HOVER_PERIOD, emitSectionHover } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
-import { EmailDisplay, PhoneNoDisplay, OpeningTimeDisplay, SocialDisplay, FaxDisplay } from "@facture/types";
+import { ManufacturerEmailType, ManufacturerFaxType, ManufacturerOpeningTimeType, ManufacturerPhoneNoType, ManufacturerSocialType } from "@facture/types";
 
 import { Email } from "./email";
 import { Fax } from "./fax";
@@ -9,11 +9,11 @@ import { Phone } from "./phone";
 import { Social } from "./social";
 
 interface Props {
-    email: EmailDisplay[];
-    phone: PhoneNoDisplay[];
-    openingTime: OpeningTimeDisplay[];
-    social: SocialDisplay[];
-    fax: FaxDisplay[];
+    email: ManufacturerEmailType[];
+    phone: ManufacturerPhoneNoType[];
+    openingTime: ManufacturerOpeningTimeType[];
+    social: ManufacturerSocialType[];
+    fax: ManufacturerFaxType[];
 }
 
 export function Contact({ email, phone, openingTime, social, fax }: Props) {

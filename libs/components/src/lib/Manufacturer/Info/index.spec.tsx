@@ -4,7 +4,15 @@ import { Info } from ".";
 describe("info", () => {
     it("should render an info section", async () => {
         const component = render(
-            <Info color="indigo" slogan="Test slogan" description="Test description" logo={{ url: "http://test-url-logo" }} name="Test name" type={["test1", "test2"]} />
+            <Info
+                color="indigo"
+                slogan="Test slogan"
+                description="Test description"
+                logo={{ url: "http://test-url-logo" }}
+                name="Test name"
+                type={["test1", "test2"]}
+                dateEstablished={null}
+            />
         );
 
         const logo = component.getByRole("info-logo");

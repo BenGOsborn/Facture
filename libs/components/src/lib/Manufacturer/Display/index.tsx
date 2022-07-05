@@ -1,13 +1,13 @@
 import { ANALYTICS_HOVER_PERIOD, emitSectionHover } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
-import { ImageDisplay } from "@facture/types";
+import { ManufacturerImageType } from "@facture/types";
 import { Photo } from "tabler-icons-react";
 
 import { Carousel } from "../../../";
 import { DisplayCard } from "./displayCard";
 
 interface Props {
-    display: ImageDisplay[];
+    display: ManufacturerImageType[];
 }
 
 export function Display({ display }: Props) {

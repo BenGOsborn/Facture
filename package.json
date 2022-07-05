@@ -5,8 +5,7 @@
     "scripts": {
         "start": "nx serve",
         "build": "nx build",
-        "test": "nx test",
-        "generate:graphql": "graphql-codegen -r dotenv/config"
+        "test": "nx test"
     },
     "private": true,
     "dependencies": {
@@ -14,6 +13,7 @@
         "@nrwl/next": "14.3.6",
         "@react-google-maps/api": "^2.12.0",
         "algoliasearch": "^4.13.1",
+        "aws-sdk": "^2.1167.0",
         "core-js": "^3.6.5",
         "framer-motion": "^6.3.11",
         "graphql": "^16.5.0",
@@ -22,19 +22,19 @@
         "react-dom": "18.1.0",
         "react-markdown": "^8.0.3",
         "regenerator-runtime": "0.13.7",
+        "sharp": "^0.30.7",
         "tabler-icons-react": "^1.48.1",
-        "tslib": "^2.3.0"
+        "tslib": "^2.3.0",
+        "zod": "^3.17.3"
     },
     "devDependencies": {
-        "@graphql-codegen/cli": "^2.6.2",
-        "@graphql-codegen/typescript": "^2.5.1",
-        "@graphql-codegen/typescript-operations": "^2.4.2",
         "@nrwl/cli": "14.2.4",
         "@nrwl/cypress": "14.2.4",
         "@nrwl/eslint-plugin-nx": "14.2.4",
         "@nrwl/jest": "14.2.4",
         "@nrwl/linter": "14.2.4",
         "@nrwl/next": "^14.3.6",
+        "@nrwl/node": "^14.4.0",
         "@nrwl/react": "14.2.4",
         "@nrwl/web": "14.2.4",
         "@nrwl/workspace": "14.2.4",
@@ -43,10 +43,12 @@
         "@tailwindcss/typography": "^0.5.2",
         "@testing-library/react": "13.3.0",
         "@testing-library/react-hooks": "^7.0.2",
+        "@types/aws-lambda": "^8.10.101",
         "@types/jest": "27.4.1",
         "@types/node": "^16.11.7",
         "@types/react": "18.0.12",
         "@types/react-dom": "18.0.5",
+        "@types/sharp": "^0.30.4",
         "@typescript-eslint/eslint-plugin": "~5.24.0",
         "@typescript-eslint/parser": "~5.24.0",
         "autoprefixer": "^10.4.7",

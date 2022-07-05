@@ -1,18 +1,19 @@
-import { ColorDisplay } from "@facture/types";
+import { NAME, URL } from "@facture/helpers";
+import { ManufacturerColorType } from "@facture/types";
 import Head from "next/head";
 
 interface Props {
     manufacturer: string;
     name: string;
     description: string;
-    color: ColorDisplay;
+    color: ManufacturerColorType;
 }
 
 export function ManufacturerHead({ manufacturer, name, description, color }: Props) {
-    const title = `${name} - Facture`;
-    const url = `https://facture.com.au/manufacturers/${manufacturer}`;
+    const title = `${name} - ${NAME}`;
+    const url = `${URL}/manufacturers/${manufacturer}`;
 
-    const colorMapping: { [key in ColorDisplay]: string } = {
+    const colorMapping: { [key in ManufacturerColorType]: string } = {
         slate: "#475569",
         gray: "#4b5563",
         zinc: "#52525b",

@@ -1,13 +1,19 @@
+import { useEffect, useRef } from "react";
+
 export function useInterval(period: number, callback: () => any) {
-    let timer: NodeJS.Timer;
+    const timer = useRef<NodeJS.Timer | null>(null);
 
     function start() {
-        timer = setInterval(callback, period);
+        timer.current = setInterval(callback, period);
     }
 
     function stop() {
-        clearInterval(timer);
+        if (timer.current) clearInterval(timer.current);
     }
+
+    useEffect(() => {
+        return stop;
+    }, []);
 
     return { start, stop };
 }

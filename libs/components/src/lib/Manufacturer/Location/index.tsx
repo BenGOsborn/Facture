@@ -1,6 +1,6 @@
 import { ANALYTICS_HOVER_PERIOD, emitSectionHover } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
-import { LocationDisplay } from "@facture/types";
+import { ManufacturerLocationType } from "@facture/types";
 import { useLoadScript } from "@react-google-maps/api";
 import { MapPin } from "tabler-icons-react";
 
@@ -8,7 +8,7 @@ import { Carousel } from "../../../";
 import { LocationCard } from "./locationCard";
 
 interface Props {
-    location: LocationDisplay[];
+    location: ManufacturerLocationType[];
 }
 
 export function Location({ location }: Props) {

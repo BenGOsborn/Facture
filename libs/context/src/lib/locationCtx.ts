@@ -1,4 +1,6 @@
-import { Location } from "@facture/types";
+import { LocationType } from "@facture/types";
 import { createContext } from "react";
 
-export const locationCtx = createContext<Location | undefined>(undefined as any);
+export const locationCtx = createContext<LocationType | undefined>(undefined as any);
+
+export default locationCtx;

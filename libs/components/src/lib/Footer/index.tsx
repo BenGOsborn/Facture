@@ -1,0 +1,28 @@
+import { DESCRIPTION, NAME } from "@facture/helpers";
+import Link from "next/link";
+
+export function Footer() {
+    return (
+        <footer className="p-6 pt-12 mt-14 shadow-md bg-gray-800">
+            <div className="w-4/5 mx-auto flex flex-col space-y-6 text-center">
+                <p className="font-normal text-white text-md">{DESCRIPTION}</p>
+                <p className="font-medium text-white text-md">
+                    Want to list your manufacturing business? Apply{" "}
+                    <Link href="https://forms.gle/59gjvMtDMJ6rmDbS7">
+                        <a className="font-bold text-white transition-colors hover:text-gray-300" target="_blank" rel="noreferrer">
+                            here
+                        </a>
+                    </Link>
+                    .
+                </p>
+                <ul className="font-normal text-white flex items-center justify-center text-sm">
+                    <li>
+                        {NAME} - {new Date().getFullYear()}
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    );
+}
+
+export default Footer;

@@ -1,10 +1,12 @@
 import { render } from "@testing-library/react";
+
 import { Content } from ".";
 
 describe("content", () => {
     it("should render a list of cards", () => {
         const component = render(
             <Content
+                query=""
                 data={[
                     {
                         color: "amber",
@@ -14,6 +16,7 @@ describe("content", () => {
                         name: "",
                         thumbnail: { url: "http://test-thumbnail-1" },
                         type: [],
+                        slogan: null,
                     },
                     {
                         color: "amber",
@@ -23,6 +26,7 @@ describe("content", () => {
                         name: "",
                         thumbnail: { url: "http://test-thumbnail-2" },
                         type: [],
+                        slogan: null,
                     },
                 ]}
             />

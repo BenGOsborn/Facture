@@ -1,18 +1,17 @@
 import { emitSocialEvent } from "@facture/helpers";
-import { SocialPlatformDisplay } from "@facture/types";
+import { ManufacturerSocialPlatformType } from "@facture/types";
 import Link from "next/link";
-
 import { BrandChrome, BrandFacebook, BrandInstagram, BrandLinkedin, BrandTwitter, BrandYoutube } from "tabler-icons-react";
 
 interface Props {
-    name: SocialPlatformDisplay;
+    name: ManufacturerSocialPlatformType;
     link: string;
 }
 
 export function SocialIcon({ name, link }: Props) {
     const emit = () => emitSocialEvent(name, link);
 
-    const out: { [key in SocialPlatformDisplay]: JSX.Element } = {
+    const out: { [key in ManufacturerSocialPlatformType]: JSX.Element } = {
         website: (
             <a onClick={emit} role="social-website" target="_blank" rel="noreferrer">
                 <BrandChrome />
