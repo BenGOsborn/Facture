@@ -1,11 +1,55 @@
 import { AlgoliaManufacturerType } from "@facture/types";
 import { renderHook, act } from "@testing-library/react-hooks";
+
 import { useSearchMainSearch } from "./useSearchMainSearch";
 
 interface Hits {
     hits: AlgoliaManufacturerType[];
     nbPages: number;
 }
+
+const data: AlgoliaManufacturerType[] = [
+    {
+        color: "amber",
+        descriptionShort: "ds1",
+        logo: { url: "url1", width: 0, height: 0 },
+        manufacturer: "m1",
+        name: "n1",
+        thumbnail: { url: "url1", width: 0, height: 0 },
+        type: [],
+        descriptionLong: "",
+        display: [],
+        email: [],
+        fax: [],
+        location: [],
+        openingTime: [],
+        phoneNo: [],
+        priority: "0",
+        social: [],
+        slogan: undefined,
+    },
+    {
+        color: "blue",
+        descriptionShort: "ds2",
+        logo: { url: "url2", width: 0, height: 0 },
+        manufacturer: "m2",
+        name: "n2",
+        thumbnail: { url: "url2", width: 0, height: 0 },
+        type: [],
+        descriptionLong: "",
+        display: [],
+        email: [],
+        fax: [],
+        location: [],
+        openingTime: [],
+        phoneNo: [],
+        priority: "0",
+        social: [],
+        slogan: undefined,
+    },
+];
+
+const nbPages = 2;
 
 jest.mock("next/router", () => {
     const originalModule = jest.requireActual("next/router");
@@ -21,48 +65,6 @@ jest.mock("next/router", () => {
 
 jest.mock("algoliasearch", () => {
     const originalModule = jest.requireActual("algoliasearch");
-
-    const data: AlgoliaManufacturerType[] = [
-        {
-            color: "amber",
-            descriptionShort: "ds1",
-            logo: { url: "url1", width: 0, height: 0 },
-            manufacturer: "m1",
-            name: "n1",
-            thumbnail: { url: "url1", width: 0, height: 0 },
-            type: [],
-            descriptionLong: "",
-            display: [],
-            email: [],
-            fax: [],
-            location: [],
-            openingTime: [],
-            phoneNo: [],
-            priority: "0",
-            social: [],
-            slogan: undefined,
-        },
-        {
-            color: "blue",
-            descriptionShort: "ds2",
-            logo: { url: "url2", width: 0, height: 0 },
-            manufacturer: "m2",
-            name: "n2",
-            thumbnail: { url: "url2", width: 0, height: 0 },
-            type: [],
-            descriptionLong: "",
-            display: [],
-            email: [],
-            fax: [],
-            location: [],
-            openingTime: [],
-            phoneNo: [],
-            priority: "0",
-            social: [],
-            slogan: undefined,
-        },
-    ];
-    const nbPages = 2;
 
     return {
         __esModule: true,

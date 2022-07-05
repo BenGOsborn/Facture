@@ -1,11 +1,10 @@
 import { FindManufacturerCardQueryType } from "@facture/types";
 import { renderHook, act } from "@testing-library/react-hooks";
+
 import { useSearchMainQuery } from "./useSearchMainQuery";
 
-jest.mock("@apollo/client", () => {
-    const originalModule = jest.requireActual("@apollo/client");
-
-    const data1: FindManufacturerCardQueryType = {
+const data: FindManufacturerCardQueryType[] = [
+    {
         manufacturers: {
             data: [
                 {
@@ -22,8 +21,8 @@ jest.mock("@apollo/client", () => {
             ],
             meta: { pagination: { pageCount: 2 } },
         },
-    };
-    const data2: FindManufacturerCardQueryType = {
+    },
+    {
         manufacturers: {
             data: [
                 {
@@ -40,12 +39,16 @@ jest.mock("@apollo/client", () => {
             ],
             meta: { pagination: { pageCount: 2 } },
         },
-    };
+    },
+];
+
+jest.mock("@apollo/client", () => {
+    const originalModule = jest.requireActual("@apollo/client");
 
     const fetchMore = (options: { variables: { pageSize: number; page: number } }) =>
-        new Promise<{ data: FindManufacturerCardQueryType }>((resolve) => resolve({ data: data2 }));
+        new Promise<{ data: FindManufacturerCardQueryType }>((resolve) => resolve({ data: data[1] }));
 
-    return { __esModule: true, ...originalModule, useQuery: (query: string, options: any) => ({ data: data1, fetchMore }) };
+    return { __esModule: true, ...originalModule, useQuery: (query: string, options: any) => ({ data: data[0], fetchMore }) };
 });
 
 describe("use search main query", () => {
