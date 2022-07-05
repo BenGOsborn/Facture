@@ -1,11 +1,8 @@
 import {
-    FindManufacturerCardQuery,
     FindManufacturerCardQuerySchema,
     FindManufacturerCardQueryType,
-    FindManufacturerQuery,
     FindManufacturerQuerySchema,
     FindManufacturerQueryType,
-    FindManufacturersQuery,
     FindManufacturersQuerySchema,
     FindManufacturersQueryType,
     ManufacturerSchema,
@@ -15,12 +12,10 @@ import {
 } from "@facture/types";
 import { z } from "zod";
 
-export function parseFindManufacturerCardQuery(data: FindManufacturerCardQuery) {
+export function parseFindManufacturerCardQuery(data: FindManufacturerCardQueryType) {
     if (!FindManufacturerCardQuerySchema.safeParse(data).success) throw Error("Invalid 'FindManufacturerCardQuery'");
 
-    const validated = data as FindManufacturerCardQueryType;
-
-    const out = validated.manufacturers.data.map(({ attributes }) => ({
+    const out = data.manufacturers.data.map(({ attributes }) => ({
         descriptionShort: attributes.descriptionShort,
         logo: attributes.logo.data.attributes,
         manufacturer: attributes.manufacturer,
@@ -36,24 +31,20 @@ export function parseFindManufacturerCardQuery(data: FindManufacturerCardQuery) 
     return out as SearchHitType[];
 }
 
-export function parseFindManufacturersQuery(data: FindManufacturersQuery) {
+export function parseFindManufacturersQuery(data: FindManufacturersQueryType) {
     if (!FindManufacturersQuerySchema.safeParse(data).success) throw Error("Invalid 'FindManufacturersQuery'");
 
-    const validated = data as FindManufacturersQueryType;
-
-    const out = validated.manufacturers.data.map((data) => ({
+    const out = data.manufacturers.data.map((data) => ({
         manufacturer: data.attributes.manufacturer,
     }));
 
     return out;
 }
 
-export function parseFindManufacturerQuery(data: FindManufacturerQuery) {
+export function parseFindManufacturerQuery(data: FindManufacturerQueryType) {
     if (!FindManufacturerQuerySchema.safeParse(data).success) throw Error("Invalid 'FindManufacturerQuery'");
 
-    const validated = data as FindManufacturerQueryType;
-
-    const attributes = validated.manufacturers.data[0].attributes;
+    const attributes = data.manufacturers.data[0].attributes;
     const out = {
         name: attributes.name,
         slogan: attributes.slogan,
