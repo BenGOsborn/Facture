@@ -1,4 +1,4 @@
-import { CardType, ManufacturerSocialPlatformType } from "@facture/types";
+import type { CardType, ManufacturerSocialPlatformType } from "@facture/types";
 
 export function emitSocialEvent(social: ManufacturerSocialPlatformType, link: string) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

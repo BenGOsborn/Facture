@@ -1,4 +1,4 @@
-import { ManufacturerType } from "@facture/types";
+import type { ManufacturerType } from "@facture/types";
 import { ManufacturerHead } from "../Head";
 
 import { Contact } from "./Contact";

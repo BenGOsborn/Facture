@@ -1,4 +1,4 @@
-import { ManufacturerFaxType } from "@facture/types";
+import type { ManufacturerFaxType } from "@facture/types";
 
 import { Printer } from "tabler-icons-react";
 import LabelledPair from "./labelledPair";

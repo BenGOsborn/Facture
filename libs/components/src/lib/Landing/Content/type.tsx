@@ -1,4 +1,4 @@
-import { ManufacturerColorType } from "@facture/types";
+import type { ManufacturerColorType } from "@facture/types";
 
 import { Badge } from "../../Badge";
 

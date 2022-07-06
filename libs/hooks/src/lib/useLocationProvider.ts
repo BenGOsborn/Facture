@@ -1,4 +1,4 @@
-import { LocationType } from "@facture/types";
+import type { LocationType } from "@facture/types";
 import { useEffect, useState } from "react";
 
 export function useLocationProvider() {

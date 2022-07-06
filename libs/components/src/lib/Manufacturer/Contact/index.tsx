@@ -1,6 +1,6 @@
 import { ANALYTICS_HOVER_PERIOD, emitSectionHover } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
-import { ManufacturerEmailType, ManufacturerFaxType, ManufacturerOpeningTimeType, ManufacturerPhoneNoType, ManufacturerSocialType } from "@facture/types";
+import type { ManufacturerEmailType, ManufacturerFaxType, ManufacturerOpeningTimeType, ManufacturerPhoneNoType, ManufacturerSocialType } from "@facture/types";
 
 import { Email } from "./email";
 import { Fax } from "./fax";

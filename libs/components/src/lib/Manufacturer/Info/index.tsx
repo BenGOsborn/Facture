@@ -1,4 +1,4 @@
-import { ManufacturerColorType, ManufacturerImageType } from "@facture/types";
+import type { ManufacturerColorType, ManufacturerImageType } from "@facture/types";
 import Image from "next/image";
 import { useInterval } from "@facture/hooks";
 import { ANALYTICS_HOVER_PERIOD, emitSectionHover } from "@facture/helpers";

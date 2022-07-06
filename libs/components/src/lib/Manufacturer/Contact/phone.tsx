@@ -1,4 +1,4 @@
-import { ManufacturerPhoneNoType } from "@facture/types";
+import type { ManufacturerPhoneNoType } from "@facture/types";
 import { PhoneCall } from "tabler-icons-react";
 import { LabelledPair } from "./labelledPair";
 

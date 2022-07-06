@@ -1,4 +1,4 @@
-import { CardType, SearchHitType } from "@facture/types";
+import type { CardType, SearchHitType } from "@facture/types";
 import { renderHook } from "@testing-library/react-hooks";
 import { useOnSearchHit } from "./useOnSearchHit";
 

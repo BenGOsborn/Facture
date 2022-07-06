@@ -1,5 +1,5 @@
 import { emitCardSearchResults } from "@facture/helpers";
-import { CardType, SearchHitType } from "@facture/types";
+import type { CardType, SearchHitType } from "@facture/types";
 import { useEffect } from "react";
 
 export function useOnSearchHit(card: CardType, query: string, hits: SearchHitType[]) {

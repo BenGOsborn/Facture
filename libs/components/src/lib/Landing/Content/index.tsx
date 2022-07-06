@@ -1,4 +1,4 @@
-import { SearchHitType } from "@facture/types";
+import type { SearchHitType } from "@facture/types";
 
 import { Card } from "./card";
 

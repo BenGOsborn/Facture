@@ -1,4 +1,4 @@
-import { ManufacturerImageType } from "@facture/types";
+import type { ManufacturerImageType } from "@facture/types";
 import Image from "next/image";
 
 interface Props {
