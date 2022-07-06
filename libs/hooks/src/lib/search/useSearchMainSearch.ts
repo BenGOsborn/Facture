@@ -1,4 +1,4 @@
-import { SearchHitType } from "@facture/types";
+import type { SearchHitType } from "@facture/types";
 import algoliasearch from "algoliasearch";
 import { parseAlgoliaSearchHits, SEARCH_DELAY } from "@facture/helpers";
 import { useEffect, useState } from "react";

@@ -1,16 +1,18 @@
+import type {
+    AlgoliaManufacturerType,
+    FindManufacturerCardQueryType,
+    FindManufacturerQueryType,
+    FindManufacturersQueryType,
+    ManufacturerType,
+    SearchHitType,
+} from "@facture/types";
 import {
     AlgoliaManufacturerSchema,
-    AlgoliaManufacturerType,
     FindManufacturerCardQuerySchema,
-    FindManufacturerCardQueryType,
     FindManufacturerQuerySchema,
-    FindManufacturerQueryType,
     FindManufacturersQuerySchema,
-    FindManufacturersQueryType,
     ManufacturerSchema,
-    ManufacturerType,
     SearchHitSchema,
-    SearchHitType,
 } from "@facture/types";
 import { z } from "zod";
 

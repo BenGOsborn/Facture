@@ -1,5 +1,5 @@
 import { SEARCH_DELAY } from "@facture/helpers";
-import { SearchHitType } from "@facture/types";
+import type { SearchHitType } from "@facture/types";
 import algoliasearch from "algoliasearch";
 import { useEffect, useState } from "react";
 

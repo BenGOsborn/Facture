@@ -1,4 +1,4 @@
-import { FindManufacturerCardQueryType } from "@facture/types";
+import type { FindManufacturerCardQueryType } from "@facture/types";
 import { renderHook, act } from "@testing-library/react-hooks";
 
 import { useSearchMainQuery } from "./useSearchMainQuery";

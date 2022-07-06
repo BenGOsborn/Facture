@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { fetchData, findManufacturer, findManufacturers } from "@facture/graphql";
 import { Manufacturer } from "@facture/components";
-import { FindManufacturerQueryType, FindManufacturerQueryVariablesType, FindManufacturersQueryType, ManufacturerType } from "@facture/types";
+import type { FindManufacturerQueryType, FindManufacturerQueryVariablesType, FindManufacturersQueryType, ManufacturerType } from "@facture/types";
 import { parseManufacturer, parseManufacturers } from "@facture/helpers";
 
 interface Props {

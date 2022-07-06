@@ -1,4 +1,4 @@
-import { ManufacturerOpeningTimeType } from "@facture/types";
+import type { ManufacturerOpeningTimeType } from "@facture/types";
 import { formatTime, groupOpeningTime, mappingToDay } from "@facture/helpers";
 import { Clock } from "tabler-icons-react";
 

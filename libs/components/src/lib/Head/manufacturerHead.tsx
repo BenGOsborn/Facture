@@ -1,5 +1,5 @@
 import { NAME, URL } from "@facture/helpers";
-import { ManufacturerColorType } from "@facture/types";
+import type { ManufacturerColorType } from "@facture/types";
 import Head from "next/head";
 
 interface Props {

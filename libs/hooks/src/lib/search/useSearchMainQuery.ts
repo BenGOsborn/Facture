@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { FindManufacturerCardQueryType, FindManufacturerCardQueryVariablesType, SearchHitType } from "@facture/types";
+import type { FindManufacturerCardQueryType, FindManufacturerCardQueryVariablesType, SearchHitType } from "@facture/types";
 import { findManufacturerCard } from "@facture/graphql";
 import { useEffect, useState } from "react";
 import { parseManufacturerCardData, parseManufacturerCardMeta } from "@facture/helpers";

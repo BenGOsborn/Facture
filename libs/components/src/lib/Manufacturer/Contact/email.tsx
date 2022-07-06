@@ -1,4 +1,4 @@
-import { ManufacturerEmailType } from "@facture/types";
+import type { ManufacturerEmailType } from "@facture/types";
 
 import { Mail } from "tabler-icons-react";
 import { LabelledPair } from "./labelledPair";

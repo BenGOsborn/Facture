@@ -1,4 +1,4 @@
-import { AlgoliaManufacturerType } from "@facture/types";
+import type { AlgoliaManufacturerType } from "@facture/types";
 import { renderHook, act } from "@testing-library/react-hooks";
 
 import { useSearchMainSearch } from "./useSearchMainSearch";

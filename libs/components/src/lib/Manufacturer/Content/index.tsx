@@ -1,6 +1,6 @@
 import { ANALYTICS_HOVER_PERIOD, emitSectionHover } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
-import { ManufacturerImageType } from "@facture/types";
+import type { ManufacturerImageType } from "@facture/types";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 

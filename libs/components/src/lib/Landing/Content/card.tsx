@@ -1,6 +1,6 @@
 import { ANALYTICS_HOVER_PERIOD, emitCardHover, emitCardSearchHit } from "@facture/helpers";
 import { useInterval } from "@facture/hooks";
-import { SearchHitType } from "@facture/types";
+import type { SearchHitType } from "@facture/types";
 import Image from "next/image";
 import Link from "next/link";
 

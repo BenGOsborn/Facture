@@ -1,4 +1,4 @@
-import { ManufacturerSocialType } from "@facture/types";
+import type { ManufacturerSocialType } from "@facture/types";
 import { Share } from "tabler-icons-react";
 
 import { SocialIcon } from "./socialIcon";
