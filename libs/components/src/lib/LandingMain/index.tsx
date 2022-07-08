@@ -1,5 +1,11 @@
+import Hero from "./Hero";
+
 export function LandingMain() {
-    return <></>;
+    return (
+        <>
+            <Hero />
+        </>
+    );
 }
 
 export default LandingMain;
