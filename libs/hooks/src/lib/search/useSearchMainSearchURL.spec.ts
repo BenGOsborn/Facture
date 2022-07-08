@@ -29,7 +29,7 @@ describe("use search main search url", () => {
         expect(setQuery).toHaveBeenCalled();
 
         rerender({ query: "test 2", setQuery });
-        expect(window.location.search).toEqual("?search=" + encodeURI("test 2"));
+        expect(window.location.search).toEqual("?q=" + encodeURI("test 2"));
 
         rerender({ query: "", setQuery });
         expect(window.location.search).toEqual("");

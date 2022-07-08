@@ -1,8 +1,13 @@
-import { SearchLanding } from "@facture/components";
+import { LandingSearch } from "@facture/components";
+import { GraphQLProvider } from "@facture/providers";
 import { NextPage } from "next";
 
 export const SearchPage: NextPage = () => {
-    return <SearchLanding />;
+    return (
+        <GraphQLProvider>
+            <LandingSearch />;
+        </GraphQLProvider>
+    );
 };
 
 export default SearchPage;
