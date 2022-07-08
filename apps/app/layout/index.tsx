@@ -5,7 +5,7 @@ interface Props {
     children: any;
 }
 
-export default function Layout({ children }: Props) {
+export function Layout({ children }: Props) {
     return (
         <GraphQLProvider>
             <LocationProvider>
@@ -15,3 +15,5 @@ export default function Layout({ children }: Props) {
         </GraphQLProvider>
     );
 }
+
+export default Layout;
