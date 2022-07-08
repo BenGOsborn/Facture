@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { Search as SearchIcon } from "tabler-icons-react";
 
 export function Search() {
     const router = useRouter();
@@ -15,15 +14,12 @@ export function Search() {
                 router.push(`/search?q=${encodeURI(query)}`);
             }}
         >
-            <label htmlFor="search-landing-main">
-                <SearchIcon />
-            </label>
             <input
                 name="query"
                 id="search-landing-main"
                 type="text"
                 className="bg-gray-900 border-none font-medium rounded-md w-full"
-                placeholder="Find A Manufacturer"
+                placeholder="Find A Manufacturer..."
             />
         </form>
     );
