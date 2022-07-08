@@ -1,11 +1,14 @@
 import Link from "next/link";
 
+import { RainbowText } from "../../RainbowText";
 import { Search } from "./search";
 
 export function Hero() {
     return (
         <header className="text-center space-y-14 xl:mx-auto xl:w-3/5">
-            <h1 className="text-6xl md:text-7xl xl:text-8xl font-bold text-gray-900">Connecting Manufacturers. Driving Innovation.</h1>
+            <h1 className="text-6xl md:text-7xl xl:text-8xl font-bold text-gray-900">
+                Connecting <RainbowText>Manufacturers</RainbowText>. Driving <RainbowText>Innovation</RainbowText>.
+            </h1>
             <div className="space-y-3">
                 <ul className="flex flex-col md:flex-row items-stretch md:items-center justify-center space-x-0 md:space-x-7 space-y-3 md:space-y-0">
                     <div className="md:w-2/3">
