@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Search from "./search";
 
 export function Hero() {
     return (
@@ -10,6 +11,7 @@ export function Hero() {
                 </h2>
             </div>
             <ul className="flex flex-col md:flex-row items-stretch md:items-center justify-center space-x-0 md:space-x-7 space-y-3 md:space-y-0">
+                <Search />
                 <Link href="/search">
                     <a className="p-6 bg-gray-900 text-lg rounded-md font-medium text-white">Find A Manufacturer</a>
                 </Link>
