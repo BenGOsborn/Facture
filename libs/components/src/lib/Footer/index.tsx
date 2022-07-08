@@ -7,7 +7,7 @@ export function Footer() {
             <div className="w-4/5 mx-auto flex flex-col space-y-6 text-center">
                 <p className="font-normal text-white text-md">{DESCRIPTION}</p>
                 <p className="font-medium text-white text-md">
-                    Want to list your manufacturing business? Apply{" "}
+                    Want to list your manufacturing business? Apply for free{" "}
                     <Link href="https://forms.gle/59gjvMtDMJ6rmDbS7">
                         <a className="font-bold text-white transition-colors hover:text-gray-300" target="_blank" rel="noreferrer">
                             here
