@@ -11,6 +11,7 @@ export function SearchBar({ value, onChange }: Props) {
 
     return (
         <form
+            role="search-bar-form"
             className="rounded-md bg-gray-900 flex items-center space-x-3 text-white px-4 py-2"
             onSubmit={(e) => {
                 e.preventDefault();
@@ -22,6 +23,7 @@ export function SearchBar({ value, onChange }: Props) {
                 <Search />
             </label>
             <input
+                role="search-bar-input"
                 id="search-nav"
                 type="text"
                 className="bg-gray-900 border-none font-medium rounded-md w-full"
