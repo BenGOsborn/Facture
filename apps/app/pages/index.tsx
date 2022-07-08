@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { LandingMain } from "../../../libs/components/src";
+import { LandingMain } from "@facture/components";
 
 export const IndexPage: NextPage = () => {
     return <LandingMain />;
