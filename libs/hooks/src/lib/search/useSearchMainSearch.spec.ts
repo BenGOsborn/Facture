@@ -60,7 +60,7 @@ jest.mock("next/router", () => {
         __esModule: true,
         ...originalModule,
         useRouter: () => ({
-            query: { search: null },
+            query: { q: null },
         }),
     };
 });

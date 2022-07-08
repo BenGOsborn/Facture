@@ -9,7 +9,7 @@ jest.mock("next/router", () => {
         __esModule: true,
         ...originalModule,
         useRouter: () => ({
-            query: { search: encodeURI("test 1") },
+            query: { q: encodeURI("test 1") },
         }),
     };
 });
