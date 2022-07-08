@@ -25,7 +25,7 @@ export function parseManufacturerCardData(data: FindManufacturerCardQueryType) {
         manufacturer: attributes.manufacturer,
         name: attributes.name,
         slogan: attributes.slogan,
-        type: attributes.type.map((type) => type.type),
+        type: attributes.type ? attributes.type.map((type) => type.type) : [],
         color: attributes.color,
         thumbnail: attributes.thumbnail.data.attributes,
     }));
@@ -64,15 +64,15 @@ export function parseManufacturer(data: FindManufacturerQueryType) {
         descriptionLong: attributes.descriptionLong,
         descriptionShort: attributes.descriptionShort,
         thumbnail: attributes.thumbnail.data.attributes,
-        display: attributes.display.data.map((display) => display.attributes),
-        email: attributes.email,
-        location: attributes.location,
-        openingTime: attributes.openingTime,
-        phoneNo: attributes.phoneNo,
-        fax: attributes.fax,
-        social: attributes.social,
-        type: attributes.type.map((type) => type.type),
-        manufacturer: attributes.manufacturer,
+        display: attributes.display ? attributes.display.data.map((display) => display.attributes) : [],
+        email: attributes.email || [],
+        location: attributes.location || [],
+        openingTime: attributes.openingTime || [],
+        phoneNo: attributes.phoneNo || [],
+        fax: attributes.fax || [],
+        social: attributes.social || [],
+        type: attributes.type ? attributes.type.map((type) => type.type) : [],
+        manufacturer: attributes.manufacturer || [],
     };
 
     ManufacturerSchema.parse(out);
@@ -90,7 +90,7 @@ export function parseAlgoliaSearchHits(data: AlgoliaManufacturerType[]) {
         manufacturer: hit.manufacturer,
         name: hit.name,
         thumbnail: hit.thumbnail,
-        type: hit.type.map((type) => type.type),
+        type: hit.type ? hit.type.map((type) => type.type) : [],
         slogan: hit.slogan,
     }));
 
