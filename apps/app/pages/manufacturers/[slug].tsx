@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { fetchData, findManufacturer, findManufacturers } from "@facture/graphql";
-import { Manufacturer } from "@facture/components";
+import { HeadManufacturer, Manufacturer } from "@facture/components";
 import type { FindManufacturerQueryType, FindManufacturerQueryVariablesType, FindManufacturersQueryType, ManufacturerType } from "@facture/types";
 import { parseManufacturer, parseManufacturers } from "@facture/helpers";
 
@@ -9,7 +9,12 @@ interface Props {
 }
 
 export const ManufacturerPage: NextPage<Props> = ({ manufacturer }) => {
-    return <Manufacturer manufacturer={manufacturer} />;
+    return (
+        <>
+            <HeadManufacturer name={manufacturer.name} manufacturer={manufacturer.manufacturer} description={manufacturer.descriptionShort} color={manufacturer.color} />
+            <Manufacturer manufacturer={manufacturer} />;
+        </>
+    );
 };
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {

@@ -1,5 +1,5 @@
 export function LandingMain() {
-    return <>Hello World</>;
+    return <></>;
 }
 
 export default LandingMain;

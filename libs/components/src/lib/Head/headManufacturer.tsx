@@ -9,7 +9,7 @@ interface Props {
     color: ManufacturerColorType;
 }
 
-export function ManufacturerHead({ manufacturer, name, description, color }: Props) {
+export function HeadManufacturer({ manufacturer, name, description, color }: Props) {
     const title = `${name} - ${NAME}`;
     const url = `${URL}/manufacturers/${manufacturer}`;
 
@@ -54,4 +54,4 @@ export function ManufacturerHead({ manufacturer, name, description, color }: Pro
     );
 }
 
-export default ManufacturerHead;
+export default HeadManufacturer;

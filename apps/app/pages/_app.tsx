@@ -1,4 +1,4 @@
-import { AppShell, GlobalHead } from "@facture/components";
+import { AppShell, HeadGlobal } from "@facture/components";
 import { LocationProvider } from "@facture/providers";
 import { AppProps } from "next/app";
 
@@ -9,7 +9,7 @@ export function CustomApp({ Component, pageProps }: AppProps) {
     return (
         <>
             <LocationProvider>
-                <GlobalHead />
+                <HeadGlobal />
                 <AppShell>
                     <Component {...pageProps} />
                 </AppShell>
