@@ -19,7 +19,7 @@ export function Hero() {
                 </ul>
                 <p className="text-left text-gray-700 font-medium text-lg">Completely free. No sign up required.</p>
             </div>
-            <h2 className="text-md md:text-xl font-medium text-gray-700">
+            <h2 className="text-xl font-medium text-gray-700">
                 Facture is an online search directory connecting manufacturers to aspiring entrepreneurs to drive local innovation.
             </h2>
         </header>
