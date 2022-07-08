@@ -29,7 +29,7 @@ export function Features() {
 
     return (
         <div className="text-center space-y-14">
-            <div className="space-y-3 md:w-2/5 md:mx-auto">
+            <div className="space-y-3 lg:w-2/5 lg:mx-auto">
                 <p className="text-gray-700 font-bold text-md">Advantages</p>
                 <h3 className="text-gray-900 font-bold text-3xl">
                     <RainbowText>Advantages</RainbowText> Of Our Platform
