@@ -22,11 +22,11 @@ describe("search bar", () => {
     it("should call callback function and change url aftr being entered", async () => {
         const handleSearch = jest.fn();
 
-        const component = render(<SearchBar onChange={handleSearch} value="" />);
+        const component = render(<SearchBar onChange={handleSearch} value="test 1" />);
 
         const input = component.getByRole("search-bar-input");
 
-        fireEvent.change(input, { target: { value: "test 1" } });
+        fireEvent.change(input, { target: { value: "test 2" } });
         expect(handleSearch).toBeCalledTimes(1);
 
         const form = component.getByRole("search-bar-form");
