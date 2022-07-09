@@ -1,6 +1,7 @@
 import { BatteryOff, CreditCardOff, DeviceAnalytics, Search, UserOff, World } from "tabler-icons-react";
 
 import { RainbowText } from "../RainbowText";
+import { CTA } from "./CTA";
 import { Features } from "./Features";
 import { Hero } from "./Hero";
 
@@ -66,6 +67,7 @@ export function LandingMain() {
                     },
                 ]}
             />
+            <CTA />
         </div>
     );
 }
