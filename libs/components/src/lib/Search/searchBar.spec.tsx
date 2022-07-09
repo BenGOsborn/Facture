@@ -19,7 +19,7 @@ jest.mock("next/router", () => {
 });
 
 describe("search bar", () => {
-    it("should call callback function and change url aftr being entered", async () => {
+    it("should call callback function and change url after being entered", () => {
         const handleSearch = jest.fn();
 
         const component = render(<SearchBar onChange={handleSearch} value="test 1" />);

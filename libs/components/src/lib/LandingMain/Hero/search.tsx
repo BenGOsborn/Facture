@@ -5,6 +5,7 @@ export function Search() {
 
     return (
         <form
+            role="search-landing-main-form"
             className="rounded-md bg-gray-800 flex items-center space-x-3 text-white p-4"
             onSubmit={(e) => {
                 e.preventDefault();
@@ -15,6 +16,7 @@ export function Search() {
             }}
         >
             <input
+                role="search-landing-main-input"
                 name="query"
                 id="search-landing-main"
                 type="text"
