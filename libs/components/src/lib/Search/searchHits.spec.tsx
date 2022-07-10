@@ -7,7 +7,7 @@ describe("search hits", () => {
             query: "",
             hits: [
                 {
-                    color: "amber" as "amber",
+                    color: "amber" as const,
                     descriptionShort: "",
                     logo: { url: "http://test-logo-1" },
                     manufacturer: "",
@@ -17,7 +17,7 @@ describe("search hits", () => {
                     slogan: null,
                 },
                 {
-                    color: "amber" as "amber",
+                    color: "amber" as const,
                     descriptionShort: "",
                     logo: { url: "http://test-logo-2" },
                     manufacturer: "",

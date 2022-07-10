@@ -6,7 +6,7 @@ describe("type", () => {
     it("should render a list of types", () => {
         const testData = {
             type: ["test1", "test2"],
-            color: "indigo" as "indigo",
+            color: "indigo" as const,
         };
 
         const component = render(<Type {...testData} />);

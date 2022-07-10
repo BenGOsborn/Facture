@@ -9,7 +9,7 @@ describe("card", () => {
             query: "",
             totalResults: 1,
             hit: {
-                color: "indigo" as "indigo",
+                color: "indigo" as const,
                 descriptionShort: "Test description",
                 logo: { url: "http://test-url-logo" },
                 manufacturer: "test-manufacturer",

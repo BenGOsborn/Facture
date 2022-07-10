@@ -5,8 +5,8 @@ describe("social", () => {
     it("should render a list of social icons", () => {
         const testData = {
             social: [
-                { link: "test1", platform: "facebook" as "facebook" },
-                { link: "test2", platform: "website" as "website" },
+                { link: "test1", platform: "facebook" as const },
+                { link: "test2", platform: "website" as const },
             ],
         };
 

@@ -5,7 +5,7 @@ import { SocialIcon } from "./socialIcon";
 describe("social icon", () => {
     it("should render social icon", () => {
         const testData = {
-            name: "facebook" as "facebook",
+            name: "facebook" as const,
             link: "test-facebook",
         };
 

@@ -4,7 +4,7 @@ import { Info } from ".";
 describe("info", () => {
     it("should render an info section", async () => {
         const testData = {
-            color: "indigo" as "indigo",
+            color: "indigo" as const,
             slogan: "Test slogan",
             description: "Test description",
             logo: { url: "http://test-url-logo" },

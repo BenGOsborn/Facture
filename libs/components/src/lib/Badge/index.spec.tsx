@@ -6,7 +6,7 @@ describe("badge", () => {
     it("should return a badge with the correct text and color", () => {
         const testData = {
             text: "Hello World",
-            color: "indigo" as "indigo",
+            color: "indigo" as const,
         };
 
         const component = render(<Badge {...testData} />);

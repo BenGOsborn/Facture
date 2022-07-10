@@ -8,7 +8,7 @@ describe("content", () => {
             query: "",
             data: [
                 {
-                    color: "amber" as "amber",
+                    color: "amber" as const,
                     descriptionShort: "",
                     logo: { url: "http://test-logo-1" },
                     manufacturer: "",
@@ -18,7 +18,7 @@ describe("content", () => {
                     slogan: null,
                 },
                 {
-                    color: "amber" as "amber",
+                    color: "amber" as const,
                     descriptionShort: "",
                     logo: { url: "http://test-logo-2" },
                     manufacturer: "",
