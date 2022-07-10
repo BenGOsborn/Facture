@@ -2,6 +2,8 @@ import { renderHook } from "@testing-library/react-hooks";
 
 import { useSearchMainSearchURL } from "./useSearchMainSearchURL";
 
+const initialQuery = "test 1";
+
 jest.mock("next/router", () => {
     const originalModule = jest.requireActual("next/router");
 
@@ -9,7 +11,7 @@ jest.mock("next/router", () => {
         __esModule: true,
         ...originalModule,
         useRouter: () => ({
-            query: { q: encodeURI("test 1") },
+            query: { q: encodeURI(initialQuery) },
         }),
     };
 });
@@ -17,21 +19,25 @@ jest.mock("next/router", () => {
 describe("use search main search url", () => {
     it("should return load the query from url and update the main query with it", async () => {
         const data = { query: "" };
-
         const setQuery = jest.fn((query: string) => (data.query = query));
 
+        const testData = [
+            { query: "", setQuery },
+            { query: "test 2", setQuery },
+        ];
+
         const { rerender } = renderHook(({ query, setQuery }) => useSearchMainSearchURL(query, setQuery), {
-            initialProps: { query: "", setQuery },
+            initialProps: testData[0],
         });
 
-        expect(data.query).toEqual("test 1");
+        expect(data.query).toEqual(initialQuery);
 
         expect(setQuery).toHaveBeenCalled();
 
-        rerender({ query: "test 2", setQuery });
-        expect(window.location.search).toEqual("?q=" + encodeURI("test 2"));
+        rerender(testData[1]);
+        expect(window.location.search).toEqual("?q=" + encodeURI(testData[1].query));
 
-        rerender({ query: "", setQuery });
-        expect(window.location.search).toEqual("");
+        rerender(testData[0]);
+        expect(window.location.search).toEqual(testData[0].query);
     });
 });
