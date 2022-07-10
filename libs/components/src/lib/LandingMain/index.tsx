@@ -1,6 +1,7 @@
 import { BatteryOff, CreditCardOff, DeviceAnalytics, Search, UserOff, World } from "tabler-icons-react";
 
 import { RainbowText } from "../RainbowText";
+import { About } from "./About";
 import { CTA } from "./CTA";
 import { Features } from "./Features";
 import { Hero } from "./Hero";
@@ -9,6 +10,7 @@ export function LandingMain() {
     return (
         <div className="space-y-36">
             <Hero />
+            <About />
             <Features
                 subheading="Benefits"
                 heading={

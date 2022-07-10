@@ -31,8 +31,7 @@ export function Hero() {
                 </Link>
             </ul>
             <h2 className="text-xl font-medium text-gray-700">
-                Facture is an online search directory for manufacturers with the intention of connecting manufacturers to aspiring entrepreneurs to drive local
-                innovation.
+                Facture is an online search directory connecting manufacturers to aspiring entrepreneurs to drive local innovation.
             </h2>
         </header>
     );
