@@ -1,4 +1,4 @@
-import { DESCRIPTION, NAME } from "@facture/helpers";
+import { DESCRIPTION, emitFormHit, NAME } from "@facture/helpers";
 import Link from "next/link";
 
 export function Footer() {
@@ -9,7 +9,7 @@ export function Footer() {
                 <p className="font-medium text-white text-md">
                     Want to list your manufacturing business? Apply for free{" "}
                     <Link href="https://forms.gle/59gjvMtDMJ6rmDbS7">
-                        <a className="font-bold text-white transition-colors hover:text-gray-300" target="_blank" rel="noreferrer">
+                        <a className="font-bold text-white transition-colors hover:text-gray-300" target="_blank" rel="noreferrer" onClick={() => emitFormHit("footer")}>
                             here
                         </a>
                     </Link>

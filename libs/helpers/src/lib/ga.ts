@@ -44,3 +44,12 @@ export function emitCardSearchHit(card: CardType, cardOwnerId: string, query: st
         // @ts-ignore
         window.gtag("event", "card_search_hit", { card, cardOwnerId, query, ranking, totalResults });
 }
+
+export function emitFormHit(section: "nav_notification" | "landing_main_hero" | "landing_main_cta" | "footer") {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (window && window.gtag)
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        window.gtag("event", "form_hit", { section });
+}
