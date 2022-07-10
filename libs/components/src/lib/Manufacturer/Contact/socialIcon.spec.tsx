@@ -1,12 +1,18 @@
 import { render } from "@testing-library/react";
+
 import { SocialIcon } from "./socialIcon";
 
 describe("social icon", () => {
     it("should render social icon", () => {
-        const component = render(<SocialIcon name="facebook" link="test-facebook" />);
+        const testData = {
+            name: "facebook" as const,
+            link: "test-facebook",
+        };
 
-        const link = component.getByRole("social-facebook");
+        const component = render(<SocialIcon {...testData} />);
 
-        expect(link.getAttribute("href")).toEqual("/test-facebook");
+        const link = component.getByRole(`social-${testData.name}`);
+
+        expect(link.getAttribute("href")).toEqual(`/${testData.link}`);
     });
 });

@@ -1,15 +1,20 @@
+import { AppShell, HeadGlobal } from "@facture/components";
+import { LocationProvider } from "@facture/providers";
 import { AppProps } from "next/app";
-
-import { Layout } from "../layout";
 
 import "tailwindcss/tailwind.css";
 import "../styles/global.css";
 
 export function CustomApp({ Component, pageProps }: AppProps) {
     return (
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
+        <>
+            <LocationProvider>
+                <HeadGlobal />
+                <AppShell>
+                    <Component {...pageProps} />
+                </AppShell>
+            </LocationProvider>
+        </>
     );
 }
 

@@ -1,35 +1,37 @@
 import type { CardType, SearchHitType } from "@facture/types";
 import { renderHook } from "@testing-library/react-hooks";
+
 import { useOnSearchHit } from "./useOnSearchHit";
 
 describe("use on search hit", () => {
     it("should cause analytic hits on search", async () => {
-        const analyticsCall = jest.fn();
+        const testData: { cardType: CardType; query: string; hits: SearchHitType[] }[] = [
+            {
+                cardType: "landing_search",
+                query: "",
+                hits: [{ color: "amber", descriptionShort: "", logo: { url: "" }, manufacturer: "", name: "", thumbnail: { url: "" }, type: [], slogan: null }],
+            },
+            {
+                cardType: "landing_search",
+                query: "",
+                hits: [{ color: "blue", descriptionShort: "", logo: { url: "" }, manufacturer: "", name: "", thumbnail: { url: "" }, type: [], slogan: null }],
+            },
+        ];
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        window.gtag = analyticsCall;
+        window.gtag = jest.fn();
 
-        const { rerender } = renderHook(({ cardType, query, hits }) => useOnSearchHit(cardType, query, hits), {
-            initialProps: {
-                cardType: "landing_search" as CardType,
-                query: "",
-                hits: [
-                    { color: "amber", descriptionShort: "", logo: { url: "" }, manufacturer: "", name: "", thumbnail: { url: "" }, type: [], slogan: null },
-                ] as SearchHitType[],
-            },
-        });
+        const { rerender } = renderHook(({ cardType, query, hits }) => useOnSearchHit(cardType, query, hits), { initialProps: testData[0] });
 
-        expect(analyticsCall).toHaveBeenCalledTimes(1);
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        expect(window.gtag).toHaveBeenCalledTimes(1);
 
-        rerender({
-            cardType: "landing_search",
-            query: "",
-            hits: [
-                { color: "blue", descriptionShort: "", logo: { url: "" }, manufacturer: "", name: "", thumbnail: { url: "" }, type: [], slogan: null },
-            ] as SearchHitType[],
-        });
+        rerender(testData[1]);
 
-        expect(analyticsCall).toHaveBeenCalledTimes(2);
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        expect(window.gtag).toHaveBeenCalledTimes(2);
     });
 });

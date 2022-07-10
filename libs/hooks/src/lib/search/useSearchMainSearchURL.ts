@@ -12,7 +12,7 @@ export function useSearchMainSearchURL(query: string, setQuery: (value: string) 
     useEffect(() => {
         if (finished.current) return;
 
-        const search = router.query["search"];
+        const search = router.query["q"];
         if (search && typeof search === "string") {
             finished.current = true;
             setQuery(decodeURI(search));
@@ -22,7 +22,7 @@ export function useSearchMainSearchURL(query: string, setQuery: (value: string) 
     useEffect(() => {
         if (!finished.current) return;
 
-        if (query !== "") window.history.pushState(null, "", window.location.pathname + "?search=" + encodeURI(query));
+        if (query !== "") window.history.pushState(null, "", window.location.pathname + "?q=" + encodeURI(query));
         else window.history.pushState(null, "", window.location.pathname);
     }, [query]);
 }

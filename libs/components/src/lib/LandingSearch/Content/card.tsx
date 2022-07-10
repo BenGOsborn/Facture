@@ -25,14 +25,14 @@ export function Card({ resultIndex, totalResults, query, hit }: Props) {
     return (
         <Link href={`/manufacturers/${hit.manufacturer}`}>
             <a
-                role="card"
+                role="landing-search-card"
                 onMouseEnter={start}
                 onMouseLeave={stop}
                 onClick={() => emitCardSearchHit("landing_search", hit.manufacturer, query, resultIndex + 1, totalResults)}
             >
                 <div className="p-6 bg-white rounded-md shadow-md hover:shadow-lg transition-shadow space-y-3 h-full">
                     <Image
-                        role="card-thumbnail"
+                        role="landing-search-card-thumbnail"
                         className="rounded-md"
                         src={`${hit.thumbnail.url}?size=${thumbnailWidth}x${thumbnailHeight}`}
                         width={thumbnailWidth}
@@ -40,18 +40,24 @@ export function Card({ resultIndex, totalResults, query, hit }: Props) {
                     />
                     <div className="flex items-center justify-between">
                         <div className="mr-7">
-                            <p role="card-name" className="text-2xl font-bold text-gray-900 line-clamp-1">
+                            <p role="landing-search-card-name" className="text-2xl font-bold text-gray-900 line-clamp-1">
                                 {hit.name}
                             </p>
                             {hit.slogan && (
-                                <p role="card-slogan" className="text-xl font-bold text-gray-700 line-clamp-1">
+                                <p role="landing-search-card-slogan" className="text-xl font-bold text-gray-700 line-clamp-1">
                                     {hit.slogan}
                                 </p>
                             )}
                         </div>
-                        <Image role="card-logo" className="rounded-md" src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`} width={logoWidth} height={logoHeight} />
+                        <Image
+                            role="landing-search-card-logo"
+                            className="rounded-md"
+                            src={`${hit.logo.url}?size=${logoWidth}x${logoHeight}`}
+                            width={logoWidth}
+                            height={logoHeight}
+                        />
                     </div>
-                    <p role="card-description" className="text-gray-700 text-lg line-clamp-2">
+                    <p role="landing-search-card-description" className="text-gray-700 text-lg line-clamp-2">
                         {hit.descriptionShort}
                     </p>
                     <Type type={hit.type} color={hit.color} />

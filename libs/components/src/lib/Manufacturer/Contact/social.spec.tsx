@@ -3,19 +3,19 @@ import { Social } from "./social";
 
 describe("social", () => {
     it("should render a list of social icons", () => {
-        const component = render(
-            <Social
-                social={[
-                    { link: "test1", platform: "facebook" },
-                    { link: "test2", platform: "website" },
-                ]}
-            />
-        );
+        const testData = {
+            social: [
+                { link: "test1", platform: "facebook" as const },
+                { link: "test2", platform: "website" as const },
+            ],
+        };
 
-        const fb = component.getByRole("social-facebook");
-        const website = component.getByRole("social-website");
+        const component = render(<Social {...testData} />);
 
-        expect(fb.getAttribute("href")).toEqual("/test1");
-        expect(website.getAttribute("href")).toEqual("/test2");
+        const social1 = component.getByRole(`social-${testData.social[0].platform}`);
+        const social2 = component.getByRole(`social-${testData.social[1].platform}`);
+
+        expect(social1.getAttribute("href")).toEqual(`/${testData.social[0].link}`);
+        expect(social2.getAttribute("href")).toEqual(`/${testData.social[1].link}`);
     });
 });

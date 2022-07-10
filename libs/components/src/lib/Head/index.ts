@@ -1,2 +1,3 @@
-export * from "./globalHead";
-export * from "./manufacturerHead";
+export * from "./headGlobal";
+export * from "./headManufacturer";
+export * from "./headSearch";

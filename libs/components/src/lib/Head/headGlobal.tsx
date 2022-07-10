@@ -1,9 +1,11 @@
-import { DESCRIPTION, TITLE, URL } from "@facture/helpers";
+import { DESCRIPTION, NAME, SLOGAN, URL } from "@facture/helpers";
 import Head from "next/head";
 import Script from "next/script";
 
-export function GlobalHead() {
+export function HeadGlobal() {
     const googleAnalyticsId = process.env["NEXT_PUBLIC_GOOGLE_ANALYTICS"] as string;
+
+    const title = `${NAME} - ${SLOGAN}`;
 
     const themeColor = "#daa041";
 
@@ -16,12 +18,12 @@ export function GlobalHead() {
                 <link rel="manifest" href="/manifest.json" />
                 <meta name="robots" content="index, follow" />
 
-                <title key="title">{TITLE}</title>
+                <title key="title">{title}</title>
                 <meta key="description" name="description" content={DESCRIPTION} />
                 <meta key="color" name="theme-color" content={themeColor} />
                 <link key="canonical" rel="canonical" href={URL} />
 
-                <meta key="og:title" property="og:title" content={TITLE} />
+                <meta key="og:title" property="og:title" content={title} />
                 <meta key="og:description" property="og:description" content={DESCRIPTION} />
                 <meta key="og:url" property="og:url" content={URL} />
             </Head>
@@ -40,4 +42,4 @@ export function GlobalHead() {
     );
 }
 
-export default GlobalHead;
+export default HeadGlobal;

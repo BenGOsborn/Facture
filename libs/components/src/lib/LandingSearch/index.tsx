@@ -3,7 +3,7 @@ import { useSearchMain } from "@facture/hooks";
 import { Content } from "./Content";
 import { Hero } from "./Hero";
 
-export function Landing() {
+export function LandingSearch() {
     const algoliaAppId = process.env["NEXT_PUBLIC_ALGOLIA_APP_ID"] as string;
     const algoliaApiKey = process.env["NEXT_PUBLIC_ALGOLIA_API_KEY"] as string;
     const algoliaIndexName = process.env["NEXT_PUBLIC_ALGOLIA_INDEX_NAME"] as string;
@@ -23,4 +23,4 @@ export function Landing() {
     );
 }
 
-export default Landing;
+export default LandingSearch;
