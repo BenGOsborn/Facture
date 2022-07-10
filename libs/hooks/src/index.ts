@@ -4,3 +4,4 @@ export * from "./lib/useInterval";
 export * from "./lib/useLocation";
 export * from "./lib/useLocationProvider";
 export * from "./lib/search";
+export * from "./lib/useMounted";
