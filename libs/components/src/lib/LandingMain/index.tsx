@@ -49,21 +49,21 @@ export function LandingMain() {
                 description="Here's a few advantages that using our platform provides your manufacturing business in comparison to other platforms."
                 features={[
                     {
-                        title: "100% Free.",
+                        title: "Zero Cost.",
                         description:
-                            "Getting your business listed on our platform is 100% free. Our mission is to create a comprehensive registry for entrepreneurs, and as such, registering will remain free forever.",
+                            "Our platform is completely free for every manufacturer. Our mission is to create a comprehensive registry for entrepreneurs, and as such, registering will remain free. Forever.",
                         icon: <CreditCardOff />,
                     },
                     {
                         title: "No Sign Up.",
                         description:
-                            "Getting your business listed on our platform requires absolutely no sign up process. Simply add your businesses information to our sign up form and we'll list you ASAP!",
+                            "Getting your business listed on our platform includes no sign up process. Simply add your businesses information to our sign up form and we'll list you ASAP!",
                         icon: <UserOff />,
                     },
                     {
                         title: "Completely Hands Off.",
                         description:
-                            "Not interested in manually updating your page? Don't worry, our team will handle any changes requested by you so that you don't have to.",
+                            "Not interested in manually maintaining and updating your page? Our team will handle any changes you request so you can focus exclusively on your business.",
                         icon: <BatteryOff />,
                     },
                 ]}
