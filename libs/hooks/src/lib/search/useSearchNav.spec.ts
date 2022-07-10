@@ -2,6 +2,13 @@ import { renderHook, act } from "@testing-library/react-hooks";
 
 import { useSearchNav } from "./useSearchNav";
 
+const testData = [
+    { query: "", hits: ["not", "empty"] },
+    { query: "hello world", hits: ["hello", "world"] },
+    { query: "test", hits: ["test"] },
+    { query: "", hits: ["else"] },
+];
+
 interface Hits {
     hits: string[];
 }
@@ -17,10 +24,10 @@ jest.mock("algoliasearch", () => {
                 initIndex: (algoliaIndexName: string) => {
                     return {
                         search: (query: string, options: { maxFacetHits: number }) => {
-                            if (query === "") return new Promise<Hits>((resolve) => resolve({ hits: ["not", "empty"] }));
-                            if (query === "hello world") return new Promise<Hits>((resolve) => resolve({ hits: ["hello", "world"] }));
-                            if (query === "test") return new Promise<Hits>((resolve) => resolve({ hits: ["test"] }));
-                            return new Promise<Hits>((resolve) => resolve({ hits: ["else"] }));
+                            if (query === testData[0].query) return new Promise<Hits>((resolve) => resolve({ hits: testData[0].hits }));
+                            if (query === testData[1].query) return new Promise<Hits>((resolve) => resolve({ hits: testData[1].hits }));
+                            if (query === testData[2].query) return new Promise<Hits>((resolve) => resolve({ hits: testData[2].hits }));
+                            return new Promise<Hits>((resolve) => resolve({ hits: testData[3].hits }));
                         },
                     };
                 },
@@ -36,19 +43,19 @@ describe("use search nav", () => {
         expect(result.current.query).toEqual("");
         expect(result.current.hits).toEqual([]);
 
-        act(() => result.current.setQuery("test"));
+        act(() => result.current.setQuery(testData[1].query));
         await waitForNextUpdate();
-        expect(result.current.hits).toEqual(["test"]);
-        expect(result.current.query).toEqual("test");
-
-        act(() => result.current.setQuery("hello world"));
-        await waitForNextUpdate();
-        expect(result.current.hits).toEqual(["hello", "world"]);
-        expect(result.current.query).toEqual("hello world");
+        expect(result.current.hits).toEqual(testData[1].hits);
+        expect(result.current.query).toEqual(testData[1].query);
 
         act(() => result.current.setQuery(""));
         await waitForNextUpdate();
         expect(result.current.hits).toEqual([]);
         expect(result.current.query).toEqual("");
+
+        act(() => result.current.setQuery(testData[2].query));
+        await waitForNextUpdate();
+        expect(result.current.hits).toEqual(testData[2].hits);
+        expect(result.current.query).toEqual(testData[2].query);
     });
 });
