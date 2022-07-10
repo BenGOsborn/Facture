@@ -21,11 +21,13 @@ jest.mock("next/router", () => {
 
 describe("search", () => {
     it("should change url after being entered", () => {
+        const testValue = "test 2";
+
         const component = render(<Search />);
 
         const form = component.getByRole("search-landing-main-form");
 
-        fireEvent.submit(form, { target: { query: { value: "test 2" } } });
-        expect(data.route).toEqual("/search?q=" + encodeURI("test 2"));
+        fireEvent.submit(form, { target: { query: { value: testValue } } });
+        expect(data.route).toEqual("/search?q=" + encodeURI(testValue));
     });
 });

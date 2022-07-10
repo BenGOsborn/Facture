@@ -4,19 +4,25 @@ import { Carousel } from ".";
 
 describe("carousel", () => {
     it("should render a working carousel", async () => {
-        const component = render(<Carousel element={[<>Beginning</>, <>Middle</>, <>End</>]} shiftSize={1000} />);
+        const carouselNames = ["Beginning", "Middle", "End"];
+        const testData = {
+            element: [<>{carouselNames[0]}</>, <>{carouselNames[1]}</>, <>{carouselNames[2]}</>],
+            shiftSize: 1000,
+        };
+
+        const component = render(<Carousel {...testData} />);
 
         const view = component.getByRole("carousel-view");
         const buttonLeft = component.getByRole("carousel-button-left");
         const buttonRight = component.getByRole("carousel-button-right");
 
-        expect(view.textContent).toEqual("Beginning");
+        expect(view.textContent).toEqual(carouselNames[0]);
 
         fireEvent.click(buttonLeft);
-        await waitFor(() => expect(view.textContent).toEqual("End"));
+        await waitFor(() => expect(view.textContent).toEqual(carouselNames[2]));
 
         fireEvent.click(buttonRight);
         fireEvent.click(buttonRight);
-        await waitFor(() => expect(view.textContent).toEqual("Middle"));
+        await waitFor(() => expect(view.textContent).toEqual(carouselNames[1]));
     });
 });

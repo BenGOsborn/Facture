@@ -1,4 +1,5 @@
 import { fireEvent, render } from "@testing-library/react";
+
 import { SearchBar } from "./searchBar";
 
 const data = { route: "" };
@@ -20,18 +21,22 @@ jest.mock("next/router", () => {
 
 describe("search bar", () => {
     it("should call callback function and change url after being entered", () => {
-        const handleSearch = jest.fn();
+        const testValue = "test 2";
+        const testData = {
+            onChange: jest.fn(),
+            value: "test 1",
+        };
 
-        const component = render(<SearchBar onChange={handleSearch} value="test 1" />);
+        const component = render(<SearchBar {...testData} />);
 
         const input = component.getByRole("search-bar-input");
 
-        fireEvent.change(input, { target: { value: "test 2" } });
-        expect(handleSearch).toBeCalledTimes(1);
+        fireEvent.change(input, { target: { value: testValue } });
+        expect(testData.onChange).toBeCalledTimes(1);
 
         const form = component.getByRole("search-bar-form");
 
         fireEvent.submit(form);
-        expect(data.route).toEqual("/search?q=" + encodeURI("test 1"));
+        expect(data.route).toEqual("/search?q=" + encodeURI(testData.value));
     });
 });
