@@ -2,3 +2,7 @@ body {
     background-color: #f3f4f6;
     min-width: 520px;
 }
+
+.modal {
+    min-width: 520px;
+}
