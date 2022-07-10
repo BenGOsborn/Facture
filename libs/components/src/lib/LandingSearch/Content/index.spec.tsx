@@ -32,7 +32,7 @@ describe("content", () => {
 
         const component = render(<Content {...testData} />);
 
-        const card = component.getAllByRole("card");
+        const card = component.getAllByRole("landing-search-card");
 
         expect(card.length).toEqual(testData.data.length);
     });

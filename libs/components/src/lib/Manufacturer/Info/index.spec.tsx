@@ -20,7 +20,7 @@ describe("info", () => {
         const slogan = component.getByRole("info-slogan");
         const description = component.getByRole("info-description");
 
-        await waitFor(() => expect(logo.getAttribute("src")).toContain(testData.logo.url));
+        await waitFor(() => expect(logo.getAttribute("src")).toContain(testData.logo.url.split("http://")[0]));
         expect(name.textContent).toEqual(testData.name);
         expect(slogan.textContent).toEqual(testData.slogan);
         expect(description.textContent).toEqual(testData.description);

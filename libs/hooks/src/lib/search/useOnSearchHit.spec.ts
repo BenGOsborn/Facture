@@ -32,6 +32,6 @@ describe("use on search hit", () => {
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        expect(wingow.gtag).toHaveBeenCalledTimes(2);
+        expect(window.gtag).toHaveBeenCalledTimes(2);
     });
 });

@@ -29,7 +29,7 @@ describe("search hit", () => {
 
         expect(name.textContent).toEqual(testData.hit.name);
         expect(slogan.textContent).toEqual(testData.hit.slogan);
-        await waitFor(() => expect(logo.getAttribute("src")).toContain(testData.hit.thumbnail.url));
+        await waitFor(() => expect(logo.getAttribute("src")).toContain(testData.hit.thumbnail.url.split("http://")[0]));
         expect(description.textContent).toEqual(testData.hit.descriptionShort);
     });
 });

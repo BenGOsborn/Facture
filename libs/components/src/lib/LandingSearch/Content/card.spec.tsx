@@ -28,10 +28,10 @@ describe("card", () => {
         const logo = component.getByRole("landing-search-card-logo");
         const description = component.getByRole("landing-search-card-description");
 
-        await waitFor(() => expect(thumbnail.getAttribute("src")).toContain(testData.hit.thumbnail));
+        await waitFor(() => expect(thumbnail.getAttribute("src")).toContain(testData.hit.thumbnail.url.split("http://")[0]));
         expect(name.textContent).toEqual(testData.hit.name);
         expect(slogan.textContent).toEqual(testData.hit.slogan);
-        await waitFor(() => expect(logo.getAttribute("src")).toContain(testData.hit.logo));
+        await waitFor(() => expect(logo.getAttribute("src")).toContain(testData.hit.logo.url.split("http://")[0]));
         expect(description.textContent).toEqual(testData.hit.descriptionShort);
     });
 });
