@@ -11,8 +11,12 @@ export function About() {
             </div>
             <div className="space-y-7 text-gray-700 text-xl font-medium xl:w-3/5 xl:mx-auto">
                 <p>
-                    Facture was created to provide manufacturers with a platform where they can be easily found by entrepreneurs to drive local industry and innovation
-                    with our easy to use smart manufacturer search.
+                    Facture was created to provide manufacturers with a simple all-in-one platform where they can advertise their services and be easily found by
+                    entrepreneurs.
+                </p>
+                <p>
+                    Our mission is to drive local industry and innovation with our easy to use smart manufacturer search, helping entrepreneurs to find the suppliers they
+                    need with ease.
                 </p>
                 <p>
                     We understand that you as a business owner have a lot to deal with, so we take care of increasing your digital presence so that you don't waste your
