@@ -21,21 +21,20 @@ export function LandingMain() {
                 description="Here's some of the benefits that our platform provides to your manufacturing business."
                 features={[
                     {
-                        title: "SEO Optimized Website.",
+                        title: "Custom SEO Website.",
                         description:
-                            "We give each manufacturer their very own custom web page. We ensure that your page contains all relevant information to your business and looks beautiful.",
+                            "You'll get your own beautiful web page. We will ensure that your page contains all relevant information to your business in an easy to read format.",
                         icon: <World />,
                     },
                     {
                         title: "Full Analytics Tracking.",
                         description:
-                            "Each website comes with full analytics tracking out the box. Track what searches your business appears in, how you rank, and what your potential clients are looking at.",
+                            "Each website comes with full analytics tracking from day one. Track what searches your business appears in, how you rank, and how engaged your customers are.",
                         icon: <DeviceAnalytics />,
                     },
                     {
-                        title: "Get Your Business Found.",
-                        description:
-                            "Join our database containing the largest manufacturers in the nation so that your business will appear next time a future client is in need of your service.",
+                        title: "Increased Digital Presence.",
+                        description: "Have your business be featured to real, paying clients in need of your products or services with zero effort required from you.",
                         icon: <Search />,
                     },
                 ]}
