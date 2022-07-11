@@ -1,10 +1,18 @@
-import { emitPromotionHit } from "@facture/helpers";
+import { emitPromotionHit, subscribePromotionalEmail } from "@facture/helpers";
 
 export function SubscribeForm() {
     const emailSignupUrl = process.env["NEXT_PUBLIC_MAILCHIMP_SIGNUP_URL"] as string;
 
     return (
-        <form className="flex flex-col w-full pt-7 space-y-3" action={emailSignupUrl} method="post" onSubmit={() => emitPromotionHit("mailing_list")}>
+        <form
+            className="flex flex-col w-full pt-7 space-y-3"
+            action={emailSignupUrl}
+            method="post"
+            onSubmit={() => {
+                subscribePromotionalEmail();
+                emitPromotionHit("mailing_list");
+            }}
+        >
             <input
                 name="EMAIL"
                 required={true}

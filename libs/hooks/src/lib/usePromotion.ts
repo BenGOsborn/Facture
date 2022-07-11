@@ -1,4 +1,4 @@
-import { emitPromotionView, PROMOTION_DELAY } from "@facture/helpers";
+import { emitPromotionView, isSubscribedPromotionalEmail, PROMOTION_DELAY } from "@facture/helpers";
 import { useEffect, useRef, useState } from "react";
 
 export function usePromotion() {
@@ -6,10 +6,11 @@ export function usePromotion() {
     const [visible, setVisible] = useState<boolean>(false);
 
     useEffect(() => {
-        timeout.current = setTimeout(() => {
-            emitPromotionView("mailing_list");
-            setVisible(true);
-        }, PROMOTION_DELAY);
+        if (!isSubscribedPromotionalEmail())
+            timeout.current = setTimeout(() => {
+                emitPromotionView("mailing_list");
+                setVisible(true);
+            }, PROMOTION_DELAY);
 
         return () => {
             if (timeout.current) clearTimeout(timeout.current);
