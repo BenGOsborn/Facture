@@ -1,11 +1,14 @@
 import { DESCRIPTION, emitFormHit, NAME } from "@facture/helpers";
 import Link from "next/link";
 
+import { SubscribeFormInline } from "../SubscribeMail";
+
 export function Footer() {
     return (
         <footer className="p-6 pt-12 mt-14 shadow-md bg-gray-800">
-            <div className="w-4/5 mx-auto flex flex-col space-y-6 text-center">
+            <div className="w-4/5 xl:w-2/5 mx-auto flex flex-col space-y-6 text-center">
                 <p className="font-normal text-white text-md">{DESCRIPTION}</p>
+                <SubscribeFormInline />
                 <p className="font-medium text-white text-md">
                     Want to list your manufacturing business? Apply for free{" "}
                     <Link href="https://forms.gle/59gjvMtDMJ6rmDbS7">

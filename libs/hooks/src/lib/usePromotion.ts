@@ -8,7 +8,7 @@ export function usePromotion() {
     useEffect(() => {
         if (!isSubscribedPromotionalEmail())
             timeout.current = setTimeout(() => {
-                emitPromotionView("mailing_list");
+                emitPromotionView("mailing_list_popup");
                 setVisible(true);
             }, PROMOTION_DELAY);
 
