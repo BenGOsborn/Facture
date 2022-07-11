@@ -1,4 +1,4 @@
-import type { CardType, ManufacturerSocialPlatformType } from "@facture/types";
+import type { CardType, ManufacturerSocialPlatformType, PromotionType } from "@facture/types";
 
 export function emitSocialEvent(social: ManufacturerSocialPlatformType, link: string) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -52,4 +52,22 @@ export function emitFormHit(section: "nav_notification" | "landing_main_hero" | 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         window.gtag("event", "form_hit", { section });
+}
+
+export function emitPromotionView(promotionType: PromotionType) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (window && window.gtag)
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        window.gtag("event", "promotion_view", { promotionType });
+}
+
+export function emitPromotionHit(promotionType: PromotionType) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (window && window.gtag)
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        window.gtag("event", "promotion_hit", { promotionType });
 }

@@ -12,7 +12,7 @@ export function SearchBar({ value, onChange }: Props) {
     return (
         <form
             role="search-bar-form"
-            className="rounded-md bg-gray-900 flex items-center space-x-3 px-4 py-2"
+            className="rounded-md bg-gray-900 text-white flex items-center space-x-3 px-4 py-2"
             onSubmit={(e) => {
                 e.preventDefault();
                 router.push(`/search?q=${encodeURI(value)}`);
@@ -26,7 +26,7 @@ export function SearchBar({ value, onChange }: Props) {
                 role="search-bar-input"
                 id="search-nav"
                 type="text"
-                className="bg-gray-900 text-white border-none font-medium rounded-md w-full"
+                className="bg-gray-900 border-none font-medium rounded-md w-full"
                 placeholder="Search"
                 value={value || ""}
                 onChange={(e) => onChange(e.target.value)}
