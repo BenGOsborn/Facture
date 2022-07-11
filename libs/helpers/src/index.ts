@@ -4,3 +4,4 @@ export * from "./lib/ga";
 export * from "./lib/constants";
 export * from "./lib/extension";
 export * from "./lib/parse";
+export * from "./lib/localStorage";

@@ -18,9 +18,9 @@ export function Features({ heading, subheading, description, features }: Props) 
                 <p role="features-subheading" className="text-gray-700 font-bold text-md">
                     {subheading}
                 </p>
-                <h3 role="features-heading" className="text-gray-900 font-bold text-3xl">
+                <h2 role="features-heading" className="text-gray-900 font-bold text-3xl">
                     {heading}
-                </h3>
+                </h2>
                 <p role="features-description" className="text-gray-700 font-medium text-lg">
                     {description}
                 </p>

@@ -38,5 +38,6 @@ describe("search bar", () => {
 
         fireEvent.submit(form);
         expect(data.route).toEqual("/search?q=" + encodeURI(testData.value));
+        expect(testData.onChange).toBeCalledTimes(2);
     });
 });

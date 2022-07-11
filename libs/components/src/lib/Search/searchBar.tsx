@@ -12,7 +12,7 @@ export function SearchBar({ value, onChange }: Props) {
     return (
         <form
             role="search-bar-form"
-            className="rounded-md bg-gray-900 flex items-center space-x-3 text-white px-4 py-2"
+            className="rounded-md bg-gray-900 text-white flex items-center space-x-3 px-4 py-2"
             onSubmit={(e) => {
                 e.preventDefault();
                 router.push(`/search?q=${encodeURI(value)}`);

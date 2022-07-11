@@ -37,6 +37,7 @@ jobs:
                   NEXT_PUBLIC_ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
                   NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS }}
                   ALLOWED_IMAGE_HOSTNAME: ${{ secrets.ALLOWED_IMAGE_HOSTNAME }}
+                  NEXT_PUBLIC_MAILCHIMP_SIGNUP_URL: ${{ secrets.NEXT_PUBLIC_MAILCHIMP_SIGNUP_URL }}
 
             - uses: devmasx/merge-branch@v1.3.1
               with:
