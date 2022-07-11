@@ -9,7 +9,7 @@ export function About() {
                     What Is <RainbowText>Facture</RainbowText>?
                 </h2>
             </div>
-            <div className="text-left grid grid-cols-1 md:grid-cols-2 gap-7 auto-rows-max auto-cols-max mx-auto w-4/5 xl:w-3/5">
+            <div className="text-left grid grid-cols-1 md:grid-cols-2 gap-7 mx-auto w-4/5 xl:w-3/5">
                 <p className="font-medium text-md text-gray-700">
                     Facture was created to provide manufacturers with a <span className="text-gray-900">simple all-in-one</span> platform where they can advertise their
                     services and be easily found by entrepreneurs.
