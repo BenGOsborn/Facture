@@ -17,7 +17,7 @@ export function Hero() {
                     <RainbowText>Innovation</RainbowText>.
                 </span>
             </h1>
-            <ul className="flex flex-col md:flex-row items-stretch md:items-center justify-center space-x-0 md:space-x-7 space-y-7 md:space-y-0">
+            <ul className="flex flex-col md:flex-row items-stretch md:items-center justify-center space-x-0 md:space-x-7 space-y-3 md:space-y-0">
                 <div className="md:w-2/3">
                     <Search />
                 </div>
