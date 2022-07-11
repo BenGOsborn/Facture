@@ -1,3 +1,9 @@
-export type CardType = "landing_search" | "nav_search";
+import { z } from "zod";
 
-export type PromotionType = "mailing_list";
+export const CardSchema = z.union([z.literal("landing_search"), z.literal("nav_search")]);
+
+export type CardType = z.infer<typeof CardSchema>;
+
+export const PromotionSchema = z.literal("mailing_list");
+
+export type PromotionType = z.infer<typeof PromotionSchema>;
