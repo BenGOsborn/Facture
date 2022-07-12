@@ -9,14 +9,15 @@ import { LocationCard } from "./locationCard";
 
 interface Props {
     location: ManufacturerLocationType[];
+    manufacturer: string;
 }
 
-export function Location({ location }: Props) {
+export function Location({ location, manufacturer }: Props) {
     const googleApiKey = process.env["NEXT_PUBLIC_GOOGLE_API_KEY"] as string;
 
     const { isLoaded } = useLoadScript({ googleMapsApiKey: googleApiKey });
 
-    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("location", ANALYTICS_HOVER_PERIOD));
+    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("location", ANALYTICS_HOVER_PERIOD, manufacturer));
 
     if (location.length > 0)
         return (

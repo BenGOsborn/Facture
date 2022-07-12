@@ -8,10 +8,11 @@ import { DisplayCard } from "./displayCard";
 
 interface Props {
     display: ManufacturerImageType[];
+    manufacturer: string;
 }
 
-export function Display({ display }: Props) {
-    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("display", ANALYTICS_HOVER_PERIOD));
+export function Display({ display, manufacturer }: Props) {
+    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("display", ANALYTICS_HOVER_PERIOD, manufacturer));
 
     if (display.length > 0)
         return (

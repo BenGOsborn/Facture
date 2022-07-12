@@ -7,10 +7,11 @@ import ReactMarkdown from "react-markdown";
 interface Props {
     description: string;
     thumbnail: ManufacturerImageType;
+    manufacturer: string;
 }
 
-export function Content({ description, thumbnail }: Props) {
-    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("content", ANALYTICS_HOVER_PERIOD));
+export function Content({ description, thumbnail, manufacturer }: Props) {
+    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("content", ANALYTICS_HOVER_PERIOD, manufacturer));
 
     const thumbnailWidth = 2000;
     const thumbnailHeight = 500;

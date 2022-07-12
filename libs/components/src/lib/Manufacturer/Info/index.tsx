@@ -14,10 +14,11 @@ interface Props {
     description: string;
     type: string[];
     color: ManufacturerColorType;
+    manufacturer: string;
 }
 
-export function Info({ name, slogan, dateEstablished, logo, description, type, color }: Props) {
-    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("info", ANALYTICS_HOVER_PERIOD));
+export function Info({ name, slogan, dateEstablished, logo, description, type, color, manufacturer }: Props) {
+    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("info", ANALYTICS_HOVER_PERIOD, manufacturer));
 
     const logoWidth = 75;
     const logoHeight = 75;

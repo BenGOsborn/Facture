@@ -22,6 +22,7 @@ export function Manufacturer({ manufacturer }: Props) {
                     description={manufacturer.descriptionShort}
                     type={manufacturer.type}
                     color={manufacturer.color}
+                    manufacturer={manufacturer.manufacturer}
                 />
                 <Contact
                     email={manufacturer.email}
@@ -31,11 +32,11 @@ export function Manufacturer({ manufacturer }: Props) {
                     fax={manufacturer.fax}
                     manufacturer={manufacturer.manufacturer}
                 />
-                <Location location={manufacturer.location} />
+                <Location location={manufacturer.location} manufacturer={manufacturer.manufacturer} />
             </div>
             <div className="space-y-7">
-                <Content description={manufacturer.descriptionLong} thumbnail={manufacturer.thumbnail} />
-                <Display display={manufacturer.display} />
+                <Content description={manufacturer.descriptionLong} thumbnail={manufacturer.thumbnail} manufacturer={manufacturer.manufacturer} />
+                <Display display={manufacturer.display} manufacturer={manufacturer.manufacturer} />
             </div>
         </div>
     );
