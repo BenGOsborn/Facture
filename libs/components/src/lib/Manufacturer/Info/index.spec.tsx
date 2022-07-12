@@ -11,6 +11,7 @@ describe("info", () => {
             name: "Test name",
             type: ["test1", "test2"],
             dateEstablished: null,
+            manufacturer: "test-manufacturer",
         };
 
         const component = render(<Info {...testData} />);

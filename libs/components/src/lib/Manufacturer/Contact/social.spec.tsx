@@ -8,6 +8,7 @@ describe("social", () => {
                 { link: "test1", platform: "facebook" as const },
                 { link: "test2", platform: "website" as const },
             ],
+            manufacturer: "test-manufacturer",
         };
 
         const component = render(<Social {...testData} />);
