@@ -14,7 +14,12 @@ export function CTA() {
             </div>
             <div className="pb-6">
                 <Link href={FORM_URL}>
-                    <a className="font-bold p-6 bg-gray-800 hover:bg-gray-900 transition-colors text-white rounded-md" onClick={() => emitFormHit("landing_main_cta")}>
+                    <a
+                        className="font-bold p-6 bg-gray-800 hover:bg-gray-900 transition-colors text-white rounded-md"
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() => emitFormHit("landing_main_cta")}
+                    >
                         Register For Free
                     </a>
                 </Link>

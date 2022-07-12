@@ -24,6 +24,8 @@ export function Hero() {
                 <Link href={FORM_URL}>
                     <a
                         className="p-6 bg-gray-200 hover:bg-gray-300 transition-colors text-lg rounded-md font-medium text-gray-700 md:w-1/3 min-w-max"
+                        target="_blank"
+                        rel="noreferrer"
                         onClick={() => emitFormHit("landing_main_hero")}
                     >
                         Register Your Business
