@@ -38,7 +38,7 @@ export function HeadGlobal() {
                     gtag('config', '${googleAnalyticsId}');
                 `}
                 </Script>
-                <Script>
+                <Script strategy="afterInteractive">
                     {`
                     !function(f,b,e,v,n,t,s)
                     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
