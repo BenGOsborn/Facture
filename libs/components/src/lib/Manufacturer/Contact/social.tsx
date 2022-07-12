@@ -5,9 +5,10 @@ import { SocialIcon } from "./socialIcon";
 
 interface Props {
     social: ManufacturerSocialType[];
+    manufacturer: string;
 }
 
-export function Social({ social }: Props) {
+export function Social({ social, manufacturer }: Props) {
     if (social.length > 0)
         return (
             <div className="border-t-2 pt-3 mt-3">
@@ -17,7 +18,7 @@ export function Social({ social }: Props) {
                 </div>
                 <div className="flex items-center justify-start space-x-4 text-gray-700">
                     {social.map((social, index) => (
-                        <SocialIcon key={index} name={social.platform} link={social.link} />
+                        <SocialIcon key={index} name={social.platform} link={social.link} manufacturer={manufacturer} />
                     ))}
                 </div>
             </div>

@@ -7,6 +7,7 @@ describe("social icon", () => {
         const testData = {
             name: "facebook" as const,
             link: "test-facebook",
+            manufacturer: "test-manufacturer",
         };
 
         const component = render(<SocialIcon {...testData} />);
