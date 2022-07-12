@@ -14,7 +14,7 @@ export function emitSocialClick(social: ManufacturerSocialPlatformType, link: st
         if (window.fbq)
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            window.fbq("track", "social_click", { social, link, ownerId });
+            window.fbq("trackCustom", "social_click", { social, link, ownerId });
     }
 }
 
@@ -32,7 +32,7 @@ export function emitSectionHover(section: "contact" | "info" | "content" | "disp
         if (window.fbq)
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            window.fbq("track", "section_hover", { section, period, ownerId });
+            window.fbq("trackCustom", "section_hover", { section, period, ownerId });
     }
 }
 
@@ -50,7 +50,7 @@ export function emitCardHover(card: CardType, period: number, ownerId: string) {
         if (window.fbq)
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            window.fbq("track", "card_hover", { card, period, ownerId });
+            window.fbq("trackCustom", "card_hover", { card, period, ownerId });
     }
 }
 
@@ -68,7 +68,7 @@ export function emitCardSearchResults(card: CardType, ownerId: string, query: st
         if (window.fbq)
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            window.fbq("track", "card_search_results", { card, ownerId, query, ranking, totalResults });
+            window.fbq("trackCustom", "card_search_results", { card, ownerId, query, ranking, totalResults });
     }
 }
 
@@ -86,7 +86,7 @@ export function emitCardSearchHit(card: CardType, ownerId: string, query: string
         if (window.fbq)
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            window.fbq("track", "card_search_hit", { card, ownerId, query, ranking, totalResults });
+            window.fbq("trackCustom", "card_search_hit", { card, ownerId, query, ranking, totalResults });
     }
 }
 
@@ -104,7 +104,7 @@ export function emitFormHit(section: "nav_notification" | "landing_main_hero" | 
         if (window.fbq)
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            window.fbq("track", "form_hit", { section });
+            window.fbq("trackCustom", "form_hit", { section });
     }
 }
 
@@ -122,7 +122,7 @@ export function emitPromotionView(promotionType: PromotionType) {
         if (window.fbq)
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            window.fbq("track", "promotion_view", { promotionType });
+            window.fbq("trackCustom", "promotion_view", { promotionType });
     }
 }
 
@@ -140,6 +140,6 @@ export function emitPromotionHit(promotionType: PromotionType) {
         if (window.fbq)
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            window.fbq("track", "promotion_hit", { promotionType });
+            window.fbq("trackCustom", "promotion_hit", { promotionType });
     }
 }
