@@ -29,6 +29,7 @@ export function Manufacturer({ manufacturer }: Props) {
                     openingTime={manufacturer.openingTime}
                     social={manufacturer.social}
                     fax={manufacturer.fax}
+                    manufacturer={manufacturer.manufacturer}
                 />
                 <Location location={manufacturer.location} />
             </div>

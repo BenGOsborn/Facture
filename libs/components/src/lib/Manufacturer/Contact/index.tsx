@@ -14,10 +14,11 @@ interface Props {
     openingTime: ManufacturerOpeningTimeType[];
     social: ManufacturerSocialType[];
     fax: ManufacturerFaxType[];
+    manufacturer: string;
 }
 
-export function Contact({ email, phone, openingTime, social, fax }: Props) {
-    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("contact", ANALYTICS_HOVER_PERIOD));
+export function Contact({ email, phone, openingTime, social, fax, manufacturer }: Props) {
+    const { start, stop } = useInterval(ANALYTICS_HOVER_PERIOD, () => emitSectionHover("contact", ANALYTICS_HOVER_PERIOD, manufacturer));
 
     return (
         <div className="p-6 shadow-md rounded-md bg-white" onMouseEnter={start} onMouseLeave={stop}>
@@ -29,7 +30,7 @@ export function Contact({ email, phone, openingTime, social, fax }: Props) {
                 <OpeningTime openingTime={openingTime} />
             </div>
 
-            <Social social={social} />
+            <Social social={social} manufacturer={manufacturer} />
         </div>
     );
 }
