@@ -1,4 +1,4 @@
-import { DESCRIPTION, emitFormHit } from "@facture/helpers";
+import { DESCRIPTION, emitFormHit, FORM_URL } from "@facture/helpers";
 import Link from "next/link";
 
 import { RainbowText } from "../../RainbowText";
@@ -21,9 +21,11 @@ export function Hero() {
                 <div className="md:w-2/3">
                     <Search />
                 </div>
-                <Link href="https://forms.gle/59gjvMtDMJ6rmDbS7">
+                <Link href={FORM_URL}>
                     <a
                         className="p-6 bg-gray-200 hover:bg-gray-300 transition-colors text-lg rounded-md font-medium text-gray-700 md:w-1/3 min-w-max"
+                        target="_blank"
+                        rel="noreferrer"
                         onClick={() => emitFormHit("landing_main_hero")}
                     >
                         Register Your Business

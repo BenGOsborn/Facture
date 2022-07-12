@@ -1,4 +1,4 @@
-import { DESCRIPTION, emitFormHit, NAME } from "@facture/helpers";
+import { DESCRIPTION, emitFormHit, FORM_URL, NAME } from "@facture/helpers";
 import Link from "next/link";
 
 import { SubscribeFormInline } from "../SubscribeMail";
@@ -11,7 +11,7 @@ export function Footer() {
                 <SubscribeFormInline />
                 <p className="font-medium text-white text-md">
                     Want to list your manufacturing business? Apply for free{" "}
-                    <Link href="https://forms.gle/59gjvMtDMJ6rmDbS7">
+                    <Link href={FORM_URL}>
                         <a className="font-bold text-white transition-colors hover:text-gray-300" target="_blank" rel="noreferrer" onClick={() => emitFormHit("footer")}>
                             here
                         </a>
