@@ -1,4 +1,4 @@
-import { DESCRIPTION, emitFormHit, FORM_URL, NAME } from "@facture/helpers";
+import { DESCRIPTION, emitFormHit, FORM_URL, NAME, PRIVACY_POLICY_URL } from "@facture/helpers";
 import Link from "next/link";
 
 import { SubscribeFormInline } from "../SubscribeMail";
@@ -6,7 +6,7 @@ import { SubscribeFormInline } from "../SubscribeMail";
 export function Footer() {
     return (
         <footer className="p-6 pt-12 mt-14 shadow-md bg-gray-800">
-            <div className="w-4/5 xl:w-2/5 mx-auto flex flex-col space-y-6 text-center">
+            <div className="w-4/5 xl:w-2/5 mx-auto flex flex-col space-y-7 text-center">
                 <p className="font-normal text-white text-md">{DESCRIPTION}</p>
                 <SubscribeFormInline />
                 <p className="font-medium text-white text-md">
@@ -18,9 +18,16 @@ export function Footer() {
                     </Link>
                     .
                 </p>
-                <ul className="font-normal text-white flex items-center justify-center text-sm">
+                <ul className="font-normal text-white flex items-center justify-center text-sm space-x-7">
                     <li>
-                        {NAME} - {new Date().getFullYear()}
+                        {NAME} {new Date().getFullYear()}
+                    </li>
+                    <li>
+                        <Link href={PRIVACY_POLICY_URL}>
+                            <a target="_blank" rel="noreferrer">
+                                Privacy Policy
+                            </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
