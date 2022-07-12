@@ -16,14 +16,10 @@ describe("features", () => {
 
         const component = render(<Features {...testData} />);
 
-        const featuresSubheading = component.getByRole("features-subheading");
-        const featuresHeading = component.getByRole("features-heading");
-        const featuresDescription = component.getByRole("features-description");
+        const landingHeading = component.getAllByRole("landing-heading");
         const featuresFeatures = component.getAllByRole("feature");
 
-        expect(featuresSubheading.textContent).toEqual(testData.subheading);
-        expect(featuresHeading.textContent).toEqual(testData.heading);
-        expect(featuresDescription.textContent).toEqual(testData.description);
+        expect(landingHeading.length).toEqual(1);
         expect(featuresFeatures.length).toEqual(2);
     });
 });

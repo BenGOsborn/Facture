@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export function useInterval(period: number, callback: () => any) {
+export function useInterval(period: number, callback: () => void) {
     const timer = useRef<NodeJS.Timer | null>(null);
 
     function start() {
