@@ -1,4 +1,4 @@
-import { emitFormHit } from "@facture/helpers";
+import { emitFormHit, FORM_URL } from "@facture/helpers";
 import Link from "next/link";
 
 import { RainbowText } from "../../RainbowText";
@@ -13,7 +13,7 @@ export function CTA() {
                 </p>
             </div>
             <div className="pb-6">
-                <Link href="https://forms.gle/59gjvMtDMJ6rmDbS7">
+                <Link href={FORM_URL}>
                     <a className="font-bold p-6 bg-gray-800 hover:bg-gray-900 transition-colors text-white rounded-md" onClick={() => emitFormHit("landing_main_cta")}>
                         Register For Free
                     </a>
