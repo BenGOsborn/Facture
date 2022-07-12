@@ -1,4 +1,4 @@
-import { emitFormHit } from "@facture/helpers";
+import { DESCRIPTION, emitFormHit } from "@facture/helpers";
 import Link from "next/link";
 
 import { RainbowText } from "../../RainbowText";
@@ -30,9 +30,7 @@ export function Hero() {
                     </a>
                 </Link>
             </ul>
-            <h2 className="text-lg font-medium text-gray-700">
-                Facture is an online search directory connecting manufacturers to aspiring entrepreneurs to drive local innovation.
-            </h2>
+            <h2 className="text-lg font-medium text-gray-700">{DESCRIPTION}</h2>
         </header>
     );
 }
