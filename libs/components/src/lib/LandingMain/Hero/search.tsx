@@ -15,14 +15,7 @@ export function Search() {
                 router.push(`/search?q=${encodeURI(query)}`);
             }}
         >
-            <input
-                role="search-landing-main-input"
-                name="query"
-                id="search-landing-main"
-                type="text"
-                className="bg-gray-900 border-none font-medium rounded-md w-full"
-                placeholder="Find A Manufacturer..."
-            />
+            <input name="query" type="text" className="bg-gray-900 border-none font-medium rounded-md w-full" placeholder="Find A Manufacturer..." />
         </form>
     );
 }

@@ -6,7 +6,7 @@ interface Props {
 
 export function LandingHeading({ subheading, heading, description }: Props) {
     return (
-        <div className="space-y-3 text-center lg:w-2/5 lg:mx-auto">
+        <div role="landing-heading" className="space-y-3 text-center lg:w-2/5 lg:mx-auto">
             <p role="landing-heading-subheading" className="text-gray-700 font-bold text-md">
                 {subheading}
             </p>
