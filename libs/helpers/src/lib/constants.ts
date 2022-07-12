@@ -9,4 +9,4 @@ export const SLOGAN = "Connecting Aussie Manufacturers";
 export const DESCRIPTION = "Facture is an online platform and search directory connecting Aussie manufacturers to entrepreneurs to drive local industry and innovation.";
 export const URL = "https://facture.com.au";
 
-export const FORM_URL = "https://forms.gle/59gjvMtDMJ6rmDbS7";
+export const FORM_URL = "https://form.jotform.com/221923021435041";
