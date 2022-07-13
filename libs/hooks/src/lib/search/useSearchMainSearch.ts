@@ -1,16 +1,14 @@
-import type { SearchHitType } from "@facture/types";
-import algoliasearch from "algoliasearch";
-import { parseAlgoliaSearchHits, SEARCH_DELAY } from "@facture/helpers";
+import type { AlgoliaManufacturerType, SearchHitType } from "@facture/types";
+import { parseAlgoliaSearchHits, search, SEARCH_DELAY } from "@facture/helpers";
 import { useEffect, useState } from "react";
 
 import { useSearchMainSearchURL } from "./useSearchMainSearchURL";
 import { useLocation } from "../useLocation";
-import useOnSearchHit from "./useOnSearchHit";
-import useDelay from "../useDelay";
+import { useOnSearchHit } from "./useOnSearchHit";
+import { useDelay } from "../useDelay";
 
 export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, pageSize: number) {
-    const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
-    const index = searchClient.initIndex(algoliaIndexName);
+    const searchClient = search<AlgoliaManufacturerType>(algoliaAppId, algoliaApiKey, algoliaIndexName);
 
     const [query, setQuery] = useState<string>("");
     const [queryUpdate, setQueryUpdate] = useState<string>("");
@@ -29,11 +27,15 @@ export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string,
     useEffect(() => {
         if (queryUpdate === "") setData([]);
         else
-            index
-                .search(queryUpdate, { aroundLatLng: location ? `${location.latitude},${location.longitude}` : undefined, hitsPerPage: pageSize, page: 0 })
+            searchClient
+                .search(queryUpdate, {
+                    aroundLatLng: location ? `${location.latitude},${location.longitude}` : undefined,
+                    hitsPerPage: pageSize,
+                    page: 0,
+                })
                 .then((data) => {
                     setPageCount(data.nbPages);
-                    setData(parseAlgoliaSearchHits(data.hits as any));
+                    setData(parseAlgoliaSearchHits(data.hits));
                 });
 
         setCurrentPage(0);
@@ -41,11 +43,15 @@ export function useSearchMainSearch(algoliaAppId: string, algoliaApiKey: string,
 
     useEffect(() => {
         if (currentPage > 0)
-            index
-                .search(queryUpdate, { aroundLatLng: location ? `${location.latitude},${location.longitude}` : undefined, hitsPerPage: pageSize, page: currentPage })
+            searchClient
+                .search(queryUpdate, {
+                    aroundLatLng: location ? `${location.latitude},${location.longitude}` : undefined,
+                    hitsPerPage: pageSize,
+                    page: currentPage,
+                })
                 .then((data) =>
                     setData((prev) => {
-                        const parsed = parseAlgoliaSearchHits(data.hits as any);
+                        const parsed = parseAlgoliaSearchHits(data.hits);
                         return prev ? [...prev, ...parsed] : parsed;
                     })
                 );

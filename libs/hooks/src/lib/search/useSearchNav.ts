@@ -1,6 +1,5 @@
-import { SEARCH_DELAY } from "@facture/helpers";
+import { search, SEARCH_DELAY } from "@facture/helpers";
 import type { SearchHitType } from "@facture/types";
-import algoliasearch from "algoliasearch";
 import { useEffect, useState } from "react";
 
 import { useDelay } from "../useDelay";
@@ -8,8 +7,7 @@ import { useLocation } from "../useLocation";
 import { useOnSearchHit } from "./useOnSearchHit";
 
 export function useSearchNav(algoliaAppId: string, algoliaApiKey: string, algoliaIndexName: string, max?: number) {
-    const searchClient = algoliasearch(algoliaAppId, algoliaApiKey);
-    const index = searchClient.initIndex(algoliaIndexName);
+    const searchClient = search<SearchHitType>(algoliaAppId, algoliaApiKey, algoliaIndexName);
 
     const location = useLocation();
 
@@ -23,13 +21,13 @@ export function useSearchNav(algoliaAppId: string, algoliaApiKey: string, algoli
     useEffect(() => {
         if (queryUpdate === "") setHits([]);
         else
-            index
+            searchClient
                 .search(queryUpdate, {
                     aroundLatLng: location ? `${location.latitude},${location.longitude}` : undefined,
                     hitsPerPage: max,
                     page: 0,
                 })
-                .then((data) => setHits(data.hits as any));
+                .then((data) => setHits(data.hits));
     }, [queryUpdate, location, max]);
 
     return { query, setQuery: setQuery, hits };

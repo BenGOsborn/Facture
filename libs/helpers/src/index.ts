@@ -5,3 +5,4 @@ export * from "./lib/constants";
 export * from "./lib/extension";
 export * from "./lib/parse";
 export * from "./lib/localStorage";
+export * from "./lib/search";
