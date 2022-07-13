@@ -10,6 +10,7 @@
         "hooks": "libs/hooks",
         "providers": "libs/providers",
         "resize": "apps/resize",
+        "total-page-views": "apps/total-page-views",
         "types": "libs/types"
     }
 }
