@@ -10,7 +10,7 @@
                 "outputPath": "dist/apps/total-page-views",
                 "main": "apps/total-page-views/src/main.ts",
                 "tsConfig": "apps/total-page-views/tsconfig.app.json",
-                "assets": ["apps/resize/src/Dockerfile", "apps/resize/src/template.yaml", "apps/resize/src/samconfig.toml"],
+                "assets": ["apps/total-page-views/src/Dockerfile", "apps/total-page-views/src/template.yaml", "apps/total-page-views/src/samconfig.toml"],
                 "generatePackageJson": true
             },
             "configurations": {
