@@ -5,10 +5,19 @@ export const handler = async (event: APIGatewayEvent): Promise<APIGatewayProxyRe
     // const fileName = event.pathParameters?.file;
     // const size = event.queryStringParameters?.size;
 
+    const creds = JSON.parse(process.env.GCP_CREDENTIALS);
+    const region = process.env.GCP_REGION;
+
     const bq = new BigQuery({
-        projectId: process.env.GCP_PROJECT_ID,
-        credentials: { client_email: process.env.GCP_CLIENT_EMAIL, private_key: process.env.GCP_PRIVATE_KEY },
+        projectId: creds.project_id,
+        credentials: {
+            client_email: creds.client_email,
+            private_key: creds.private_key,
+        },
     });
+
+    console.log("Hello1");
+
     const query = `
     SELECT
   key,
@@ -24,12 +33,7 @@ LIMIT
   100
     `;
 
-    const options = {
-        query,
-        location: "US",
-    };
-
-    const [job] = await bq.createQueryJob(options);
+    const [job] = await bq.createQueryJob({ query, location: region });
     const [rows] = await job.getQueryResults();
 
     console.log(rows);
