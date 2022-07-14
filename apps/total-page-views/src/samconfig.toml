@@ -8,3 +8,4 @@ s3_prefix = "total-page-views-function"
 region = "ap-southeast-2"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
+image_repositories = ["TotalPageViewsFunction=641490273710.dkr.ecr.ap-southeast-2.amazonaws.com/totalpageviewsfunctionba449e2e/totalpageviewsfunction77fc2a89repo"]
